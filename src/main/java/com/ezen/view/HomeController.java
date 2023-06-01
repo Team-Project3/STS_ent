@@ -48,4 +48,14 @@ public class HomeController {
 		
 		return "index4";
 	}
+	@RequestMapping(value = "/thmain", method = RequestMethod.GET)
+	public String theater(Model model) {
+		
+		return "theater/thmain";
+	}
+	@RequestMapping(value = "/board", method = RequestMethod.GET)
+	public String thboard(Model model) {
+		
+		return "theater/board";
+	}
 }
