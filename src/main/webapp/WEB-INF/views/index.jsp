@@ -84,7 +84,7 @@
 					</span>
 					<span class="menu__item">
 						<span class="menu__item-tag">연극</span>
-						<a class="menu__item-link" href="index3">theater</a>
+						<a class="menu__item-link" href="thmain">theater</a>
 					</span><br/>
 					<span class="menu__item">
 						<span class="menu__item-tag">전시</span>
