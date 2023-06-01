@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="OrderMapper">
+
+	<!-- 주문번호 생성 -->
+	<select id="selectMaxOseq" resultType="int">
+		SELECT NVL2(MAX(oseq), MAX(oseq)+1, 1) from orders
+	</select>
+	
+	<!-- 새로운 주문 저장 -->
+	<insert id="insertOrder">
+		INSERT INTO orders(oseq, id) VALUES(#{oseq}, #{id})
+	</insert>
+	
+	<!-- 주문 상세정보 저장 -->
+	<insert id="insertOrderDetail">
+		INSERT INTO order_detail(odseq, oseq, pseq, quantity)
+		VALUES(order_detail_seq.NEXTVAL, #{oseq}, #{pseq}, #{quantity})
+	</insert>
+	
+	
+	<select id="selectSeqOrdering" resultType="order">
+		SELECT DISTINCT oseq FROM order_view WHERE id=#{id} AND result='1' ORDER BY oseq desc
+	</select>
+	
+	<!-- 사용자별 주문 내역 조회 -->
+	<select id="listOrderById" resultType="order">
+	SELECT * FROM order_view
+	 WHERE id=#{id}
+	  AND oseq=#{oseq}
+	  AND result LIKE '%'||#{result}||'%'
+	 ORDER BY oseq DESC
+	</select>
+	
+	<!-- 사용자별 주문번호 목록조회 -->
+	<select id="getSeqOrdering" resultType="int">
+	SELECT DISTINCT(oseq) FROM order_view
+	WHERE id=#{id}
+		AND result LIKE '%'||#{result}||'%'
+		ORDER BY oseq DESC
+	</select>
+	
+	<!-- 주문 전체 조회 -->
+	<select id="listOrder" resultType="order">
+		SELECT * FROM order_view 
+		WHERE mname LIKE '%'||#{mname}||'%' 
+		ORDER BY result, oseq DESC
+	</select>
+	
+	<!-- 주문 상태 갱신 매핑 -->
+	<update id="updateOrderResult">
+		UPDATE order_detail SET result='2' 
+		WHERE odseq=#{odseq}
+	</update>
+	
+	<!-- 관리자 페이지 제품 판매 실적 리스트 -->
+	<resultMap id="salesMap" type="com.ezen.biz.dto.SalesQuantity">
+		<result column="pname" property="pname"></result>
+		<result column="sales_count" property="quantity"></result>
+	</resultMap>
+	
+	<select id="listProductSales" resultMap="salesMap">
+		SELECT pname, SUM(quantity) AS sales_count
+		FROM order_view 
+		WHERE result='2'
+		GROUP BY pname
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 서비스 객체 등의 소스에서 필요한 객체등록 시 사용하는 어노테이션을 조사하여 등록 -->
+	<context:component-scan base-package="com.ezen.biz"></context:component-scan>
+	
+	<!-- 예외처리, XML 메시지 변환 등 어노테이션 관리 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- AOP 관련 어노테이션 기능 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<!-- 데이터소스 설정 -->
+	<!-- <context:property-placeholder location="classpath:database.properties"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean> -->
+	
+	<!-- 데이터베이스 세션을 생성해 주는 객체 -->
+	<!-- <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:sql-map-config.xml"/>
+	</bean>
+	
+	DAO에서 사용하는 Sql Session 객체 제공
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sessionFactory"></constructor-arg>
+	</bean>
+	
+	트랜잭션 관리자 등록
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	트랜잭션 Advice 등록
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/> 조회용 모듈은 트랜잭션 처리 제외
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.ezen.biz..*(..))" 
+				id="txPointcut"/>
+		
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+	</aop:config> -->
+</beans>
