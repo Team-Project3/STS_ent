@@ -97,6 +97,7 @@
 				</nav>
 			</div>
 		</main>
+		
 		<script src="js/index.js" type="module"></script>
 	</body>
 </html>
