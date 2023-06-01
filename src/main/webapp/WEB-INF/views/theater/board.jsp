@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Movie Seat Booking</title>
-<link rel='stylesheet' href='css/style.css'>
+<link rel='stylesheet' href='css/thboard.css'>
 </head>
 <body>
 	<div class="movie-container">
@@ -61,6 +61,6 @@
 			id="total">0</span>
 	</p>
 
-	<script src='js/script.js'></script>
+	<script src='js/thboard.js'></script>
 </body>
 </html>
