@@ -1,5 +1,7 @@
 package com.ezen.biz.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,5 +16,17 @@ public class ThboardDAO {
 	
 	public ThboardVO seatinfo(ThboardVO vo) {
 		return mybatis.selectOne("ThMapper.seatinfo",vo);
+	}
+	
+	public List<ThboardVO> list(){
+		
+		System.out.println(mybatis.selectList("ThMapper.list"));
+		
+		return mybatis.selectList("ThboardMapper.list");
+	}
+	
+	public List<ThboardVO> seatList(ThboardVO vo){
+		
+		return mybatis.selectList("ThboardMapper.seatList",vo);
 	}
 }
