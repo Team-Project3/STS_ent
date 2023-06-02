@@ -50,19 +50,19 @@
 	<!-- <nav class="mainlogo"><div class><img src="img/MAIN_LOGO.png"></div></nav> -->
 	<div class="screens" aria-hidden="true">
 
-		<div class="screen__item" style="-bg-img: url(../img/concert3.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/concert3.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="-bg-img: url(../img/1.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/1.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="-bg-img: url(../img/museum1.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/museum1.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="-bg-img: url(../img/product2.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/main_mypage.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>

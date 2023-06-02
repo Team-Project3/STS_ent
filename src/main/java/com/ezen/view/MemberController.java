@@ -11,7 +11,7 @@ public class MemberController {
 	// MemberController.java
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
-
+		
 		return "member/login";
 	}
 
