@@ -74,7 +74,7 @@
 		</nav>
 
 		<nav class="menu">
-			<span class="menu__item"> <span class="menu__item-tag">콘서트</span>
+			<span class="menu__item"> <span class="menu__item-tag">콘시트</span>
 				<a class="menu__item-link" href="concert_main">Concert</a>
 
 			</span> <span class="menu__item"> <span class="menu__item-tag">연극</span>
