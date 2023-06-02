@@ -7,17 +7,14 @@
 	<title>LOG IN</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/login.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-	
-<title>로그인</title>
+
 </head>
 <body>
-
-
 
 <div class="login_form">
         
@@ -50,7 +47,7 @@
 
 
 <div class="footer">
-<%@ include file="../footer2.jsp" %>
+<%@ include file="../footer.jsp" %>
 </div>
 </body>
 

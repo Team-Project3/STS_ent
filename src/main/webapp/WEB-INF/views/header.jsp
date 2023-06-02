@@ -7,12 +7,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NIMHYUNWOOK ent.</title>
+<title>STS ENTERTAINMENT</title>
 
 <meta name="keywords"
 	content="clip-path, animation, scale, effect, background, hover" />
 <meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" href="https://use.typekit.net/cze1cgq.css">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
 <script
@@ -31,24 +31,28 @@
 	
 	<nav role="navigation">
 		<div id="menuToggle">
-			<input type="checkbox" /> <span></span> <span></span> <span></span>
+			<input type="checkbox" /> 
+				<span></span> 
+				<span></span> 
+				<span></span>
 			<ul id="menu">
 				<div class="frame__menu" style="text-align: center;">
-					<a href="login">Login</a>&emsp;&emsp;&emsp; <a href="signup">Sign Up</a>
+					<a href="login">Login</a>&emsp;&emsp;&emsp; 
+					<a href="signup">Sign Up</a>
 				</div>
 				<hr>
 				<a href="index"><li>Home</li></a>
 				<a href="#"><li>About</li></a>
 				<a href="#"><li>Info</li></a>
 				<a href="#"><li>Contact</li></a>
-				<a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+				<a href="" target="_blank"><li>Show me more</li></a>
 			</ul>
 		</div>
 	</nav>
 	
 	<nav class="headerlogo" style="text-align:center; margin-top:10px;">
-		<a href="index">
-			<div><img alt="" src="img/HEADER_LOGO_sts.png"></div>
+		<a>
+			<div><img alt="" src="img/HEADER_LOGO_sts.png" onclick="location='index'"></div>
 		</a>
 	</nav>
 
