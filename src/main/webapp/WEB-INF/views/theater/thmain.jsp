@@ -32,6 +32,5 @@
 	<%@ include file="../footer.jsp" %>
 </div>
 
->>>>>>> develop
 </body>
 </html>
