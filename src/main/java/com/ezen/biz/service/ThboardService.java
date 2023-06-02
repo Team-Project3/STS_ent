@@ -9,5 +9,7 @@ public interface ThboardService {
 	ThboardVO seatinfo(ThboardVO vo);
 	
 	List<ThboardVO> list();
+	
+	List<ThboardVO> seatList(int thnum_seq);
 
 }

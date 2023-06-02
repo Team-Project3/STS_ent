@@ -25,8 +25,8 @@ public class ThboardDAO {
 		return mybatis.selectList("ThboardMapper.list");
 	}
 	
-	public List<ThboardVO> seatList(ThboardVO vo){
+	public List<ThboardVO> seatList(int thnum_seq){
 		
-		return mybatis.selectList("ThboardMapper.seatList",vo);
+		return mybatis.selectList("ThboardMapper.seatList",thnum_seq);
 	}
 }

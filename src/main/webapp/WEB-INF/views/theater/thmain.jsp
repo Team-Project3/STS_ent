@@ -27,10 +27,8 @@ function board() {
 
 <h1>연극 예약하기</h1>
  <c:forEach items="${theaterList}"  var="Theater">
- <a href="thdetail?seq=${Theater.thnum_seq}">${Theater.thnum_seq}</a>
- 영화 제목 : ${Theater.thname}
+ &nbsp;&nbsp;&nbsp;<a href="thdetail?thnum_seq=${Theater.thnum_seq}">${Theater.thnum_seq}</a>
+ &nbsp;&nbsp;&nbsp;영화 제목 : ${Theater.thname}<br><br><br>
  </c:forEach>
-   
-<button onclick="board()">예약</button>
 </body>
 </html>

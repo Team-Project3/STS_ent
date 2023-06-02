@@ -28,4 +28,10 @@ public class ThboardServiceImpl implements ThboardService {
 		return thboardDAO.list();
 	}
 
+	@Override
+	public List<ThboardVO> seatList(int thnum_seq) {
+
+		return thboardDAO.seatList(thnum_seq);
+	}
+
 }

@@ -39,8 +39,14 @@ public class TheaterController {
 
 	@RequestMapping(value = "/thdetail", method = RequestMethod.GET)
 	public String thdetail(Model model, ThboardVO vo) {
-
-		return "theater/board";
+		
+		List<ThboardVO> thboardList=thboardService.seatList(vo.getThnum_seq());
+		
+		System.out.println(vo.getThnum_seq());
+		
+		model.addAttribute("thboardList",thboardList);
+		
+		return "theater/thdetail";
 	}
 
 }
