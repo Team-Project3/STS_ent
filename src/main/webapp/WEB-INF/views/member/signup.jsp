@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<article>
+<article> 
 	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
 			<legend>Sign Up</legend><br>

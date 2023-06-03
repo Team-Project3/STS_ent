@@ -40,8 +40,10 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					${sessionScope.loginUser.name}(${sessionScope.loginUser.id})
-					<a href="logout">LOGOUT</a>
+					<div class="frame__menu" style="text-align: center;">
+						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;&emsp;
+						<a href="logout">LOGOUT</a>
+					</div>
 				</c:otherwise>
 			</c:choose>
 			

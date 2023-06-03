@@ -35,11 +35,12 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					${sessionScope.loginUser.name}(${sessionScope.loginUser.id})
-					&emsp;&emsp;&emsp;<a href="logout">LOGOUT</a>
+					<div class="frame__menu" style="text-align: center;">
+						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
+						<a href="logout">LOGOUT</a>
+					</div>
 				</c:otherwise>
 			</c:choose>
-			
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
