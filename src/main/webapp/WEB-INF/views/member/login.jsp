@@ -34,7 +34,7 @@
         <br><br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
-			<a class="submit" href="signup">SIGN UP</a>
+			<a class="submit" href="signup_form">SIGN UP</a>
         </div>
         <!-- 
         <div class="social">

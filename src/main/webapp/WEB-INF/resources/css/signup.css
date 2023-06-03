@@ -35,6 +35,11 @@ input{
     font-size: 14px;
     font-weight: 300;
 }
+input[type="text"]:focus,
+input[type="hidden"]:focus,
+input[type="password"]:focus{
+	background-color: #E8F5FF;
+}
 legend {
 	font-size: 28px;
 	font-weight: bold;

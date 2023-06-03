@@ -14,23 +14,30 @@
 </head>
 <body>
 <article>
-	<form id="signup" action="signup" method="post" name="form">
+	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
 			<legend>Sign Up</legend><br>
 		        <label>&emsp;User ID</label>
-		        <input type="text"      name="id"  id="id" value="${id}"  size="12"  >
-		        <input type="hidden"    name="reid" id="reid" value="${reid}">
-		        <input type="button"    value="중복 체크"  class="dup" onclick="idcheck()"><br>
+		        <input type="text" name="id" id="id" value="${id}" size="12"  >
+		        <input type="hidden" name="reid" id="reid" value="${reid}">
+		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"
+		        		style="font-weight:bold; color:#E8F5FF;"><br>
+		        
 		        <label>&emsp;Password</label> 
 		        <input type="password"  name="password" id="password"><br> 
+		        
 		        <label>&emsp;Retype Password</label> 
-		        <input type="password"  name="passwordCheck" id="passwordCheck"><br> 
+		        <input type="password"  name="passwordCheck" id="passwordCheck" onchange="check_pwd()"><br> 
+		        
 		        <label>&emsp;Name</label>
 		        <input type="text" name="name" id="name"><br> 
+		       
 		        <label>&emsp;Birth</label>
 		        <input type="text" name="birth" id="birth"><br> 
+		       
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email"><br>
+		      
 		        <label>&emsp;Phone</label>
 		        <input type="text" name="phone" id="phone"><br>
 		        
