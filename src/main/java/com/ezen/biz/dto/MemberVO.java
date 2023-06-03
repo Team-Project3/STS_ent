@@ -18,6 +18,5 @@ public class MemberVO {
 	private String phone;
 	private Date birth;
 	private String email;
-	private int role;
 	
 }

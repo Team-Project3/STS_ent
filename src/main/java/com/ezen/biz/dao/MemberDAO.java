@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.ezen.biz.dto.MemberVO;
 
 @Repository
-public class memberDAO {
+public class MemberDAO {
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -19,9 +19,9 @@ public class memberDAO {
 
 	// 회원 존재 여부 조회
 	public int confirmID(String id) {
-		String pwd = mybatis.selectOne("MemberMapper.confirmID",id);
+		String password = mybatis.selectOne("MemberMapper.confirmID",id);
 		
-		if (pwd != null)
+		if (password != null)
 			return 1; // id 존재
 		else
 			return -1;
@@ -30,11 +30,11 @@ public class memberDAO {
 	//회원 로그인 인증(1:성공, 0:비번틀림, -1:비회원)
 	public int loginID(MemberVO vo) {
 			int result = -1;
-			String pwd = mybatis.selectOne("MemberMapper.confirmID", vo);
+			String password = mybatis.selectOne("MemberMapper.confirmID", vo);
 			
-			if(pwd == null) {
+			if(password == null) {
 				result = -1;
-			} else if(pwd.equals(vo.getPassword())) {
+			} else if(password.equals(vo.getPassword())) {
 				result = 1;
 			} else {
 				result = 0;
@@ -46,15 +46,4 @@ public class memberDAO {
 	public void insertMember(MemberVO vo) {
 		mybatis.insert("MemberMapper.insertMember", vo);
 	}
-	
-	// 이름과 이메일로 아이디 찾기
-	public String selectIdByNameEmail(MemberVO vo) {
-		return mybatis.selectOne("MemberMapper.selectIdByNameEmail", vo);
-	}
-
-	// 아이디, 이름, 이메일로 비밀번호 찾기 
-	public String selectPwdByIdNameEmail(MemberVO vo) {
-		return mybatis.selectOne("MemberMapper.selectPwdByIdNameEmail", vo);
-	}
-	
 }

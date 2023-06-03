@@ -29,32 +29,32 @@
 	
 	<nav role="navigation">
 		<div id="menuToggle">
-			<input type="checkbox" /> 
-				<span></span> 
-				<span></span> 
-				<span></span>
+			<input type="checkbox" /> <span></span> <span></span> <span></span>
 			<ul id="menu">
-				<div class="frame__menu" style="text-align: center;">
-					<c:choose>
-						<c:when test="">
-							<a href="login">Login</a>&emsp;&emsp;&emsp; 
-							<a href="signup">Sign Up</a>		
-						</c:when>
-						<c:otherwise>
-							<a href="">My Page</a>
-						</c:otherwise>
-					</c:choose>
-					
-				</div>
-				<hr>
-				<a href="index"><li>Home</li></a>
-				<a href="#"><li>About</li></a>
-				<a href="#"><li>Info</li></a>
-				<a href="#"><li>Contact</li></a>
-				<a href="" target="_blank"><li>Show me more</li></a>
+			
+			<c:choose>
+				<c:when test="${empty sessionScope.loginUser}">
+					<div class="frame__menu" style="text-align: center;">
+						<a href="login_form">Login</a>&emsp;&emsp;&emsp; 
+						<a href="signup_form">Sign Up</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					${sessionScope.loginUser.name}(${sessionScope.loginUser.id})
+					<a href="logout">LOGOUT</a>
+				</c:otherwise>
+			</c:choose>
+			
+			<hr>
+			<li><a href="index">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Info</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="" target="_blank">Show me more</a></li>
 			</ul>
 		</div>
 	</nav>
+	
 	
 	<nav class="headerlogo" style="text-align:center; margin-top:10px;">
 		<a>
@@ -62,7 +62,6 @@
 		</a>
 	</nav>
 
-	
 </header>
 </body>
 </html>

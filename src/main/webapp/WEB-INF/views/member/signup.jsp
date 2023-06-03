@@ -22,11 +22,13 @@
 		        <input type="hidden"    name="reid" id="reid" value="${reid}">
 		        <input type="button"    value="중복 체크"  class="dup" onclick="idcheck()"><br>
 		        <label>&emsp;Password</label> 
-		        <input type="password"  name="pwd" id="pwd"><br> 
+		        <input type="password"  name="password" id="password"><br> 
 		        <label>&emsp;Retype Password</label> 
-		        <input type="password"  name="pwdCheck" id="pwdCheck"><br> 
+		        <input type="password"  name="passwordCheck" id="passwordCheck"><br> 
 		        <label>&emsp;Name</label>
 		        <input type="text" name="name" id="name"><br> 
+		        <label>&emsp;Birth</label>
+		        <input type="text" name="birth" id="birth"><br> 
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email"><br>
 		        <label>&emsp;Phone</label>

@@ -19,18 +19,18 @@
 <div class="login_form">
         
     
-    <form method="post" action="#">
+    <form method="post" action="login">
         <h3>Sign In</h3>
 		<br><br>
         
-        <input type="text" placeholder="ID" id="id">
-        <input type="password" placeholder="PASSWORD" id="pwd">
+        <input type="text" placeholder="ID" name="id" value="${id}">
+        <input type="password" placeholder="PASSWORD" name="password">
 		<br>
 		<div style="text-align: right;">
 			<a class="submit" href="find_id_form()">ID/PW 찾기</a>
         </div>
         
-        <button onclick="location='#'">Log In</button>
+        <button type="submit" class="submit">Log In</button>
         <br><br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
