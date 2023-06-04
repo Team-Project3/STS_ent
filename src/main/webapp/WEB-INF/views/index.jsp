@@ -18,6 +18,7 @@
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script src="js/index.js" type="module"></script>
 </head>
 <body class="demo-1 loading">
 	<main>
@@ -78,7 +79,7 @@
 				<a class="menu__item-link" href="concert_main">Concert</a>
 
 			</span> <span class="menu__item"> <span class="menu__item-tag">연극</span>
-				<a class="menu__item-link" href="thmain">theater</a>
+				<a class="menu__item-link" href="theater">theater</a>
 			</span><br /> <span class="menu__item"> <span class="menu__item-tag">전시</span>
 				<a class="menu__item-link" href="">Museum</a>
 			</span> <span class="menu__item"> <span class="menu__item-tag">굿즈</span>
@@ -87,6 +88,6 @@
 		</nav>
 	</div>
 	</main>
-	<script src="js/index.js" type="module"></script>
+	
 </body>
 </html>

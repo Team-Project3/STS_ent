@@ -16,7 +16,8 @@
 	
 <script type="text/javascript">
 function board() {
-	var url = "board";
+	var tseq = ${theater.tseq};
+	var url = "board?tseq=" + tseq;
 	window.open(url, "_blank_",
 			"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
 	
@@ -26,10 +27,10 @@ function board() {
 <body>
 
 <h1>연극 예약하기</h1>
- <c:forEach items="${theaterList}"  var="Theater">
+
  <a href="thdetail?seq=${Theater.thnum_seq}">${Theater.thnum_seq}</a>
  영화 제목 : ${Theater.thname}
- </c:forEach>
+
    
 <button onclick="board()">예약</button>
 </body>

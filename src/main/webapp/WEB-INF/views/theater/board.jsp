@@ -10,9 +10,9 @@
 </head>
 <body>
 	<div class="movie-container">
-		<label style="color:white; font-weight:bold;">Pick a Movie</label> 
+		<label style="color:white; font-weight:bold;">영화 제목</label> 
 		<select id="movie">
-			<option value='8'>True Romance - $8</option>
+			<option value='8000'>${theater.tname}</option>
 			<option value='8'>American History X - $8</option>
 			<option value='8'>A Beautiful Mind - $8</option>
 			<option value='10'>Joker - $10</option>
@@ -63,7 +63,7 @@
 
 
 	<p class="text">
-		You have selected <span id="count">0</span> seats for a price of $<span
+		고른 좌석 <span id="count">0</span> 총 가격<span
 			id="total">0</span>
 	</p>
 

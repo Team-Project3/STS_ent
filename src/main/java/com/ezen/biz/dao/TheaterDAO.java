@@ -19,4 +19,9 @@ public class TheaterDAO {
 		
 		return mybatis.selectList("ThMapper.theaterList");
 	}
+	
+	public TheaterVO theaterDetail(TheaterVO vo) {
+		
+		return mybatis.selectOne("ThMapper.theaterDetail",vo);
+	}
 }
