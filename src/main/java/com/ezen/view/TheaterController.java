@@ -1,5 +1,6 @@
 package com.ezen.view;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,18 @@ public class TheaterController {
 	@Autowired
 	private TheaterService theaterService;
 
-	@RequestMapping(value = "/thmain", method = RequestMethod.GET)
+	@RequestMapping(value = "/theater", method = RequestMethod.GET)
 	public String theater(Model model, TheaterVO vo) {
 
 		List<TheaterVO> theaterList = theaterService.theaterList();
+		
+		int theaterListlength = theaterList.size();
+		
+		System.out.println(theaterListlength);
 
 		model.addAttribute("theaterList", theaterList);
 
-		return "theater/thmain";
+		return "theater/theater";
 	}
 
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
@@ -38,9 +43,17 @@ public class TheaterController {
 	}
 
 	@RequestMapping(value = "/thdetail", method = RequestMethod.GET)
-	public String thdetail(Model model, ThboardVO vo) {
-
-		return "theater/board";
+	public String thdetail(Model model, TheaterVO vo) {
+		
+		TheaterVO theater=theaterService.theaterDetail(vo);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String formattedDate = sdf.format(theater.getBdate());
+		
+		model.addAttribute("theater",theater);
+		model.addAttribute("formattedDate",formattedDate);
+		
+		return "theater/thdetail";
 	}
-
 }

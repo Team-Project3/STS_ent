@@ -19,4 +19,10 @@ public class TheaterServiceImpl implements TheaterService {
 		return theaterDAO.theaterList();
 	}
 
+	@Override
+	public TheaterVO theaterDetail(TheaterVO vo) {
+		// TODO Auto-generated method stub
+		return theaterDAO.theaterDetail(vo);
+	}
+
 }

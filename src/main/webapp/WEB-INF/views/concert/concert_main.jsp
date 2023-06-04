@@ -66,65 +66,65 @@
 
 
 <section style="width: 100%;">
-	<div style="width: 900px; margin: 0 auto; font-size: 0; padding-bottom: 100px; text-align: center;">
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/Cafe 유월.jpg"	style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">노을 콘서트 Cafe 유월</p>
+	<div class="contentmain">
+		<a href="" class="contenta">
+			<img src="img/Cafe 유월.jpg" class="contentimg">
+			<div class="contentel">
+				<p class="contentp">노을 콘서트 Cafe 유월</p>
 			</div>
 		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/BRUNO MAJOR.jpg"	style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style=" overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">BRUNO MAJOR 내한 공연</p>
+		<a href="" class="contenta">
+			<img src="img/BRUNO MAJOR.jpg" class="contentimg">
+			<div class="contentel">
+				<p class="contentp">BRUNO MAJOR 내한 공연</p>
 			</div>
 		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/MY AUNT MARY.jpg"	style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">MY AUNT MARY 단독 공연</p>
-			</div>
-		</a> 
-	</div>
-	
-	<div style="width: 900px; margin: 0 auto; font-size: 0; padding-bottom: 100px; text-align: center;">
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/UFO STATION.jpg" style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">UFO STATION 페스티벌</p>
-			</div>
-		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/나캠든개론.jpg" style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">나캠든 팬미팅</p>
-			</div>
-		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/스마일러브위크엔드.jpg"	style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">SMILE LOVE WEEKEND</p>
+		<a href="" class="contenta">
+			<img src="img/MY AUNT MARY.jpg"	class="contentimg">
+			<div class="contentel">
+				<p class="contentp">MY AUNT MARY 단독 공연</p>
 			</div>
 		</a> 
 	</div>
 	
-	<div style="width: 900px; margin: 0 auto; font-size: 0; padding-bottom: 100px; text-align: center;">
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/죠지 단독.jpg" style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">GEORGE 단독 콘서트</p>
+	<div class="contentmain">
+		<a href="" class="contenta">
+			<img src="img/UFO STATION.jpg" class="contentimg">
+			<div class="contentel">
+				<p class="contentp">UFO STATION 페스티벌</p>
 			</div>
 		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/차학연.jpg"	style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">차학연 팬미팅</p>
+		<a href="" class="contenta">
+			<img src="img/나캠든개론.jpg" class="contentimg">
+			<div class="contentel">
+				<<p class="contentp">나캠든 팬미팅</p>
 			</div>
 		</a> 
-		<a href="" style="display: inline-block; width: 264px; height: 360px; margin: 15px 15px; border: 1px solid #ddd; vertical-align: top;">
-			<img src="img/코다라인.jpg" style="display: inline-block; width: 264px; height: 360px; border: 1px solid #ddd; vertical-align: top;">
-			<div style="overflow:auto; width: 100%; height: 70px; background: #fff; text-align: center; border-top: 1px solid #ddd;">
-				<p style="font-size: 16px; color: #333; line-height: 22px; margin: 18px 20px 12px 20px;">코다라인 내한 공연</p>
+		<a href="" class="contenta">
+			<img src="img/스마일러브위크엔드.jpg"	class="contentimg">
+			<div class="contentel">
+				<p class="contentp">SMILE LOVE WEEKEND</p>
+			</div>
+		</a> 
+	</div>
+	
+	<div class="contentmain">
+		<a href="" class="contenta">
+			<img src="img/죠지 단독.jpg" class="contentimg">
+			<div class="contentel">
+				<p class="contentp">GEORGE 단독 콘서트</p>
+			</div>
+		</a> 
+		<a href="" class="contenta">
+			<img src="img/차학연.jpg"	class="contentimg">
+			<div class="contentel">
+				<p class="contentp">차학연 팬미팅</p>
+			</div>
+		</a> 
+		<a href="" class="contenta">
+			<img src="img/코다라인.jpg" class="contentimg">
+			<div class="contentel">
+				<p class="contentp">코다라인 내한 공연</p>
 			</div>
 		</a> 
 	</div>

@@ -1,5 +1,7 @@
 package com.ezen.biz.dto;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,6 +10,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class TheaterVO {
-	private int thnum_seq;
-	private String thname;
+	private int tseq;
+	private String category;
+	private String tname;
+	private String place;
+	private String time;
+	private Date bdate;
+	private int seat;
+	private String img;
 }
