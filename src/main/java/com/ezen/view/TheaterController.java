@@ -37,8 +37,12 @@ public class TheaterController {
 	}
 
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
-	public String thboard(Model model, ThboardVO vo) {
-
+	public String thboard(Model model, TheaterVO vo) {
+		
+		TheaterVO theater=theaterService.theaterDetail(vo);
+		
+		model.addAttribute("theater",theater);
+		
 		return "theater/board";
 	}
 
