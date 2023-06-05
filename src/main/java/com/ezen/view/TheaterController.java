@@ -13,7 +13,7 @@ import com.ezen.biz.dto.ThboardVO;
 import com.ezen.biz.dto.TheaterVO;
 import com.ezen.biz.service.ThboardService;
 import com.ezen.biz.service.TheaterService;
-
+//
 @Controller
 public class TheaterController {
 
