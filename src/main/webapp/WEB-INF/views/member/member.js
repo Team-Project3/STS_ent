@@ -80,3 +80,40 @@ function check_pwd(){
 }
 
 
+function inputYMDNumber(obj) {
+    if(event.keyCode != 8) {
+        if(obj.value.replace(/[0-9 \/]/g, "").length == 0) {
+
+            let number = obj.value.replace(/[^0-9]/g,"");
+
+            let ymd = "";
+
+            if(number.length < 4) {
+                return number;
+            } else if(number.length < 6){
+                ymd += number.substr(0, 4);
+                ymd += "/";
+                ymd += number.substr(4);
+            } else {
+                ymd += number.substr(0, 4);
+                ymd += "/";
+                ymd += number.substr(4, 2);
+                ymd += "/";
+                ymd += number.substr(6);
+            }
+            obj.value = ymd;
+            
+            if (obj.value.length > 10) {
+                obj.value = obj.value.substring(0, 10);
+            }
+
+        } else {
+            alert("숫자 이외의 값은 입력하실 수 없습니다.");
+            obj.value = obj.value.replace(/[^0-9 ^\/]/g,"");
+
+            return false;
+        }
+    } else {
+        return false;
+    }
+}

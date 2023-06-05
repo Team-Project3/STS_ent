@@ -33,13 +33,13 @@
 		        <input type="text" name="name" id="name"><br> 
 		       
 		        <label>&emsp;Birth</label>
-		        <input type="text" name="birth" id="birth"><br> 
+		        <input type="text" name="birth" id="birth" onKeyup="inputYMDNumber(this)"><br> 
 		       
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email"><br>
 		      
 		        <label>&emsp;Phone</label>
-		        <input type="text" name="phone" id="phone"><br>
+		        <input type="text" name="phone" id="phone" oninput="hypenTel(this)"><br>
 		        
 		        <div class="clear" style="text-align: center;">
 					<div id="buttons">
@@ -56,5 +56,16 @@
 <div class="footer">
 <%@ include file="../footer.jsp" %>
 </div>
+
+<script type="text/javascript">
+const hypenTel = (target) => {
+	  const maxLength = 11; // 최대 글자 수
+	  
+	  let value = target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+	  value = value.substring(0, maxLength); // 최대 글자 수로 제한
+	  
+	  target.value = value.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`); // 형식 변환
+	}
+</script>
 </body>
 </html>
