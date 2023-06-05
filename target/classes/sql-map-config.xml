@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.ezen.biz.dto.ThboardVO" alias="Thboard"/>
 		<typeAlias type="com.ezen.biz.dto.TheaterVO" alias="Theater"/>
+		<typeAlias type="com.ezen.biz.dto.ConcertVO" alias="Concert"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
@@ -13,5 +14,6 @@
 	<mappers>
 		<mapper resource="mappings/thboard-mapping.xml"/>
 		<mapper resource="mappings/theater-mapping.xml"/>
+		<mapper resource="mappings/concert-mapping.xml"/>
 	</mappers>
 </configuration>

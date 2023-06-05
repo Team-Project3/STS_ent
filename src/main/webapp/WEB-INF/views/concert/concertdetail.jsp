@@ -16,10 +16,10 @@ function board() {
 </script>
 </head>
 <body>
-${theater}<br>
-${theater.tname}<br>
+${concert}<br>
+${concert.tname}<br>
 ${formattedDate}<br>
 <button onclick="board()">예약</button>
-<img alt="" src="img/theater/${theater.img}.jpg">
+<img alt="" src="img/concert/${concert.img}.jpg">
 </body>
 </html>
