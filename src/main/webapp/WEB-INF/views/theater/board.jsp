@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div class="movie-container">
-		<label>Pick a Movie</label> <select id="movie">
-			<option value='8'>True Romance - $8</option>
+		<label style="color:white; font-weight:bold;">영화 제목</label> 
+		<select id="movie">
+			<option value='8000'>${theater.tname}</option>
 			<option value='8'>American History X - $8</option>
 			<option value='8'>A Beautiful Mind - $8</option>
 			<option value='10'>Joker - $10</option>
@@ -40,7 +41,7 @@
 			<%
 				for (int j = 1; j <= 7; j++) {
 					
-					 String[] a = {"0","A","B","C","D","E","F","G","H","I","J"};
+					String[] a = {"0","A","B","C","D","E","F","G","H","I","J"};
 			        String str2 = Integer.toString(j);
 			        String str3 = a[i] + str2; 
 			%>
@@ -53,11 +54,16 @@
 		<%
 			}
 		%>
-
+	</div>
+	
+	<div class="th_button">
+		<button onclick="location=''">이전</button>&emsp;
+		<button onclick="location=''">다음</button>
 	</div>
 
+
 	<p class="text">
-		You have selected <span id="count">0</span> seats for a price of $<span
+		고른 좌석 <span id="count">0</span> 총 가격<span
 			id="total">0</span>
 	</p>
 
