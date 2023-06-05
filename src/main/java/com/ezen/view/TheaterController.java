@@ -9,16 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ezen.biz.dto.ThboardVO;
 import com.ezen.biz.dto.TheaterVO;
-import com.ezen.biz.service.ThboardService;
 import com.ezen.biz.service.TheaterService;
 
 @Controller
 public class TheaterController {
 
-	@Autowired
-	private ThboardService thboardService;
 	@Autowired
 	private TheaterService theaterService;
 
