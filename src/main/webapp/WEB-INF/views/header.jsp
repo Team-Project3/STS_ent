@@ -50,9 +50,14 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="#">Info</a></li>
-			<li><a href="#">Contact</a></li>
-			<li><a href="" target="_blank">Show me more</a></li>
+			<li><a href="concert_main">Concert</a></li>
+			<li><a href="theater">Theater</a></li>
+			<li><a href="#">Museum</a></li>
+			
+			<hr style="margin-top:300px;">
+			<div class="admin">
+				<a href="#">@ Admin</a>
+			</div>
 			</ul>
 		</div>
 	</nav>

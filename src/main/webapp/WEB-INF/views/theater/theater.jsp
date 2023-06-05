@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/concert.css" />
+<link rel="stylesheet" type="text/css" href="css/theater.css" />
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
@@ -19,7 +19,7 @@
 	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript"
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/concert.js"></script>
+<script type="text/javascript" src="js/theater.js"></script>
 </head>
 
 <body>
@@ -29,15 +29,15 @@
 			<div class="image-video-slider">
 				<div class="image-video-slide image-slide" align="center">
 					<div class="inner"
-						style="background-image: url(img/그림1.png); width: 800px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드1.png); width: 800px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/그림2.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드2.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/그림3.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드3.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide video-slide">
 					<div class="inner">
@@ -49,15 +49,15 @@
 		</div>
 
 		<section style="width: 100%;">
-			<c:forEach var="concert" items="${concertList}" varStatus="loop">
+			<c:forEach var="theater" items="${theaterList}" varStatus="loop">
 				<c:if test="${loop.index % 3 == 0}">
 					<div class="contentmain">
 				</c:if>
 
-				<a href="concertdetail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.img}.jpg"
+				<a href="thdetail?tseq=${theater.tseq}" class="contenta"><img src="img/theater/${theater.img}.jpg"
 					class="contentimg">
 					<div class="contentel">
-						<p class="contentp">${concert.tname}</p>
+						<p class="contentp">${theater.tname}</p>
 					</div>
 				</a>
 
