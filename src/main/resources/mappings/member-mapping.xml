@@ -14,10 +14,12 @@
 		where id=#{id}
 	</select>
 
-	<!-- 회원 등록-->
-	<insert id="insertMember">
+	<!-- 회원 등록 -->
+	<insert id="insertMember" parameterType="com.ezen.biz.dto.MemberVO">
 		insert into member(id, password, name, phone, birth, email)
 		values (#{id}, #{password}, #{name}, #{phone}, #{birth}, #{email}) 
 	</insert>
+	
+	
 
 </mapper>

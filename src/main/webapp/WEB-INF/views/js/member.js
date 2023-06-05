@@ -38,16 +38,19 @@ function go_save() {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
 		return false;
-	} else if (document.getElementById("birth").value="") {
+	} 
+	/*else if (document.getElementById("birth").value="") {
 		alert("생년월일을 입력해 주세요");
 		document.getElementById("birth").focus();
 		return false;
-	} else if (document.getElementById("email").value == "") {
+	}*/ 
+	else if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
 		document.getElementById("email").focus();
 		return false;
 	} else {
-		document.getElementById("signup").action = "signup";//회원가입 요청
+		alert('회원가입이 완료되었습니다.');
+		document.getElementById("signup").action = "signup"
 		document.getElementById("signup").submit();
 	}
 }
@@ -79,4 +82,50 @@ function check_pwd(){
 
 }
 
+function hypenTel(target) {
+	  const maxLength = 11; // 최대 글자 수
+
+	  let value = target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+	  value = value.substring(0, maxLength); // 최대 글자 수로 제한
+
+	  target.value = value.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`); // 형식 변환
+}
+
+function inputYMDNumber(obj) {
+    if(event.keyCode != 8) {
+        if(obj.value.replace(/[0-9 \/]/g, "").length == 0) {
+
+            let number = obj.value.replace(/[^0-9]/g,"");
+
+            let ymd = "";
+
+            if(number.length < 4) {
+                return number;
+            } else if(number.length < 6){
+                ymd += number.substr(0, 4);
+                ymd += "/";
+                ymd += number.substr(4);
+            } else {
+                ymd += number.substr(0, 4);
+                ymd += "/";
+                ymd += number.substr(4, 2);
+                ymd += "/";
+                ymd += number.substr(6);
+            }
+            obj.value = ymd;
+            
+            if (obj.value.length > 10) {
+                obj.value = obj.value.substring(0, 10);
+            }
+
+        } else {
+            alert("숫자 이외의 값은 입력하실 수 없습니다.");
+            obj.value = obj.value.replace(/[^0-9 ^\/]/g,"");
+
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
 

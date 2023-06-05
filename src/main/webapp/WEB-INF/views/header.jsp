@@ -15,7 +15,7 @@
 <link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" href="https://use.typekit.net/cze1cgq.css">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
-<script type="text/javascript" src="member/member.js"></script>
+<script type="text/javascript" src="js/member.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.11/dist/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
