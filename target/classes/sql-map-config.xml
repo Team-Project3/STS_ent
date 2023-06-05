@@ -6,12 +6,15 @@
 	<typeAliases>
 		<typeAlias type="com.ezen.biz.dto.TheaterVO" alias="Theater"/>
 		<typeAlias type="com.ezen.biz.dto.ConcertVO" alias="Concert"/>
+		<typeAlias type="com.ezen.biz.dto.MemberVO" alias="Member"/>
+		<typeAlias type="com.ezen.biz.dto.AdminVO" alias="Admin"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
-	
 	<mappers>
 		<mapper resource="mappings/theater-mapping.xml"/>
 		<mapper resource="mappings/concert-mapping.xml"/>
+		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/admin-mapping.xml"/>
 	</mappers>
 </configuration>

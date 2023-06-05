@@ -5,7 +5,7 @@ body {
 	 background-color:#34333b;
 }
 form {
-	height: 850px;
+	height: 920px;
 	width: 40%;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -34,6 +34,11 @@ input{
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
+}
+input[type="text"]:focus,
+input[type="hidden"]:focus,
+input[type="password"]:focus{
+	background-color: #E8F5FF;
 }
 legend {
 	font-size: 28px;
@@ -68,6 +73,7 @@ button{
   	display: block;
   	background-color: #34333b;
 	width: 100%;
+	text-align: center;
 }
 .footer_menu {
 	height: 70px; 
@@ -87,11 +93,9 @@ button{
     display: inline-block;
     height: 165px;
     width: 800px;
-	text-align: center;
-	margin-left: 600px;
+	margin-left: 100px;
 }
 .footer_logo {
-	width: 200px;
 	height: 200px;
 	display: inline-block;
 	text-align: center;
@@ -102,9 +106,11 @@ button{
 }
 .footxt {
     margin-left: 50px;
+    margin-top: 15px;
     width: 500px;
     height:120px;
     display: inline-block;
   	text-align: left;
+  	vertical-align: top;
 }
 

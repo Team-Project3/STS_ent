@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -26,28 +27,31 @@
 		<div id="menuToggle">
 			<input type="checkbox" /> <span></span> <span></span> <span></span>
 			<ul id="menu">
-				<div class="frame__menu" style="text-align: center;">
-					<a href="login">Login</a>&emsp;&emsp;&emsp; <a href="signup">Sign
-						Up</a>
-				</div>
-				<hr>
-				<a href="index"><li>Home</li></a>
-				<a href="#"><li>About</li></a>
-				<a href="#"><li>Info</li></a>
-				<a href="#"><li>Contact</li></a>
-				<a href="" target="_blank"><li>Show me more</li></a>
+			
+			<c:choose>
+				<c:when test="${empty sessionScope.loginUser}">
+					<div class="frame__menu" style="text-align: center;">
+						<a href="login_form">Login</a>&emsp;&emsp;&emsp; 
+						<a href="signup_form">Sign Up</a>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="frame__menu" style="text-align: center;">
+						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
+						<a href="logout">LOGOUT</a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+			<hr>
+			<li><a href="index">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Info</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="" target="_blank">Show me more</a></li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="frame">
-
-		<div class="frame__menu">
-			<a href="login">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="signup">Sign Up</a>
-		</div>
-
-	</div>
 	<!-- <nav class="mainlogo"><div class><img src="img/MAIN_LOGO.png"></div></nav> -->
 	<div class="screens" aria-hidden="true">
 
@@ -63,7 +67,7 @@
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="--bg-img: url(../img/product2.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/main_mypage.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
@@ -82,8 +86,8 @@
 				<a class="menu__item-link" href="theater">theater</a>
 			</span><br /> <span class="menu__item"> <span class="menu__item-tag">전시</span>
 				<a class="menu__item-link" href="">Museum</a>
-			</span> <span class="menu__item"> <span class="menu__item-tag">굿즈</span>
-				<a class="menu__item-link" href="">Product</a>
+			</span> <span class="menu__item"> <span class="menu__item-tag">내정보</span>
+				<a class="menu__item-link" href="">My Page</a>
 			</span>
 		</nav>
 	</div>
