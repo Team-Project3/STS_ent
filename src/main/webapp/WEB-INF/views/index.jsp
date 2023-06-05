@@ -50,7 +50,7 @@
 			
 			<hr style="margin-top:300px;">
 			<div class="admin">
-				<a href="#">@ Admin</a>
+				<a href="adminlogin_form">@ Admin</a>
 			</div>
 			</ul>
 		</div>
