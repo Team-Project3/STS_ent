@@ -17,6 +17,7 @@
 	<!-- 예외처리, XML 메시지 변환 등 어노테이션 관리 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
+	
 	<!-- AOP 관련 어노테이션 기능 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	

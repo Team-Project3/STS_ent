@@ -29,15 +29,15 @@
 			<div class="image-video-slider">
 				<div class="image-video-slide image-slide" align="center">
 					<div class="inner"
-						style="background-image: url(img/그림1.png); width: 800px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드1.png); width: 800px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/그림2.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드2.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/그림3.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/concert/슬라이드3.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide video-slide">
 					<div class="inner">

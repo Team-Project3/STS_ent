@@ -1,11 +1,17 @@
 package com.ezen.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.ParseException;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -46,10 +52,29 @@ public class MemberController {
 	
 	//회원가입 처리
 	@RequestMapping("/signup")
-	public String signupAction(MemberVO vo) {
-		memberService.insertMember(vo);
+	public String signupAction(MemberVO vo, @RequestParam("birth") @DateTimeFormat(pattern = "yyyy/MM/dd") String birth) throws java.text.ParseException {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	    try {
+	        Date birthDate = dateFormat.parse(birth);
+	        vo.setBirth(birthDate);
+	    } catch (ParseException e) {
+	        // 날짜 변환 실패 처리
+	        e.printStackTrace();
+	    }
+	    
+	    memberService.insertMember(vo);
+	    
+	    return "member/login";
+		
+		
+		/*
+       vo.setBirth(birth);
+
+       memberService.insertMember(vo);
 		
 		return "member/login";
+		*/
 	}
 	
 	//id 중복체크
