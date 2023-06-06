@@ -323,6 +323,7 @@ main {
 		grid-area: menu;
 		justify-self: right;
 		cursor: pointer;
+		margin-bottom: 8px;
 	}
 	.frame__menu1 {
 		grid-area: menu;
@@ -489,3 +490,4 @@ main {
 {
   transform: none;
 }
+

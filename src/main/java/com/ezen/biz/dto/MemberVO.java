@@ -2,6 +2,8 @@ package com.ezen.biz.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,6 +18,7 @@ public class MemberVO {
 	private String password;
 	private String name;
 	private String phone;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date birth;
 	private String email;
 	
