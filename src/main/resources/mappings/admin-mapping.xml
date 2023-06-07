@@ -3,13 +3,13 @@
 <mapper namespace="AdminMapper" >
 
 	<select id="adminCheck" resultType="String">
-		SELECT pwd FROM admin
-		WHERE id=#{id}
+		SELECT a_password FROM admin
+		WHERE a_id=#{a_id}
 	</select>
 	
 	<select id="getAdmin" resultType="admin">
 		SELECT * FROM admin
-		WHERE id=#{id}
+		WHERE a_id=#{a_id}
 	</select>
-	
+
 </mapper>

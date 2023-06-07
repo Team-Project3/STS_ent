@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<properties resource="database.properties">
+	</properties>
+	<typeAliases>
+		<typeAlias type="com.ezen.biz.dto.TheaterVO" alias="Theater"/>
+		<typeAlias type="com.ezen.biz.dto.ConcertVO" alias="Concert"/>
+		<typeAlias type="com.ezen.biz.dto.MemberVO" alias="Member"/>
+		<typeAlias type="com.ezen.biz.dto.AdminVO" alias="Admin"/>
+		<typeAlias type="com.ezen.biz.dto.MuseumVO" alias="Museum"/>
+	</typeAliases>
+	
+	<!-- sql 매핑 파일 등록 -->
+	<mappers>
+		<mapper resource="mappings/theater-mapping.xml"/>
+		<mapper resource="mappings/concert-mapping.xml"/>
+		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/admin-mapping.xml"/>
+		<mapper resource="mappings/museum-mapping.xml"/>
+	</mappers>
+</configuration>

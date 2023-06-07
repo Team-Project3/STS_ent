@@ -9,10 +9,6 @@
 	font-size: 14px;
 }
 
-
-
-
-
 body {
 	margin: 0;
 	--color-text: #e5e3e0;
@@ -327,6 +323,7 @@ main {
 		grid-area: menu;
 		justify-self: right;
 		cursor: pointer;
+		margin-bottom: 8px;
 	}
 	.frame__menu1 {
 		grid-area: menu;
@@ -398,7 +395,7 @@ main {
   height: 32px;
   position: absolute;
   top: -10px;
-  left: 0px;
+  left: -10px;
   
   cursor: pointer;
   
@@ -460,13 +457,15 @@ main {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
+.username {
+	color: black;
+}
 
-#menu
-{
+#menu {
   position: absolute;
   width: 300px;
-  height: 1000px;
-  margin: -100px 0 0 -50px;
+  height: 900px;
+  margin: -100px 0 0 -55px;
   padding: 30px;
   padding-top: 125px;
   
@@ -476,7 +475,7 @@ main {
   /* to stop flickering of text in safari */
   
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform: translate(-100.7%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
@@ -491,13 +490,4 @@ main {
 {
   transform: none;
 }
-
-
-
-
-
-
-
-
-
 

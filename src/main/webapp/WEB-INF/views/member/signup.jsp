@@ -1,86 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
-
-<style>
-body {
-	 overflow: auto;
-	 height: 1200px;
-	 background-color:#34333b;
-}
-form {
-	height: 113%;
-	width: 40%;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 600px;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 5px 5px;
-}
-fieldset {
-	margin: 0 auto;
-	width: 85%;
-	margin-top: 30px;
-}
-input{
-	margin: 0 auto;
-    display: block;
-    height: 40px;
-    width: 95%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-}
-legend {
-	font-size: 28px;
-	font-weight: bold;
-	color: white;
-}
-label {
-	color: white;
-	font-weight: bold;
-}
-button{
-    margin: 10px 0;
-    width: 30%;
-    background-color: #ffffff;
-    color: black;
-    padding: 10px 0;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 4rem;
-    cursor: pointer;
-}
-.signup_footer {
-	margin-top: 900px;
-}
-</style>
-<article>
-	<form id="signup" action="signup" method="post" name="form">
+    <%@ include file="../header.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/signup.css" />
+	<script type="text/javascript" src="js/member.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<article> 
+	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
 			<legend>Sign Up</legend><br>
 		        <label>&emsp;User ID</label>
-		        <input type="text"      name="id"  id="id" value="${id}"  size="12"  >
-		        <input type="hidden"    name="reid" id="reid" value="${reid}">
-		        <input type="button"    value="중복 체크"  class="dup" onclick="idcheck()"><br>
+		        <input type="text" name="id" id="id" value="${id}" size="12" placeholder="아이디">
+		        <input type="hidden" name="reid" id="reid" value="${reid}">
+		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"
+		        		style="font-weight:bold; color:#E8F5FF;"><br>
+		        
 		        <label>&emsp;Password</label> 
-		        <input type="password"  name="pwd" id="pwd"><br> 
+		        <input type="password"  name="password" id="password" placeholder="비밀번호"><br> 
+		        
 		        <label>&emsp;Retype Password</label> 
-		        <input type="password"  name="pwdCheck" id="pwdCheck"><br> 
+		        <input type="password"  name="passwordCheck" id="passwordCheck" placeholder="비밀번호 체크" onchange="check_pwd()"><br> 
+		        
 		        <label>&emsp;Name</label>
-		        <input type="text" name="name" id="name"><br> 
+		        <input type="text" name="name" id="name" placeholder="이름"><br> 
+		       
+		        <label>&emsp;Birth</label>
+
+		        <input type="text" name="birth" placeholder="생년월일(19900101)" onKeyup="inputYMDNumber(this)">
+		        
+		       
 		        <label>&emsp;E-Mail</label>
-		        <input type="text" name="email" id="email"><br>
+		        <input type="text" name="email" id="email" placeholder="e-mail"><br>
+		      
 		        <label>&emsp;Phone</label>
-		        <input type="text" name="phone" id="phone"><br>
+
+		        <input type="text" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
 		        
 		        <div class="clear" style="text-align: center;">
 					<div id="buttons">
@@ -94,4 +57,8 @@ button{
 		
 	</form>
 </article>
+<div class="footer">
 <%@ include file="../footer.jsp" %>
+</div>
+</body>
+</html>
