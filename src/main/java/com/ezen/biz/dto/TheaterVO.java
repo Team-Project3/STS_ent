@@ -21,4 +21,5 @@ public class TheaterVO {
 	private String seat;
 	private String pimg;
 	private String cimg;
+
 }

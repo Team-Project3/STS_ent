@@ -56,7 +56,7 @@
 			
 			<hr style="margin-top:300px;">
 			<div class="admin">
-				<a href="#">@ Admin</a>
+				<a href="admin_main">@ Admin</a>
 			</div>
 			</ul>
 		</div>
