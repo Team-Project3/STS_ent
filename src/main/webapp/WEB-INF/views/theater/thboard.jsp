@@ -7,18 +7,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Movie Seat Booking</title>
 <link rel='stylesheet' href='css/thboard.css'>
+
 </head>
 <body>
-	<div class="movie-container">
+	<div class="movie-container"><form action="thboarddetail" id="thboard" method="post">
 		<label style="color:white; font-weight:bold;">영화 제목</label> 
 		<select id="movie">
-			<option value='8000'>${theater.tname}</option>
-			<option value='8'>American History X - $8</option>
-			<option value='8'>A Beautiful Mind - $8</option>
-			<option value='10'>Joker - $10</option>
+			<option value='${theater.price}'>${theater.tname}</option>
 		</select>
 	</div>
-
+	<input type="hidden" name="tseq" value="${theater.tseq}">
 	<ul class="showcase">
 		<li>
 			<div class="seat"></div> <small>선택가능</small>
@@ -45,7 +43,7 @@
 			        String str2 = Integer.toString(j);
 			        String str3 = a[i] + str2; 
 			%>
-			<div class="seat"><input type="hidden" value="<%=str3%>"><%=str3%></div> 
+			<div class="seat"><input type="hidden" value="<%=str3%>" id="seatList"><%=str3%></div> 
 			<!-- <div class="seat"></div> -->
 			<%
 				}
@@ -57,8 +55,8 @@
 	</div>
 	
 	<div class="th_button">
-		<button onclick="location=''">이전</button>&emsp;
-		<button onclick="location=''">다음</button>
+		<button onclick="return go_save()" type="button">이전</button>&emsp;
+		<button onclick="return go_save()" type="button">다음</button>
 	</div>
 
 
@@ -67,6 +65,7 @@
 			id="total">0</span>
 	</p>
 
-	<script src='js/thboard.js'></script>
+<script src="js/thboard.js" type="text/javascript"></script>
+</form>
 </body>
 </html>

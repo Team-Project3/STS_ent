@@ -20,6 +20,6 @@ ${concert}<br>
 ${concert.tname}<br>
 ${formattedDate}<br>
 <button onclick="board()">예약</button>
-<img alt="" src="img/concert/${concert.img}.jpg">
+<img alt="" src="img/concert/${concert.pimg}.jpg">
 </body>
 </html>

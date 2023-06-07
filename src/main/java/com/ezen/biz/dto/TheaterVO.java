@@ -15,7 +15,10 @@ public class TheaterVO {
 	private String tname;
 	private String place;
 	private String time;
-	private Date bdate;
-	private int seat;
-	private String img;
+	private Date sdate;
+	private Date edate;
+	private int price;
+	private String seat;
+	private String pimg;
+	private String cimg;
 }

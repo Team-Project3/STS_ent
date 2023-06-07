@@ -54,7 +54,7 @@
 					<div class="contentmain">
 				</c:if>
 
-				<a href="concertdetail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.img}.jpg"
+				<a href="concertdetail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.pimg}.jpg"
 					class="contentimg">
 					<div class="contentel">
 						<p class="contentp">${concert.tname}</p>
