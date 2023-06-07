@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.biz.dao.ConcertDAO;
-import com.ezen.biz.dao.TheaterDAO;
 import com.ezen.biz.dto.ConcertVO;
-import com.ezen.biz.dto.TheaterVO;
+
 @Service
 public class ConcertServiceImpl implements ConcertService {
 

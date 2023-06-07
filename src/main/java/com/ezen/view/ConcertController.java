@@ -36,9 +36,8 @@ public class ConcertController {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String formattedDate = sdf.format(concert.getBdate());
-
-		model.addAttribute("formattedDate",formattedDate);
+		String formattedSDate = sdf.format(concert.getSdate());
+		String formattedEDate = sdf.format(concert.getSdate());
 		
 		model.addAttribute("concert", concert);
 
