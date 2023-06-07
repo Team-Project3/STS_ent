@@ -114,13 +114,6 @@ function go_save(){
         hiddenInput2.value = JSON.stringify([...selectedSeats]);
         form.appendChild(hiddenInput2);
         
-        // 총 가격 = 예약자 수 * 공연 가격 1명당
-        const hiddenInput3 = document.createElement("input");
-        hiddenInput3.type = "hidden";
-        hiddenInput3.name = "ticketPrice";
-        hiddenInput3.value = ticketPrice;
-        form.appendChild(hiddenInput3);
-        
         form.submit();
 	}
 }

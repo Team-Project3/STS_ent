@@ -33,51 +33,71 @@ public class TheaterController {
 	}
 
 	@RequestMapping(value = "/thdetail", method = RequestMethod.GET)
-	public String thdetail(Model model, TheaterVO vo) {
+	public String thdetail(Model model, TheaterVO vo,HttpSession session) {
 		
-		TheaterVO theater=theaterService.theaterDetail(vo);
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			TheaterVO theater = theaterService.theaterDetail(vo);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+			String formattedSDate = sdf.format(theater.getSdate());
+			String formattedEDate = sdf.format(theater.getEdate());
+			
+			model.addAttribute("membervo", membervo);
+			model.addAttribute("formattedSDate", formattedSDate);
+			model.addAttribute("formattedEDate", formattedEDate);
+			model.addAttribute("theater", theater);
+			
+			return "theater/thdetail";
 		
-		String formattedSDate = sdf.format(theater.getSdate());
-		String formattedEDate = sdf.format(theater.getSdate());
-		model.addAttribute("theater",theater);
-		
-		return "theater/thdetail";
 	}
 
 	@RequestMapping(value = "/thboard", method = RequestMethod.GET)
-	public String thboard(Model model, TheaterVO vo) {
-		
-		TheaterVO theater=theaterService.theaterDetail(vo);
-		
-		model.addAttribute("theater",theater);
-		
-		return "theater/thboard";
+	public String thboard(Model model, TheaterVO vo, HttpSession session) {
+
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+
+		if (membervo == null) {
+
+			return "redirect:index";
+		}
+
+		else {
+			TheaterVO theater = theaterService.theaterDetail(vo);
+				
+			model.addAttribute("membervo", membervo);
+			
+			model.addAttribute("theater", theater);
+
+			return "theater/thboard";
+		}
+
 	}
-	
+
 	@RequestMapping(value = "/thboarddetail")
 	public String thboarddetail(@RequestParam("selectedSeatsCount") int selectedSeatsCount,
-            					@RequestParam("selectedSeats") String selectedSeats,
-            					@RequestParam("ticketPrice") int ticketPrice,
-            					@RequestParam("tseq") int tseq,
-            					Model model,HttpSession session) {
-		
+			@RequestParam("selectedSeats") String selectedSeats, @RequestParam("tseq") int tseq, Model model,
+			HttpSession session) {
+
 		MemberVO membervo = new MemberVO();
-		
+
 		TheaterVO vo = new TheaterVO();
-		
+
 		vo.setTseq(tseq);
-		
+
 		membervo = (MemberVO) session.getAttribute("loginUser");
-		
+
 		TheaterVO theaterVO = theaterService.theaterDetail(vo);
-		
-		model.addAttribute("selectedSeatsCount",selectedSeatsCount);
-		model.addAttribute("selectedSeats",selectedSeats);
-		model.addAttribute("ticketPrice",ticketPrice);
-		model.addAttribute("theaterVO",theaterVO);
-		model.addAttribute("membervo",membervo);
+
+		int totalprice = theaterVO.getPrice() * selectedSeatsCount;
+
+		model.addAttribute("selectedSeatsCount", selectedSeatsCount);
+		model.addAttribute("selectedSeats", selectedSeats);
+		model.addAttribute("totalprice", totalprice);
+		model.addAttribute("theaterVO", theaterVO);
+		model.addAttribute("membervo", membervo);
 		return "theater/thboarddetail";
 	}
 }
