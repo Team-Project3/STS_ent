@@ -36,6 +36,7 @@
 		        <label>&emsp;Birth</label>
 
 		        <input type="text" name="birth" placeholder="생년월일(19900101)" onKeyup="inputYMDNumber(this)">
+		        
 		       
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email" placeholder="e-mail"><br>
