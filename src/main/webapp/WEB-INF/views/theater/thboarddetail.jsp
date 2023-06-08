@@ -16,7 +16,6 @@ table {
 tr, td {
 	border: 1px solid #444444;
 }
-
 </style>
 </head>
 <body>
@@ -47,6 +46,10 @@ tr, td {
 		<tr>
 			<td>총 금액</td>
 			<td>${totalprice} 원</td>
+		</tr>
+		<tr>
+			<td>공연 날짜</td>
+			<td>${dday}</td>
 		</tr>
 	</table>
 </div>
