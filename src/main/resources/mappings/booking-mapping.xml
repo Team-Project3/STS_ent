@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="BookingMapper">
+	<insert id="insertBooking">
+		insert into booking values
+		(bseq.NEXTVAL,#{tseq},'결제완료',#{seat},#{id},#{head},sysdate,#{dday})
+	</insert>
+	<select id="selectTheater" resultType="String">
+		select seat from booking where
+			tseq = #{tseq} and dday=#{dday}
+	</select>
+</mapper>

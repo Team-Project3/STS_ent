@@ -9,6 +9,7 @@
 		<typeAlias type="com.ezen.biz.dto.MemberVO" alias="Member"/>
 		<typeAlias type="com.ezen.biz.dto.AdminVO" alias="Admin"/>
 		<typeAlias type="com.ezen.biz.dto.MuseumVO" alias="Museum"/>
+		<typeAlias type="com.ezen.biz.dto.BookingVO" alias="Booking"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
@@ -18,5 +19,6 @@
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/admin-mapping.xml"/>
 		<mapper resource="mappings/museum-mapping.xml"/>
+		<mapper resource="mappings/booking-mapping.xml"/>
 	</mappers>
 </configuration>
