@@ -18,7 +18,8 @@ function booking() {
 <body>
 ${museum}<br>
 ${museum.tname}<br>
-${formattedDate}<br>
+${formattedSDate}<br>
+${formattedEDate}<br>
 <button onclick="booking()">예약</button>
 <img alt="" src="img/museum/${museum.pimg}.jpg">
 </body>

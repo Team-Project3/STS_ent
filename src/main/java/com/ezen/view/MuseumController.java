@@ -37,9 +37,12 @@ public class MuseumController {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String formattedDate = sdf.format(museum.getBdate());
+		String formattedSDate = sdf.format(museum.getSdate());
+		String formattedEDate = sdf.format(museum.getEdate());
 
-		model.addAttribute("formattedDate",formattedDate);
+		
+		model.addAttribute("formattedSDate",formattedSDate);
+		model.addAttribute("formattedEDate",formattedEDate);
 		
 		model.addAttribute("museum", museum);
 

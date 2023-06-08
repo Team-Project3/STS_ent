@@ -18,7 +18,8 @@ function board() {
 <body>
 ${concert}<br>
 ${concert.tname}<br>
-${formattedDate}<br>
+${formattedSDate}<br>
+${formattedEDate}<br>
 <button onclick="board()">예약</button>
 <img alt="" src="img/concert/${concert.pimg}.jpg">
 </body>

@@ -15,12 +15,12 @@ public class MuseumVO {
 	private String category;
 	private String tname;
 	private String place;
-	private Date bdate;
+	private String time;
 	private int price;
-	private int seat;	//1:오전, 2:오후
+	private String seat;	//1:오전, 2:오후
 	private String pimg;
 	private String cimg;
 	private Date sdate;
 	private Date edate;
-
+	
 }
