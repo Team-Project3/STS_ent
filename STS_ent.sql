@@ -110,6 +110,19 @@ insert into total_ent values(tseq.NEXTVAL,'2','옥탑방 고양이','우리집','19:00',t
 insert into total_ent values(tseq.NEXTVAL,'2','최초의 웃음','우리집','19:00',to_date('2023-11-11','yyyy-mm-dd'),to_date('2023-11-13','yyyy-mm-dd'),8000,80,'최초의 웃음','최초의 웃음_D');
 insert into total_ent values(tseq.NEXTVAL,'2','행오버','우리집','19:00',to_date('2023-11-11','yyyy-mm-dd'),to_date('2023-11-13','yyyy-mm-dd'),8000,80,'행오버','행오버_D');
 
+
+--전시회 데이터
+insert into total_ent values(tseq.NEXTVAL, '3', '강원 세계 산림 엑스포', '강원 고성 세계잼버리수련장', '13:00', to_date('2023-09-22','yyyy-mm-dd'), to_date('2023-10-22','yyyy-mm-dd'), 8000, '오전,오후', '강원', '강원_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '루이스 웨인', '강동아트센터 아트랑 1-3층', '13:00', to_date('2023-06-13','yyyy-mm-dd'), to_date('2023-08-31','yyyy-mm-dd'), 15000, '오전,오후', '고양이', '고양이_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '데이비드와 브리티시 팝아트', 'DDP', '13:00', to_date('2023-03-23','yyyy-mm-dd'), to_date('2023-07-02','yyyy-mm-dd'), 20000, '오전,오후', '팝아트', '팝아트_D');
+insert into total_ent values(tseq.NEXTVAL, '3', 'Seoul POPCON', '서울 코엑스 C,D홀', '13:00', to_date('2023-08-25','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 28000, '오전,오후', '서울 팝콘', '서울 팝콘_D');
+insert into total_ent values(tseq.NEXTVAL, '3', 'BAR/SPRIT SHOW', '서울 코엑스 D홀', '13:00', to_date('2023-07-28','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 25000, '오전,오후', '서울바앤스피릿쇼', '서울바앤스피릿쇼_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '숭고 SUBLIME', '뮤지엄 웨이브', '13:00', to_date('2023-06-17','yyyy-mm-dd'), to_date('2023-09-17','yyyy-mm-dd'), 20000, '오전,오후', '숭고', '숭고_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '앤서니 브라운의 행복극장', '광주 민주평화교류원', '13:00', to_date('2023-05-04','yyyy-mm-dd'), to_date('2023-10-29','yyyy-mm-dd'), 15000, '오전,오후', '앤서니', '앤서니_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '앨리스 북아트전', '소전서림 북아트갤러리', '13:00', to_date('2023-04-21','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 7000, '오전,오후', '앨리스', '앨리스_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '피카소와 20세기 거장들', '마이아트뮤지엄', '13:00', to_date('2023-03-24','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 20000, '오전,오후', '피카소', '피카소_D');
+
+
 --관리자 데이터 
 insert into admin(a_id, a_password, a_name, a_phone)
 values('admin', '1234', '관리자', '010-3333-4444');
