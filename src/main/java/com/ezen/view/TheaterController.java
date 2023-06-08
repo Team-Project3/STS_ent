@@ -1,6 +1,7 @@
 package com.ezen.view;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -55,30 +56,28 @@ public class TheaterController {
 	}
 
 	@RequestMapping(value = "/thboard", method = RequestMethod.GET)
-	public String thboard(Model model, TheaterVO vo, HttpSession session) {
+	public String thboard(Model model, TheaterVO vo, HttpSession session,
+							@RequestParam("dday") String dday) {
 
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-
-		if (membervo == null) {
-
-			return "redirect:index";
-		}
-
-		else {
+		
 			TheaterVO theater = theaterService.theaterDetail(vo);
 				
 			model.addAttribute("membervo", membervo);
-			
 			model.addAttribute("theater", theater);
-
+			model.addAttribute("dday",dday);
+			
 			return "theater/thboard";
-		}
+
 
 	}
 
 	@RequestMapping(value = "/thboarddetail")
 	public String thboarddetail(@RequestParam("selectedSeatsCount") int selectedSeatsCount,
-			@RequestParam("selectedSeats") String selectedSeats, @RequestParam("tseq") int tseq, Model model,
+								@RequestParam("selectedSeats") String selectedSeats, 
+								@RequestParam("tseq") int tseq, 
+								@RequestParam("dday") String dday,
+								Model model,
 			HttpSession session) {
 
 		MemberVO membervo = new MemberVO();
@@ -98,6 +97,7 @@ public class TheaterController {
 		model.addAttribute("totalprice", totalprice);
 		model.addAttribute("theaterVO", theaterVO);
 		model.addAttribute("membervo", membervo);
+		model.addAttribute("dday", dday);
 		return "theater/thboarddetail";
 	}
 }

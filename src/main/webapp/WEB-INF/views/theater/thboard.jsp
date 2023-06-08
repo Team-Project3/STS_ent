@@ -64,7 +64,7 @@
 		고른 좌석 <span id="count">0</span> 총 가격<span
 			id="total">0</span>
 	</p>
-
+<input type="hidden" value="${dday}" name="dday" id="dday">
 <script src="js/thboard.js" type="text/javascript"></script>
 </form>
 </body>
