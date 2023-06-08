@@ -1,26 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/museum_detail.css" />
 <script type="text/javascript">
-function booking() {
+function museum_booking() {
 	var tseq = ${museum.tseq};
-	var url = "booking?tseq=" + tseq;
-	window.open(url, "_blank_",
-			"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
+	var membervo = document.getElementById("id").value;
+	var dday = document.getElementById("dday").value;
+	var time = document.getElementById("time").value;
+	
+	if(membervo == null || membervo == ""){
+		alert("로그인 후 이용해주세요.")
+		 location.href = 'login_form';
+	} else if(dday == "") {
+		alert("날짜를 선택해주세요.");
+	} else if(time == "") {
+		alert("시간대를 선택해주세요.");
+	} else {
+		var url = "museum_booking?tseq=" + tseq + "&dday=" + dday + "&time=" + time;
+		window.open(url, "_blank_",
+		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700")
+	}
 	
 }
+
 </script>
 </head>
 <body>
-${museum}<br>
-${museum.tname}<br>
-${formattedSDate}<br>
-${formattedEDate}<br>
-<button onclick="booking()">예약</button>
-<img alt="" src="img/museum/${museum.pimg}.jpg">
+	<input type="hidden" value="${membervo.id}" id="id">
+	
+	<div class="museum_detail">
+		<div class="museumTitle">
+			<div id="title">${museum.tname}<br></div>
+			<div id="subtitle">${formattedSDate} ~ ${formattedEDate}&emsp;&emsp;|&emsp;&emsp;${museum.place}<br></div>
+		</div>	
+		<hr>
+		<div class="museum_info">
+			<div id="infoimg">
+				<img id="img" src="img/museum/${museum.pimg}.jpg">
+			</div>
+			
+			<div class="infoall">
+				<dl>
+					<dt>등급</dt><dd>&nbsp;전체관람가</dd>
+					<dt>관람시간</dt><dd>&nbsp;--</dd>
+					<dt>출연</dt><dd>&nbsp;--</dd>
+					<dt>가격</dt><dd>&nbsp;${museum.price}</dd>
+				</dl> 
+			</div>
+		</div>
+		<hr>
+		
+		
+		<div class="selection">
+			<label for="date">날짜 선택&nbsp;:&nbsp;</label>
+				<input type="date" id="dday" min="${formattedSDate}" max="${formattedEDate}" name="dday">
+			<label for="time">시간 선택&nbsp;:&nbsp;</label>
+				<select id="time" name="time">
+					<option value="" selected disabled hidden>시간 선택</option>
+					<option value="오전">오전</option>
+					<option value="오후">오후</option>
+				</select>
+			<button onclick="museum_booking()">예약</button>
+		</div>
+	
+		<div class="content">
+			<img id="cimg" src="img/museum/${museum.cimg}.jpg">
+		</div>
+	
+	
+	</div>
+	
+	<div class="footer">
+		<%@ include file="../footer.jsp"%>
+	</div>
 </body>
 </html>

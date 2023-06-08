@@ -38,7 +38,7 @@ function board() {
 	var dday = document.getElementById("dday").value;
 	if(membervo == null || membervo ==""){
 		alert("로그인 후 이용해주세요.")
-		 location.href = 'index';
+		 location.href = 'login_form';
 	}
 	else if (dday == "") {
 		alert("날짜를 선택해주세요.");
