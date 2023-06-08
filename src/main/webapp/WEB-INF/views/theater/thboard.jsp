@@ -28,7 +28,7 @@
 			<div class="seat occupied"></div> <small>예약됨</small>
 		</li>
 	</ul>
-
+	
 	<div class="container">
 		<div class="screen"></div>
 
@@ -53,7 +53,7 @@
 			}
 		%>
 	</div>
-	
+	${seatlist1}
 	<div class="th_button">
 		<button onclick="return go_save()" type="button">이전</button>&emsp;
 		<button onclick="return go_save()" type="button">다음</button>

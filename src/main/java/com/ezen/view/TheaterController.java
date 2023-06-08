@@ -1,20 +1,26 @@
 package com.ezen.view;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.TheaterVO;
+import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.TheaterService;
 
 @Controller
@@ -22,6 +28,8 @@ public class TheaterController {
 
 	@Autowired
 	private TheaterService theaterService;
+	@Autowired
+	private BookingService bookingService;
 
 	@RequestMapping(value = "/theater", method = RequestMethod.GET)
 	public String theater(Model model, TheaterVO vo) {
@@ -56,14 +64,43 @@ public class TheaterController {
 	}
 
 	@RequestMapping(value = "/thboard", method = RequestMethod.GET)
-	public String thboard(Model model, TheaterVO vo, HttpSession session,
-							@RequestParam("dday") String dday) {
-
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+	public String thboard(Model model, TheaterVO theaterVO, HttpSession session,
+							@RequestParam("dday") String dday,BookingVO bookingVO) throws ParseException {
 		
-			TheaterVO theater = theaterService.theaterDetail(vo);
+			TheaterVO theater = theaterService.theaterDetail(theaterVO);
+			
+			bookingVO.setTseq(theaterVO.getTseq());
+			
+			
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date ddayformat = dateFormat.parse(dday);
+			
+			bookingVO.setDday(ddayformat);
+			
+			System.out.println(theaterVO.getTseq());
+			
+			System.out.println(ddayformat);
+			
+			List<String> seatList = bookingService.selectTheater(bookingVO);
+			
+			List<String> seatlist1 = new ArrayList<String>();
+			
+			for(String data : seatList) {
 				
-			model.addAttribute("membervo", membervo);
+				StringTokenizer tokenizer = new StringTokenizer(data,",");
+				
+				
+				
+				while (tokenizer.hasMoreTokens()) {
+					String token = tokenizer.nextToken();
+					
+					seatlist1.add(token);
+				}
+				
+			}
+			
+			model.addAttribute("seatlist1",seatlist1);
 			model.addAttribute("theater", theater);
 			model.addAttribute("dday",dday);
 			
@@ -91,13 +128,41 @@ public class TheaterController {
 		TheaterVO theaterVO = theaterService.theaterDetail(vo);
 
 		int totalprice = theaterVO.getPrice() * selectedSeatsCount;
-
+		
+		
+		
+		String modifiedString = selectedSeats.replaceAll("[\\[\\]\"]", "");
+		System.out.println("selectedSeats = " + modifiedString);
 		model.addAttribute("selectedSeatsCount", selectedSeatsCount);
-		model.addAttribute("selectedSeats", selectedSeats);
+		model.addAttribute("selectedSeats", modifiedString);
 		model.addAttribute("totalprice", totalprice);
 		model.addAttribute("theaterVO", theaterVO);
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("dday", dday);
 		return "theater/thboarddetail";
 	}
+	
+	@RequestMapping("/bookingprocessing")
+	public String bookingprocessing(@RequestParam("tseq")int tseq,
+									@RequestParam("seat")String seat,
+									@RequestParam("id")String id,
+									@RequestParam("head")int head,
+									@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd")String dday,
+									BookingVO bookingVO) throws ParseException {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date ddayformat = dateFormat.parse(dday);
+		
+		System.out.println(seat);
+		bookingVO.setTseq(tseq);
+		bookingVO.setSeat(seat);
+		bookingVO.setId(id);
+		bookingVO.setHead(head);
+		bookingVO.setDday(ddayformat);
+		
+		bookingService.insertBooking(bookingVO);
+		
+		return "theater/thbookingsuccess";
+	}
+	
 }

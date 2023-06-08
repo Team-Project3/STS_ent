@@ -17,8 +17,16 @@ tr, td {
 	border: 1px solid #444444;
 }
 </style>
+<script type="text/javascript">
+function bookingdetail() {
+	var bookingprocessing = document.getElementById("bookingprocessing");
+	bookingprocessing.submit();
+}
+
+</script>
 </head>
 <body>
+<form action="bookingprocessing" id="bookingprocessing" method="post">
 	<img alt="" src="img/theater/${theaterVO.pimg}.jpg"
 		style="width: 200px; height: 300px;">
 <div class="table">
@@ -52,6 +60,14 @@ tr, td {
 			<td>${dday}</td>
 		</tr>
 	</table>
+	
+	<button type="button" onclick="bookingdetail()">결제하기</button>
 </div>
+<input type="hidden" name="tseq" value="${theaterVO.tseq}">
+<input type="hidden" name="seat" value="${selectedSeats}">
+<input type="hidden" name="id" value="${membervo.id}">
+<input type="hidden" name="head" value="${selectedSeatsCount}">
+<input type="hidden" name="dday" value="${dday}">
+</form>
 </body>
 </html>

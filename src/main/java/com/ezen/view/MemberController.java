@@ -66,15 +66,7 @@ public class MemberController {
 	    memberService.insertMember(vo);
 	    
 	    return "member/login";
-		
-		
-		/*
-       vo.setBirth(birth);
 
-       memberService.insertMember(vo);
-		
-		return "member/login";
-		*/
 	}
 	
 	//id 중복체크

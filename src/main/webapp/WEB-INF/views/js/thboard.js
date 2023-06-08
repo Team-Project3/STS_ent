@@ -81,6 +81,7 @@ container.addEventListener('click', e => {
             e.target.classList.add('selected');
             // Add the seat to the selectedSeats array
             selectedSeats.push(seatIdentifier);
+            
         }
 
         // Display the updated selected seats information in the console
@@ -90,6 +91,7 @@ container.addEventListener('click', e => {
 });
 
 function go_save(){
+	
 	const selectedSeatsCount = selectedSeats.length;
 	
 	if(selectedSeatsCount == 0){
