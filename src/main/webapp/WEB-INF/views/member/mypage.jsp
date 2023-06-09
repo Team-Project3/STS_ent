@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-window.opener.location.href="mypage";
-window.close();
-</script>
+마이페이지 
+<button type="button" onclick="location.href='index'">메인화면</button>
 </body>
 </html>

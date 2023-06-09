@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,13 +38,24 @@
 		%>
 		<div class="row">
 			<%
+			List<String> seatlist1 = (List<String>) request.getAttribute("seatlist1");
+			
 				for (int j = 1; j <= 7; j++) {
 					
 					String[] a = {"0","A","B","C","D","E","F","G","H","I","J"};
 			        String str2 = Integer.toString(j);
-			        String str3 = a[i] + str2; 
+			        String str3 = a[i] + str2;
+			        
+			        String seatClass = ""; // Initialize the seat class
+					
+			   
+			        
+			        // Check if the seat identifier exists in the seatlist1
+			        if (seatlist1.contains(str3)) {
+			            seatClass = "occupied"; // Set the seat class to "occupied"
+			        }
 			%>
-			<div class="seat"><input type="hidden" value="<%=str3%>" id="seatList"><%=str3%></div> 
+			<div class="seat <%= seatClass %>"><input type="hidden" value="<%=str3%>" id="seatList"><%=str3%></div> 
 			<!-- <div class="seat"></div> -->
 			<%
 				}
@@ -53,7 +65,7 @@
 			}
 		%>
 	</div>
-	${seatlist1}
+	
 	<div class="th_button">
 		<button onclick="return go_save()" type="button">이전</button>&emsp;
 		<button onclick="return go_save()" type="button">다음</button>

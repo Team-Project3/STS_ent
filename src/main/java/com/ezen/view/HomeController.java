@@ -17,4 +17,22 @@ public class HomeController {
 
 		return "index";
 	}
+	// HomeController.java
+		@RequestMapping(value = "/kakao")
+		public String home1(Model model) {
+
+			return "kakao";
+		}
+		
+		// HomeController.java
+		@RequestMapping(value = "/naverpay")
+		public String home2(Model model) {
+
+			return "naverpay";
+		}
+		@RequestMapping(value = "/naverpaysuccess")
+		public String home3(Model model) {
+
+			return "naverpaysuccess";
+		}
 }

@@ -102,4 +102,9 @@ public class MemberController {
 		return "index";
 	}
 	
+	@GetMapping("/mypage")
+	public String mypage() {
+		
+		return "member/mypage";
+	}
 }
