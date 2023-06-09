@@ -12,17 +12,14 @@ function museum_booking() {
 	var tseq = ${museum.tseq};
 	var membervo = document.getElementById("id").value;
 	var dday = document.getElementById("dday").value;
-	var time = document.getElementById("time").value;
 	
 	if(membervo == null || membervo == ""){
 		alert("로그인 후 이용해주세요.")
 		 location.href = 'login_form';
 	} else if(dday == "") {
 		alert("날짜를 선택해주세요.");
-	} else if(time == "") {
-		alert("시간대를 선택해주세요.");
 	} else {
-		var url = "museum_booking?tseq=" + tseq + "&dday=" + dday + "&time=" + time;
+		var url = "museum_booking?tseq=" + tseq + "&dday=" + dday;
 		window.open(url, "_blank_",
 		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700")
 	}
@@ -60,12 +57,6 @@ function museum_booking() {
 		<div class="selection">
 			<label for="date">날짜 선택&nbsp;:&nbsp;</label>
 				<input type="date" id="dday" min="${formattedSDate}" max="${formattedEDate}" name="dday">
-			<label for="time">시간 선택&nbsp;:&nbsp;</label>
-				<select id="time" name="time">
-					<option value="" selected disabled hidden>시간 선택</option>
-					<option value="오전">오전</option>
-					<option value="오후">오후</option>
-				</select>
 			<button onclick="museum_booking()">예약</button>
 		</div>
 	

@@ -21,7 +21,12 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	public List<String> selectTheater(BookingVO vo) {
-		// TODO Auto-generated method stub
 		return bookingDAO.selectTheater(vo);
 	}
+
+	@Override
+	public int checkHead(BookingVO vo) {
+		return bookingDAO.checkHead(vo);
+	}
+	
 }

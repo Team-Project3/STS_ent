@@ -1,21 +1,23 @@
 package com.ezen.view;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ezen.biz.dto.ConcertVO;
+import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.MuseumVO;
-import com.ezen.biz.dto.TheaterVO;
+import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.MuseumService;
 
 @Controller
@@ -23,8 +25,10 @@ public class MuseumController {
 	
 	@Autowired
 	private MuseumService museumService;
+	@Autowired
+	private BookingService bookingService;
 	
-	//전시회 페이지 - 전시회 리스트
+	//전시회 메인 페이지 - 전시회 리스트
 	@RequestMapping("/museum_main")
 	public String museumList(MuseumVO vo, Model model) {
 		
@@ -52,17 +56,17 @@ public class MuseumController {
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("formattedSDate",formattedSDate);
 		model.addAttribute("formattedEDate",formattedEDate);
-		
 		model.addAttribute("museum", museum);
 
 		return "museum/museum_detail";
+		
 	}
 
 	//전시회 예매
 	@RequestMapping("/museum_booking")
-	public String museumbooking(MuseumVO vo, Model model, HttpSession session,
-								@RequestParam("dday") String dday,
-								@RequestParam("time") String time) {
+	public String museumbooking(MuseumVO vo, Model model, 
+								HttpSession session, BookingVO bookingVo, 
+								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
 		MuseumVO museum = museumService.museumDetail(vo);
@@ -70,7 +74,21 @@ public class MuseumController {
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("museum", museum);
 		model.addAttribute("dday", dday);
-		model.addAttribute("time", time);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date ddayformat = sdf.parse(dday);
+		
+		
+		
+		bookingVo.setSeat("오전");
+		bookingVo.setTseq(vo.getTseq());
+		bookingVo.setDday(ddayformat);
+		int head1 = bookingService.checkHead(bookingVo);
+		System.out.println(bookingVo);
+		System.out.println(dday);
+		System.out.println(ddayformat);
+		System.out.println(head1);
+		
 		
 		return "museum/museum_booking";
 	}
@@ -79,7 +97,7 @@ public class MuseumController {
 	@RequestMapping("/mbooking_detail")
 	public String mbooking_detail(MuseumVO vo, Model model, HttpSession session,
 								@RequestParam("dday") String dday,
-								@RequestParam("time") String time,
+								@RequestParam("seat") String seat,
 								@RequestParam("head") String head,
 								@RequestParam("totalPrice") String totalPrice) {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
@@ -89,12 +107,38 @@ public class MuseumController {
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("museum", museum);
 		model.addAttribute("dday", dday);
-		model.addAttribute("time", time);
+		model.addAttribute("seat", seat);
 		model.addAttribute("head", head);
 		model.addAttribute("totalPrice", totalPrice);
 		
 		return "museum/mbooking_detail";
 	}
+	
+	//결제ㅐㅐ - booking 테이블 데이터 집어넣기
+	@RequestMapping("/mbooking_success")
+	public String mbooking_sucess(MuseumVO vo, Model model, HttpSession session,
+								@RequestParam("tseq") int tseq,
+								@RequestParam("id") String id,
+								@RequestParam("seat") String seat,
+								@RequestParam("head") int head,
+								@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd")String dday,
+								BookingVO bookingVo) throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date ddayformat = dateFormat.parse(dday);
+		
+		bookingVo.setTseq(tseq);
+		bookingVo.setSeat(seat);
+		bookingVo.setId(id);
+		bookingVo.setSeat(seat);
+		bookingVo.setHead(head);
+		bookingVo.setSeat(seat);
+		bookingVo.setDday(ddayformat);
+		
+		bookingService.insertBooking(bookingVo);
+		
+		return "museum/mbooking_success";
+	}
+	
 	
 	
 }
