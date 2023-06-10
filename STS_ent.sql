@@ -1,3 +1,4 @@
+
 -- 사용자 테이블
 -- 컬럼명: 아이디, 비밀번호, 이름, 전화번호, 생년월일, 이메일
 create table member (
@@ -8,6 +9,8 @@ create table member (
     birth varchar2(12),
     email varchar2(40) not null
 );
+insert into member values('1','1','1','1','1','1');
+
 
 insert into member values('heysh', 'dkssud5124!', '김세현', '010-4062-9457', '1995/11/11', 'heysh@sts.com');
 
@@ -43,13 +46,23 @@ CREATE TABLE booking (
 	dday DATE NOT NULL
 );
 
+
+--주문 테이블
+CREATE TABLE orders (
+	oseq NUMBER	NOT NULL primary key,
+	tseq NUMBER	NOT NULL,
+	seat VARCHAR2(200) NOT NULL,
+	id VARCHAR2(20)	NOT NULL,
+	head NUMBER	NOT NULL,
+	dday DATE NOT NULL
+);
+
 --예약 시퀀스
 CREATE SEQUENCE bseq
        INCREMENT BY 1
        START WITH 1
        MINVALUE 1;
 
---------------------------------------------------------------------------------------------------------------
 
 --공연 테이블
 CREATE TABLE total_ent (
@@ -68,6 +81,12 @@ CREATE TABLE total_ent (
 
 --공연 시퀀스       
 CREATE SEQUENCE tseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
+
+--주문 시퀀스       
+CREATE SEQUENCE oseq
        INCREMENT BY 1
        START WITH 1
        MINVALUE 1;

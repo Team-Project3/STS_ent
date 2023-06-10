@@ -17,4 +17,11 @@ public class HomeController {
 
 		return "index";
 	}
+	
+	// HomeController.java
+		@RequestMapping(value = "/new")
+		public String home1(Model model) {
+
+			return "NewFile";
+		}
 }

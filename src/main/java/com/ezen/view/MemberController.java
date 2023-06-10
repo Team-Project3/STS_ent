@@ -51,7 +51,7 @@ public class MemberController {
 	//회원가입 처리
 	@RequestMapping("/signup")
 	public String signupAction(MemberVO vo) {
-		
+
 	    memberService.insertMember(vo);
 	    
 	    return "member/login";
@@ -90,4 +90,9 @@ public class MemberController {
 		return "index";
 	}
 	
+	@GetMapping("/mypage")
+	public String mypage() {
+		
+		return "member/mypage";
+	}
 }

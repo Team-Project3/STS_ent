@@ -80,11 +80,11 @@ function validateDate(input) {
 	</tr>
 	<tr>
 		<td>시작날짜</td>
-		<td>${theater.sdate}</td>
+		<td>${formattedSDate}</td>
 	</tr>
 	<tr>
 		<td>종료날짜</td>
-		<td>${theater.edate}</td>
+		<td>${formattedEDate}</td>
 	</tr>
 	<tr>
 		<td>가격</td>

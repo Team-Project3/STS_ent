@@ -19,14 +19,14 @@ tr, td {
 </style>
 <script type="text/javascript">
 function bookingdetail() {
-	var bookingprocessing = document.getElementById("bookingprocessing");
-	bookingprocessing.submit();
+	var BookingMain = document.getElementById("BookingMain");
+	BookingMain.submit();
 }
 
 </script>
 </head>
 <body>
-<form action="bookingprocessing" id="bookingprocessing" method="post">
+<form action="BookingMain" id="BookingMain" method="post">
 	<img alt="" src="img/theater/${theaterVO.pimg}.jpg"
 		style="width: 200px; height: 300px;">
 <div class="table">
