@@ -3,10 +3,17 @@
 <mapper namespace="BookingMapper">
 	<insert id="insertBooking">
 		insert into booking values
-		(bseq.NEXTVAL,#{tseq},'결제완료',#{seat},#{id},#{head},sysdate,#{dday})
+		(bseq.NEXTVAL, #{tseq},'결제완료', #{seat}, #{id}, #{head}, sysdate, #{dday})
 	</insert>
+	
 	<select id="selectTheater" resultType="String">
 		select seat from booking where
-			tseq = #{tseq} and dday=#{dday}
+		tseq = #{tseq} and dday = #{dday}
 	</select>
+	
+	<select id="checkHead" resultType="int">
+		select sum(head) from booking
+		where seat=#{seat} and tseq=#{tseq} and dday=#{dday}
+	</select>
+	
 </mapper>

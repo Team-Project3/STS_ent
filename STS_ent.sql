@@ -1,21 +1,35 @@
-
---회원 테이블
-CREATE TABLE member (
-    id VARCHAR2(20)	NOT NULL primary key,
-	password VARCHAR2(20) NULL,
-	name VARCHAR2(20) NULL,
-	phone VARCHAR2(15) NULL,
-	birth DATE NULL,
-	email VARCHAR2(40) NULL
+-- 사용자 테이블
+-- 컬럼명: 아이디, 비밀번호, 이름, 전화번호, 생년월일, 이메일
+create table member (
+    id varchar(20) primary key,
+    password varchar2(20) not null,
+    name varchar2(40) not null,
+    phone varchar2(20) not null,
+    birth varchar2(12),
+    email varchar2(40) not null
 );
 
---관리자 테이블
-CREATE TABLE admin (
-	a_id VARCHAR2(20) NOT NULL primary key,
-	a_password VARCHAR2(20) NULL,
-	a_name VARCHAR2(20)	NULL,
-	a_phone VARCHAR2(15) NULL
+insert into member values('heysh', 'dkssud5124!', '김세현', '010-4062-9457', '1995/11/11', 'heysh@sts.com');
+
+select * from member;
+
+--------------------------------------------------------------------------------------------------------------
+
+-- 관리자 테이블
+-- 컬럼명: 아이디, 비밀번호, 이름, 전화번호
+create table admin (
+    a_id varchar2(20) primary key,
+    a_password varchar2(20) not null,
+    a_name varchar2(20) not null,
+    a_phone varchar2(15)
 );
+
+insert into admin (a_id, a_password, a_name, a_phone)
+values('admin', '1234', '관리자', '010-1111-2222');
+
+select * from admin;
+
+--------------------------------------------------------------------------------------------------------------
 
 --예약 테이블
 CREATE TABLE booking (
@@ -28,6 +42,14 @@ CREATE TABLE booking (
 	today DATE NOT NULL,
 	dday DATE NOT NULL
 );
+
+--예약 시퀀스
+CREATE SEQUENCE bseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
+
+--------------------------------------------------------------------------------------------------------------
 
 --공연 테이블
 CREATE TABLE total_ent (
@@ -44,48 +66,12 @@ CREATE TABLE total_ent (
 	cimg VARCHAR2(40) NOT NULL
 );
 
---후기 테이블
-CREATE TABLE review (
-	rseq NUMBER	NOT NULL primary key,
-	id	VARCHAR2(20) NULL,
-	tseq NUMBER NOT NULL,
-	regdate	DATE DEFAULT sysdate,
-	rpoint NUMBER NOT NULL,
-	rcontent VARCHAR2(100) NOT NULL
-);
-
---공지사항 테이블
-CREATE TABLE notice (
-	nseq NUMBER	NOT NULL primary key,
-	a_id VARCHAR2(20) NOT NULL,
-	title VARCHAR2(30) NOT NULL,
-	ndate DATE DEFAULT sysdate,
-	ncontent VARCHAR2(200) NOT NULL
-);
-
---예약 시퀀스
-CREATE SEQUENCE bseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;
-       
 --공연 시퀀스       
 CREATE SEQUENCE tseq
        INCREMENT BY 1
        START WITH 1
        MINVALUE 1;
        
---후기 시퀀스     
-CREATE SEQUENCE rseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;
-       
---공지사항 시퀀스       
-CREATE SEQUENCE nseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;       
 
 --콘서트 데이터
 insert into total_ent values(tseq.NEXTVAL,'1','노을 콘서트 Cafe 유월','우리집','19:00',to_date('2023-11-11','yyyy-mm-dd'),to_date('2023-11-13','yyyy-mm-dd'),8000,'s120,a130,b120','Cafe 유월','Cafe 유월_D');
@@ -112,42 +98,60 @@ insert into total_ent values(tseq.NEXTVAL,'2','행오버','우리집','19:00',to_date(
 
 
 --전시회 데이터
-insert into total_ent values(tseq.NEXTVAL, '3', '강원 세계 산림 엑스포', '강원 고성 세계잼버리수련장', '13:00', to_date('2023-09-22','yyyy-mm-dd'), to_date('2023-10-22','yyyy-mm-dd'), 8000, '오전,오후', '강원', '강원_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '루이스 웨인', '강동아트센터 아트랑 1-3층', '13:00', to_date('2023-06-13','yyyy-mm-dd'), to_date('2023-08-31','yyyy-mm-dd'), 15000, '오전,오후', '고양이', '고양이_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '데이비드와 브리티시 팝아트', 'DDP', '13:00', to_date('2023-03-23','yyyy-mm-dd'), to_date('2023-07-02','yyyy-mm-dd'), 20000, '오전,오후', '팝아트', '팝아트_D');
-insert into total_ent values(tseq.NEXTVAL, '3', 'Seoul POPCON', '서울 코엑스 C,D홀', '13:00', to_date('2023-08-25','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 28000, '오전,오후', '서울 팝콘', '서울 팝콘_D');
-insert into total_ent values(tseq.NEXTVAL, '3', 'BAR/SPRIT SHOW', '서울 코엑스 D홀', '13:00', to_date('2023-07-28','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 25000, '오전,오후', '서울바앤스피릿쇼', '서울바앤스피릿쇼_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '숭고 SUBLIME', '뮤지엄 웨이브', '13:00', to_date('2023-06-17','yyyy-mm-dd'), to_date('2023-09-17','yyyy-mm-dd'), 20000, '오전,오후', '숭고', '숭고_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '앤서니 브라운의 행복극장', '광주 민주평화교류원', '13:00', to_date('2023-05-04','yyyy-mm-dd'), to_date('2023-10-29','yyyy-mm-dd'), 15000, '오전,오후', '앤서니', '앤서니_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '앨리스 북아트전', '소전서림 북아트갤러리', '13:00', to_date('2023-04-21','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 7000, '오전,오후', '앨리스', '앨리스_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '피카소와 20세기 거장들', '마이아트뮤지엄', '13:00', to_date('2023-03-24','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 20000, '오전,오후', '피카소', '피카소_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '강원 세계 산림 엑스포', '강원 고성 세계잼버리수련장', '-', to_date('2023-09-22','yyyy-mm-dd'), to_date('2023-10-22','yyyy-mm-dd'), 8000, '-', '강원', '강원_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '루이스 웨인', '강동아트센터 아트랑 1-3층', '-', to_date('2023-06-13','yyyy-mm-dd'), to_date('2023-08-31','yyyy-mm-dd'), 15000, '-', '고양이', '고양이_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '데이비드와 브리티시 팝아트', 'DDP', '-', to_date('2023-03-23','yyyy-mm-dd'), to_date('2023-07-02','yyyy-mm-dd'), 20000, '-', '팝아트', '팝아트_D');
+insert into total_ent values(tseq.NEXTVAL, '3', 'Seoul POPCON', '서울 코엑스 C,D홀', '-', to_date('2023-08-25','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 28000, '-', '서울 팝콘', '서울 팝콘_D');
+insert into total_ent values(tseq.NEXTVAL, '3', 'BAR/SPRIT SHOW', '서울 코엑스 D홀', '-', to_date('2023-07-28','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 25000, '-', '서울바앤스피릿쇼', '서울바앤스피릿쇼_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '숭고 SUBLIME', '뮤지엄 웨이브', '-', to_date('2023-06-17','yyyy-mm-dd'), to_date('2023-09-17','yyyy-mm-dd'), 20000, '-', '숭고', '숭고_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '앤서니 브라운의 행복극장', '광주 민주평화교류원', '-', to_date('2023-05-04','yyyy-mm-dd'), to_date('2023-10-29','yyyy-mm-dd'), 15000, '-', '앤서니', '앤서니_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '앨리스 북아트전', '소전서림 북아트갤러리', '-', to_date('2023-04-21','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 7000, '-', '앨리스', '앨리스_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '피카소와 20세기 거장들', '마이아트뮤지엄', '-', to_date('2023-03-24','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 20000, '-', '피카소', '피카소_D');
+
+select * from total_ent where category=3;
 
 
---관리자 데이터 
-insert into admin(a_id, a_password, a_name, a_phone)
-values('admin', '1234', '관리자', '010-3333-4444');
+--------------------------------------------------------------------------------------------------------------
+
+--후기 테이블
+CREATE TABLE review (
+	rseq NUMBER	NOT NULL primary key,
+	id	VARCHAR2(20) NULL,
+	tseq NUMBER NOT NULL,
+	regdate	DATE DEFAULT sysdate,
+	rpoint NUMBER NOT NULL,
+	rcontent VARCHAR2(100) NOT NULL
+);
+
+--후기 시퀀스     
+CREATE SEQUENCE rseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
+
+--------------------------------------------------------------------------------------------------------------
+
+--공지사항 테이블
+CREATE TABLE notice (
+	nseq NUMBER	NOT NULL primary key,
+	a_id VARCHAR2(20) NOT NULL,
+	title VARCHAR2(30) NOT NULL,
+	ndate DATE DEFAULT sysdate,
+	ncontent VARCHAR2(200) NOT NULL
+);
+
+       
+--공지사항 시퀀스       
+CREATE SEQUENCE nseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;       
 
 
-select * from total_ent;
-select * from admin;
+
+
+
+
 
 commit;
 
-
---
---
---
---
---
---
---
---
---
---
-drop table member;
-drop table admin;
-drop table booking;
-drop table notice;
-drop table review;
-drop table total_ent;
-drop sequence tseq;
