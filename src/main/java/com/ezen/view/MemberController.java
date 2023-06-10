@@ -52,16 +52,7 @@ public class MemberController {
 	
 	//회원가입 처리
 	@RequestMapping("/signup")
-	public String signupAction(MemberVO vo, @RequestParam("birth") @DateTimeFormat(pattern = "yyyy/MM/dd") String birth) throws java.text.ParseException {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-	    try {
-	        Date birthDate = dateFormat.parse(birth);
-	        vo.setBirth(birthDate);
-	    } catch (ParseException e) {
-	        // 날짜 변환 실패 처리
-	        e.printStackTrace();
-	    }
+	public String signupAction(MemberVO vo) {
 	    
 	    memberService.insertMember(vo);
 	    

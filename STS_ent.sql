@@ -5,9 +5,11 @@ CREATE TABLE member (
 	password VARCHAR2(20) NULL,
 	name VARCHAR2(20) NULL,
 	phone VARCHAR2(15) NULL,
-	birth DATE NULL,
+	birth varchar2(12) NULL,
 	email VARCHAR2(40) NULL
 );
+insert into member values('1','1','1','1','1','1');
+
 
 --관리자 테이블
 CREATE TABLE admin (
@@ -26,6 +28,16 @@ CREATE TABLE booking (
 	id VARCHAR2(20)	NOT NULL,
 	head NUMBER	NOT NULL,
 	today DATE NOT NULL,
+	dday DATE NOT NULL
+);
+
+--주문 테이블
+CREATE TABLE orders (
+	oseq NUMBER	NOT NULL primary key,
+	tseq NUMBER	NOT NULL,
+	seat VARCHAR2(200) NOT NULL,
+	id VARCHAR2(20)	NOT NULL,
+	head NUMBER	NOT NULL,
 	dday DATE NOT NULL
 );
 
@@ -71,6 +83,12 @@ CREATE SEQUENCE bseq
        
 --공연 시퀀스       
 CREATE SEQUENCE tseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
+
+--주문 시퀀스       
+CREATE SEQUENCE oseq
        INCREMENT BY 1
        START WITH 1
        MINVALUE 1;

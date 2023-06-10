@@ -71,16 +71,10 @@ public class TheaterController {
 			
 			bookingVO.setTseq(theaterVO.getTseq());
 			
-			
-			
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date ddayformat = dateFormat.parse(dday);
 			
 			bookingVO.setDday(ddayformat);
-			
-			System.out.println(theaterVO.getTseq());
-			
-			System.out.println(ddayformat);
 			
 			List<String> seatList = bookingService.selectTheater(bookingVO);
 			
@@ -129,10 +123,8 @@ public class TheaterController {
 
 		int totalprice = theaterVO.getPrice() * selectedSeatsCount;
 		
-		
-		
 		String modifiedString = selectedSeats.replaceAll("[\\[\\]\"]", "");
-		System.out.println("selectedSeats = " + modifiedString);
+
 		model.addAttribute("selectedSeatsCount", selectedSeatsCount);
 		model.addAttribute("selectedSeats", modifiedString);
 		model.addAttribute("totalprice", totalprice);
@@ -142,27 +134,6 @@ public class TheaterController {
 		return "theater/thboarddetail";
 	}
 	
-	@RequestMapping("/bookingprocessing")
-	public String bookingprocessing(@RequestParam("tseq")int tseq,
-									@RequestParam("seat")String seat,
-									@RequestParam("id")String id,
-									@RequestParam("head")int head,
-									@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd")String dday,
-									BookingVO bookingVO) throws ParseException {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date ddayformat = dateFormat.parse(dday);
-		
-		System.out.println(seat);
-		bookingVO.setTseq(tseq);
-		bookingVO.setSeat(seat);
-		bookingVO.setId(id);
-		bookingVO.setHead(head);
-		bookingVO.setDday(ddayformat);
-		
-		bookingService.insertBooking(bookingVO);
-		
-		return "theater/thbookingsuccess";
-	}
+
 	
 }
