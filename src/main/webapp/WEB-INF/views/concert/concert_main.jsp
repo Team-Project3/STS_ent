@@ -8,17 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/concert.css" />
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="js/concert.js"></script>
 </head>
 
@@ -54,7 +49,7 @@
 					<div class="contentmain">
 				</c:if>
 
-				<a href="concertdetail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.pimg}.jpg"
+				<a href="concert_detail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.pimg}.jpg"
 					class="contentimg">
 					<div class="contentel">
 						<p class="contentp">${concert.tname}</p>

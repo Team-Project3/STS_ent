@@ -52,7 +52,7 @@
 			<li><a href="#">About</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
-			<li><a href="#">Museum</a></li>
+			<li><a href="museum_main">Museum</a></li>
 			
 			<hr style="margin-top:300px;">
 			<div class="admin">

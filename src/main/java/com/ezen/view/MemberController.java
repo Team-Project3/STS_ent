@@ -1,17 +1,11 @@
 package com.ezen.view;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.ParseException;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -39,7 +33,11 @@ public class MemberController {
 		if(result == 1) {
 			model.addAttribute("loginUser", memberService.getMember(vo.getId()));
 			return "redirect:index"; // 로그인 성공시
+		} else if(result == 0) {
+			model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
+			return "member/login_fail";
 		} else {
+			model.addAttribute("errorMessage", "계정이 존재하지 않습니다.");
 			return "member/login_fail"; // 로그인 실패시
 		}
 	}
@@ -53,7 +51,7 @@ public class MemberController {
 	//회원가입 처리
 	@RequestMapping("/signup")
 	public String signupAction(MemberVO vo) {
-	    
+
 	    memberService.insertMember(vo);
 	    
 	    return "member/login";
@@ -83,7 +81,6 @@ public class MemberController {
 		return "member/idcheck";
 			
 	}
-	
 	
 	//로그아웃 처리
 	@GetMapping("/logout")
