@@ -25,8 +25,13 @@ public class BookingDAO {
 	}
 	
 	//예약 인원수 제한 확인
-	public int checkHead(BookingVO vo) {
-		return mybatis.selectOne("BookingMapper.checkHead", vo);
+	public int checkHead(BookingVO vo)  {
+		try {
+			return mybatis.selectOne("BookingMapper.checkHead", vo);
+		} catch (NullPointerException e) {
+			return 0;
+		}
+		
 	}
 	
 }

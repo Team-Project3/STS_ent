@@ -64,6 +64,44 @@ public class MuseumController {
 
 	//전시회 예매
 	@RequestMapping("/museum_booking")
+	public String museumbooking(MuseumVO vo, Model model, HttpSession session, BookingVO bookingVo, 
+													@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+		
+		MuseumVO museum = museumService.museumDetail(vo);
+		model.addAttribute("membervo", membervo);
+		model.addAttribute("museum", museum);
+		model.addAttribute("dday", dday);
+		
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date ddayformat = sdf.parse(dday);
+		
+		System.out.println(dday);
+		System.out.println(ddayformat);
+		
+		bookingVo.setTseq(vo.getTseq());
+		bookingVo.setDday(ddayformat);
+		bookingVo.setSeat("오전");
+		
+		BookingVO bookingVo2 = new BookingVO();
+		bookingVo2.setSeat("오후");
+		bookingVo2.setTseq(vo.getTseq());
+		bookingVo2.setDday(ddayformat);
+		
+		int head =bookingService.checkHead(bookingVo);
+		int head2 =bookingService.checkHead(bookingVo2);
+
+		model.addAttribute("head",head);
+		model.addAttribute("head2",head2);
+		
+		return "museum/museum_booking";
+	}
+	
+	
+	/*
+	//전시회 예매
+	@RequestMapping("/museum_booking")
 	public String museumbooking(MuseumVO vo, Model model, 
 								HttpSession session, BookingVO bookingVo, 
 								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
@@ -92,14 +130,17 @@ public class MuseumController {
 		
 		return "museum/museum_booking";
 	}
+	*/
+	
+	
 	
 	//전시회 예매 정보확인
 	@RequestMapping("/mbooking_detail")
-	public String mbooking_detail(MuseumVO vo, Model model, HttpSession session,
-								@RequestParam("dday") String dday,
+	public String mbooking_detail(MuseumVO vo, Model model, HttpSession session, BookingVO bookingVo,
+								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday,
 								@RequestParam("seat") String seat,
-								@RequestParam("head") String head,
-								@RequestParam("totalPrice") String totalPrice) {
+								@RequestParam("head") int head,
+								@RequestParam("totalPrice") int totalPrice) {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
 		MuseumVO museum = museumService.museumDetail(vo);

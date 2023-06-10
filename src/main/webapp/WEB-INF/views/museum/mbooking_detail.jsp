@@ -18,7 +18,7 @@ function bookingdetail() {
 		아 이 디 : ${loginUser.id}<br>
 		전시회명 : ${museum.tname}<br>
 		전시날짜 : ${param.dday}<br>
-		시간정보 : ${param.seat}<br>
+		시간정보 : ${seat}<br>
 		인원정보 : ${param.head}<br>
 		총 결제금액 : ${param.totalPrice}<br><br>
 		
