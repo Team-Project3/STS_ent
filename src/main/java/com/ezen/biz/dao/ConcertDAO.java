@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ezen.biz.dto.ConcertVO;
 
-
-
-
 @Repository
 public class ConcertDAO {
 
@@ -18,12 +15,10 @@ public class ConcertDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public List<ConcertVO> concertList() {
-		
 		return mybatis.selectList("ConcertMapper.concertList");
 	}
 	
 	public ConcertVO concertDetail(ConcertVO vo) {
-		
 		return mybatis.selectOne("ConcertMapper.concertDetail",vo);
 	}
 }

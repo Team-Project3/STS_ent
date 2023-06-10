@@ -16,13 +16,11 @@ public class ConcertServiceImpl implements ConcertService {
 
 	@Override
 	public List<ConcertVO> concertList() {
-		// TODO Auto-generated method stub
 		return concertDAO.concertList();
 	}
 
 	@Override
 	public ConcertVO concertDetail(ConcertVO vo) {
-		// TODO Auto-generated method stub
 		return concertDAO.concertDetail(vo);
 	}
 
