@@ -14,13 +14,14 @@ public class OrderDAO{
 	
 	public void insertOrder(OrderVO vo) {
 		mybatis.insert("OrderMapper.insertOrder",vo);
+
 	}
 	
 	public void deleteOrder(int oseq) {
 		mybatis.delete("OrderMapper.deleteOrder",oseq);
 	}
 	
-	public OrderVO getOrder(String id) {
-		return mybatis.selectOne("OrderMapper.getOrder",id);
+	public OrderVO getOrder(int oseq) {
+		return mybatis.selectOne("OrderMapper.getOrder",oseq);
 	}
 }

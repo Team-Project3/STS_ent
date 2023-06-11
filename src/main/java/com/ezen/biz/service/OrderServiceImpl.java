@@ -25,9 +25,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderVO getOrder(String id) {
+	public OrderVO getOrder(int oseq) {
 		// TODO Auto-generated method stub
-		return orderDAO.getOrder(id);
+		return orderDAO.getOrder(oseq);
 	}
 
 }

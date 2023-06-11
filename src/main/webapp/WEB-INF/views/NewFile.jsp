@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script>
 	
-	var submit = document.getElementById("submit");
+
 	var IMP = window.IMP;
 	IMP.init("imp53212873"); /// 예: imp00000000	
 
@@ -18,7 +18,7 @@
       IMP.request_pay({ // param
           pg: "kakaopay",
           pay_method: "card",
-          merchant_uid: "32332",
+          merchant_uid: "33333212",
           name: "김태욱",
           amount: 32322,
           buyer_email: "gildong@gmail.com",
@@ -27,11 +27,12 @@
           buyer_addr: "서울특별시 강남구 신사동",
           buyer_postcode: "01181"
       }, function (rsp) { // callback
+    	  console.log(rsp);
           if (rsp.success) {
+        		var submit = document.getElementById("submit");
         	  submit.submit();
           } else {
         	  alert("실패 :코드("+rsp.error_code+") / message(" +rsp.error_msg+")");
-        	  location.href='bookingfail?oseq='+${oseq};
           }
       });
     }
@@ -39,7 +40,7 @@
 </head>
 <body>
 <form action="index" id="submit" method="get"></form>
-<button onclick="kakaoPay()"><img alt="" src="img/booking/kakaopay.png"></button>
+<button onclick="kakaoPay()"></button>
 
 </body>
 </html>
