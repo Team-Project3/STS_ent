@@ -8,38 +8,35 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	
-
 
     function kakaoPay() {	
-    	
-    	var submit = document.getElementById("submit");
     	var IMP = window.IMP;
     	IMP.init("imp53212873"); /// 예: imp00000000	
       // IMP.request_pay(param, callback) 결제창 호출
       IMP.request_pay({ // param
-          pg: "TC0ONETIME",
+          pg: "kakaopay",
           pay_method: "card",
-          merchant_uid: "rerer333",
-          name: "김태욱",
-          amount: 32322,
-          buyer_email: "gildong@gmail.com",
-          buyer_name: "홍길동",
-          buyer_tel: "01042424242",
-          buyer_addr: "서울특별시 강남구 신사동",
-          buyer_postcode: "01181"
+          merchant_uid: "${orderVO.oseq}",
+          name: "${totalVO.tname}"+" "+"${orderVO.head}"+"명",
+          amount: ${totalVO.price}*${orderVO.head}
       }, function (rsp) { // callback
           if (rsp.success) {
-        	  submit.submit();
+        	  var form = document.getElementById("submit");
+        	  var input = document.createElement("input");
+              input.setAttribute("type", "hidden");
+              input.setAttribute("name", "oseq"); // Set the name for the input field
+              input.setAttribute("value", "${orderVO.oseq}"); // Set the value for the input field
+              form.appendChild(input);
+        	  form.submit();
           } else {
-        	  
+        	  alert("실패 :코드("+rsp.error_code+") / message(" +rsp.error_msg+")");
           }
       });
     }
   </script>
 </head>
 <body>
-<form action="index" id="submit" method="get"></form>
+<form action="index" id="submit" method="get"></form><!-- form 태그 여기다가 둔 이유 : 밑에다가 두면 무조건 rsp가 success로 인식하고 다음페이지로 보냄 -->
 <button onclick="kakaoPay()"><img alt="" src="img/booking/kakaopay.png"></button>
 
 </body>

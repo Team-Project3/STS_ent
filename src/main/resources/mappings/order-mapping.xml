@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="OrderMapper" >
+<mapper namespace="OrderMapper">
 	<insert id="insertOrder">
-	insert into orders values
-	 (oseq.NEXTVAL,#{tseq},#{seat},#{id},#{head},#{dday})
+		<selectKey keyProperty="oseq" resultType="int" order="AFTER">
+			select oseq.NEXTVAL FROM dual 
+		</selectKey>
+		insert into orders values
+		(oseq.NEXTVAL,#{tseq},#{seat},#{id},#{head},#{dday})
 	</insert>
 	<delete id="deleteOrder">
-	delete from orders where id= #{id}
+		delete from orders where oseq= #{oseq}
 	</delete>
 	<select id="getOrder" resultType="Order">
-	select * from orders where id = #{id}
+		select * from orders where oseq = #{oseq}
 	</select>
 </mapper>

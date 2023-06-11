@@ -8,5 +8,5 @@ public interface OrderService {
 
 	void deleteOrder(int oseq);
 
-	OrderVO getOrder(String id);
+	OrderVO getOrder(int oseq);
 }

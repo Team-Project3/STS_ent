@@ -17,6 +17,7 @@ public class BookingDAO {
 	//예약 데이터 insert
 	public void insertBooking(BookingVO vo) {
 		mybatis.insert("BookingMapper.insertBooking",vo);
+		
 	}
 	
 	//예약 데이터 seat

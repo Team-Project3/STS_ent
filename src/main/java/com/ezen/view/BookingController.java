@@ -47,7 +47,11 @@ public class BookingController {
 		
 		orderService.insertOrder(orderVO);
 		
-		OrderVO orderVO2 = orderService.getOrder(id);
+		
+		
+		System.out.println(orderVO.getOseq());
+		
+		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq()-1);
 		
 		model.addAttribute("orderVO",orderVO2);
 		
