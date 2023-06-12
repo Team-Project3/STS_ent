@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpSession;
 
@@ -51,11 +53,28 @@ public class MuseumController {
 		
 		String formattedSDate = sdf.format(museum.getSdate());
 		String formattedEDate = sdf.format(museum.getEdate());
+		
+		Pattern pattern = Pattern.compile("\\d+");
+	    Matcher matcher = pattern.matcher(museum.getSeat());
 
+	    int am = 0;
+	    int pm = 0;
+
+	    // Find the first number and assign it to x
+	    if (matcher.find()) {
+	    	am = Integer.parseInt(matcher.group());
+	    }
+
+	        // Find the second number and assign it to y
+	    if (matcher.find()) {
+	    	pm = Integer.parseInt(matcher.group());
+	    }
 		
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("formattedSDate",formattedSDate);
 		model.addAttribute("formattedEDate",formattedEDate);
+		model.addAttribute("am",am);
+		model.addAttribute("pm",pm);
 		model.addAttribute("museum", museum);
 
 		return "museum/museum_detail";
@@ -91,47 +110,30 @@ public class MuseumController {
 		
 		int head =bookingService.checkHead(bookingVo);
 		int head2 =bookingService.checkHead(bookingVo2);
+		
+		Pattern pattern = Pattern.compile("\\d+");
+	    Matcher matcher = pattern.matcher(museum.getSeat());
 
+	    int am = 0;
+	    int pm = 0;
+
+	    // Find the first number and assign it to x
+	    if (matcher.find()) {
+	    	am = Integer.parseInt(matcher.group());
+	    }
+
+	        // Find the second number and assign it to y
+	    if (matcher.find()) {
+	    	pm = Integer.parseInt(matcher.group());
+	    }
+		
+	    model.addAttribute("am",am);
+		model.addAttribute("pm",pm);
 		model.addAttribute("head",head);
 		model.addAttribute("head2",head2);
 		
 		return "museum/museum_booking";
 	}
-	
-	
-	/*
-	//전시회 예매
-	@RequestMapping("/museum_booking")
-	public String museumbooking(MuseumVO vo, Model model, 
-								HttpSession session, BookingVO bookingVo, 
-								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-		
-		MuseumVO museum = museumService.museumDetail(vo);
-			
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("museum", museum);
-		model.addAttribute("dday", dday);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date ddayformat = sdf.parse(dday);
-		
-		
-		
-		bookingVo.setSeat("오전");
-		bookingVo.setTseq(vo.getTseq());
-		bookingVo.setDday(ddayformat);
-		int head1 = bookingService.checkHead(bookingVo);
-		System.out.println(bookingVo);
-		System.out.println(dday);
-		System.out.println(ddayformat);
-		System.out.println(head1);
-		
-		
-		return "museum/museum_booking";
-	}
-	*/
-	
 	
 	
 	//전시회 예매 정보확인

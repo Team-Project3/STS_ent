@@ -48,6 +48,7 @@ function museum_booking() {
 					<dt>관람시간</dt><dd>&nbsp;--</dd>
 					<dt>출연</dt><dd>&nbsp;--</dd>
 					<dt>가격</dt><dd>&nbsp;${museum.price}</dd>
+					<dt>최대관객</dt><dd>&nbsp;오전: ${am} 명 , 오후: ${pm} 명</dd>
 				</dl> 
 			</div>
 		</div>

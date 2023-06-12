@@ -7,13 +7,13 @@
 </head>
 <script type="text/javascript">
 function bookingdetail() {
-	var mbooking_success = document.getElementById("mbooking_success");
-	mbooking_success.submit();
+	var BookingMain = document.getElementById("BookingMain");
+	BookingMain.submit();
 }
 
 </script>
 <body>
-	<form action="mbooking_success" id="mbooking_success" method="post">
+	<form action="BookingMain" id="BookingMain" method="post">
 		쨔잔<br><br>
 		아 이 디 : ${loginUser.id}<br>
 		전시회명 : ${museum.tname}<br>

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpSession;
 
@@ -38,7 +40,7 @@ public class TheaterController {
 
 		model.addAttribute("theaterList", theaterList);
 
-		return "theater/theater";
+		return "theater/theater_main";
 	}
 
 	@RequestMapping(value = "/thdetail", method = RequestMethod.GET)
@@ -54,12 +56,32 @@ public class TheaterController {
 			String formattedSDate = sdf.format(theater.getSdate());
 			String formattedEDate = sdf.format(theater.getEdate());
 			
+			// Define the regular expression pattern
+	        Pattern pattern = Pattern.compile("\\d+");
+	        Matcher matcher = pattern.matcher(theater.getSeat());
+
+	        int width = 0;
+	        int height = 0;
+
+	        // Find the first number and assign it to x
+	        if (matcher.find()) {
+	        	width = Integer.parseInt(matcher.group());
+	        }
+
+	        // Find the second number and assign it to y
+	        if (matcher.find()) {
+	        	height = Integer.parseInt(matcher.group());
+	        }
+			
+	        int seat = width*height;
+	        
 			model.addAttribute("membervo", membervo);
 			model.addAttribute("formattedSDate", formattedSDate);
 			model.addAttribute("formattedEDate", formattedEDate);
 			model.addAttribute("theater", theater);
+			model.addAttribute("seat", seat);
 			
-			return "theater/thdetail";
+			return "theater/theater_detail";
 		
 	}
 
@@ -94,11 +116,30 @@ public class TheaterController {
 				
 			}
 			
+			// Define the regular expression pattern
+	        Pattern pattern = Pattern.compile("\\d+");
+	        Matcher matcher = pattern.matcher(theater.getSeat());
+
+	        int width = 0;
+	        int height = 0;
+
+	        // Find the first number and assign it to x
+	        if (matcher.find()) {
+	        	width = Integer.parseInt(matcher.group());
+	        }
+
+	        // Find the second number and assign it to y
+	        if (matcher.find()) {
+	        	height = Integer.parseInt(matcher.group());
+	        }
+		
 			model.addAttribute("seatlist1",seatlist1);
 			model.addAttribute("theater", theater);
 			model.addAttribute("dday",dday);
+			model.addAttribute("width",width);
+			model.addAttribute("height",height);
 			
-			return "theater/thboard";
+			return "theater/theater_booking";
 
 
 	}
@@ -131,9 +172,6 @@ public class TheaterController {
 		model.addAttribute("theaterVO", theaterVO);
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("dday", dday);
-		return "theater/thboarddetail";
+		return "theater/thbooking_detail";
 	}
-	
-
-	
 }

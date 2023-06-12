@@ -34,15 +34,18 @@
 		<div class="screen"></div>
 
 		<%
-			for (int i = 1; i <= 10; i++) {
+			int width = (int)request.getAttribute("width");
+			int height = (int)request.getAttribute("height");
+		
+			for (int i = 1; i <= height; i++) {//영화관 좌석 줄 수(세로)
 		%>
 		<div class="row">
 			<%
 			List<String> seatlist1 = (List<String>) request.getAttribute("seatlist1");
 			
-				for (int j = 1; j <= 7; j++) {
+				for (int j = 1; j <= width; j++) {//줄당 좌석 수(가로)
 					
-					String[] a = {"0","A","B","C","D","E","F","G","H","I","J"};
+					String[] a = {"0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
 			        String str2 = Integer.toString(j);
 			        String str3 = a[i] + str2;
 			        

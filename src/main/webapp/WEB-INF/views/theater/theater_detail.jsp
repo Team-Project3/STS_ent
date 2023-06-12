@@ -92,7 +92,7 @@ function validateDate(input) {
 	</tr>
 	<tr>
 		<td>총 좌석</td>
-		<td>${theater.seat}</td>
+		<td>${seat}</td>
 	</tr>
 </table>
 <input type="hidden" value="${membervo.id}" id="id">
