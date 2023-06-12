@@ -41,7 +41,7 @@
 				</c:when>
 				<c:otherwise>
 					<div class="frame__menu" style="text-align: center;">
-						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;&emsp;
+						<a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;&emsp;
 						<a href="logout">LOGOUT</a>
 					</div>
 				</c:otherwise>

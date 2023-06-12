@@ -100,41 +100,6 @@ public class MuseumController {
 	}
 	
 	
-	/*
-	//전시회 예매
-	@RequestMapping("/museum_booking")
-	public String museumbooking(MuseumVO vo, Model model, 
-								HttpSession session, BookingVO bookingVo, 
-								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-		
-		MuseumVO museum = museumService.museumDetail(vo);
-			
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("museum", museum);
-		model.addAttribute("dday", dday);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date ddayformat = sdf.parse(dday);
-		
-		
-		
-		bookingVo.setSeat("오전");
-		bookingVo.setTseq(vo.getTseq());
-		bookingVo.setDday(ddayformat);
-		int head1 = bookingService.checkHead(bookingVo);
-		System.out.println(bookingVo);
-		System.out.println(dday);
-		System.out.println(ddayformat);
-		System.out.println(head1);
-		
-		
-		return "museum/museum_booking";
-	}
-	*/
-	
-	
-	
 	//전시회 예매 정보확인
 	@RequestMapping("/mbooking_detail")
 	public String mbooking_detail(MuseumVO vo, Model model, HttpSession session, BookingVO bookingVo,

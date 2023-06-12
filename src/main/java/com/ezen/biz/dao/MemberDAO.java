@@ -46,4 +46,24 @@ public class MemberDAO {
 	public void insertMember(MemberVO vo) {
 		mybatis.insert("MemberMapper.insertMember", vo);
 	}
+	
+	//회원 정보 수정
+	public void updateMember(MemberVO vo) {
+		mybatis.update("MemberMapper.updateMember", vo);
+	}
+	
+	// 이름과 이메일로 아이디 찾기
+	public String selectIdByNameEmail(MemberVO vo) {
+		return mybatis.selectOne("MemberMapper.selectIdByNameEmail", vo);
+	}
+
+	// 아이디, 이름, 이메일로 비밀번호 찾기 
+	public String selectPwdByIdNameEmail(MemberVO vo) {
+		return mybatis.selectOne("MemberMapper.selectPwdByIdNameEmail", vo);
+	}
+		
+	//비밀번호 변경
+	public void changePwd(MemberVO vo) {
+		mybatis.update("MemberMapper.changePwd", vo);
+	}
 }

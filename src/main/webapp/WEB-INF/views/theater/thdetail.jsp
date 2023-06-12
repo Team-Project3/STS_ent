@@ -1,36 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 1px solid #444444;
-	margin-left: 700px;
-	width: 1000px;
-	height: 500px;
-	margin-top: -500px;
-	
-}
+<link rel="stylesheet" type="text/css" href="css/theater.css" />
+<!-- 추가2줄 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-tr, td {
-	border: 1px solid #444444;
-}
-
-.img {
-	margin-left: 200px;
-	margin-top: 100px;
-}
-.img_d{
-	margin-left: 600px;
-	
-}
-.booking{
-	margin-left: 1500px;
-}
-</style>
 <script type="text/javascript">
 function board() {
 	var tseq = ${theater.tseq};
@@ -55,54 +35,89 @@ function validateDate(input) {
 	    alert("Please select a date.");
 	  }
 	}
+
+$(document).ready(function(){
+	$('body').removeClass('jsOff');
+	$('body').addClass('jsOn');
+	$('#tabs a').on ('click', function(e){
+	$('#tabs a.current').removeClass('current');
+	$('.tab-section:visible').hide();
+	$(this.hash).show();
+	$(this).addClass('current');
+	e.preventDefault;
+	}).filter(':first').click();
+});
+
 </script>
 </head>
 <body>
-<div class="img">
-<img alt="" src="img/theater/${theater.pimg}.jpg">
-</div>
-<table>
-	<tr>
-		<td></td>
-		<td>공연정보</td>
-	</tr>
-	<tr>
-		<td>연극명</td>
-		<td>${theater.tname}</td>
-	</tr>
-	<tr>
-		<td>장소</td>
-		<td>${theater.place}</td>
-	</tr>
-	<tr>
-		<td>시간</td>
-		<td>${theater.time}</td>
-	</tr>
-	<tr>
-		<td>시작날짜</td>
-		<td>${formattedSDate}</td>
-	</tr>
-	<tr>
-		<td>종료날짜</td>
-		<td>${formattedEDate}</td>
-	</tr>
-	<tr>
-		<td>가격</td>
-		<td>${theater.price}</td>
-	</tr>
-	<tr>
-		<td>총 좌석</td>
-		<td>${theater.seat}</td>
-	</tr>
-</table>
-<input type="hidden" value="${membervo.id}" id="id">
-<div class="booking">
-<input type="date" id="dday" min="${formattedSDate}" max="${formattedEDate}" 
-	value="Please select a date" onfocus="this.value=''" onchange="validateDate(this)" name="dday">
-<button onclick="board()">예약</button>
-</div>
-<div class="img_d">
-<img alt="" src="img/theater/${theater.cimg}.jpg">
-</div>
+	<div class="img">
+		<img alt="" src="img/theater/${theater.pimg}.jpg">
+	</div>
+	
+	<table>
+		<tr>
+			<td colspan="2">공연정보</td>
+		</tr>
+		<tr>
+			<td>연극명</td>
+			<td>${theater.tname}</td>
+		</tr>
+		<tr>
+			<td>장소</td>
+			<td>${theater.place}</td>
+		</tr>
+		<tr>
+			<td>시간</td>
+			<td>${theater.time}</td>
+		</tr>
+		<tr>
+			<td>시작날짜</td>
+			<td>${formattedSDate}</td>
+		</tr>
+		<tr>
+			<td>종료날짜</td>
+			<td>${formattedEDate}</td>
+		</tr>
+		<tr>
+			<td>가격</td>
+			<td>${theater.price}</td>
+		</tr>
+		<tr>
+			<td>총 좌석</td>
+			<td>${theater.seat}</td>
+		</tr>
+	</table>
+	
+	<input type="hidden" value="${membervo.id}" id="id">
+	<div class="booking">
+		<input type="date" id="dday" min="${formattedSDate}" max="${formattedEDate}" 
+			value="Please select a date" onfocus="this.value=''" onchange="validateDate(this)" name="dday">
+		<button onclick="board()">예약</button>
+	</div>
+	<br><br>
+	
+	<ul id="tabs">
+		<li><a href="#cimg">공연정보</a></li>
+		<li><a href="#review" onClick="reviewList()">후기</a></li>
+	</ul>
+	
+	<div class="tab-section" id="cimg">
+		<img id="cimg" src="img/theater/${theater.cimg}.jpg">
+	</div>
+		
+	<div class="tab-section" id="review">
+		후기글<br>
+		<%@ include file="../member/review.jsp" %>
+	</div>
+	
+	
+	
+	
+	
+	<div class="footer">
+		<%@ include file="../footer.jsp"%>
+	</div>
+	
 </body>
 </html>

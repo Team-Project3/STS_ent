@@ -20,6 +20,28 @@
 		values (#{id}, #{password}, #{name}, #{phone}, #{birth}, #{email}) 
 	</insert>
 	
+	<!-- 회원 정보 수정 -->
+	<update id="updateMember" parameterType="Member">
+		update member set id=#{id}, name=#{name}, phone=#{phone}, email=#{email}
+		where id=#{id}
+	</update>
+	
+	<!-- 이름과 이메일로 아이디 찾기  -->
+	<select id="selectIdByNameEmail" resultType="String">
+		SELECT id FROM member WHERE name=#{name} AND email=#{email}
+	</select>
+
+	<!-- 아이디, 이름, 이메일로 비밀번호 찾기  -->
+	<select id="selectPwdByIdNameEmail" resultType="String">
+		SELECT password FROM member WHERE id=#{id} AND name=#{name} AND email=#{email}
+	</select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePwd">
+		UPDATE member SET password=#{password} 
+		WHERE id=#{id}
+	</update>
+	
 	
 
 </mapper>
