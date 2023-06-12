@@ -16,7 +16,7 @@ function calculateTotal() {
 
     // 예약 시간이 오전인 경우
     if (selectedSeat === "오전") {
-        var availableSeats = 10 - currentReservation; // 오전 예약 가능한 자리 수 계산
+        var availableSeats = 20 - currentReservation; // 오전 예약 가능한 자리 수 계산
         if (availableSeats < 0) {
             availableSeats = 0; // 음수 값이면 0으로 설정
         }
@@ -30,7 +30,7 @@ function calculateTotal() {
     }
     // 예약 시간이 오후인 경우
     else if (selectedSeat === "오후") {
-        var availableSeats = 10 - parseInt("${head2}"); // 오후 예약 가능한 자리 수 계산
+        var availableSeats = 20 - parseInt("${head2}"); // 오후 예약 가능한 자리 수 계산
         if (availableSeats < 0) {
             availableSeats = 0; // 음수 값이면 0으로 설정
         }
@@ -63,7 +63,7 @@ function calculateTotal() {
 					<option value="오후">오후</option>
 				</select>
 		<br>
-		인원 수 : <input type="number" id="head" min="1" max="20" value="1" oninput="calculateTotal()" name="head">매<br>
+		인원 수 : <input type="number" id="head" min="1" max="21" value="1" oninput="calculateTotal()" name="head">매<br>
 	
 		결제금액 : <span id="totalPrice">${museum.price}</span>원<br>
 		
@@ -95,7 +95,7 @@ function calculateTotal() {
 		    if (seat === "오전") {
 		        var morningReservation = ${head};
 		        // 오전 예약인원(morningReservation)이 5명 이상이면 예약할 수 없음
-		        if (morningReservation >= 10) {
+		        if (morningReservation >= 20) {
 		            alert("오전 예약 가능한 인원을 초과하였습니다.");
 		            return false; // 함수 종료
 		        }
@@ -104,7 +104,7 @@ function calculateTotal() {
 		    else if (seat === "오후") {
 		        var afternoonReservation = ${head2};
 		        // 오후 예약인원(afternoonReservation)이 5명 이상이면 예약할 수 없음
-		        if (afternoonReservation >= 10) {
+		        if (afternoonReservation >= 20) {
 		            alert("오후 예약 가능한 인원을 초과하였습니다.");
 		            return false; // 함수 종료
 		        }
@@ -112,7 +112,6 @@ function calculateTotal() {
 
 		    totalPriceInput.value = totalPrice;
 		    headInput.value = head;
-
 
 		    form.submit();
 		}

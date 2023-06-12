@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-마이페이지 
-<button type="button" onclick="location.href='index'">메인화면</button>
+	<input type="hidden" value="${membervo.id}" id="id">
+	마이페이지
+	
+	<button type="button" onclick="location.href='index'">메인화면</button>
 </body>
 </html>

@@ -37,7 +37,7 @@
 				</c:when>
 				<c:otherwise>
 					<div class="frame__menu" style="text-align: center;">
-						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
+						<a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
 						<a href="logout">LOGOUT</a>
 					</div>
 				</c:otherwise>
@@ -45,6 +45,7 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
+			<li><a href="#">Notice</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
 			<li><a href="museum_main">Museum</a></li>
@@ -91,7 +92,7 @@
 			</span><br /> <span class="menu__item"> <span class="menu__item-tag">전시</span>
 				<a class="menu__item-link" href="museum_main">Museum</a>
 			</span> <span class="menu__item"> <span class="menu__item-tag">내정보</span>
-				<a class="menu__item-link" href="">My Page</a>
+				<a class="menu__item-link" href="mypage">My Page</a>
 			</span>
 		</nav>
 	</div>

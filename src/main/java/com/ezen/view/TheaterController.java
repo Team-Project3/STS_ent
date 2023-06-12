@@ -58,6 +58,7 @@ public class TheaterController {
 			model.addAttribute("formattedSDate", formattedSDate);
 			model.addAttribute("formattedEDate", formattedEDate);
 			model.addAttribute("theater", theater);
+			model.addAttribute("total_ent", theater);
 			
 			return "theater/thdetail";
 		

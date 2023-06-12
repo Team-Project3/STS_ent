@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/museum_detail.css" />
+<!-- 추가2줄 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
 <script type="text/javascript">
 function museum_booking() {
 	var tseq = ${museum.tseq};
@@ -23,8 +27,19 @@ function museum_booking() {
 		window.open(url, "_blank_",
 		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700")
 	}
-	
 }
+
+$(document).ready(function(){
+	$('body').removeClass('jsOff');
+	$('body').addClass('jsOn');
+	$('#tabs a').on ('click', function(e){
+	$('#tabs a.current').removeClass('current');
+	$('.tab-section:visible').hide();
+	$(this.hash).show();
+	$(this).addClass('current');
+	e.preventDefault;
+	}).filter(':first').click();
+});
 
 </script>
 </head>
@@ -51,19 +66,30 @@ function museum_booking() {
 				</dl> 
 			</div>
 		</div>
-		<hr>
-		
 		
 		<div class="selection">
 			<label for="date">날짜 선택&nbsp;:&nbsp;</label>
 				<input type="date" id="dday" min="${formattedSDate}" max="${formattedEDate}" name="dday">
 			<button onclick="museum_booking()">예약</button>
 		</div>
+		
+		<br><br>
+			
+		<ul id="tabs">
+			<li><a href="#cimg">공연정보</a></li>
+			<li><a href="#review" onClick="reviewList()">후기</a></li>
+		</ul>
 	
-		<div class="content">
+		<div class="tab-section" id="cimg">
 			<img id="cimg" src="img/museum/${museum.cimg}.jpg">
 		</div>
+		
+		<div class="tab-section" id="review">
+			후기글<br>
+			<%@ include file="../member/review.jsp" %>
+		</div>
 	
+		
 	
 	</div>
 	

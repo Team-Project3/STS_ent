@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/concert_detail.css" />
 </head>
 <script type="text/javascript">
 function calculateTotal() {
@@ -68,9 +69,11 @@ function calculateTotal() {
 		<input type="hidden" name="tseq" value="${concert.tseq }">
 		콘서트명 : ${concert.tname }<br>
 		
-		공연시간 : ${concert.time }<br>
+		공연 날짜 : ${dday }<br>
 		
-		<img id="img" src="img/concert/좌석배치도.png">
+		공연 시간 : ${concert.time }<br>
+		
+		<img id="seatimg" src="img/concert/좌석배치도.png">
 		<br>
 		<label for="seat">구역 선택&nbsp;&nbsp;</label>
 			<select id="seat" name="seat">

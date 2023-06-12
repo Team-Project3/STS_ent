@@ -5,6 +5,7 @@
 	<select id="museumList" resultType="Museum">
 		SELECT * FROM total_ent WHERE category = '3'
 	</select>
+	
 	<select id="museumDetail" resultType="Museum">
 		SELECT * FROM total_ent WHERE tseq = #{tseq}
 	</select>

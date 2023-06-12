@@ -1,5 +1,7 @@
 package com.ezen.view;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,14 +86,19 @@ public class MemberController {
 	
 	//로그아웃 처리
 	@GetMapping("/logout")
-	public String logout(SessionStatus status ) {
+	public String logout(SessionStatus status) {
 		
 		status.setComplete();
 		return "index";
 	}
 	
 	@GetMapping("/mypage")
-	public String mypage() {
+	public String mypage(MemberVO vo, Model model, HttpSession session) {
+		
+		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		
+		
+		model.addAttribute("membervo", membervo);
 		
 		return "member/mypage";
 	}

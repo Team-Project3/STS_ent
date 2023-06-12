@@ -56,6 +56,7 @@ public class ConcertController {
 		
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("concert", concert);
+		model.addAttribute("total_ent", concert);
 		model.addAttribute("formattedSDate", formattedSDate);
 		model.addAttribute("formattedEDate", formattedEDate);
 		
