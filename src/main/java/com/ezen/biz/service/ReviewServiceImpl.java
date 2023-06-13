@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.biz.dao.ReviewDAO;
 import com.ezen.biz.dto.ReviewVO;
+import com.ezen.biz.dto.totalbookVO;
+import com.ezen.biz.dto.totalentVO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -25,8 +27,10 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override	//회원별 후기 리스트
-	public List<ReviewVO> reviewMember(ReviewVO vo) {
+	public List<totalentVO> reviewMember(ReviewVO vo) {
 		return reviewDao.reviewMember(vo);
 	}
+
+	
 
 }

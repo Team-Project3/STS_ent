@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.ReviewVO;
+import com.ezen.biz.dto.totalbookVO;
+import com.ezen.biz.dto.totalentVO;
+import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.ReviewService;
 
@@ -27,6 +32,8 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private ReviewService reviewService;
+	@Autowired
+	private BookingService bookingService;
 	
 	//로그인 화면
 	@GetMapping("/login_form")
@@ -147,10 +154,19 @@ public class MemberController {
 	
 	//my page
 	@RequestMapping("/mypage")
-	public String mypage(MemberVO vo, Model model, HttpSession session) {
+	public String mypage(MemberVO vo, Model model, HttpSession session, ReviewVO reviewvo, BookingVO bookingvo) {
 		
-		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");	
 		
+		reviewvo.setId(membervo.getId());
+		bookingvo.setId(membervo.getId());
+		
+		List<totalentVO> list = reviewService.reviewMember(reviewvo);
+		
+		List<totalbookVO> bookinglist = bookingService.bookingMember(bookingvo);
+		
+		model.addAttribute("reviewmemberlist", list);
+		model.addAttribute("bookingmemberlist", bookinglist);
 		model.addAttribute("membervo", membervo);
 		
 		return "member/mypage";
@@ -180,32 +196,24 @@ public class MemberController {
 	}
 	
 	@PostMapping("/deleteUser")
-	public String deleteUser(@RequestParam("password") String password, HttpSession session) {
-	  MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+	@ResponseBody
+	public String deleteUser(@RequestParam("password") String password, MemberVO vo, HttpSession session) {
+	    MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 
-	  // 비밀번호 확인
-	  if (!membervo.getPassword().equals(password)) {
-	    return "redirect:/mypage?error=wrongpassword";
+	    // 비밀번호 확인
+	    if (!membervo.getPassword().equals(password)) {
+	      return "wrongpassword";
+	    }
+
+	    // 회원 탈퇴 처리
+	    memberService.deleteMember(membervo.getId());
+
+	    // 세션 정보 삭제
+	    session.invalidate();
+
+	    return "success";
 	  }
-
-	  // 회원 탈퇴 처리
-	  memberService.deleteMember(membervo);
-
-	  // 세션 정보 삭제
-	  session.invalidate();
-
-	  // 탈퇴 완료 메시지 출력 및 로그인 페이지로 이동
-	  return "redirect:/login_form?message=delete";
-	}
 	
-	@RequestMapping("/reviewMember")
-	public String reviewMemberlist(ReviewVO reviewvo, Model model) {
-		List<ReviewVO> list = reviewService.reviewMember(reviewvo);
-		
-		model.addAttribute("reviewmemberlist", list);
-		
-		return "member/mypage";
-	}
 	
 	
 }

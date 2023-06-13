@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="css/mypage.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<%
+	// 세션 체크
+	if (session == null || session.getAttribute("loginUser") == null) {
+		out.println("<script>alert('로그인 후에 이용해주세요.'); location.href='login_form';</script>");
+	}
+%>
 <script type="text/javascript">
 function submitForm() {
 	if (document.getElementById("id").value == "") {
@@ -64,11 +70,13 @@ function submitForm() {
 						</tr>
 					</table>
 			 	
-			 		<input class="listbtn_wr" type="button" value="수정" onClick="submitForm()">     
+			 		<input class="listbtn_wr" type="button" value="수정" onClick="submitForm()">
+			 		     
 				</div>
 			</div>
 		</div>
 	</form>
+	
 </div>	
 	
 <div class="footer">

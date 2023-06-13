@@ -12,6 +12,8 @@
 		<typeAlias type="com.ezen.biz.dto.BookingVO" alias="Booking"/>
 		<typeAlias type="com.ezen.biz.dto.OrderVO" alias="Order"/>
 		<typeAlias type="com.ezen.biz.dto.ReviewVO" alias="Review"/>
+		<typeAlias type="com.ezen.biz.dto.totalentVO" alias="totalent"/>
+		<typeAlias type="com.ezen.biz.dto.totalbookVO" alias="totalbook"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->

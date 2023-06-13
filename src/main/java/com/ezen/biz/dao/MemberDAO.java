@@ -53,8 +53,8 @@ public class MemberDAO {
 	}
 	
 	//회원 탈퇴
-	public void deleteMember(MemberVO vo) {
-		mybatis.delete("MemberMapper.deleteMember", vo);
+	public void deleteMember(String id) {
+		mybatis.delete("MemberMapper.deleteMember", id);
 	}
 	
 	// 이름과 이메일로 아이디 찾기
