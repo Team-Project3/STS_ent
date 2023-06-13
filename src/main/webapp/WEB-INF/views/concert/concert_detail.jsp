@@ -48,6 +48,7 @@ function concert_booking() {
 					<dt>관람시간</dt><dd>&nbsp;--</dd>
 					<dt>출연</dt><dd>&nbsp;--</dd>
 					<dt>가격</dt><dd>&nbsp;${concert.price}</dd>
+					<dt>좌석</dt><dd>&nbsp;${concert.seat}</dd>
 				</dl>
 			</div>
 		</div>

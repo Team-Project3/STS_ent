@@ -100,7 +100,7 @@ public class ConcertController {
 		model.addAttribute("concert", concert);
 		model.addAttribute("dday", dday);
 		
-		model.addAttribute("head",head);
+		model.addAttribute("head1",head);
 		model.addAttribute("head2",head2);
 		model.addAttribute("head3",head3);
 		

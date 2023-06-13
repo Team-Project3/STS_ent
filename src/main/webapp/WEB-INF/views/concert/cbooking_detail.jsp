@@ -10,7 +10,6 @@ function bookingdetail() {
 	var cbooking_success = document.getElementById("cbooking_success");
 	cbooking_success.submit();
 }
-
 </script>
 <body>
 	<form action="cbooking_success" id="cbooking_success" method="post">
