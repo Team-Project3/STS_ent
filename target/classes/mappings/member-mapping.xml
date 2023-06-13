@@ -19,7 +19,4 @@
 		insert into member(id, password, name, phone, birth, email)
 		values (#{id}, #{password}, #{name}, #{phone}, #{birth}, #{email}) 
 	</insert>
-	
-	
-
 </mapper>

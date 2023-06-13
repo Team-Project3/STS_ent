@@ -69,9 +69,7 @@ public class ConcertController {
 		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
 	
 		ConcertVO concert = concertService.concertDetail(vo);
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("concert", concert);
-		model.addAttribute("dday", dday);
+		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date ddayformat = sdf.parse(dday);
@@ -96,6 +94,11 @@ public class ConcertController {
 		int head = bookingService.checkHead(bookingvo);
 		int head2 = bookingService.checkHead(bookingvo2);
 		int head3 = bookingService.checkHead(bookingvo3);
+		
+		
+		model.addAttribute("membervo", membervo);
+		model.addAttribute("concert", concert);
+		model.addAttribute("dday", dday);
 		
 		model.addAttribute("head",head);
 		model.addAttribute("head2",head2);
