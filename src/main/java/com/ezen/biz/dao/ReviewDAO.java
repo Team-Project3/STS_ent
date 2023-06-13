@@ -24,5 +24,9 @@ public class ReviewDAO {
 		return mybatis.selectList("ReviewMapper.reviewList", tseq);
 	}
 	
+	//회원별 후기 리스트
+	public List<ReviewVO> reviewMember(ReviewVO vo) {
+		return mybatis.selectList("ReviewMapper.reviewMember", vo);
+	}
 
 }

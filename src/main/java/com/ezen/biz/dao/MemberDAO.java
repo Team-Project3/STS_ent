@@ -52,6 +52,11 @@ public class MemberDAO {
 		mybatis.update("MemberMapper.updateMember", vo);
 	}
 	
+	//회원 탈퇴
+	public void deleteMember(MemberVO vo) {
+		mybatis.delete("MemberMapper.deleteMember", vo);
+	}
+	
 	// 이름과 이메일로 아이디 찾기
 	public String selectIdByNameEmail(MemberVO vo) {
 		return mybatis.selectOne("MemberMapper.selectIdByNameEmail", vo);

@@ -1,12 +1,13 @@
 package com.ezen.view;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.ezen.biz.dto.MemberVO;
+import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.service.MemberService;
+import com.ezen.biz.service.ReviewService;
 
 @Controller
 @SessionAttributes("loginUser")
@@ -22,6 +25,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ReviewService reviewService;
 	
 	//로그인 화면
 	@GetMapping("/login_form")
@@ -163,14 +168,44 @@ public class MemberController {
 	
 	//my page 수정 처리
 	@RequestMapping("/mypage_update")
-	public String updateMember(MemberVO vo) {
+	public String updateMember(MemberVO vo, HttpSession session, Model model) {
 	
 		memberService.updateMember(vo);
 		
-		return "member/mypage_update";
+		System.out.println(vo);
+		model.addAttribute("loginUser", memberService.getMember(vo.getId()));
+		model.addAttribute("membervo",vo);
+		
+		return "redirect:mypage";
 	}
 	
+	@PostMapping("/deleteUser")
+	public String deleteUser(@RequestParam("password") String password, HttpSession session) {
+	  MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+
+	  // 비밀번호 확인
+	  if (!membervo.getPassword().equals(password)) {
+	    return "redirect:/mypage?error=wrongpassword";
+	  }
+
+	  // 회원 탈퇴 처리
+	  memberService.deleteMember(membervo);
+
+	  // 세션 정보 삭제
+	  session.invalidate();
+
+	  // 탈퇴 완료 메시지 출력 및 로그인 페이지로 이동
+	  return "redirect:/login_form?message=delete";
+	}
 	
+	@RequestMapping("/reviewMember")
+	public String reviewMemberlist(ReviewVO reviewvo, Model model) {
+		List<ReviewVO> list = reviewService.reviewMember(reviewvo);
+		
+		model.addAttribute("reviewmemberlist", list);
+		
+		return "member/mypage";
+	}
 	
 	
 }

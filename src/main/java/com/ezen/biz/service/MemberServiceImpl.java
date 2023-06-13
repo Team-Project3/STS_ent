@@ -51,6 +51,11 @@ public class MemberServiceImpl implements MemberService {
 	public void changePwd(MemberVO vo) {
 		memberDao.changePwd(vo); 
 	}
+
+	@Override	//È¸¿ø Å»Åð
+	public void deleteMember(MemberVO vo) {
+		memberDao.deleteMember(vo);
+	}
 	
 
 }

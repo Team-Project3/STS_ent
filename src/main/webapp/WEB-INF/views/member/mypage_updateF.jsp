@@ -29,15 +29,15 @@ function submitForm() {
 		return false;
 	} else {
 		var theform = document.getElementById("update");
+		alert("회원 정보가 수정되었습니다.");
 		theform.action = "mypage_update";
-        theform.enctype = "multipart/form-data";
         theform.submit();
 	}
 }
 </script>
 <body>
 <div class="mypage">
-	<form name="formm" id="update" method="post" enctype="multipart/form-data">
+	<form name="formm" id="update" method="post">
 	
 		<div class="memberinfo" align="center">
 			<div class="member">
@@ -50,11 +50,11 @@ function submitForm() {
 							<td>이름</td>
 							<td><input id="name" name="name" type="text" value="${membervo.name}"></td>
 							<td>생일</td>
-							<td id="birth">${membervo.birth}</td>
+							<td id="birth"><input type="text" value="${membervo.birth}" name="birth" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<td>아이디</td>
-							<td><input id="id" name="id" type="text" value="${membervo.id}"></td>
+							<td><input id="id" name="id" type="text" value="${membervo.id}" readonly="readonly"></td>
 							<td>전화번호</td>
 							<td><input id="phone" name="phone" type="text" value="${membervo.phone}"></td>
 						</tr>

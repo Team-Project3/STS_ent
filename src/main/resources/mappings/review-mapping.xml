@@ -11,5 +11,10 @@
 		SELECT * FROM review
 		WHERE tseq=#{tseq} order by regdate
 	</select>
+	
+	<select id="reviewMember" resultType="Review">
+		SELECT * FROM review
+		WHERE id=#{id} order by regdate DESC
+	</select>
 
 </mapper>

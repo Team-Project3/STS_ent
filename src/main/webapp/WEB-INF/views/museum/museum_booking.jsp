@@ -111,7 +111,7 @@ function calculateTotal() {
 		    }
 
 		    totalPriceInput.value = totalPrice;
-		    headInput.value = head;
+		    
 
 		    form.submit();
 		}

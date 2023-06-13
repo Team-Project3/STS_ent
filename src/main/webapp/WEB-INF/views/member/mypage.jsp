@@ -8,12 +8,20 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/mypage.css" />
 </head>
-
+<%
+	// 세션 체크
+	if (session == null || session.getAttribute("loginUser") == null) {
+		out.println("<script>alert('로그인 후에 이용해주세요.'); location.href='login_form';</script>");
+	}
+%>
 <body>
 <div class="mypage">
+	<input type="hidden" value="${membervo.id}" id="id">
+
+	<div>
 	<form action="mypage_updateF" method="post">
 	
-	<input type="hidden" value="${membervo.id}" id="id">
+	
 	
 	<div class="memberinfo" align="center">
 		<div class="member">
@@ -41,14 +49,20 @@
 			</table>
 		 	
 		 	<button class="listbtn_wr" type="submit">수정</button>&nbsp;&nbsp;
-			<a class="listbtn_wr" href="deleteUser()">탈퇴</a>
+			<button class="listbtn_wr" onclick="deleteMember()">탈퇴</button>
 			
 			</div>
 		</div>
 	
 	</div>
 	</form>
-
+	</div>
+	
+	
+	<div>
+		
+	
+	</div>
 	
 	
 </div>	
@@ -56,6 +70,15 @@
 <div class="footer">
 	<%@ include file="../footer.jsp"%>
 </div>
-
+<script>
+	// 탈퇴 확인
+	function deleteMember() {
+		var password = prompt("비밀번호를 입력하세요.");
+		if (password !== null) {
+			document.getElementById("passwordInput").value = password;
+			document.getElementById("deleteForm").submit();
+		}
+	}
+</script>
 </body>
 </html>

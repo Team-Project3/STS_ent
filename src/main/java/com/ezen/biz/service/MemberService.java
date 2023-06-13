@@ -18,6 +18,9 @@ public interface MemberService {
 	//회원 정보 수정
 	void updateMember(MemberVO vo);
 	
+	//회원 탈퇴
+	void deleteMember(MemberVO vo);
+	
 	// 이름과 이메일로 아이디 찾기
 	String selectIdByNameEmail(MemberVO vo);
 
