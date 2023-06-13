@@ -30,7 +30,6 @@ public class ReviewDAO {
 	public List<totalentVO> reviewMember(ReviewVO vo) {
 		return mybatis.selectList("ReviewMapper.reviewMember", vo);
 	}
-	
-	
+		
 
 }

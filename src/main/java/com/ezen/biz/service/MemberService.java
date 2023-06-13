@@ -19,7 +19,7 @@ public interface MemberService {
 	void updateMember(MemberVO vo);
 	
 	//회원 탈퇴
-	void deleteMember(String id);
+	void deleteMember(String id) throws Exception;
 	
 	// 이름과 이메일로 아이디 찾기
 	String selectIdByNameEmail(MemberVO vo);

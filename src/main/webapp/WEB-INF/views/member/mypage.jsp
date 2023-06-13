@@ -7,8 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mypage.css" />
 </head>
 <%
@@ -22,7 +24,7 @@
 		<input type="hidden" value="${membervo.id}" id="id">
 
 		<div>
-			<form action="mypage_updateF" method="post">
+			<form action="mypage_updateF" method="post" onsubmit="return false;">
 				<div class="memberinfo">
 					<div class="member">
 						<h2>회원 정보</h2>
@@ -48,8 +50,7 @@
 								</tr>
 							</table>
 
-							<button class="listbtn_wr" type="submit">수정</button>
-							&nbsp;&nbsp; 
+							<button class="listbtn_wr" type="submit">수정</button>&nbsp;&nbsp; 
 							<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
 
 						</div>
@@ -62,71 +63,169 @@
 
 		<%-- 리뷰 목록 출력 부분 --%>
 		<div class="reviewlist">
-			<h2>예약 목록</h2>
+			<h2>리뷰 목록</h2>
 			<hr>
-			<table>
-				<thead>
-					<tr>
-						<th>회원 ID</th>
-						<th>공연 제목</th>
-						<th>리뷰 별점</th>
-						<th>리뷰 내용</th>
-						<th>작성 일자</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%-- 리뷰 목록을 반복하여 출력 --%>
-					<c:forEach items="${reviewmemberlist}" var="review">
-						<tr>
-							<td>${review.id}</td>
-							<td>${review.tname}</td>
-							<td>${review.rpoint}</td>
-							<td>${review.rcontent}</td>
-							<td>${review.regdate}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+			<c:choose>
+				<c:when test="${not empty noReviewMessage}">
+					<p>${noReviewMessage}</p>
+				</c:when>
+				<c:otherwise>
+					<table>
+						<thead>
+							<tr>
+								<th>회원 ID</th>
+								<th>공연 제목</th>
+								<th>리뷰 별점</th>
+								<th>리뷰 내용</th>
+								<th>작성 일자</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%-- 리뷰 목록을 반복하여 출력 --%>
+							<c:forEach items="${reviewmemberlist}" var="review">
+								<tr>
+									<td>${review.id}</td>
+									<td>${review.tname}</td>
+									<td>${review.rpoint}</td>
+									<td>${review.rcontent}</td>
+									<td>${review.regdate}</td>
+									<td>
+                                		<button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+                            		</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
 
-		<%-- 예약 목록 출력 부분 --%>
-		<div class="bookinglist">
-			<h2>예약 목록</h2>
+		<%-- 콘서트 예약 정보 --%>
+		<div class="concertList">
+			<h2>콘서트 예약 정보</h2>
 			<hr>
-			<table>
-				<thead>
-					<tr>
-						<th>회원 ID</th>
-						<th>공연 일자</th>
-						<th>공연 시간</th>
-						<th>공연 좌석</th>
-						<th>예약 인원</th>
-						<th>결제 상태</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%-- 예약 목록을 반복하여 출력 --%>
-					<c:forEach items="${bookingmemberlist}" var="review">
-						<tr>
-							<td>${review.id}</td>
-							<td>${review.dday}</td>
-							<td>${review.time}</td>
-							<td>${review.seat}</td>
-							<td>${review.head}</td>
-							<td>${review.bstatus}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+			<c:choose>
+				<%-- 예약된 내역이 없는 경우 --%>
+				<c:when test="${empty concertList}">
+					<p>예약된 내역이 없습니다.</p>
+				</c:when>
+				<%-- 예약된 내역이 있는 경우 --%>
+				<c:otherwise>
+					<table>
+						<thead>
+							<tr>
+								<th>예약 ID</th>
+								<th>날짜</th>
+								<th>시간</th>
+								<th>좌석</th>
+								<th>인원</th>
+								<th>상태</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${concertList}" var="booking">
+								<tr>
+									<td>${booking.id}</td>
+									<td>${booking.dday}</td>
+									<td>${booking.time}</td>
+									<td>${booking.seat}</td>
+									<td>${booking.head}</td>
+									<td>${booking.bstatus}</td>
+									<td>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                            		</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
+		<%-- 연극 예약 정보 --%>
+		<div class="theaterList">
+			<h2>연극 예약 정보</h2>
+			<hr>
+			<c:choose>
+				<c:when test="${empty theaterList}">
+					<p>예약된 내역이 없습니다.</p>
+				</c:when>
+				<c:otherwise>
+					<table>
+						<thead>
+							<tr>
+								<th>예약 ID</th>
+								<th>날짜</th>
+								<th>시간</th>
+								<th>좌석</th>
+								<th>인원</th>
+								<th>상태</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${theaterList}" var="booking">
+								<tr>
+									<td>${booking.id}</td>
+									<td>${booking.dday}</td>
+									<td>${booking.time}</td>
+									<td>${booking.seat}</td>
+									<td>${booking.head}</td>
+									<td>${booking.bstatus}</td>
+									<td>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                            		</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</c:otherwise>
+			</c:choose>
+		</div>
 
-
-
-
-
-
+		<%-- 전시회 예약 정보 --%>
+		<div class="exhibitionList">
+			<h2>전시회 예약 정보</h2>
+			<hr>
+			<c:choose>
+				<c:when test="${empty exhibitionList}">
+					<p>예약된 내역이 없습니다.</p>
+				</c:when>
+				<c:otherwise>
+					<table>
+						<thead>
+							<tr>
+								<th>예약 ID</th>
+								<th>날짜</th>
+								<th>시간</th>
+								<th>좌석</th>
+								<th>인원</th>
+								<th>상태</th>
+								<th>삭제</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${exhibitionList}" var="booking">
+								<tr>
+									<td>${booking.id}</td>
+									<td>${booking.dday}</td>
+									<td>${booking.time}</td>
+									<td>${booking.seat}</td>
+									<td>${booking.head}</td>
+									<td>${booking.bstatus}</td>
+									<td>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                            		</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</c:otherwise>
+			</c:choose>
+		</div>
 
 	</div>
 
@@ -135,6 +234,53 @@
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>
 	</div>
-	
+<script type="text/javascript">
+function deleteMember() {
+    if (confirm("정말로 회원 탈퇴하시겠습니까?")) {
+        // AJAX 요청을 통해 회원 탈퇴 처리
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/deleteMember", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // 회원 탈퇴가 성공한 경우
+                    alert("회원 탈퇴가 완료되었습니다.");
+                    // 탈퇴 후 로그인 페이지로 이동 등의 추가 작업 수행
+                    window.location.href = "index"; // 메인 페이지로 리다이렉트
+                } else {
+                    // 회원 탈퇴가 실패한 경우
+                    alert("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
+                }
+            }
+        };
+        xhr.send();
+    }
+}
+
+function deleteReview(reviewId) {
+    if (confirm("정말로 리뷰를 삭제하시겠습니까?")) {
+        // AJAX 요청을 통해 리뷰 삭제 처리
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/deleteReview", true); // 리뷰 삭제를 처리하는 서버 엔드포인트로 변경해야 합니다.
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // 리뷰 삭제가 성공한 경우
+                    alert("리뷰가 삭제되었습니다.");
+                    // 삭제된 리뷰 행을 화면에서 제거
+                    var row = document.getElementById("review-row-" + reviewId);
+                    row.parentNode.removeChild(row);
+                } else {
+                    // 리뷰 삭제가 실패한 경우
+                    alert("리뷰 삭제에 실패했습니다. 다시 시도해주세요.");
+                }
+            }
+        };
+        xhr.send("reviewId=" + reviewId); // 삭제할 리뷰 ID를 서버에 전달
+    }
+}
+</script>
 </body>
 </html>

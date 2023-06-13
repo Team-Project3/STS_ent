@@ -11,11 +11,15 @@ body{
     background-color: #34333b;
     overflow: auto;
 }
-
-.reviewlist, .bookinglist, .memberinfo{
+.mypage {
+	height:auto;
+}
+.reviewlist, .concertList, 
+.memberinfo, .theaterList, 
+.exhibitionList{
 	height:auto;
 	width:70%;
-	margin: 0 auto 50px auto;
+	margin: 0 auto 100px auto;
 	text-align: center;
 }
 
@@ -40,7 +44,7 @@ td {
 .footer {
 	position: absolute;
   	bottom: 900;
-  	top: 920px;
+  	
   	display: block;
   	background-color: #34333b;
 	width: 100%;

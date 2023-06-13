@@ -53,7 +53,7 @@ public class MemberDAO {
 	}
 	
 	//È¸¿ø Å»Åð
-	public void deleteMember(String id) {
+	public void deleteMember(String id) throws Exception {
 		mybatis.delete("MemberMapper.deleteMember", id);
 	}
 	

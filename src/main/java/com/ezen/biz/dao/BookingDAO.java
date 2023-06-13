@@ -42,4 +42,6 @@ public class BookingDAO {
 		return mybatis.selectList("BookingMapper.bookingMember", vo);
 	}
 	
+	
+	
 }

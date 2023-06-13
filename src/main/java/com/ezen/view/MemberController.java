@@ -1,5 +1,6 @@
 package com.ezen.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -165,8 +164,32 @@ public class MemberController {
 		
 		List<totalbookVO> bookinglist = bookingService.bookingMember(bookingvo);
 		
+		List<totalbookVO> concertList = new ArrayList<>();
+		List<totalbookVO> theaterList = new ArrayList<>();
+		List<totalbookVO> exhibitionList = new ArrayList<>();
+		
+		for (totalbookVO booking : bookinglist) {
+		    if (booking.getCategory() == 1) {
+		        concertList.add(booking);
+		    } else if (booking.getCategory() == 2) {
+		        theaterList.add(booking);
+		    } else if (booking.getCategory() == 3) {
+		        exhibitionList.add(booking);
+		    } else if (booking.getCategory() == 0) {
+		    	concertList = new ArrayList<>();
+		    	theaterList = new ArrayList<>();
+		    	exhibitionList = new ArrayList<>();
+		    }
+		}
+		if (list.isEmpty()) {
+	        model.addAttribute("noReviewMessage", "작성한 리뷰가 없습니다.");
+	    }
+
+		
 		model.addAttribute("reviewmemberlist", list);
-		model.addAttribute("bookingmemberlist", bookinglist);
+		model.addAttribute("concertList", concertList);
+		model.addAttribute("theaterList", theaterList);
+		model.addAttribute("exhibitionList", exhibitionList);
 		model.addAttribute("membervo", membervo);
 		
 		return "member/mypage";
@@ -195,24 +218,21 @@ public class MemberController {
 		return "redirect:mypage";
 	}
 	
-	@PostMapping("/deleteUser")
-	@ResponseBody
-	public String deleteUser(@RequestParam("password") String password, MemberVO vo, HttpSession session) {
+	//회원 탈퇴
+	@RequestMapping("/deleteMember")
+	public String deleteMember(HttpSession session) {
 	    MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 
-	    // 비밀번호 확인
-	    if (!membervo.getPassword().equals(password)) {
-	      return "wrongpassword";
+	    try {
+	        memberService.deleteMember(membervo.getId());
+	        session.invalidate(); // 세션 무효화
+	        return "redirect:index"; // 탈퇴 후 메인 페이지로 리다이렉트
+	    } catch (Exception e) {
+	        // 탈퇴 실패 처리
+	        // 에러 메시지 등을 설정하고, 회원 탈퇴 실패 페이지로 이동하거나 예외 처리 로직을 추가할 수 있습니다.
+	        return "member/deleteFail";
 	    }
-
-	    // 회원 탈퇴 처리
-	    memberService.deleteMember(membervo.getId());
-
-	    // 세션 정보 삭제
-	    session.invalidate();
-
-	    return "success";
-	  }
+	}
 	
 	
 	

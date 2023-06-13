@@ -31,5 +31,4 @@
 	    <id property="tname" column="tname"/>
 	</resultMap>
 	
-	
 </mapper>

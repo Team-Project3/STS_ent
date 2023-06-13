@@ -53,7 +53,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override	//È¸¿ø Å»Åð
-	public void deleteMember(String id) {
+	public void deleteMember(String id) throws Exception {
 		memberDao.deleteMember(id);
 	}
 	
