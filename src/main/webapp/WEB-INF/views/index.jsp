@@ -108,14 +108,11 @@
 					<c:otherwise>
 						<a class="menu__item-link" href="mypage">My Page</a>
 					</c:otherwise>
-				</c:choose>
-				
-				
+				</c:choose>	
 			</span>
 		</nav>
 	</div>
 	</main>
-	
 	<script>
 	function checkLogin() {
 		if (<%= session.getAttribute("loginUser") %> == null) {

@@ -10,8 +10,6 @@ create table member (
     email varchar2(40) not null
 );
 insert into member values('1','1','1','1','1','1');
-
-
 insert into member values('heysh', 'dkssud5124!', '김세현', '010-4062-9457', '1995/11/11', 'heysh@sts.com');
 
 select * from member;
@@ -29,6 +27,9 @@ create table admin (
 
 insert into admin (a_id, a_password, a_name, a_phone)
 values('admin', '1234', '관리자', '010-1111-2222');
+
+insert into admin (a_id, a_password, a_name, a_phone)
+values('kto5294', 'xodnr9848@', '관리자', '010-1111-2222');
 
 select * from admin;
 
@@ -57,12 +58,6 @@ CREATE TABLE orders (
 	dday DATE NOT NULL
 );
 
---예약 시퀀스
-CREATE SEQUENCE bseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;
-
 
 --공연 테이블
 CREATE TABLE total_ent (
@@ -79,18 +74,27 @@ CREATE TABLE total_ent (
 	cimg VARCHAR2(40) NOT NULL
 );
 
---공연 시퀀스       
-CREATE SEQUENCE tseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;
 
---주문 시퀀스       
-CREATE SEQUENCE oseq
-       INCREMENT BY 1
-       START WITH 1
-       MINVALUE 1;
-       
+--공지사항 테이블
+CREATE TABLE notice (
+	nseq NUMBER	NOT NULL primary key,
+	a_id VARCHAR2(20) NOT NULL,
+	title VARCHAR2(30) NOT NULL,
+	ndate DATE DEFAULT sysdate,
+	ncontent VARCHAR2(200) NOT NULL
+);
+
+--후기 테이블
+CREATE TABLE review (
+	rseq NUMBER	NOT NULL primary key,
+	id	VARCHAR2(20) NULL,
+	tseq NUMBER NOT NULL,
+	regdate	DATE DEFAULT sysdate,
+	rpoint NUMBER NOT NULL,
+	rcontent VARCHAR2(100) NOT NULL
+);
+
+
 
 --콘서트 데이터
 insert into total_ent values(tseq.NEXTVAL,'1','노을 콘서트 Cafe 유월','우리집','19:00',to_date('2023-11-11','yyyy-mm-dd'),to_date('2023-11-13','yyyy-mm-dd'),8000,'s20a30b40','Cafe 유월','Cafe 유월_D');
@@ -131,33 +135,31 @@ select * from total_ent where category=3;
 
 --------------------------------------------------------------------------------------------------------------
 
---후기 테이블
-CREATE TABLE review (
-	rseq NUMBER	NOT NULL primary key,
-	id	VARCHAR2(20) NULL,
-	tseq NUMBER NOT NULL,
-	regdate	DATE DEFAULT sysdate,
-	rpoint NUMBER NOT NULL,
-	rcontent VARCHAR2(100) NOT NULL
-);
+
+
+--예약 시퀀스
+CREATE SEQUENCE bseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
+
 
 --후기 시퀀스     
 CREATE SEQUENCE rseq
        INCREMENT BY 1
        START WITH 1
        MINVALUE 1;
+--공연 시퀀스       
+CREATE SEQUENCE tseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
 
---------------------------------------------------------------------------------------------------------------
-
---공지사항 테이블
-CREATE TABLE notice (
-	nseq NUMBER	NOT NULL primary key,
-	a_id VARCHAR2(20) NOT NULL,
-	title VARCHAR2(30) NOT NULL,
-	ndate DATE DEFAULT sysdate,
-	ncontent VARCHAR2(200) NOT NULL
-);
-
+--주문 시퀀스       
+CREATE SEQUENCE oseq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1;
        
 --공지사항 시퀀스       
 CREATE SEQUENCE nseq
@@ -166,4 +168,3 @@ CREATE SEQUENCE nseq
        MINVALUE 1;       
 
 commit;
-
