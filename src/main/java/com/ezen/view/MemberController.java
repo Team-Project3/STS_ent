@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -221,48 +222,29 @@ public class MemberController {
 		System.out.println(vo);
 		model.addAttribute("loginUser", memberService.getMember(vo.getId()));
 		model.addAttribute("membervo",vo);
-		
 		return "redirect:mypage";
 	}
 	
 	//my page 수정
 	@RequestMapping(value="/mypage_deleteF")
 	public String deleteMemberF(Model model, HttpSession session) {
-		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
 		model.addAttribute("membervo", membervo);
-		
+		System.out.println(membervo);
 		return "member/mypage_deleteF";
 	}
 	
-	@RequestMapping(value = "/mypage_delete", method = RequestMethod.POST)
-	public void deleteMember(@RequestParam("password") String password, SessionStatus status, HttpSession session, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/mypage_delete", method = RequestMethod.GET)
+	public String deleteMember(SessionStatus status,HttpSession session) throws Exception {
 	    
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
-		if (password.equals(membervo.getPassword())) {
 			 memberService.deleteMember(membervo.getId());
-
-			 String script = "<script>alert('탈퇴 처리가 완료되었습니다.\n감사합니다.'); window.close(); window.opener.location.href='index';</script>";
-			 response.setContentType("text/html;charset=UTF-8");
-			 response.getWriter().write(script);
 			 
 			 status.setComplete();
-		
-		}
-		/*else {
-			String script = "<script>alert('비밀번호가 일치하지 않습니다.'); window.location.href='mypage_deleteF';</script>";
-			response.setContentType("text/html;charset=UTF-8");
-			response.getWriter().write(script);
-			
-			response.sendRedirect("mypage_detailF");
-		}
-		*/
-		
-		
-		
-	}
-	
-	
-	
+			 
+			 return "redirect:index";
+	}	
 }
