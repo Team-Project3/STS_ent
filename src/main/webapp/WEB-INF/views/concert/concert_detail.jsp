@@ -21,7 +21,7 @@ function concert_booking() {
 	} else {
 		var url = "concert_booking?tseq=" + tseq + "&dday=" + dday;
 		window.open(url, "_blank_",
-		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700")
+		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=800, height=500")
 	}
 }
 </script>
@@ -48,6 +48,7 @@ function concert_booking() {
 					<dt>관람시간</dt><dd>&nbsp;--</dd>
 					<dt>출연</dt><dd>&nbsp;--</dd>
 					<dt>가격</dt><dd>&nbsp;${concert.price}</dd>
+					<dt>좌석</dt><dd>&nbsp;r석 = ${r} a석 = ${a} b석 = ${b}</dd>
 				</dl>
 			</div>
 		</div>
@@ -60,13 +61,9 @@ function concert_booking() {
 		<hr>
 	
 		<div class="content">
-			<img id="cimg" src="img/museum/${museum.cimg}.jpg">
+			<img id="cimg" src="img/concert/${concert.cimg}.jpg">
 		</div>
-
-
 	</div>
-
-
 </div>
 
 <div class="footer">

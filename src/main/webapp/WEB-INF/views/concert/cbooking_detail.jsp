@@ -7,13 +7,12 @@
 </head>
 <script type="text/javascript">
 function bookingdetail() {
-	var cbooking_success = document.getElementById("cbooking_success");
-	cbooking_success.submit();
+	var BookingMain = document.getElementById("BookingMain");
+	BookingMain.submit();
 }
-
 </script>
 <body>
-	<form action="cbooking_success" id="cbooking_success" method="post">
+	<form action="BookingMain" id="BookingMain" method="post">
 		쨔잔<br><br>
 		아 이 디 : ${loginUser.id}<br>
 		콘서트명 : ${concert.tname}<br>
@@ -22,7 +21,7 @@ function bookingdetail() {
 		인원정보 : ${param.head}명<br>
 		총 결제금액 : ${param.totalPrice}원<br><br>
 		
-		<input type="hidden" name="tseq" value="${concertVO.tseq }">
+		<input type="hidden" name="tseq" value="${concertVO.tseq}">
 		<input type="hidden" name="seat" value="${param.seat}">
 		<input type="hidden" name="id" value="${loginUser.id}">
 		<input type="hidden" name="head" value="${param.head}">

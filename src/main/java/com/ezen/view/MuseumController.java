@@ -96,9 +96,6 @@ public class MuseumController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date ddayformat = sdf.parse(dday);
 		
-		System.out.println(dday);
-		System.out.println(ddayformat);
-		
 		bookingVo.setTseq(vo.getTseq());
 		bookingVo.setDday(ddayformat);
 		bookingVo.setSeat("¿ÀÀü");

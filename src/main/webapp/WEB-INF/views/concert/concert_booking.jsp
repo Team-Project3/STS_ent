@@ -1,151 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-function calculateTotal() {
-	var ticketPrice = parseInt("${concert.price}");
-    var ticketQuantity = parseInt(document.getElementById("head").value);
-    var totalPrice = ticketPrice * ticketQuantity;
-    var seatOption = document.getElementById("seat");
-    var selectedSeat = seatOption.options[seatOption.selectedIndex].value;
-    var currentReservation = parseInt("${head}"); // 현재 예약 인원
+<style>
 
-    // 선택 구역이 S석일 경우
-    if (selectedSeat === "S") {
-        var availableSeats = 10 - currentReservation; // S석 예약 가능한 자리 수 계산
-        if (availableSeats < 0) {
-            availableSeats = 0; // 음수 값이면 0으로 설정
-        }
-
-        // 선택한 인원이 예약 가능한 자리 수보다 크면 선택한 인원을 예약 가능한 자리 수로 제한
-        if (ticketQuantity > availableSeats) {
-            alert("S석 예약 가능한 인원은 " + availableSeats + "명까지입니다.");
-            document.getElementById("head").value = availableSeats;
-            ticketQuantity = availableSeats;
-        }
-    }
-    // 선택 구역이 A석일 경우
-    else if (selectedSeat === "A") {
-        var availableSeats = 10 - parseInt("${head2}"); // 오후 예약 가능한 자리 수 계산
-        if (availableSeats < 0) {
-            availableSeats = 0; // 음수 값이면 0으로 설정
-        }
-
-        // 선택한 인원이 예약 가능한 자리 수보다 크면 선택한 인원을 예약 가능한 자리 수로 제한
-        if (ticketQuantity > availableSeats) {
-            alert("A석 예약 가능한 인원은 " + availableSeats + "명까지입니다.");
-            document.getElementById("head").value = availableSeats;
-            ticketQuantity = availableSeats;
-        }
-    }
- 	// 선택 구역이 B석일 경우
-    else if (selectedSeat === "B") {
-        var availableSeats = 10 - parseInt("${head3}"); // 오후 예약 가능한 자리 수 계산
-        if (availableSeats < 0) {
-            availableSeats = 0; // 음수 값이면 0으로 설정
-        }
-
-        // 선택한 인원이 예약 가능한 자리 수보다 크면 선택한 인원을 예약 가능한 자리 수로 제한
-        if (ticketQuantity > availableSeats) {
-            alert("B석 예약 가능한 인원은 " + availableSeats + "명까지입니다.");
-            document.getElementById("head").value = availableSeats;
-            ticketQuantity = availableSeats;
-        }
-    }
-
-    totalPrice = ticketPrice * ticketQuantity; // 변경된 인원에 따른 총 가격 계산
-    document.getElementById("totalPrice").textContent = totalPrice;
+    img {
+	width: 400px;
+    height: 450px;
 }
-</script>
+.info{
+	margin-left: 500px;
+	margin-top: -400px;
+}
+.seatbutton{
+border-radius: 50px;
+}
+.buttontd{
+width: 100px;
+}
+.clickbutton{
+background-color: red;
+
+}
+  </style>
+<c:set var="rableseat" value="${r-head1}"></c:set>
+<c:set var="aableseat" value="${a-head2}"></c:set>
+<c:set var="bableseat" value="${b-head3}"></c:set>
 <body>
-	<form action="cbooking_detail" method="post" id="concert_booking">
-	
-		<input type="hidden" name="tseq" value="${concert.tseq }">
-		콘서트명 : ${concert.tname }<br>
-		
-		공연시간 : ${concert.time }<br>
-		
-		<img id="img" src="img/concert/좌석배치도.png">
-		<br>
-		<label for="seat">구역 선택&nbsp;&nbsp;</label>
-			<select id="seat" name="seat">
-					<option value="" selected disabled hidden>구역 선택</option>
-					<option value="S">S석</option>
-					<option value="A">A석</option>
-					<option value="B">B석</option>
-			</select>
-			
-			<br>
-			인원 수 : <input type="number" id="head" min="1" max="30" value="1" oninput="calculateTotal()" name="head">명<br>
-	
-			결제금액 : <span id="totalPrice">${concert.price}</span>원<br>
-		
-			S석 예약인원 : ${head}<br>
-			A석 예약인원 : ${head2}<br>
-			B석 예약인원 : ${head3}<br>
-		
-			<input type="hidden" value="${dday}" name="dday">
-			<input type="hidden" value="" name="totalPrice">
-			
-			<button onclick="history.back()">이전</button>&emsp;&emsp;
-			<button onclick="return submitForm()">다음</button>
-
-
-	</form>
-
-
-
-	<script>
-	function submitForm() {
-		var form = document.getElementById("concert_booking");
-	    var totalPriceInput = document.querySelector('input[name="totalPrice"]');
-	    var totalPrice = parseInt(document.getElementById("totalPrice").textContent);
-	    var head = parseInt(document.getElementById("head").value);
-	    var seat = document.getElementById("seat").value;
-		    if (document.getElementById("seat").value == "") {
-			alert("구역을 선택해주세요");
-			document.getElementById("seat").focus();
-			return false;
-		}
-	    
-	    // 예약 구역이 S석일 경우
-	    if (seat === "S") {
-	        var morningReservation = ${head};
-	        // 오전 예약인원(morningReservation)이 5명 이상이면 예약할 수 없음
-	        if (morningReservation >= 10) {
-	            alert("S석 예약 가능한 인원을 초과하였습니다.");
-	            return false; // 함수 종료
-	        }
-	    }
-		// 예약 구역이 A석일 경우
-	    else if (seat === "A") {
-	        var afternoonReservation = ${head2};
-	        // 오후 예약인원(afternoonReservation)이 5명 이상이면 예약할 수 없음
-	        if (afternoonReservation >= 10) {
-	            alert("A석 예약 가능한 인원을 초과하였습니다.");
-	            return false; // 함수 종료
-	        }
-	    }
-		// 예약 구역이 B석일 경우
-	    else if (seat === "B") {
-	        var afternoonReservation = ${head3};
-	        // 오후 예약인원(afternoonReservation)이 5명 이상이면 예약할 수 없음
-	        if (afternoonReservation >= 10) {
-	            alert("B석 예약 가능한 인원을 초과하였습니다.");
-	            return false; // 함수 종료
-	        }
-	    }
-	    totalPriceInput.value = totalPrice;
-	    headInput.value = head;
-
-	    form.submit();
-	}
-	</script>
-
+<img src="img/concert/좌석배치도.png" id="chair">
+<div class="info">
+<h2>좌석 선택</h2>
+<table border="1">
+<tr>
+<td class="buttontd">
+<button type="button" value="R" class="seatbutton">R석</button>
+<div><input type="hidden" min="1" max="${rableseat}" id="Rseathead" class="seathead"></div>
+</td>
+<td>
+<c:out value="잔여석 : ${rableseat} 석"></c:out>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button" value="A" class="seatbutton">A석</button>
+<div><input type="hidden" min="1" max="${aableseat}" id="Aseathead" class="seathead"></div>
+</td>
+<td>
+잔여석 : ${aableseat} 석
+</td>
+</tr>
+<tr>
+<td>
+<button type="button" value="B" class="seatbutton">B석</button>
+<div><input type="hidden" min="1" max="${bableseat}"  id="Bseathead" class="seathead"></div>
+</td>
+<td>
+<c:out value="잔여석 : ${bableseat} 석"></c:out>
+</td>
+<tr>
+<td>
+<div class="seat" id="seat">좌석을 선택해주세요</div>
+<div class="totalprice" id="totalprice">0</div>
+</td>
+</tr>
+</table>
+<button type="button" id="nextButton" onclick="return submit()">Next</button>
+<input type="hidden" id="R" value="${rableseat}">
+<input type="hidden" id="A" value="${aableseat}">
+<input type="hidden" id="B" value="${bableseat}">
+<input type="hidden" id="dday" value="${dday}" name="dday">
+<input type="hidden" id="tseq" value="${concert.tseq}">
+<input type="hidden" id="Rprice" value="${concert.price}">
+<c:set var="Aprice" value="${concert.price*0.8}"></c:set>
+<c:set var="Bprice" value="${concert.price*0.6}"></c:set>
+<input type="hidden" id="Aprice" value="${Aprice}">
+<input type="hidden" id="Bprice" value="${Bprice}">
+</div>
 </body>
+<script src="js/concert_booking.js"></script>
 </html>

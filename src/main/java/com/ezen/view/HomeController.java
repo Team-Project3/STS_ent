@@ -24,4 +24,10 @@ public class HomeController {
 
 			return "NewFile";
 		}
+		// HomeController.java
+		@RequestMapping(value = "/new1")
+		public String home2(Model model) {
+
+			return "NewFile1";
+		}
 }
