@@ -391,10 +391,10 @@ main {
 #menuToggle input
 {
   display: block;
-  width: 40px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  top: -10px;
+  top: -20px;
   left: -10px;
   
   cursor: pointer;
@@ -464,7 +464,7 @@ main {
 #menu {
   position: absolute;
   width: 300px;
-  height: 900px;
+  height: 100vh;
   margin: -100px 0 0 -55px;
   padding: 30px;
   padding-top: 125px;

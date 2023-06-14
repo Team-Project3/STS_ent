@@ -32,6 +32,30 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.insertMember(vo);
 	}
 
+	@Override	//회원 정보 수정
+	public void updateMember(MemberVO vo) {
+		memberDao.updateMember(vo);
+	}
+	
+	@Override	//이름과 이메일로 아이디 찾기
+	public String selectIdByNameEmail(MemberVO vo) {
+		return memberDao.selectIdByNameEmail(vo);
+	}
+
+	@Override	// 아이디, 이름, 이메일로 비밀번호 찾기 
+	public String selectPwdByIdNameEmail(MemberVO vo) {
+		return memberDao.selectPwdByIdNameEmail(vo);
+	}
+
+	@Override	// 비밀번호 변경
+	public void changePwd(MemberVO vo) {
+		memberDao.changePwd(vo); 
+	}
+
+	@Override	//회원 탈퇴
+	public void deleteMember(String id) throws Exception {
+		memberDao.deleteMember(id);
+	}
 	
 
 }

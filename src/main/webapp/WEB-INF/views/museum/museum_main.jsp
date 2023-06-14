@@ -18,21 +18,21 @@
 </head>
 
 <body>
-	<div class="concert">
+	<div class="museum">
 		<div class="slider-container">
 
 			<div class="image-video-slider">
 				<div class="image-video-slide image-slide" align="center">
 					<div class="inner"
-						style="background-image: url(img/museum/슬라이드1.png); width: 800px; height: 475px;"></div>
+						style="background-image: url(img/museum/그림1.png); width: 800px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/museum/슬라이드2.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/museum/그림2.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide image-slide">
 					<div class="inner"
-						style="background-image: url(img/museum/슬라이드3.png); width: 850px; height: 475px;"></div>
+						style="background-image: url(img/museum/그림3.png); width: 850px; height: 475px;"></div>
 				</div>
 				<div class="image-video-slide video-slide">
 					<div class="inner">
@@ -46,21 +46,20 @@
 		<section style="width: 100%;">
 			<c:forEach var="museum" items="${museumList}" varStatus="loop">
 				<c:if test="${loop.index % 3 == 0}">
-					<div class="contentmain"></div>
+					<div class="contentmain">
 				</c:if>
 
-				<a href="museumdetail?tseq=${museum.tseq}" class="contenta"><img src="img/museum/${museum.pimg}.jpg"
-					class="contentimg">
+				<a href="museum_detail?tseq=${museum.tseq}" class="contenta"><img src="img/museum/${museum.pimg}.jpg" class="contentimg">
 					<div class="contentel">
 						<p class="contentp">${museum.tname}</p>
 					</div>
 				</a>
 
-				<c:if test="${loop.index % 3 == 2 || loop.last}"></c:if>
-			</c:forEach>
-		</section>
-
+				<c:if test="${loop.index % 3 == 2 || loop.last}">
 	</div>
+	</c:if>
+	</c:forEach>
+	</section>
 	
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>

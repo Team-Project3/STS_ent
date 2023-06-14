@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #34333b;
+    overflow: auto;
+}
+.mypage {
+	height:auto;
+}
+.reviewlist, .concertList, 
+.memberinfo, .theaterList, 
+.exhibitionList{
+	height:auto;
+	width:70%;
+	margin: 0 auto 100px auto;
+	text-align: center;
+}
+
+h2 {
+	text-align:left;
+}
+
+hr {
+	background-color:black; 
+	height:2px;
+}
+
+td {
+	width: 200px;
+}
+
+
+
+
+
+/* footer */
+.footer {
+	position: absolute;
+  	bottom: 900;
+  	
+  	display: block;
+  	background-color: #34333b;
+	width: 100%;
+	text-align: center;
+}
+
+.footer_menu {
+	height: 70px; 
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.footer_menu > a {
+	display: inline-block;
+	line-height: 78px;
+    font-size: 15px;
+    padding: 0 16px;
+    position: relative;
+	color: white;
+}
+
+.footer_txt {
+    display: inline-block;
+    height: 165px;
+    width: 800px;
+	margin-left: 100px;
+}
+
+.footer_logo {
+	height: 200px;
+	display: inline-block;
+	text-align: center;
+}
+
+.flogo {
+	width: 160px;
+	height: 160px;	
+}
+
+.footxt {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 500px;
+    height:120px;
+    display: inline-block;
+    vertical-align: top;
+  	text-align: left;
+}
+

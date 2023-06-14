@@ -28,7 +28,8 @@
         <input type="password" placeholder="PASSWORD" name="password">
 		<br>
 		<div style="text-align: right;">
-			<a class="submit" href="find_id_form()">ID/PW 찾기</a>
+			<a type="button" class="submit" onclick="find_id_form()">ID/PW 찾기</a>
+			
         </div>
         
         <button type="submit" class="submit">Log In</button>

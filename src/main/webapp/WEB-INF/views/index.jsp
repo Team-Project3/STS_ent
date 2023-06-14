@@ -19,6 +19,7 @@
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/index.js" type="module"></script>
 </head>
 <body class="demo-1 loading">
@@ -37,7 +38,7 @@
 				</c:when>
 				<c:otherwise>
 					<div class="frame__menu" style="text-align: center;">
-						<a class="username" href="">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
+						<a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
 						<a href="logout">LOGOUT</a>
 					</div>
 				</c:otherwise>
@@ -45,9 +46,10 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
+			<li><a href="#">Notice</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
-			<li><a href="#">Museum</a></li>
+			<li><a href="museum_main">Museum</a></li>
 			
 			<hr style="margin-top:300px;">
 			<div class="admin">
@@ -72,7 +74,7 @@
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="--bg-img: url(../img/main_mypage.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/main_notice.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
@@ -84,18 +86,47 @@
 		</nav>
 
 		<nav class="menu">
-			<span class="menu__item"> <span class="menu__item-tag">콘서트</span>
+			<span class="menu__item"> 
+				<span class="menu__item-tag">콘서트</span>
 				<a class="menu__item-link" href="concert_main">Concert</a>
-			</span> <span class="menu__item"> <span class="menu__item-tag">연극</span>
+			</span>
+			<span class="menu__item"> 
+				<span class="menu__item-tag">연극</span>
 				<a class="menu__item-link" href="theater">Theater</a>
-			</span><br /> <span class="menu__item"> <span class="menu__item-tag">전시</span>
-				<a class="menu__item-link" href="">Museum</a>
-			</span> <span class="menu__item"> <span class="menu__item-tag">내정보</span>
-				<a class="menu__item-link" href="">My Page</a>
+			</span><br/>
+			<span class="menu__item"> 
+				<span class="menu__item-tag">전시</span>
+				<a class="menu__item-link" href="museum_main">Museum</a>
+			</span>
+			<span class="menu__item">
+				<span class="menu__item-tag">내정보</span>
+				
+				<c:choose>
+					<c:when test="${empty sessionScope.loginUser}">
+						<a class="menu__item-link" onclick="checkLogin()">My Page</a>
+					</c:when>
+					<c:otherwise>
+						<a class="menu__item-link" href="mypage">My Page</a>
+					</c:otherwise>
+				</c:choose>
+				
+				
 			</span>
 		</nav>
 	</div>
 	</main>
+	
+	<script>
+	function checkLogin() {
+		if (<%= session.getAttribute("loginUser") %> == null) {
+			alert("로그인 후에 이용 가능합니다.");
+			window.location.href = "login_form";
+		} else {
+			window.location.href = "mypage";
+		}
+	}
+	</script>
+	
 	
 </body>
 </html>
