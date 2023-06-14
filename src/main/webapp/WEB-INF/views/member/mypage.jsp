@@ -22,6 +22,7 @@
 <body>
 	<div class="mypage">
 		<input type="hidden" value="${membervo.id}" id="id">
+		
 
 		<div>
 			
@@ -91,7 +92,7 @@
 									<td>${review.rcontent}</td>
 									<td>${review.regdate}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReview(${review.id})">삭제</button>
+                                		<button class="delete-btn" onclick="deleteReview(${review.rseq})">삭제</button>
                             		</td>
 								</tr>
 							</c:forEach>
@@ -135,7 +136,7 @@
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
                             		</td>
 								</tr>
 							</c:forEach>
@@ -176,7 +177,7 @@
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
                             		</td>
 								</tr>
 							</c:forEach>
@@ -217,7 +218,7 @@
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.id})">삭제</button>
+                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
                             		</td>
 								</tr>
 							</c:forEach>
@@ -264,32 +265,21 @@ function deleteMember() {
         }
     }
 }
-	
-// 리뷰 삭제	
-function deleteReview(reviewId) {
-	if (confirm("정말로 리뷰를 삭제하시겠습니까?")) {
-	
-		// AJAX 요청을 통해 리뷰 삭제 처리
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "/deleteReview", true); // 리뷰 삭제를 처리하는 서버 엔드포인트로 변경해야 합니다.
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					// 리뷰 삭제가 성공한 경우
-					alert("리뷰가 삭제되었습니다.");
-					// 삭제된 리뷰 행을 화면에서 제거
-                    var row = document.getElementById("review-row-" + reviewId);
-                    row.parentNode.removeChild(row);
-                } else {
-                    // 리뷰 삭제가 실패한 경우
-                    alert("리뷰 삭제에 실패했습니다. 다시 시도해주세요.");
-                }
-            }
-        };
-        xhr.send("reviewId=" + reviewId); // 삭제할 리뷰 ID를 서버에 전달
-    }
+
+//리뷰 삭제
+function deleteReview(rseq) {
+	if(confirm("리뷰를 삭제하시겠습니까?")) {
+		location.href="reviewDelete?rseq="+rseq;
+	}
 }
+
+//예약 삭제
+function deleteReservation(bseq) {
+	if(confirm("환불 서비스를 지원하지 않습니다.\n해당 예매 내역을 삭제하시겠습니까?")) {
+		location.href="reservationDelete?bseq="+bseq;
+	}
+}
+
 </script>
 </body>
 </html>

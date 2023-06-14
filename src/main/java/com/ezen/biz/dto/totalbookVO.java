@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class totalbookVO {
+	private int bseq;
 	private String id;
 	private String dday;
 	private String time;
