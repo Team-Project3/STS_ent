@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class totalentVO {
+	private int rseq;
 	private String id;
 	private int tseq;
 	private Date regdate;

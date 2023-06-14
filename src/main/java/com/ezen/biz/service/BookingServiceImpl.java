@@ -35,4 +35,9 @@ public class BookingServiceImpl implements BookingService {
 	public List<totalbookVO> bookingMember(BookingVO vo) {
 		return bookingDAO.bookingMember(vo);
 	}
+
+	@Override
+	public void deleteBooking(BookingVO vo) {
+		bookingDAO.deleteBooking(vo);
+	}
 }

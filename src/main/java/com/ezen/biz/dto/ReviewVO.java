@@ -10,6 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ReviewVO {
+	private int rseq;
 	private String id;
 	private int tseq;
 	private Date regdate;
