@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Pacifico'
-	rel='stylesheet' type='text/css'>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/theater.css" />
+<!-- 추가2줄 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <style type="text/css">
 body {
 	background-color: #34333b;
@@ -100,11 +100,7 @@ footer {
 </style>
 <script type="text/javascript">
 	function board() {
-		var tseq = $
-		{
-			theater.tseq
-		}
-		;
+		var tseq = ${theater.tseq};
 		var membervo = document.getElementById("id").value;
 		var dday = document.getElementById("dday").value;
 		if (membervo == null || membervo == "") {
@@ -114,10 +110,7 @@ footer {
 			alert("날짜를 선택해주세요.");
 		} else {
 			var url = "thboard?tseq=" + tseq + "&dday=" + dday;
-			window
-					.open(url, "_blank_",
-							"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
-
+			window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
 		}
 	}
 	function validateDate(input) {
@@ -125,6 +118,17 @@ footer {
 			alert("Please select a date.");
 		}
 	}
+	$(document).ready(function(){
+		$('body').removeClass('jsOff');
+		$('body').addClass('jsOn');
+		$('#tabs a').on ('click', function(e){
+		$('#tabs a.current').removeClass('current');
+		$('.tab-section:visible').hide();
+		$(this.hash).show();
+		$(this).addClass('current');
+		e.preventDefault;
+		}).filter(':first').click();
+	});
 </script>
 </head>
 <body>
@@ -172,18 +176,21 @@ footer {
 				max="${formattedEDate}" value="Please select a date"
 				onfocus="this.value=''" onchange="validateDate(this)" name="dday">
 			<button onclick="board()">예약</button>
+			</div>
 			<ul id="tabs">
-				<li><a href="#cimg">공연정보</a></li>
-				<li><a href="#review" onClick="reviewList()">후기</a></li>
-			</ul>
-		</div>
-		<div class="tab-section">
-			<img id="cimg" src="img/theater/${theater.cimg}.jpg">
-		</div>
-		<div class="tab-section" id="review">
-			후기글<br>
-			<%@ include file="../member/review.jsp"%>
-		</div>
+		<li><a href="#cimg">공연정보</a></li>
+		<li><a href="#review" onClick="reviewList()">후기</a></li>
+	</ul>
+	
+	<div class="tab-section" id="cimg">
+		<img id="cimg" src="img/theater/${theater.cimg}.jpg">
+	</div>
+		
+	<div class="tab-section" id="review">
+		후기글<br>
+		<%@ include file="../member/review.jsp" %>
+	</div>
+	
 	</div>
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>

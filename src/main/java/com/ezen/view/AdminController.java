@@ -51,6 +51,27 @@ public class AdminController {
 		return "admin/admin_login";
 	}
 	
+	@GetMapping("/a_performance_main")
+	public String a_performance_main() {
+		
+		return "admin/performance/a_performance_main";
+	}
 	
-
+	@GetMapping("/a_member_main")
+	public String a_member_main() {
+		
+		return "admin/member/a_member_main";
+	}
+	
+	@GetMapping("/a_notice_main")
+	public String a_notice_main() {
+		
+		return "admin/notice/a_notice_main";
+	}
+	
+	@GetMapping("/a_review_main")
+	public String a_review_main() {
+		
+		return "admin/review/a_review_main";
+	}
 }
