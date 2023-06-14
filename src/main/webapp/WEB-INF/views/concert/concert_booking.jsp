@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/concert_detail.css" />
 </head>
 <style>
 

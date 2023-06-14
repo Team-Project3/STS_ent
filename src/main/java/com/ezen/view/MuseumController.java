@@ -71,6 +71,7 @@ public class MuseumController {
 	    }
 		
 		model.addAttribute("membervo", membervo);
+		model.addAttribute("total_ent", museum);
 		model.addAttribute("formattedSDate",formattedSDate);
 		model.addAttribute("formattedEDate",formattedEDate);
 		model.addAttribute("am",am);

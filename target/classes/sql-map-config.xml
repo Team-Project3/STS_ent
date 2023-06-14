@@ -11,6 +11,9 @@
 		<typeAlias type="com.ezen.biz.dto.MuseumVO" alias="Museum"/>
 		<typeAlias type="com.ezen.biz.dto.BookingVO" alias="Booking"/>
 		<typeAlias type="com.ezen.biz.dto.OrderVO" alias="Order"/>
+		<typeAlias type="com.ezen.biz.dto.ReviewVO" alias="Review"/>
+		<typeAlias type="com.ezen.biz.dto.totalentVO" alias="totalent"/>
+		<typeAlias type="com.ezen.biz.dto.totalbookVO" alias="totalbook"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
@@ -22,5 +25,6 @@
 		<mapper resource="mappings/museum-mapping.xml"/>
 		<mapper resource="mappings/booking-mapping.xml"/>
 		<mapper resource="mappings/order-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
 	</mappers>
 </configuration>

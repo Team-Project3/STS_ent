@@ -49,6 +49,7 @@
 					<div class="contentmain">
 				</c:if>
 
+				<input type="hidden" value="${concert.tseq}" id="tseq">
 				<a href="concert_detail?tseq=${concert.tseq}" class="contenta"><img src="img/concert/${concert.pimg}.jpg"
 					class="contentimg">
 					<div class="contentel">

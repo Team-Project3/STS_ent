@@ -15,13 +15,73 @@ body {
 .museum_detail {
 	height: auto;
 }
-.content {
+.tab-section {
 	height: auto;
 }
-
 #cimg {
-	width: 700px;
+	width: 850px;
 }
+
+
+
+/* 추가 부분 */
+h1 { font-family: 'Pacifico', sans-serif; font-size: 2em; }
+p { font-family: Helvetica, Arial, sans-serif;}
+
+.jsOff ul#tabs {
+  line-height: 1.5;
+  margin: 1.125em 0;
+}
+
+.jsOn .tab-section {
+  display: none;
+}
+
+.jsOn ul#tabs {
+  border-bottom-style: solid;
+  border-bottom-color: #a0d468;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  font-size: 1.5em;
+}
+
+.jsOn ul#tabs:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.jsOn ul#tabs li {
+  display: block;
+  float: left;
+}
+
+.jsOn ul#tabs a {
+  border-right: 1px solid #8cc152;
+  color: white;
+  display: block;
+  padding: 0.5em 1.125em;
+  text-decoration: none;
+}
+
+.jsOn ul#tabs li:first-child a {
+  border-top-left-radius: 7px;  
+}
+
+.jsOn ul#tabs a:hover {
+  background: #8cc152;
+}
+
+.jsOn .tab-section {
+  color: #444;
+  padding: 2em;
+  margin: 0 auto;
+}
+
+.jsOn .tab-section h2 {
+  margin-top: 0;
+}
+
 
 
 /* footer */

@@ -99,7 +99,6 @@ function submitForm() {
 				</select>
 		<br>
 		인원 수 : <input type="number" id="head" min="1" value="1" oninput="calculateTotal()" name="head">매<br>
-	
 		결제금액 : <span id="totalPrice">${museum.price}</span>원<br>
 		
 		오전 예약인원 : ${head}<br>
@@ -111,6 +110,5 @@ function submitForm() {
 		<button onclick="history.back()">이전</button>&emsp;&emsp;
 		<button onclick="return submitForm()">다음</button>	
 	</form>
-
 </body>
 </html>

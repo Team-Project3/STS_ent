@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ReviewMapper" >
+	
+	<!-- 리뷰 등록 -->
+	<insert id="saveReview">
+		INSERT INTO review(rseq, tseq, rcontent, id, rpoint)
+		VALUES(rseq.NEXTVAL, #{tseq}, #{rcontent}, #{id}, 2)
+	</insert>
+
+	<!-- 리뷰 리스트 -->
+	<select id="reviewList" resultType="Review">
+		SELECT * FROM review
+		WHERE tseq=#{tseq} order by regdate
+	</select>
+	
+	<!-- mypage 후기 리스트 -->
+	<select id="reviewMember" resultMap="totalentMap">
+		select a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname
+		from review a, total_ent b
+		where a.tseq=b.tseq and id=#{id}
+		order by regdate desc
+	</select>
+	
+	<resultMap id="totalentMap" type="com.ezen.biz.dto.totalentVO">
+	    <id property="id" column="id"/>
+	    <id property="tseq" column="tseq"/>
+	    <id property="regdate" column="regdate"/>
+	    <id property="rpoint" column="rpoint"/>
+	    <id property="rcontent" column="rcontent"/>
+	    <id property="tname" column="tname"/>
+	</resultMap>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview">
+		DELETE FROM review
+		WHERE id=#{id} and rseq=#{rseq}
+	</delete>
+	
+</mapper>

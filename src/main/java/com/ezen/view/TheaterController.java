@@ -80,6 +80,8 @@ public class TheaterController {
 			model.addAttribute("formattedEDate", formattedEDate);
 			model.addAttribute("theater", theater);
 			model.addAttribute("seat", seat);
+			model.addAttribute("total_ent", theater);
+
 			
 			return "theater/theater_detail";
 		

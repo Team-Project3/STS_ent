@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MuseumVO;
+import com.ezen.biz.dto.ReviewVO;
+import com.ezen.biz.dto.totalbookVO;
 
 public interface BookingService {
 	//예약 데이터 insert
@@ -14,5 +16,8 @@ public interface BookingService {
 	
 	//예약 인원수 제한 확인
 	int checkHead(BookingVO vo);
+	
+	//회원별 예약 리스트
+	List<totalbookVO> bookingMember(BookingVO vo);
 		
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.biz.dao.BookingDAO;
 import com.ezen.biz.dto.BookingVO;
+import com.ezen.biz.dto.ReviewVO;
+import com.ezen.biz.dto.totalbookVO;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -29,4 +31,8 @@ public class BookingServiceImpl implements BookingService {
 		return bookingDAO.checkHead(vo);
 	}
 	
+	@Override	//회원별 예약 리스트
+	public List<totalbookVO> bookingMember(BookingVO vo) {
+		return bookingDAO.bookingMember(vo);
+	}
 }

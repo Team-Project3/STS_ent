@@ -27,4 +27,3 @@ Promise.all([preloadImages(), preloadFonts()]).then(() => {
     document.body.classList.remove('loading');
 });
 
-

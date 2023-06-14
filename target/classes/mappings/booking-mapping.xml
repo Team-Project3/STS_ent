@@ -16,4 +16,21 @@
 		where seat=#{seat} and tseq=#{tseq} and dday=#{dday}
 	</select>
 	
+	<!-- mypage 예약 리스트 -->
+	<select id="bookingMember" resultMap="totalbookMap">
+		select b.id, b.dday, t.time, b.seat, b.head, b.bstatus, t.category
+		from booking b, total_ent t
+		where b.tseq=t.tseq and id=#{id} 
+		order by dday desc
+	</select>
+	
+	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
+		<id property="id" column="id"/>
+		<id property="dday" column="dday"/>
+		<id property="time" column="time"/>
+		<id property="seat" column="seat"/>
+		<id property="head" column="head"/>
+		<id property="bstatus" column="bstatus"/>
+		<id property="category" column="category"/>
+	</resultMap>
 </mapper>
