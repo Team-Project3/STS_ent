@@ -26,7 +26,7 @@ function board() {
 	else {
 		var url = "thboard?tseq=" + tseq +"&dday=" + dday;
 		window.open(url, "_blank_",
-				"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
+				"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=600")
 		
 	}
 }

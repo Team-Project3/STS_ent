@@ -55,8 +55,6 @@ public class BookingController {
 		
 		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq());
 		
-		System.out.println(orderVO.getOseq());
-		
 		theaterVO.setTseq(tseq);
 		
 		TheaterVO totalVO = theaterService.theaterDetail(theaterVO);
