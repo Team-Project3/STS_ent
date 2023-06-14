@@ -17,5 +17,6 @@ public interface ReviewService {
 	//회원별 후기 리스트
 	List<totalentVO> reviewMember(ReviewVO vo);
 	
-	
+	//리뷰 삭제
+	void deleteReview(ReviewVO vo);
 }

@@ -31,4 +31,10 @@
 	    <id property="tname" column="tname"/>
 	</resultMap>
 	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview">
+		DELETE FROM review
+		WHERE id=#{id} and rseq=#{rseq}
+	</delete>
+	
 </mapper>

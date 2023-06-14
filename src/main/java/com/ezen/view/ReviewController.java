@@ -27,7 +27,8 @@ public class ReviewController {
 	
 	@Autowired
 	private ReviewService reviewService;
-		
+	
+	// 리뷰 리스트
 	@GetMapping("/list")
 	public Map<String, Object> reciewList(ReviewVO vo) {
 		
@@ -42,6 +43,7 @@ public class ReviewController {
 		return reviewInfo;
 	}
 	
+	// 리뷰 등록
 	@PostMapping("/save")
 	public String saveComment(ReviewVO vo, HttpSession session) {
 		// 로그인이 되어 있는지 확인

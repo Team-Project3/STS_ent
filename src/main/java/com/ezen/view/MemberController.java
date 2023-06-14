@@ -3,6 +3,7 @@ package com.ezen.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -160,13 +163,14 @@ public class MemberController {
 		reviewvo.setId(membervo.getId());
 		bookingvo.setId(membervo.getId());
 		
+		//리뷰 리스트
 		List<totalentVO> list = reviewService.reviewMember(reviewvo);
 		
+		//예약 리스트
 		List<totalbookVO> bookinglist = bookingService.bookingMember(bookingvo);
-		
-		List<totalbookVO> concertList = new ArrayList<>();
-		List<totalbookVO> theaterList = new ArrayList<>();
-		List<totalbookVO> exhibitionList = new ArrayList<>();
+			List<totalbookVO> concertList = new ArrayList<>();
+			List<totalbookVO> theaterList = new ArrayList<>();
+			List<totalbookVO> exhibitionList = new ArrayList<>();
 		
 		for (totalbookVO booking : bookinglist) {
 		    if (booking.getCategory() == 1) {
@@ -184,6 +188,9 @@ public class MemberController {
 		if (list.isEmpty()) {
 	        model.addAttribute("noReviewMessage", "작성한 리뷰가 없습니다.");
 	    }
+		
+		//리뷰 삭제
+		
 
 		
 		model.addAttribute("reviewmemberlist", list);
@@ -218,20 +225,42 @@ public class MemberController {
 		return "redirect:mypage";
 	}
 	
-	//회원 탈퇴
-	@RequestMapping("/deleteMember")
-	public String deleteMember(HttpSession session) {
-	    MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+	//my page 수정
+	@RequestMapping(value="/mypage_deleteF")
+	public String deleteMemberF(Model model, HttpSession session) {
+		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		
+		model.addAttribute("membervo", membervo);
+		
+		return "member/mypage_deleteF";
+	}
+	
+	@RequestMapping(value = "/mypage_delete", method = RequestMethod.POST)
+	public void deleteMember(@RequestParam("password") String password, SessionStatus status, HttpSession session, HttpServletResponse response) throws Exception {
+	    
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+		
+		if (password.equals(membervo.getPassword())) {
+			 memberService.deleteMember(membervo.getId());
 
-	    try {
-	        memberService.deleteMember(membervo.getId());
-	        session.invalidate(); // 세션 무효화
-	        return "redirect:index"; // 탈퇴 후 메인 페이지로 리다이렉트
-	    } catch (Exception e) {
-	        // 탈퇴 실패 처리
-	        // 에러 메시지 등을 설정하고, 회원 탈퇴 실패 페이지로 이동하거나 예외 처리 로직을 추가할 수 있습니다.
-	        return "member/deleteFail";
-	    }
+			 String script = "<script>alert('탈퇴 처리가 완료되었습니다.\n감사합니다.'); window.close(); window.opener.location.href='index';</script>";
+			 response.setContentType("text/html;charset=UTF-8");
+			 response.getWriter().write(script);
+			 
+			 status.setComplete();
+		
+		}
+		/*else {
+			String script = "<script>alert('비밀번호가 일치하지 않습니다.'); window.location.href='mypage_deleteF';</script>";
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().write(script);
+			
+			response.sendRedirect("mypage_detailF");
+		}
+		*/
+		
+		
+		
 	}
 	
 	

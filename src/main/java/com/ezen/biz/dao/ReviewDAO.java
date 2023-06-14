@@ -30,6 +30,11 @@ public class ReviewDAO {
 	public List<totalentVO> reviewMember(ReviewVO vo) {
 		return mybatis.selectList("ReviewMapper.reviewMember", vo);
 	}
+	
+	//∏Æ∫‰ ªË¡¶
+	public void deleteReview(ReviewVO vo) {
+		mybatis.delete("ReviewMapper.deleteReview", vo);
+	}
 		
 
 }

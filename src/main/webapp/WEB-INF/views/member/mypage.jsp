@@ -24,7 +24,7 @@
 		<input type="hidden" value="${membervo.id}" id="id">
 
 		<div>
-			<form action="mypage_updateF" method="post" onsubmit="return false;">
+			
 				<div class="memberinfo">
 					<div class="member">
 						<h2>회원 정보</h2>
@@ -50,14 +50,14 @@
 								</tr>
 							</table>
 
-							<button class="listbtn_wr" type="submit">수정</button>&nbsp;&nbsp; 
+							<button class="listbtn_wr" type="button" onclick="editMember()">수정</button>&nbsp;&nbsp; 
 							<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
 
 						</div>
 					</div>
 
 				</div>
-			</form>
+			
 		</div>
 
 
@@ -127,7 +127,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${concertList}" var="booking">
-								<tr>
+								<tr id="concert">
 									<td>${booking.id}</td>
 									<td>${booking.dday}</td>
 									<td>${booking.time}</td>
@@ -168,7 +168,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${theaterList}" var="booking">
-								<tr>
+								<tr id="theater">
 									<td>${booking.id}</td>
 									<td>${booking.dday}</td>
 									<td>${booking.time}</td>
@@ -209,7 +209,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${exhibitionList}" var="booking">
-								<tr>
+								<tr id="exhibition">
 									<td>${booking.id}</td>
 									<td>${booking.dday}</td>
 									<td>${booking.time}</td>
@@ -235,41 +235,50 @@
 		<%@ include file="../footer.jsp"%>
 	</div>
 <script type="text/javascript">
-function deleteMember() {
-    if (confirm("정말로 회원 탈퇴하시겠습니까?")) {
-        // AJAX 요청을 통해 회원 탈퇴 처리
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/deleteMember", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // 회원 탈퇴가 성공한 경우
-                    alert("회원 탈퇴가 완료되었습니다.");
-                    // 탈퇴 후 로그인 페이지로 이동 등의 추가 작업 수행
-                    window.location.href = "index"; // 메인 페이지로 리다이렉트
-                } else {
-                    // 회원 탈퇴가 실패한 경우
-                    alert("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
-                }
-            }
-        };
-        xhr.send();
-    }
+//회원 수정 페이지 이동
+function editMember() {
+	window.location.href = "mypage_updateF";
 }
 
+//회원 탈퇴 페이지 이동
+function deleteMember() {
+    var membervo = document.getElementById("id").value;
+    var concertElement = document.getElementById("concert");
+    var theaterElement = document.getElementById("theater");
+    var exhibitionElement = document.getElementById("exhibition");
+    var concertlist = concertElement ? concertElement.value : "";
+    var theaterlist = theaterElement ? theaterElement.value : "";
+    var exhibitionlist = exhibitionElement ? exhibitionElement.value : "";
+
+    if (concertlist !== "" || theaterlist !== "" || exhibitionlist !== "") {
+        if (confirm("회원님의 예약 내역이 존재합니다.\n환불 처리가 안되오니 신중하게 생각해")) {
+            var url = "mypage_deleteF?membervo=" + membervo;
+            window.open(url, "_blank_",
+                "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700");
+        }
+    } else {
+        if (confirm("정말로 탈퇴하시겠습니까?")) {
+            var url = "mypage_deleteF?membervo=" + membervo;
+            window.open(url, "_blank_",
+                "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700");
+        }
+    }
+}
+	
+// 리뷰 삭제	
 function deleteReview(reviewId) {
-    if (confirm("정말로 리뷰를 삭제하시겠습니까?")) {
-        // AJAX 요청을 통해 리뷰 삭제 처리
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/deleteReview", true); // 리뷰 삭제를 처리하는 서버 엔드포인트로 변경해야 합니다.
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // 리뷰 삭제가 성공한 경우
-                    alert("리뷰가 삭제되었습니다.");
-                    // 삭제된 리뷰 행을 화면에서 제거
+	if (confirm("정말로 리뷰를 삭제하시겠습니까?")) {
+	
+		// AJAX 요청을 통해 리뷰 삭제 처리
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/deleteReview", true); // 리뷰 삭제를 처리하는 서버 엔드포인트로 변경해야 합니다.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					// 리뷰 삭제가 성공한 경우
+					alert("리뷰가 삭제되었습니다.");
+					// 삭제된 리뷰 행을 화면에서 제거
                     var row = document.getElementById("review-row-" + reviewId);
                     row.parentNode.removeChild(row);
                 } else {
