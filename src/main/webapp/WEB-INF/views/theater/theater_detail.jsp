@@ -10,20 +10,6 @@
 <!-- 추가2줄 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<style type="text/css">
-
-
-
-
-
-
-
-.img_d {
-	margin-left: 600px;
-}
-
-
-</style>
 <script type="text/javascript">
 	function board() {
 		var tseq = ${theater.tseq};
@@ -60,8 +46,8 @@
 <body>
 	<div class="thdetail">
 		<div class="thdetail_header">
-			<h1>연극&emsp;<${theater.tname}></h1><br>
-			<h3>${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${theater.place}</h3><br>
+			<h1>&ensp;연극&emsp;<${theater.tname}></h1><br>
+			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${theater.place}</h3><br>
 			<hr>
 		</div>
 		
@@ -136,7 +122,7 @@
 	</div>
 		
 	<div class="tab-section" id="review">
-		후기글<br>
+		<h1>후기글</h1>
 		<%@ include file="../member/review.jsp" %>
 	</div>
 	

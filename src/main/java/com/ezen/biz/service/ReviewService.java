@@ -3,7 +3,6 @@ package com.ezen.biz.service;
 import java.util.List;
 
 import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
 import com.ezen.biz.dto.totalentVO;
 
 public interface ReviewService {
@@ -19,4 +18,6 @@ public interface ReviewService {
 	
 	//∏Æ∫‰ ªË¡¶
 	void deleteReview(ReviewVO vo);
+	
+	List<totalentVO> reviewMemberlist();
 }

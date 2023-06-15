@@ -85,7 +85,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                예약 현황
+                               최근 예약 현황
                             </div>
                                 <table id="datatablesSimple">
                                     <thead>

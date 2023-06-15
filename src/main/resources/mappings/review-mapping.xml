@@ -38,4 +38,10 @@
 		WHERE id=#{id} and rseq=#{rseq}
 	</delete>
 	
+	<select id="reviewMemberlist" resultMap="totalentMap">
+		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname, b.category
+		from review a, total_ent b
+		where a.tseq=b.tseq
+	</select>
+	
 </mapper>

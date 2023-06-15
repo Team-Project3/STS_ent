@@ -19,6 +19,7 @@
 		insert into member(id, password, name, phone, birth, email)
 		values (#{id}, #{password}, #{name}, #{phone}, #{birth}, #{email}) 
 	</insert>
+	
 	<!-- 회원 정보 수정 -->
 	<update id="updateMember" parameterType="Member">
 		update member set id=#{id}, name=#{name}, phone=#{phone}, email=#{email}
@@ -47,4 +48,11 @@
 		UPDATE member SET password=#{password} 
 		WHERE id=#{id}
 	</update>
+	
+	<!-- 관리자 - 회원 전체 리스트 -->
+	<select id="memberlist" resultType="Member">
+		select * from member
+	</select>
+	
+
 </mapper>

@@ -1,5 +1,7 @@
 package com.ezen.biz.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -70,5 +72,9 @@ public class MemberDAO {
 	//비밀번호 변경
 	public void changePwd(MemberVO vo) {
 		mybatis.update("MemberMapper.changePwd", vo);
+	}
+	
+	public List<MemberVO> memberlist(){
+		return mybatis.selectList("MemberMapper.memberlist");
 	}
 }

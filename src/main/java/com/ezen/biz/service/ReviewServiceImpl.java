@@ -37,7 +37,10 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDao.deleteReview(vo);
 	}
 
-	
+	@Override
+	public List<totalentVO> reviewMemberlist() {
+		return reviewDao.reviewMemberlist();
+	}
 	
 
 }
