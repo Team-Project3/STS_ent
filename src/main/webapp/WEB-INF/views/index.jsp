@@ -99,8 +99,8 @@
 				<a class="menu__item-link" href="museum_main">Museum</a>
 			</span>
 			<span class="menu__item">
-				<span class="menu__item-tag">내정보</span>
-				<a class="menu__item-link" href="notice">Notice</a>
+				<span class="menu__item-tag">공지사항</span>
+				<a class="menu__item-link" href="notice">NoticeInfo</a>
 			</span>
 		</nav>
 	</div>

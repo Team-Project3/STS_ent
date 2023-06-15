@@ -13,5 +13,5 @@ public class totalentVO {
 	private int rpoint;
 	private String rcontent;
 	private String tname;
-
+	private String category;
 }

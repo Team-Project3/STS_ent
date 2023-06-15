@@ -19,4 +19,6 @@ public interface ReviewService {
 	
 	//∏Æ∫‰ ªË¡¶
 	void deleteReview(ReviewVO vo);
+	
+	List<totalentVO> reviewMemberlist();
 }
