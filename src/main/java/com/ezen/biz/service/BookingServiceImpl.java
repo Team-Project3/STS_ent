@@ -46,4 +46,10 @@ public class BookingServiceImpl implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingDAO.bookingList();
 	}
+
+	@Override
+	public List<totalbookVO> bookingListcategory(String category) {
+		// TODO Auto-generated method stub
+		return bookingDAO.bookingListcategory(category);
+	}
 }

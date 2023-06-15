@@ -6,4 +6,11 @@ window.addEventListener('DOMContentLoaded', event => {
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
+    
+    $('.datatabletr').on('click', function(e) {
+    	location.href='index';
+    });
+    
 });
+
+

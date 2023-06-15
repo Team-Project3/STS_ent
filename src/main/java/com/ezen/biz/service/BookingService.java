@@ -24,5 +24,7 @@ public interface BookingService {
 	void deleteBooking(BookingVO vo);
 	
 	List<totalbookVO> bookingList();
+	
+	List<totalbookVO> bookingListcategory(String category);
 		
 }

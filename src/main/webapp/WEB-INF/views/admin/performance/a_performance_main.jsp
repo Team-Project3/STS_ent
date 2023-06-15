@@ -17,6 +17,7 @@
     </head>
     <body class="sb-nav-fixed">
         <%@ include file="a_header.jsp" %>
+        <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Admin Page</h1>
@@ -86,50 +87,41 @@
                                 <i class="fas fa-table me-1"></i>
                                 예약 현황
                             </div>
-                            <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>공연 번호</th>
-                                            <th>공연명</th>
+                                            <th>예약 번호</th>
+                                            <th>ID</th>
                                             <th>공연종류</th>
+                                            <th>공연명</th>
+                                            <th>예약날짜</th>
+                                            <th>인원</th>
                                             <th>좌석</th>
-                                            <th>날짜</th>
-                                            <th>시간</th>
-                                            <th>가격</th>
+                                            <th>금액</th>
+                                            <th>예약상태</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>공연 번호</th>
-                                            <th>공연명</th>
-                                            <th>공연종류</th>
-                                            <th>좌석</th>
-                                            <th>날짜</th>
-                                            <th>시간</th>
-                                            <th>가격</th>                                         
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
-                                    <c:forEach var="total" items="${tlist}" varStatus="loop">
+                                    <c:forEach var="book" items="${booklist}" varStatus="loop">
                                         <tr>
-                                            <td>${total.tseq}</td>
-                                            <td>${total.tname}</td>
+                                            <td>${book.bseq}</td>
+                                            <td>${book.id}</td>
                                             <td>
                                             <c:choose>
-                                            <c:when test="${total.category == 1}">콘서트</c:when>
-                                            <c:when test="${total.category == 2}">연극</c:when>
-                                            <c:when test="${total.category == 3}">전시회</c:when>
+                                            <c:when test="${book.category == 1}">콘서트</c:when>
+                                            <c:when test="${book.category == 2}">연극</c:when>
+                                            <c:when test="${book.category == 3}">전시회</c:when>
                                             </c:choose>
                                             </td>
-                                            <td>${total.seat}</td>
+                                            <td>${book.tname}</td>
                                             <td>
-                                            <fmt:formatDate value="${total.sdate}" pattern="yyyy-MM-dd" var="sdate" />
-											<fmt:formatDate value="${total.edate}" pattern="yyyy-MM-dd" var="edate" />
-											${sdate} ~ ${edate}
+                                            <fmt:formatDate value="${book.dday}" pattern="yyyy-MM-dd" var="dday" />
+											${dday}
                                             </td>
-                                            <td>${total.time}</td>
-                                            <td>${total.price}</td>
+                                            <td>${book.head}</td>
+                                            <td>${book.seat}</td>
+                                            <td><c:set var="totalprice" value="${book.head*book.price}"></c:set>${totalprice}</td>
+                                            <td>${book.bstatus}</td>
                                         </tr>
                                   </c:forEach>      
                                     </tbody>
@@ -138,20 +130,6 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

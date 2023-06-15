@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,9 +66,9 @@ public class AdminController {
 	@GetMapping("/a_performance_main")
 	public String a_performance_main(ConcertVO vo,Model model) {
 		
-		List<ConcertVO> list = concertService.AllList();
+		List<totalbookVO> booklist = bookingService.bookingList();
 		
-		model.addAttribute("tlist",list);
+		model.addAttribute("booklist",booklist);
 		
 		return "admin/performance/a_performance_main";
 	}
@@ -87,12 +86,10 @@ public class AdminController {
 	@GetMapping("/a_performance_ent_f")
 	public String a_performance_ent_f(Model model,@RequestParam("category")String category) {
 		
-		System.out.println(category);
-		
-		
 		List<ConcertVO> list = concertService.categoryList(category);
 		
 		model.addAttribute("tlist",list);
+		model.addAttribute("category",category);
 		
 		return "admin/performance/a_performance_ent_f";
 	}
@@ -102,11 +99,22 @@ public class AdminController {
 		
 		List<totalbookVO> booklist = bookingService.bookingList();
 		
+		
 		model.addAttribute("booklist",booklist);
 		
 		return "admin/performance/a_performance_booking_t";
 	}
 	
+	@RequestMapping("/a_performance_booking_f")
+	public String a_performance_booking_f(Model model,ConcertVO vo,@RequestParam("category")String category) {
+		
+		List<totalbookVO> booklist = bookingService.bookingListcategory(category);
+		
+		model.addAttribute("booklist",booklist);
+		model.addAttribute("category",category);
+		
+		return "admin/performance/a_performance_booking_f";
+	}
 	@GetMapping("/a_member_main")
 	public String a_member_main() {
 		

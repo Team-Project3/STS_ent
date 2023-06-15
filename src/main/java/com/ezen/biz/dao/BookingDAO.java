@@ -48,6 +48,10 @@ public class BookingDAO {
 	}
 	
 	public List<totalbookVO> bookingList() {
-		return mybatis.selectList("BookingMapper.bookingMember");
+		return mybatis.selectList("BookingMapper.bookingList");
+	}
+	
+	public List<totalbookVO> bookingListcategory(String category) {
+		return mybatis.selectList("BookingMapper.bookingListcategory",category);
 	}
 }
