@@ -160,7 +160,11 @@ public class MemberController {
 	@RequestMapping("/mypage")
 	public String mypage(MemberVO vo, Model model, HttpSession session, ReviewVO reviewvo, BookingVO bookingvo) {
 		
-		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");	
+		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		
+		if(membervo == null) {
+			return "member/session_fail"; 
+		} 
 		
 		reviewvo.setId(membervo.getId());
 		bookingvo.setId(membervo.getId());

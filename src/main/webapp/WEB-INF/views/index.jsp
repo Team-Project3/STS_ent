@@ -100,15 +100,7 @@
 			</span>
 			<span class="menu__item">
 				<span class="menu__item-tag">내정보</span>
-				
-				<c:choose>
-					<c:when test="${empty sessionScope.loginUser}">
-						<a class="menu__item-link" onclick="checkLogin()">My Page</a>
-					</c:when>
-					<c:otherwise>
-						<a class="menu__item-link" href="mypage">My Page</a>
-					</c:otherwise>
-				</c:choose>	
+				<a class="menu__item-link" href="notice">Notice</a>
 			</span>
 		</nav>
 	</div>
