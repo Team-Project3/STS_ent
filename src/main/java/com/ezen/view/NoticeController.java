@@ -16,15 +16,27 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	//공지사항 메인
 	@RequestMapping("/notice")
 	public String noticeMain(NoticeVO vo, Model model) {
 		
 		List<NoticeVO> noticeList = noticeService.noticeList();
 		
 		model.addAttribute("noticeList", noticeList);
-		
-		
+
 		return "notice/notice_main";
+	}
+	
+	//공지사항 상세
+	@RequestMapping("/notice_detail")
+	public String noticeDetail(NoticeVO vo, Model model) {
+		
+		NoticeVO notice = noticeService.noticeDetail(vo);
+		
+		model.addAttribute("notice", notice);
+		System.out.println(notice);
+		
+		return "notice/notice_detail";
 	}
 	
 	

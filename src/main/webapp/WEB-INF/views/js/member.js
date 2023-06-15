@@ -15,6 +15,14 @@ function idcheck() {
 	document.getElementById("password").focus();
 }
 
+//생년월일 오늘 일자 기준 이후 날짜 선택불가
+function handleDateClick() {
+    var birthInput = document.getElementById("birth");
+    var nowUtc = Date.now();
+    var timeOffset = new Date().getTimezoneOffset() * 60000;
+    var today = new Date(nowUtc - timeOffset).toISOString().split("T")[0];
+    birthInput.max = today;
+}
 
 //회원 가입 시 필수 입력 확인
 function go_save() {
