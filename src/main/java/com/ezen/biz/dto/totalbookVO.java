@@ -16,4 +16,5 @@ public class totalbookVO {
 	private int head;
 	private String bstatus;
 	private int category;
+	private int price;
 }

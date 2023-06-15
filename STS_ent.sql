@@ -84,6 +84,10 @@ CREATE TABLE notice (
 	ncontent VARCHAR2(200) NOT NULL
 );
 
+insert into notice values(nseq.nextval, 'admin', '공지사항 테스트', sysdate, '으아아아아아아아아아아아');
+insert into notice values(nseq.nextval, 'admin', '공지사항 테스트2', sysdate, '으아아아아아아아아아아아아아');
+insert into notice values(nseq.nextval, 'admin', '공지사항 테스트3', sysdate, '으아아아아아아아아아아아아아아');
+
 --후기 테이블
 CREATE TABLE review (
 	rseq NUMBER	NOT NULL primary key,

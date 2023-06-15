@@ -25,8 +25,13 @@
 	</select>
 	
 	<select id="bookingList" resultMap="totalbookMap">
-		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus, t.category
-		from booking b, total_ent t
+		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus,t.price,t.category
+		from booking b, total_ent t where b.tseq=t.tseq
+	</select>
+	
+	<select id="bookingListcategory" resultMap="totalbookMap">
+		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus,t.price,t.category
+		from booking b, total_ent t where b.tseq=t.tseq and category = #{category}
 	</select>
 	
 	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
@@ -39,6 +44,7 @@
 		<id property="seat" column="seat"/>
 		<id property="head" column="head"/>
 		<id property="bstatus" column="bstatus"/>
+		<id property="price" column="price"/>
 		<id property="category" column="category"/>
 	</resultMap>
 	
