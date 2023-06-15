@@ -48,11 +48,9 @@ public class AdminController {
 			return "admin/admin_main";
 		
 		} else {
-			if (result == 0 || result == -1) {
-				model.addAttribute("message", "아이디, 비밀번호를 확인해 주세요.");
-			} 
-
-			return "admin/admin_login";
+			model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
+			return "member/login_fail";
+			
 		}
 	}
 	

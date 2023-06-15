@@ -57,7 +57,8 @@
                                             <th>좌석</th>
                                             <th>날짜</th>
                                             <th>시간</th>
-                                            <th>가격</th>                                         
+                                            <th>가격</th>    
+                                                                               
                                         </tr>
                                     </tfoot>
                                     <tbody>

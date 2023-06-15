@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,17 +14,10 @@
 	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mypage.css" />
 </head>
-<%
-	// 세션 체크
-	if (session == null || session.getAttribute("loginUser") == null) {
-		out.println("<script>alert('로그인 후에 이용해주세요.'); location.href='login_form';</script>");
-	}
-%>
+
 <body>
 	<div class="mypage">
 		<input type="hidden" value="${membervo.id}" id="id">
-		
-
 		<div>
 			
 				<div class="memberinfo">
@@ -130,7 +124,7 @@
 							<c:forEach items="${concertList}" var="booking">
 								<tr id="concert">
 									<td>${booking.id}</td>
-									<td>${booking.dday}</td>
+									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>
@@ -171,7 +165,7 @@
 							<c:forEach items="${theaterList}" var="booking">
 								<tr id="theater">
 									<td>${booking.id}</td>
-									<td>${booking.dday}</td>
+									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>
@@ -212,7 +206,7 @@
 							<c:forEach items="${exhibitionList}" var="booking">
 								<tr id="exhibition">
 									<td>${booking.id}</td>
-									<td>${booking.dday}</td>
+									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>

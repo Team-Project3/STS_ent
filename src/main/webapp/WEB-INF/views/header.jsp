@@ -50,14 +50,14 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="#">Notice</a></li>
+			<li><a href="notice">Notice</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
 			<li><a href="museum_main">Museum</a></li>
 			
 			<hr style="margin-top:300px;">
 			<div class="admin">
-				<a href="admin_main">@ Admin</a>
+				<a href="adminlogin_form">@ Admin</a>
 			</div>
 			</ul>
 		</div>
