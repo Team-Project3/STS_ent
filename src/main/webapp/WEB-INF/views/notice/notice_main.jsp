@@ -19,8 +19,6 @@
 
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">공지사항</h1>
-		<br>
-		<br>
 
 		<div class="card mb-4">
 			<div class="card-header">
@@ -40,9 +38,9 @@
 					<tbody>
 						<c:forEach var="notice" items="${noticeList}" varStatus="loop">
 						<tr>
-							<td>${notice.nseq}</td>
-                            <td>${notice.title}</td>
-                            <td>${notice.ncontent}</td>
+							<td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.nseq}</a></td>
+                            <td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.title}</a></td>
+                            <td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.ncontent}</a></td>
                             <td>
 	                            <fmt:formatDate value="${notice.ndate}" pattern="yyyy-MM-dd" var="ndate" />
 								${ndate}

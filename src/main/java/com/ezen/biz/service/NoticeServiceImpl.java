@@ -19,4 +19,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDao.noticeList();
 	}
 
+	@Override	//공지사항 상세
+	public NoticeVO noticeDetail(NoticeVO vo) {
+		return noticeDao.noticeDetail(vo);
+	}
+
 }

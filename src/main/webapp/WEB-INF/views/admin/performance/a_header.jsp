@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">관리자 설정</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="adminlogout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -78,6 +78,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <a href="index" class="nav-link">@STS ent.</a>
                 </nav>
             </div>
 </body>

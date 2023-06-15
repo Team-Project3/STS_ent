@@ -11,11 +11,11 @@
 body{
     background-color: #34333b;
     overflow: auto;
-    height: auto;
 }
 
 .notice_main {
 	height: auto;
+	margin-bottom: 100px;
 }
 
 .container,
@@ -32,10 +32,14 @@ body{
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
+  height: auto;
 }
 
 .mt-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 5rem !important;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size:30px;
 }
 
 .card {
@@ -51,7 +55,7 @@ body{
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
   --bs-card-cap-color: ;
-  --bs-card-height: ;
+  --bs-card-height: auto;
   --bs-card-color: ;
   --bs-card-bg: #F6F6F6;
   --bs-card-img-overlay-padding: 1rem;
@@ -60,7 +64,7 @@ body{
   display: flex;
   flex-direction: column;
   min-width: 0;
-  height: var(--bs-card-height);
+  height: auto;
   word-wrap: break-word;
   background-color: #F6F6F6;
   background-clip: border-box;
@@ -90,6 +94,11 @@ body{
   border-top: 0;
 }
 
+.notice_detail {
+	margin-top: 80px;
+	height: auto;
+	margin-bottom: 100px;
+}
 .card-body {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
@@ -116,6 +125,21 @@ body{
 td {
 	border-bottom: 1px solid #dcdcdc;	
 }
+#detail {
+	color: #34333b;
+}
+h1{
+	font-size: 30px;
+	margin-bottom: 8px;
+	margin-top: 40px;
+}
+#a_id, #ndate {
+	color: #6e6e6e;
+}
+#ncontent {
+	margin: 25px 5px;
+}
+
 
 .card-header {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
@@ -128,15 +152,6 @@ td {
   border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
 }
 
-.card-footer {
-  padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
-  color: var(--bs-card-cap-color);
-  background-color: var(--bs-card-cap-bg);
-  border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
-}
-.card-footer:last-child {
-  border-radius: 0 0 var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius);
-}
 
 .card-header-tabs {
   margin-right: calc(-0.5 * var(--bs-card-cap-padding-x));
@@ -222,13 +237,7 @@ td {
 
 /* footer */
 .footer {
-	position: absolute;
-  	bottom: 900;
-  	top: 920px;
-  	display: block;
-  	background-color: #34333b;
-	width: 100%;
-	text-align: center;
+	height: 350px;
 }
 
 .footer_menu {
