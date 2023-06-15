@@ -141,7 +141,6 @@ public class ConcertController {
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("concert", concert);
 		model.addAttribute("dday", dday);
-		
 		model.addAttribute("head1",head1);
 		model.addAttribute("head2",head2);
 		model.addAttribute("head3",head3);
@@ -194,12 +193,4 @@ public class ConcertController {
 		
 		return "concert/cbooking_success";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

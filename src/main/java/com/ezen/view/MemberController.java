@@ -229,7 +229,6 @@ public class MemberController {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
 		model.addAttribute("membervo", membervo);
-		System.out.println(membervo);
 		return "member/mypage_deleteF";
 	}
 	

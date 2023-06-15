@@ -74,7 +74,7 @@
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
-		<div class="screen__item" style="--bg-img: url(../img/main_mypage.jpg);">
+		<div class="screen__item" style="--bg-img: url(../img/main_notice.jpg);">
 			<div class="screen screen--full"></div>
 			<div class="screen screen--clip screen--clip-1"></div>
 		</div>
@@ -108,14 +108,11 @@
 					<c:otherwise>
 						<a class="menu__item-link" href="mypage">My Page</a>
 					</c:otherwise>
-				</c:choose>
-				
-				
+				</c:choose>	
 			</span>
 		</nav>
 	</div>
 	</main>
-	
 	<script>
 	function checkLogin() {
 		if (<%= session.getAttribute("loginUser") %> == null) {
