@@ -7,4 +7,10 @@
 	<select id="concertDetail" resultType="Concert">
 		select * from total_ent where tseq =#{tseq}
 	</select>
+	<select id="List" resultType="Concert">
+		select * from total_ent
+	</select>
+	<select id="categoryList" resultType="Concert" parameterType="String">
+		select * from total_ent where category = #{category}
+	</select>
 </mapper>

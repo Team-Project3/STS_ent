@@ -47,6 +47,7 @@ public class BookingDAO {
 		mybatis.delete("BookingMapper.deleteBooking", vo);
 	}
 	
-	
-	
+	public List<totalbookVO> bookingList() {
+		return mybatis.selectList("BookingMapper.bookingMember");
+	}
 }

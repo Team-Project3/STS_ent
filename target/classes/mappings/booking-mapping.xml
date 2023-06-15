@@ -18,13 +18,21 @@
 	
 	<!-- mypage 예약 리스트 -->
 	<select id="bookingMember" resultMap="totalbookMap">
-		select b.id, b.dday, t.time, b.seat, b.head, b.bstatus, t.category
+		select b.bseq, b.id, b.dday, t.time, b.seat, b.head, b.bstatus, t.category
 		from booking b, total_ent t
 		where b.tseq=t.tseq and id=#{id} 
 		order by dday desc
 	</select>
 	
+	<select id="bookingList" resultMap="totalbookMap">
+		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus, t.category
+		from booking b, total_ent t
+	</select>
+	
 	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
+		<id property="bseq" column="bseq"/>
+		<id property="tseq" column="tseq"/>
+		<id property="tname" column="tname"/>
 		<id property="id" column="id"/>
 		<id property="dday" column="dday"/>
 		<id property="time" column="time"/>
@@ -33,4 +41,12 @@
 		<id property="bstatus" column="bstatus"/>
 		<id property="category" column="category"/>
 	</resultMap>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteBooking">
+		DELETE FROM booking
+		WHERE id=#{id} and bseq=#{bseq}
+	</delete>
+	
+	
 </mapper>

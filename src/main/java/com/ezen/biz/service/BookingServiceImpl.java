@@ -40,4 +40,10 @@ public class BookingServiceImpl implements BookingService {
 	public void deleteBooking(BookingVO vo) {
 		bookingDAO.deleteBooking(vo);
 	}
+
+	@Override
+	public List<totalbookVO> bookingList() {
+		// TODO Auto-generated method stub
+		return bookingDAO.bookingList();
+	}
 }

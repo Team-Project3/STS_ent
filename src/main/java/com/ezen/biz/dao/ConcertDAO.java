@@ -21,4 +21,12 @@ public class ConcertDAO {
 	public ConcertVO concertDetail(ConcertVO vo) {
 		return mybatis.selectOne("ConcertMapper.concertDetail",vo);
 	}
+	
+	public List<ConcertVO> AllList() {
+		return mybatis.selectList("ConcertMapper.List");
+	}
+	
+	public List<ConcertVO> categoryList(String category) {
+		return mybatis.selectList("ConcertMapper.categoryList",category);
+	}
 }

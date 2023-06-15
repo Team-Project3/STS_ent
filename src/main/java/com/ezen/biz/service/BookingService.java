@@ -22,5 +22,7 @@ public interface BookingService {
 	
 	//예약 삭제
 	void deleteBooking(BookingVO vo);
+	
+	List<totalbookVO> bookingList();
 		
 }

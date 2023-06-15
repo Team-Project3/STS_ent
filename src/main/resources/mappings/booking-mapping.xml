@@ -24,8 +24,15 @@
 		order by dday desc
 	</select>
 	
+	<select id="bookingList" resultMap="totalbookMap">
+		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus, t.category
+		from booking b, total_ent t
+	</select>
+	
 	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
 		<id property="bseq" column="bseq"/>
+		<id property="tseq" column="tseq"/>
+		<id property="tname" column="tname"/>
 		<id property="id" column="id"/>
 		<id property="dday" column="dday"/>
 		<id property="time" column="time"/>
@@ -40,4 +47,6 @@
 		DELETE FROM booking
 		WHERE id=#{id} and bseq=#{bseq}
 	</delete>
+	
+	
 </mapper>
