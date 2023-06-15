@@ -44,41 +44,14 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">종합</div>
-                            <a class="nav-link" href="a_performance_main">
+                            <div class="sb-sidenav-menu-heading">리뷰</div>
+                            <a class="nav-link" href="a_review_main">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                             	   종합 분석
+                             	  전체 리뷰 목록
                             </a>
-                            <div class="sb-sidenav-menu-heading">공연 관리</div>
-                            <a class="nav-link collapsed" href="a_performance_ent_t" data-bs-toggle="collapse" data-bs-target="#performancelist" aria-expanded="false" aria-controls="performancelist">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                공연 정보 조회
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="performancelist" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="a_performance_ent_t">전체</a>
-                                    <a class="nav-link" href="a_performance_ent_f?category=1">콘서트</a>
-                                    <a class="nav-link" href="a_performance_ent_f?category=2">연극</a>
-                                    <a class="nav-link" href="a_performance_ent_f?category=3">전시</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#bookinglist" aria-expanded="false" aria-controls="bookinglist">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                공연 예약 조회
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="bookinglist" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="a_performance_booking_t">전체 예약 조회</a>
-                                    <a class="nav-link" href="a_performance_booking_f?category=1">콘서트 예약 조회</a>
-                                    <a class="nav-link" href="a_performance_booking_f?category=2">연극 예약 조회</a>
-                                    <a class="nav-link" href="a_performance_booking_f?category=3">전시회 예약 조회</a>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </nav>
             </div>
-</body>
+	</body>
 </html>

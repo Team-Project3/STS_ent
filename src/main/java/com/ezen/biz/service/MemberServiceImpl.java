@@ -1,5 +1,7 @@
 package com.ezen.biz.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override	//È¸¿ø Å»Åð
 	public void deleteMember(String id) throws Exception {
 		memberDao.deleteMember(id);
+	}
+
+	@Override
+	public List<MemberVO> memberlist() {
+		// TODO Auto-generated method stub
+		return memberDao.memberlist();
 	}
 	
 
