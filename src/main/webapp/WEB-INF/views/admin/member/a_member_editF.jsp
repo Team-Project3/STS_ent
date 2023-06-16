@@ -14,7 +14,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
     </head>
     <script type="text/javascript">
-	function submitForm() {
+	function editform() {
 		if (document.getElementById("password").value == "") {
 			alert("비밀번호를 입력하세요.");
 			document.getElementById("password").focus();
@@ -81,7 +81,7 @@
                             		</tr>
                             	</table>
 
-                          		<button onclick="editform()">수정</button>
+								<input type="button" value="수정" onClick="editform()">
                           		<button onclick="deleteform()">삭제</button>
                           		</form>
                             </div>

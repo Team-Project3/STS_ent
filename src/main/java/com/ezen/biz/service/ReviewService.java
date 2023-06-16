@@ -19,5 +19,6 @@ public interface ReviewService {
 	//府轰 昏力
 	void deleteReview(ReviewVO vo);
 	
+	//包府磊 - 府轰 府胶飘
 	List<totalentVO> reviewMemberlist();
 }

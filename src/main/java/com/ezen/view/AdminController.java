@@ -66,6 +66,8 @@ public class AdminController {
 			
 		}
 	}
+	
+	//관리자 메인 화면
 	@RequestMapping("/admin_main")
 	public String adminmain(HttpSession session) {
 		
@@ -91,7 +93,7 @@ public class AdminController {
 		return "admin/performance/a_performance_main";
 	}
 	
-
+	//
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(ConcertVO vo,Model model) {
 		
@@ -102,7 +104,7 @@ public class AdminController {
 		return "admin/performance/a_performance_ent_t";
 	}
 	
-
+	//
 	@GetMapping("/a_performance_ent_f")
 	public String a_performance_ent_f(Model model,@RequestParam("category")String category) {
 		
@@ -114,17 +116,18 @@ public class AdminController {
 		return "admin/performance/a_performance_ent_f";
 	}
 	
+	//
 	@RequestMapping("/a_performance_booking_t")
 	public String a_performance_booking_t(Model model) {
 		
 		List<totalbookVO> booklist = bookingService.bookingList();
-		
 		
 		model.addAttribute("booklist",booklist);
 		
 		return "admin/performance/a_performance_booking_t";
 	}
 	
+	//
 	@RequestMapping("/a_performance_booking_f")
 	public String a_performance_booking_f(Model model,ConcertVO vo,@RequestParam("category")String category) {
 		
@@ -171,15 +174,14 @@ public class AdminController {
 	
 	//관리자 - 회원 상세 정보 수정 처리
 	@RequestMapping(value="/a_member_edit")
-	public String updateMember(Model model, MemberVO vo) {
+	public String updateMember(MemberVO vo) {
 			
 		memberService.updateMember(vo);
-
-		model.addAttribute("member", vo);
-
-		return "redirect:a_member_main";
+		
+		return "redirect:a_member_detail";
 	}
 	
+	//관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
 	public String a_notice_main(NoticeVO vo, Model model) {
 		
@@ -190,6 +192,7 @@ public class AdminController {
 		return "admin/notice/a_notice_main";
 	}
 	
+	//관리자 - 리뷰 리스트
 	@GetMapping("/a_review_main")
 	public String a_review_main(Model model) {
 		

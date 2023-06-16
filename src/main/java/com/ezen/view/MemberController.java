@@ -74,7 +74,7 @@ public class MemberController {
 
 	    memberService.insertMember(vo);
 	    
-	    return "member/login";
+	    return "redirect:login_form";
 
 	}
 	

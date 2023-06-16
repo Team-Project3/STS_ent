@@ -32,5 +32,6 @@ public interface MemberService {
 	// 비밀번호 변경
 	void changePwd(MemberVO vo);
 	
+	//관리자 - 회원 리스트
 	List<MemberVO> memberlist();
 }

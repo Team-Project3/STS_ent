@@ -108,12 +108,18 @@ body {
 	vertical-align: top;
 }
 
+
 .contentimg {
 	display: inline-block;
 	width: 264px;
 	height: 360px;
 	border: 1px solid #ddd;
-	vertical-align: top;
+	vertical-align: top;	
+}
+
+.contentimg:hover {
+	transform: scale(1.1);
+	transition: .5s;
 }
 
 .contentp {
@@ -122,6 +128,8 @@ body {
 	line-height: 22px;
 	margin: 18px 20px 12px 20px;
 }
+
+
 
 
 
