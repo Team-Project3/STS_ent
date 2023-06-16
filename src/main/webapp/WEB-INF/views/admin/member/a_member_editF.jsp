@@ -24,7 +24,7 @@
     <body class="sb-nav-fixed">
        <%@ include file="../a_header.jsp" %>
         <!-- <form action="a_member_edit" id="edit" method="post"> -->
-       	<form name="formm" id="update" method="post">
+       	
                 <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">회원 정보 수정</h1>
@@ -36,6 +36,7 @@
                                 <i class="fas fa-table me-1"></i>
                           		     회원 정보 수정<br>
                             </div>
+                            <form name="formm" id="update" method="post">
                             <div class="card-body">
              					
                             	<table>
@@ -73,10 +74,11 @@
                           		<!-- <button onclick="deleteform()">삭제</button> -->
                           		
                             </div>
+                            </form>
                         </div>
                     </div>
                  </div>
-                 </form>
+                 
                 
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
