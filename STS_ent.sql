@@ -6,7 +6,7 @@ create table member (
     password varchar2(20) not null,
     name varchar2(40) not null,
     phone varchar2(20) not null,
-    birth varchar2(12),
+    birth date not null,
     email varchar2(40) not null
 );
 insert into member values('1','1','1','1','1','1');

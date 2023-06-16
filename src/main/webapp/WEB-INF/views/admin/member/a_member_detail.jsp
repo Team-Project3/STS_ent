@@ -38,9 +38,10 @@
                             <div class="card-body">
                                                                 아이디 : ${member.id }<br>
                           		비밀번호 : ${member.password }<br>
-                          		이름: ${member.name }<br>
+                          		이름: ${member.name}<br>
                           		전화번호 : ${member.phone }<br>
-                          		생년월일 : ${member.birth}<br>
+                          		<fmt:formatDate value="${member.birth}" pattern="yyyy-MM-dd" var="birth" />
+                          		생년월일 : ${birth}<br>
                           		이메일 : ${member.email }<br>
                             
                           		<button type="button" onclick="a_editMember()">수정</button>&emsp;&emsp;
