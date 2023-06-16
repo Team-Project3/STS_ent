@@ -43,11 +43,11 @@
                                     <tbody>
                                     <c:forEach var="member" items="${memberlist}" varStatus="loop">
                                         <tr>
-                                            <td><a href="index">${member.id}</a></td>
-                                            <td>${member.name}</td>
+                                            <td><a href="a_member_detail?id=${member.id}" id="detail">${member.id}</a></td>
+                                            <td><a href="a_member_detail?id=${member.id}" id="detail">${member.name}</a></td>
                                             <td>${member.phone}</td>
                                             <td>${member.birth}</td>
-                                            <td>${total.email}</td>
+                                            <td>${member.email}</td>
                                         </tr>
                                   </c:forEach>      
                                     </tbody>

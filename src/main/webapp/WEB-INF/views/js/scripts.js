@@ -27,9 +27,11 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 function submit() {
-
 	var submit = document.getElementById("submit");
-	
 	submit.submit();
 }
+
+
+
+
 	

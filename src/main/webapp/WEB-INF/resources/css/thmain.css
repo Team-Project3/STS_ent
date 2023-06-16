@@ -10,17 +10,125 @@
 body {
 	background-color: #34333b;
     overflow: auto;
-    height: 800px;
+    height: auto;
 }
+
+
+
+.theater {
+	margin: 50px 0;
+	height: auto;
+}
+
+.slider-container {
+	margin-top: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1000px;
+	height: 600px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.image-video-slide .inner {
+	position: relative;
+	display: block;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 1;
+	transition: all 300ms ease;
+	overflow: hidden;
+}
+
+.image-video-slide .inner {
+	margin: 0px;
+}
+
+.image-video-slide .inner:after {
+	display: block;
+	content: '';
+	padding-bottom: 56.23%;
+}
+
+
+.image-video-slider .slick-prev, .image-video-slider .slick-next {
+	z-index: 10000;
+}
+
+.image-video-slider .slick-prev:before, .image-video-slider .slick-next:before
+	{
+	color: #50a9dd !important;
+}
+
+
+
+@media ( min-width : 500px ) {
+	.image-video-slide .inner {
+		opacity: 0.8;
+	}
+	.image-video-slide .inner {
+		margin: 10px;
+	}
+	.image-video-slider .slick-prev {
+		left: -46px;
+	}
+	.image-video-slider .slick-prev:before, .image-video-slider .slick-next:before
+		{
+		font-size: 40px !important;
+	}
+	.image-video-slide.slick-center .inner {
+		opacity: 1;
+	}
+}
+
+
+.contentmain {
+	width: 900px;
+	margin: 0 auto;
+	font-size: 0;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.contentel {
+	width: 100%;
+	height: 70px;
+	background: #fff;
+	text-align: center;
+	border-top: 1px solid #ddd;
+}
+
+.contenta {
+	display: inline-block;
+	width: 264px;
+	height: 360px;
+	margin: 15px 15px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+
+.contentimg {
+	display: inline-block;
+	width: 264px;
+	height: 360px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+
+.contentp {
+	font-size: 16px;
+	color: #333;
+	line-height: 22px;
+	margin: 18px 20px 12px 20px;
+}
+
+
+
 
 /* footer */
 .footer{
-	position: absolute;
-  	bottom: 900;
-  	top: 920px;
-  	display: block;
-  	background-color: #34333b;
-	width: 100%;
+	height: 350px;
 }
 .footer_menu {
 	height: 70px; 

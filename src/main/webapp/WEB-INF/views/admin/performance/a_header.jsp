@@ -78,8 +78,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <a href="index" class="nav-link">@STS ent.</a>
                 </nav>
             </div>
 </body>

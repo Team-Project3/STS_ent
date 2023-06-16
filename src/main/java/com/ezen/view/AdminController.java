@@ -75,11 +75,12 @@ public class AdminController {
 	//로그아웃 처리
 	@GetMapping("/adminlogout")
 	public String adminlogout(SessionStatus status ) {
-			
+				
 		status.setComplete();
 		return "redirect:adminlogin_form";
+
 	}
-	
+
 	@GetMapping("/a_performance_main")
 	public String a_performance_main(ConcertVO vo,Model model) {
 		
@@ -90,6 +91,7 @@ public class AdminController {
 		return "admin/performance/a_performance_main";
 	}
 	
+
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(ConcertVO vo,Model model) {
 		
@@ -100,6 +102,7 @@ public class AdminController {
 		return "admin/performance/a_performance_ent_t";
 	}
 	
+
 	@GetMapping("/a_performance_ent_f")
 	public String a_performance_ent_f(Model model,@RequestParam("category")String category) {
 		
@@ -132,6 +135,8 @@ public class AdminController {
 		
 		return "admin/performance/a_performance_booking_f";
 	}
+	
+	//관리자 - 회원 전체 리스트
 	@GetMapping("/a_member_main")
 	public String a_member_main(Model model) {
 		
@@ -140,6 +145,39 @@ public class AdminController {
 		model.addAttribute("memberlist",memberlist);
 		
 		return "admin/member/a_member_main";
+	}
+	
+	//관리자 - 회원 상세 정보
+	@GetMapping("/a_member_detail")
+	public String a_member_detail(Model model, MemberVO vo) {
+		
+		MemberVO member = memberService.getMember(vo.getId());
+		
+		model.addAttribute("member", member);
+
+		return "admin/member/a_member_detail";
+	}
+	
+	//관리자 - 회원 상세 정보 수정
+	@RequestMapping(value="/a_member_editF")
+	public String updateMemberF(Model model, MemberVO vo) {
+		
+		MemberVO membervo = memberService.getMember(vo.getId());
+
+		model.addAttribute("membervo", membervo);
+
+		return "admin/member/a_member_editF";
+	}
+	
+	//관리자 - 회원 상세 정보 수정 처리
+	@RequestMapping(value="/a_member_edit")
+	public String updateMember(Model model, MemberVO vo) {
+			
+		memberService.updateMember(vo);
+
+		model.addAttribute("member", vo);
+
+		return "redirect:a_member_main";
 	}
 	
 	@GetMapping("/a_notice_main")

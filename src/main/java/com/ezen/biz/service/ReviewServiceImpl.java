@@ -39,11 +39,8 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public List<totalentVO> reviewMemberlist() {
-		// TODO Auto-generated method stub
+
 		return reviewDao.reviewMemberlist();
 	}
-
-	
-	
 
 }
