@@ -57,11 +57,14 @@ public class AdminController {
 		
 		if (result == 1) {
 			model.addAttribute("admin", adminService.getAdmin(vo.getA_id()));
-			
 			return "admin/admin_main";
 		
-		} else {
+		} else if (result == 0) {
 			model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
+			return "member/login_fail";
+			
+		} else {
+			model.addAttribute("errorMessage", "계정이 존재하지 않습니다.");
 			return "member/login_fail";
 			
 		}
@@ -186,33 +189,38 @@ public class AdminController {
 	
 	//관리자 - 회원 상세 정보
 	@GetMapping("/a_member_detail")
-	public String a_member_detail(Model model, MemberVO vo) {
+	public String a_member_detail(Model model, MemberVO membervo) {
+		System.out.println("/a_member_detail api 호출");
 		
-		MemberVO member = memberService.getMember(vo.getId());
+		MemberVO member = memberService.getMember(membervo.getId());
 		
-		model.addAttribute("member", member);
+		model.addAttribute("membervo", member);
 
 		return "admin/member/a_member_detail";
 	}
 	
 	//관리자 - 회원 상세 정보 수정
 	@RequestMapping(value="/a_member_editF")
-	public String updateMemberF(Model model, MemberVO vo) {
+	public String updateMemberF(Model model, MemberVO membervo) {
 		
-		MemberVO membervo = memberService.getMember(vo.getId());
+		MemberVO member = memberService.getMember(membervo.getId());
 
-		model.addAttribute("membervo", membervo);
+		model.addAttribute("membervo", member);
 
 		return "admin/member/a_member_editF";
 	}
 	
 	//관리자 - 회원 상세 정보 수정 처리
-	@RequestMapping(value="/a_member_edit")
-	public String updateMember(MemberVO vo) {
+	@PostMapping("/a_member_editt")
+	public String updateMember(MemberVO membervo, Model model) {
+		System.out.println("/a_member_edit api 호출");
 			
-		memberService.updateMember(vo);
+		System.out.println(membervo);
 		
-		return "redirect:a_member_detail";
+		memberService.updateMember(membervo);
+		System.out.println("업데이트 완료");
+		
+		return "redirect:a_member_detail?id="+membervo.getId();
 	}
 	
 	//관리자 - 공지사항 리스트
@@ -224,6 +232,39 @@ public class AdminController {
 		model.addAttribute("noticeList", noticeList);
 		
 		return "admin/notice/a_notice_main";
+	}
+	
+	//공지사항 상세
+	@RequestMapping("/a_notice_detail")
+	public String noticeDetail(NoticeVO vo, Model model) {
+		
+		NoticeVO notice = noticeService.noticeDetail(vo);
+		
+		model.addAttribute("notice", notice);
+		System.out.println(notice);
+		
+		return "admin/notice/a_notice_detail";
+	}
+	
+	//공지사항 작성 form
+	@GetMapping("/a_notice_insertF")
+	public String noticeInsertF(Model model, HttpSession session) {
+		
+		
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		model.addAttribute("a_id", admin.getA_id());
+		
+		return "admin/notice/a_notice_insertF";
+	}
+	
+	//공지사항 작성 form
+	@RequestMapping("/a_notice_insert")
+	public String noticeInsert(Model model, NoticeVO noticevo) {
+		
+		noticeService.noticeInsert(noticevo);
+		
+		return "redirect:a_notice_main";
 	}
 	
 	//관리자 - 리뷰 리스트

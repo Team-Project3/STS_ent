@@ -15,32 +15,16 @@
     </head>
     <script type="text/javascript">
 	function editform() {
-		if (document.getElementById("password").value == "") {
-			alert("비밀번호를 입력하세요.");
-			document.getElementById("password").focus();
-			return false;
-		} else if (document.getElementById("name").value == "") {
-			alert("이름을 입력하세요.");
-			document.getElementById("name").focus();
-			return false;
-		} else if (document.getElementById("email").value == "") {
-			alert("이메일을 입력하세요.");
-			document.getElementById("email").focus();
-			return false;
-		} else if (document.getElementById("phone").value == "") {
-			alert("핸드폰번호를 입력하세요.");
-			document.getElementById("phone").focus();
-			return false;
-		} else {
-			var theform = document.getElementById("edit");
-			alert("회원 정보가 수정되었습니다.");
-			theform.action = "a_member_edit";
-	        theform.submit();
-		}
+		var theform = document.getElementById("update");
+		alert("회원 정보가 수정되었습니다.");
+		theform.action = "a_member_editt";
+		theform.submit();
 	}
 	</script>
     <body class="sb-nav-fixed">
        <%@ include file="../a_header.jsp" %>
+        <!-- <form action="a_member_edit" id="edit" method="post"> -->
+       	<form name="formm" id="update" method="post">
                 <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">회원 정보 수정</h1>
@@ -53,11 +37,11 @@
                           		     회원 정보 수정<br>
                             </div>
                             <div class="card-body">
-             					<form name="formm" id="edit" method="post">
+             					
                             	<table>
                             		<tr>
                             			<td>아이디</td>
-                            			<td><input id="name" name="name" type="text" value="${membervo.id}" readonly="readonly"></td>
+                            			<td><input id="id" name="id" type="text" value="${membervo.id}" readonly="readonly"></td>
                             		</tr>
                             		<tr>
                             			<td>비밀번호</td>
@@ -73,7 +57,10 @@
                             		</tr>
                             		<tr>
                             			<td>생년월일</td>
-                            			<td><input id="birth" name="birth" type="text" value="${membervo.birth}" readonly="readonly"></td>
+                            			<td>
+	                            			<fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
+	                          				<input id="birth" name="birth" type="date" value="${birth}" readonly="readonly">
+                          				</td>
                             		</tr>
                             		<tr>
                             			<td>이메일</td>
@@ -81,13 +68,15 @@
                             		</tr>
                             	</table>
 
-								<input type="button" value="수정" onClick="editform()">
-                          		<button onclick="deleteform()">삭제</button>
-                          		</form>
+								<!-- <input type="submit" value="수정"> -->
+								<input type="button" onClick="editform()" value="수정">
+                          		<!-- <button onclick="deleteform()">삭제</button> -->
+                          		
                             </div>
                         </div>
                     </div>
                  </div>
+                 </form>
                 
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -46,7 +46,7 @@
 <body>
 	<div class="thdetail">
 		<div class="thdetail_header">
-			<h1>&ensp;연극&emsp;<${theater.tname}></h1><br>
+			<h1 onclick="location.href='theater'">&ensp;연극&emsp;<${theater.tname}></h1><br>
 			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${theater.place}</h3><br>
 			<hr>
 		</div>

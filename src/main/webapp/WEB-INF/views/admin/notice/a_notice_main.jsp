@@ -24,13 +24,18 @@
 	<%@ include file="../a_header.jsp" %>
 	<div id="layoutSidenav_content">
 		<div class="container-fluid px-4">
-			<h1 class="mt-4">전체 공지사항 목록</h1>
+			<h1 class="mt-4">공지사항 목록</h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Notice List</li>
 			</ol>
+			
+			<div align="right">
+				<a class="btn btn-primary" href="a_notice_insertF" id="noticeInsert" style="margin-bottom:10px;">공지글 등록</a>
+			</div>
+			
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table me-1"></i> 전체 공지사항 목록
+					<i class="fas fa-table me-1"></i> 공지사항 목록
 				</div>
 				<div class="card-body">
 					<table id="datatablesSimple">
@@ -46,9 +51,12 @@
 						<tbody>
 							<c:forEach var="notice" items="${noticeList}" varStatus="loop">
 								<tr>
-									<td>${notice.nseq}</td>
-									<td>${notice.title}</td>
-									<td>${notice.ncontent}</td>
+									<td><a href="a_notice_detail?nseq=${notice.nseq}"
+										id="detail">${notice.nseq}</a></td>
+									<td><a href="a_notice_detail?nseq=${notice.nseq}"
+										id="detail">${notice.title}</a></td>
+									<td><a href="a_notice_detail?nseq=${notice.nseq}"
+										id="detail">${notice.ncontent}</a></td>
 									<td><fmt:formatDate value="${notice.ndate}"
 											pattern="yyyy-MM-dd" var="ndate" /> ${ndate}</td>
 									<td>${notice.a_id}</td>

@@ -24,5 +24,9 @@ public class NoticeDAO {
 		return mybatis.selectOne("NoticeMapper.noticeDetail", vo);
 	}
 	
+	//공지사항 작성
+	public void noticeInsert(NoticeVO vo) {
+		mybatis.insert("NoticeMapper.noticeInsert", vo);
+	}
 
 }
