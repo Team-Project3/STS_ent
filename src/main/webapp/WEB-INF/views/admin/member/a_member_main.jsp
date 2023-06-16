@@ -46,7 +46,8 @@
                                             <td><a href="a_member_detail?id=${member.id}" id="detail">${member.id}</a></td>
                                             <td><a href="a_member_detail?id=${member.id}" id="detail">${member.name}</a></td>
                                             <td>${member.phone}</td>
-                                            <td>${member.birth}</td>
+                                            <fmt:formatDate value="${member.birth}" pattern="yyyy-MM-dd" var="birth" />
+                                            <td>${birth}</td>
                                             <td>${member.email}</td>
                                         </tr>
                                   </c:forEach>      

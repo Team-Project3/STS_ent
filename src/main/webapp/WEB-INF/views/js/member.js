@@ -46,7 +46,7 @@ function go_save() {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
 		return false;
-	} else if (document.getElementById("birth").value="") {
+	} else if (document.getElementById("birth").value ==="") {
 		alert("생년월일을 입력해 주세요");
 		document.getElementById("birth").focus();
 		return false;
