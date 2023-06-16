@@ -31,7 +31,7 @@ public class NoticeController {
 	@RequestMapping("/notice_detail")
 	public String noticeDetail(NoticeVO vo, Model model) {
 		
-		NoticeVO notice = noticeService.noticeDetail(vo);
+		NoticeVO notice = noticeService.noticeDetail(vo.getNseq());
 		
 		model.addAttribute("notice", notice);
 		System.out.println(notice);

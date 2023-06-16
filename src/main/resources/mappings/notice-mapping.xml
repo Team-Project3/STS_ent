@@ -20,6 +20,12 @@
 		VALUES(nseq.nextval, #{a_id}, #{title}, sysdate, #{ncontent})
 	</insert>
 	
+	<!-- 관리자 - 공지글 수정 -->
+	<update id="noticeUpdate">
+		UPDATE notice SET title=#{title}, ncontent=#{ncontent}
+		WHERE nseq=#{nseq}
+	</update>
+	
 	
 	
 

@@ -36,7 +36,7 @@
                             <form id="update" name="formm" method="post">
                             <input type="hidden" value="${membervo.id}" id="id">
                             <div class="card-body">
-                                                                아이디 : ${membervo.id }<br>
+                                                                        아이디 : ${membervo.id }<br>
                           		비밀번호 : ${membervo.password }<br>
                           		이름: ${membervo.name}<br>
                           		전화번호 : ${membervo.phone }<br>

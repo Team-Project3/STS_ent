@@ -20,14 +20,18 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override	//공지사항 상세
-	public NoticeVO noticeDetail(NoticeVO vo) {
-		return noticeDao.noticeDetail(vo);
+	public NoticeVO noticeDetail(int nseq) {
+		return noticeDao.noticeDetail(nseq);
 	}
 
 	@Override	//공지사항 작성
 	public void noticeInsert(NoticeVO vo) {
 		noticeDao.noticeInsert(vo);
-		
 	}
 
+	@Override	//공지사항 수정
+	public void noticeUpdate(NoticeVO vo) {
+		noticeDao.noticeUpdate(vo);	
+	}
+	
 }

@@ -191,7 +191,7 @@ public class AdminController {
 	
 	//관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
-	public String a_notice_main(NoticeVO vo, Model model) {
+	public String a_notice_main(NoticeVO noticevo, Model model) {
 		
 		List<NoticeVO> noticeList = noticeService.noticeList();
 		
@@ -202,11 +202,11 @@ public class AdminController {
 	
 	//공지사항 상세
 	@RequestMapping("/a_notice_detail")
-	public String noticeDetail(NoticeVO vo, Model model) {
+	public String noticeDetail(NoticeVO noticevo, Model model) {
 		
-		NoticeVO notice = noticeService.noticeDetail(vo);
+		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 		
-		model.addAttribute("notice", notice);
+		model.addAttribute("noticevo", notice);
 		System.out.println(notice);
 		
 		return "admin/notice/a_notice_detail";
@@ -216,7 +216,6 @@ public class AdminController {
 	@GetMapping("/a_notice_insertF")
 	public String noticeInsertF(Model model, HttpSession session) {
 		
-		
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
 		
 		model.addAttribute("a_id", admin.getA_id());
@@ -224,13 +223,35 @@ public class AdminController {
 		return "admin/notice/a_notice_insertF";
 	}
 	
-	//공지사항 작성 form
+	//공지사항 작성 처리
 	@RequestMapping("/a_notice_insert")
-	public String noticeInsert(Model model, NoticeVO noticevo) {
+	public String noticeInsert(NoticeVO noticevo) {
 		
 		noticeService.noticeInsert(noticevo);
 		
 		return "redirect:a_notice_main";
+	}
+	
+	//공지사항 수정 form
+	@RequestMapping("/a_notice_updateF")
+	public String noticeUpdateF(Model model, NoticeVO noticevo) {
+		
+		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
+		
+		model.addAttribute("noticevo", notice);
+		
+		return "admin/notice/a_notice_updateF";
+	}
+	
+	//공지사항 수정 처리
+	@RequestMapping("/a_notice_update")
+	public String noticeUpdate(Model model, NoticeVO noticevo) {
+		
+		System.out.println(noticevo);
+		
+		noticeService.noticeUpdate(noticevo);
+		
+		return "redirect:a_member_detail";
 	}
 	
 	//관리자 - 리뷰 리스트

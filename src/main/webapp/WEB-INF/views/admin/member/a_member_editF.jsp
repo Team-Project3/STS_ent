@@ -7,6 +7,7 @@
     <head>
     	<title>회원 정보</title>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/a_performance.css" rel="stylesheet" />
@@ -24,7 +25,7 @@
     <body class="sb-nav-fixed">
         <%@ include file="a_member_header.jsp" %>
         <!-- <form action="a_member_edit" id="edit" method="post"> -->
-       	<form name="formm" id="update" method="post">
+       	
                 <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">회원 정보 수정</h1>
@@ -36,6 +37,7 @@
                                 <i class="fas fa-table me-1"></i>
                           		     회원 정보 수정<br>
                             </div>
+                            <form name="formm" id="update" method="post">
                             <div class="card-body">
              					
                             	<table>
@@ -69,14 +71,15 @@
                             	</table>
 
 								<!-- <input type="submit" value="수정"> -->
-								<input type="button" onClick="editform()" value="수정">
+								<input class="btn btn-primary" type="button" onClick="editform()" value="수정">
                           		<!-- <button onclick="deleteform()">삭제</button> -->
                           		
                             </div>
+                            </form>
                         </div>
                     </div>
                  </div>
-                 </form>
+                 
                 
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

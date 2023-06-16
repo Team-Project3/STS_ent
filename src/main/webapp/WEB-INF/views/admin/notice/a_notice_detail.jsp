@@ -17,6 +17,12 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
+<script type="text/javascript">
+	function a_noticeedit() {
+    	var nseq = "${noticevo.nseq}";
+        window.location.href = "a_notice_updateF?nseq=" + nseq;
+    }
+	</script> 
 <body class="sb-nav-fixed">
 	<%@ include file="a_notice_header.jsp"%>
 	<div id="layoutSidenav_content">
@@ -28,20 +34,25 @@
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i> 
-						<a href="a_notice_main" id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${notice.nseq}<br>
-					
+						<a href="a_notice_main" id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${noticevo.nseq}<br>
+						
 				</div>
+				<form id="update" name="formm" method="post">
+				<input type="hidden" value="${noticevo.nseq}" id="nseq"> 
 				<div class="card-body">
-				<h2 id="title" style="margin:20px 0 10px 0;">&nbsp;${notice.title}</h2>
-					<span id="a_id">&emsp;${notice.a_id}</span>&emsp;|&emsp; 
-					<span id="ndate"><fmt:formatDate value="${notice.ndate}"
+				<h2 id="title" style="margin:20px 0 10px 0;">&nbsp;${noticevo.title}</h2>
+					<span id="a_id">&emsp;${noticevo.a_id}</span>&emsp;|&emsp; 
+					<span id="ndate"><fmt:formatDate value="${noticevo.ndate}"
 							pattern="yyyy-MM-dd" var="ndate" />${ndate}</span><br><br>
-					<div id="datatablesSimple" style="margin:30px 0;">
-						<div id="ncontent">&emsp;${notice.ncontent}</div>
-
-					</div>
+					<span id="datatablesSimple" style="margin:30px 0;">
+						<span id="ncontent">&emsp;${noticevo.ncontent}</span>
+					</span>
+					<button type="button" onclick="a_noticeedit()">공지 수정</button>
 				</div>
+				</form>
 			</div>
+			
+			
 		</div>
 	</div>
 

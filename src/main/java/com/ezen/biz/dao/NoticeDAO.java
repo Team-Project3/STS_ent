@@ -20,13 +20,18 @@ public class NoticeDAO {
 	}
 	
 	//공지사항 상세
-	public NoticeVO noticeDetail(NoticeVO vo) {
-		return mybatis.selectOne("NoticeMapper.noticeDetail", vo);
+	public NoticeVO noticeDetail(int nseq) {
+		return mybatis.selectOne("NoticeMapper.noticeDetail", nseq);
 	}
 	
 	//공지사항 작성
 	public void noticeInsert(NoticeVO vo) {
 		mybatis.insert("NoticeMapper.noticeInsert", vo);
+	}
+	
+	//공지사항 수정
+	public void noticeUpdate(NoticeVO vo) {
+		mybatis.update("NoticeMapper.noticeUpdate", vo);
 	}
 
 }
