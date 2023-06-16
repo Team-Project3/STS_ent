@@ -16,7 +16,7 @@
     </head>
     <script type="text/javascript">
 	function a_editMember() {
-    	var id = "${member.id}";
+    	var id = "${membervo.id}";
         window.location.href = "a_member_editF?id=" + id;
     }
 	</script> 
@@ -34,15 +34,15 @@
                           		     회원 정보<br>
                             </div>
                             <form id="update" name="formm" method="post">
-                            <input type="hidden" value="${member.id}" id="id">
+                            <input type="hidden" value="${membervo.id}" id="id">
                             <div class="card-body">
-                                                                아이디 : ${member.id }<br>
-                          		비밀번호 : ${member.password }<br>
-                          		이름: ${member.name}<br>
-                          		전화번호 : ${member.phone }<br>
-                          		<fmt:formatDate value="${member.birth}" pattern="yyyy-MM-dd" var="birth" />
+                                                                아이디 : ${membervo.id }<br>
+                          		비밀번호 : ${membervo.password }<br>
+                          		이름: ${membervo.name}<br>
+                          		전화번호 : ${membervo.phone }<br>
+                          		<fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
                           		생년월일 : ${birth}<br>
-                          		이메일 : ${member.email }<br>
+                          		이메일 : ${membervo.email }<br>
                             
                           		<button type="button" onclick="a_editMember()">수정</button>&emsp;&emsp;
                             </div>

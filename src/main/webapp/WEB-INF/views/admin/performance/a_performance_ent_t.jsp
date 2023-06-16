@@ -24,6 +24,11 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Performance List</li>
                         </ol>
+                        
+                        <div align="right">
+							<a class="btn btn-primary" href="#" id="perInsert" style="margin-bottom:10px;">공연 등록</a>
+						</div>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -45,9 +50,10 @@
                                     <tbody>
                                     <c:forEach var="total" items="${tlist}" varStatus="loop">
                                         <tr>
-                                            <td data-sortable="true"><a href="index">${total.tseq}</a></td>
+                                            <td data-sortable="true"><a href="index" id="detail">${total.tseq}</a></td>
                                             <td>${total.tname}</td>
                                             <td>
+                                            
                                             <c:choose>
                                             <c:when test="${total.category == 1}">콘서트</c:when>
                                             <c:when test="${total.category == 2}">연극</c:when>

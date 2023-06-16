@@ -52,9 +52,9 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#" id="detail">Privacy Policy</a>
                                 &middot; 
-                                <a href="index">Homepage</a>
+                                <a href="index" id="detail">Homepage</a>
                             </div>
                         </div>
                     </div>

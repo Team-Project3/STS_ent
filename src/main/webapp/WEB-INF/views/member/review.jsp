@@ -17,7 +17,7 @@
 		<form id="reviewForm" name="reviewForm" method="post">
 			<div>
 				<span>
-                	<input id="rcontent" name="rcontent" placeholder="후기를 입력해주세요"></input>
+                	<input type="text" maxlength="100" id="rcontent" name="rcontent" placeholder="100자 이내로 후기를 입력해주세요"></input>
                 </span>
 				&emsp;&emsp;
 				<span id="button">
@@ -118,6 +118,9 @@
         	}
     	});
 	}
+	
+
+
 </script>			
 				
 				

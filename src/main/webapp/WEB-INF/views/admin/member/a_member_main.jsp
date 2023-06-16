@@ -41,14 +41,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="member" items="${memberlist}" varStatus="loop">
+                                    <c:forEach var="membervo" items="${memberlist}" varStatus="loop">
                                         <tr>
-                                            <td><a href="a_member_detail?id=${member.id}" id="detail">${member.id}</a></td>
-                                            <td><a href="a_member_detail?id=${member.id}" id="detail">${member.name}</a></td>
-                                            <td>${member.phone}</td>
-                                            <fmt:formatDate value="${member.birth}" pattern="yyyy-MM-dd" var="birth" />
+                                            <td><a href="a_member_detail?id=${membervo.id}" id="detail">${membervo.id}</a></td>
+                                            <td><a href="a_member_detail?id=${membervo.id}" id="detail">${membervo.name}</a></td>
+                                            <td>${membervo.phone}</td>
+                                            <fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
                                             <td>${birth}</td>
-                                            <td>${member.email}</td>
+                                            <td>${membervo.email}</td>
                                         </tr>
                                   </c:forEach>      
                                     </tbody>

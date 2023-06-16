@@ -12,4 +12,6 @@ public interface NoticeService {
 	//공지사항 상세
 	NoticeVO noticeDetail(NoticeVO vo);
 	
+	//공지사항 작성
+	void noticeInsert(NoticeVO vo);
 }
