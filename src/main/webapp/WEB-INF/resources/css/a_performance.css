@@ -11248,3 +11248,17 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+.detailtable{
+ margin-right: 300px;
+ float: right;
+ 
+}
+
+.detailtable1{
+	border: 3px;
+}
+
+.detailimg{
+	float: left;
+}

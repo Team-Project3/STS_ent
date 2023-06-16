@@ -117,6 +117,40 @@ public class AdminController {
 	}
 	
 	//
+	@GetMapping("/a_performance_ent_detail")
+	public String a_performance_ent_detail(ConcertVO vo,Model model) {
+		
+		ConcertVO concertVO = concertService.concertDetail(vo);
+		
+		model.addAttribute("total",concertVO);
+		
+		return "admin/performance/a_performance_ent_detail";
+	}
+	
+	//
+	@GetMapping("/a_performance_edit")
+	public String a_performance_editF(ConcertVO vo,Model model) {
+		
+		ConcertVO concertVO = concertService.concertDetail(vo);
+		
+		model.addAttribute("total",concertVO);
+		
+		return "admin/performance/a_performance_ent_editF";
+	}
+	
+	//
+	@PostMapping("/a_performance_edit")
+	public String a_performance_editAction(ConcertVO vo,Model model) {
+		
+		System.out.println(vo);
+		
+		concertService.updatetotalent(vo);
+		
+		return "redirect:a_performance_ent_detail?tseq="+vo.getTseq();
+	}
+	
+	
+	//
 	@RequestMapping("/a_performance_booking_t")
 	public String a_performance_booking_t(Model model) {
 		

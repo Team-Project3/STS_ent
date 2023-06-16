@@ -36,4 +36,10 @@ public class ConcertServiceImpl implements ConcertService {
 		return concertDAO.categoryList(category);
 	}
 
+	@Override
+	public void updatetotalent(ConcertVO vo) {
+		// TODO Auto-generated method stub
+		concertDAO.updatetotalent(vo);
+	}
+
 }

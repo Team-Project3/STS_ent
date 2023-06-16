@@ -40,7 +40,7 @@
 	}
 	</script>
     <body class="sb-nav-fixed">
-        <%@ include file="a_member_header.jsp" %>
+       <%@ include file="../a_header.jsp" %>
                 <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">회원 정보 수정</h1>

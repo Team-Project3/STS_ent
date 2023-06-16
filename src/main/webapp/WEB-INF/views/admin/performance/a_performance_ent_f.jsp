@@ -18,7 +18,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-        <%@ include file="a_header.jsp" %>
+        <%@ include file="../a_header.jsp" %>
         <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">
@@ -61,7 +61,7 @@
                                     <tbody>
                                     <c:forEach var="total" items="${tlist}" varStatus="loop">
                                         <tr>
-                                            <td>${total.tseq}</td>
+                                            <td><a id="detail" href="a_performance_ent_detail?tseq=${total.tseq}">${total.tseq}</a></td>
                                             <td>${total.tname}</td>
                                             <td>${total.seat}</td>
                                             <td>

@@ -29,4 +29,8 @@ public class ConcertDAO {
 	public List<ConcertVO> categoryList(String category) {
 		return mybatis.selectList("ConcertMapper.categoryList",category);
 	}
+	
+	public void updatetotalent(ConcertVO vo) {
+		mybatis.update("ConcertMapper.updatetotalent",vo);
+	}
 }

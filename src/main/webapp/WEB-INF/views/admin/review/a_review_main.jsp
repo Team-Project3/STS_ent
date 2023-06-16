@@ -21,7 +21,7 @@
 	crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-	<%@ include file="a_review_header.jsp"%>
+	<%@ include file="../a_header.jsp" %>
 	<div id="layoutSidenav_content">
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">전체 리뷰 목록</h1>

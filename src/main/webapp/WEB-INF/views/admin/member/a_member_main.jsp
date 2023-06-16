@@ -8,8 +8,6 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
         <title>회원 목록</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/a_performance.css" rel="stylesheet" />
@@ -17,7 +15,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-        <%@ include file="a_member_header.jsp" %>
+        <%@ include file="../a_header.jsp" %>
                 <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">전체 회원 목록</h1>

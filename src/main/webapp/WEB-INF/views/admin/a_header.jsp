@@ -44,7 +44,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">종합</div>
+                            <div class="sb-sidenav-menu-heading">공연</div>
                             <a class="nav-link" href="a_performance_main">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                              	   종합 분석
@@ -76,8 +76,33 @@
                                     <a class="nav-link" href="a_performance_booking_f?category=3">전시회 예약 조회</a>
                                 </nav>
                             </div>
+                        </div>                
+                        <div class="nav">
+						<div class="sb-sidenav-menu-heading">회원</div>
+						<a class="nav-link" href="a_member_main">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-tachometer-alt"></i>
+							</div> 전체 회원 관리
+						</a>
+					</div>
+					<div class="nav">
+                            <div class="sb-sidenav-menu-heading">공지</div>
+                            <a class="nav-link" href="a_notice_main">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                             	   전체 공지 사항
+                            </a>
+                        </div>
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">리뷰</div>
+                            <a class="nav-link" href="a_review_main">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                             	  전체 리뷰 목록
+                            </a>
                         </div>
                     </div>
+
+					
+
                     <a href="index">@STS ent.</a>
                 </nav>
             </div>

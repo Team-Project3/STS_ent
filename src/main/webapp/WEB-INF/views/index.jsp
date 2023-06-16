@@ -46,7 +46,7 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="#">Notice</a></li>
+			<li><a href="notice">Notice</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
 			<li><a href="museum_main">Museum</a></li>
