@@ -31,13 +31,15 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDao.reviewMember(vo);
 	}
 
-	//府轰 昏力
-	@Override
+	@Override	//府轰 昏力
 	public void deleteReview(ReviewVO vo) {
 		reviewDao.deleteReview(vo);
 	}
 
-	
-	
+	@Override	//包府磊 - 府轰 府胶飘
+	public List<totalentVO> reviewMemberlist() {
+
+		return reviewDao.reviewMemberlist();
+	}
 
 }

@@ -42,6 +42,16 @@ public class BookingDAO {
 		return mybatis.selectList("BookingMapper.bookingMember", vo);
 	}
 	
+	//예약 삭제
+	public void deleteBooking(BookingVO vo) {
+		mybatis.delete("BookingMapper.deleteBooking", vo);
+	}
 	
+	public List<totalbookVO> bookingList() {
+		return mybatis.selectList("BookingMapper.bookingList");
+	}
 	
+	public List<totalbookVO> bookingListcategory(String category) {
+		return mybatis.selectList("BookingMapper.bookingListcategory",category);
+	}
 }

@@ -14,6 +14,7 @@
 		<typeAlias type="com.ezen.biz.dto.ReviewVO" alias="Review"/>
 		<typeAlias type="com.ezen.biz.dto.totalentVO" alias="totalent"/>
 		<typeAlias type="com.ezen.biz.dto.totalbookVO" alias="totalbook"/>
+		<typeAlias type="com.ezen.biz.dto.NoticeVO" alias="Notice"/>
 	</typeAliases>
 	
 	<!-- sql 매핑 파일 등록 -->
@@ -26,5 +27,6 @@
 		<mapper resource="mappings/booking-mapping.xml"/>
 		<mapper resource="mappings/order-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/notice-mapping.xml"/>
 	</mappers>
 </configuration>

@@ -3,10 +3,11 @@ package com.ezen.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,7 +74,7 @@ public class MemberController {
 
 	    memberService.insertMember(vo);
 	    
-	    return "member/login";
+	    return "redirect:login_form";
 
 	}
 	
@@ -159,7 +160,11 @@ public class MemberController {
 	@RequestMapping("/mypage")
 	public String mypage(MemberVO vo, Model model, HttpSession session, ReviewVO reviewvo, BookingVO bookingvo) {
 		
-		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");	
+		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
+		
+		if(membervo == null) {
+			return "member/session_fail"; 
+		} 
 		
 		reviewvo.setId(membervo.getId());
 		bookingvo.setId(membervo.getId());
@@ -189,11 +194,7 @@ public class MemberController {
 		if (list.isEmpty()) {
 	        model.addAttribute("noReviewMessage", "작성한 리뷰가 없습니다.");
 	    }
-		
-		//리뷰 삭제
-		
-
-		
+				
 		model.addAttribute("reviewmemberlist", list);
 		model.addAttribute("concertList", concertList);
 		model.addAttribute("theaterList", theaterList);
@@ -225,7 +226,7 @@ public class MemberController {
 		return "redirect:mypage";
 	}
 	
-	//my page 수정
+	//my page - 회원 탈퇴 페이지
 	@RequestMapping(value="/mypage_deleteF")
 	public String deleteMemberF(Model model, HttpSession session) {
 		
@@ -235,15 +236,49 @@ public class MemberController {
 		return "member/mypage_deleteF";
 	}
 	
+	//my page - 회원 탈퇴 처리
 	@RequestMapping(value = "/mypage_delete", method = RequestMethod.GET)
 	public String deleteMember(SessionStatus status,HttpSession session) throws Exception {
 	    
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
-			 memberService.deleteMember(membervo.getId());
+		memberService.deleteMember(membervo.getId());
 			 
-			 status.setComplete();
+		status.setComplete();
 			 
-			 return "redirect:index";
+		return "redirect:index";
 	}	
+	
+	//리뷰 삭제
+	@RequestMapping(value="/reviewDelete",method = RequestMethod.GET)
+	public String reviewDelete(HttpSession session,
+								@RequestParam("rseq")int rseq,ReviewVO reviewVO) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
+		System.out.println(loginUser);
+		
+		reviewVO.setId(loginUser.getId());
+		reviewVO.setRseq(rseq);
+		
+		reviewService.deleteReview(reviewVO);
+		
+		return "redirect:mypage";
+	}
+	
+	//예약 삭제
+	@RequestMapping(value="/reservationDelete",method = RequestMethod.GET)
+	public String reservationDelete(HttpSession session, BookingVO bookingvo,
+										@RequestParam("bseq") int bseq)	{
+				
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
+		bookingvo.setBseq(bseq);
+		bookingvo.setId(loginUser.getId());
+		
+		bookingService.deleteBooking(bookingvo);
+		
+		return "redirect:mypage";
+	}
+	
+	
 }

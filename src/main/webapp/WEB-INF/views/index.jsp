@@ -46,7 +46,7 @@
 			<hr>
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="#">Notice</a></li>
+			<li><a href="notice">Notice</a></li>
 			<li><a href="concert_main">Concert</a></li>
 			<li><a href="theater">Theater</a></li>
 			<li><a href="museum_main">Museum</a></li>
@@ -99,23 +99,12 @@
 				<a class="menu__item-link" href="museum_main">Museum</a>
 			</span>
 			<span class="menu__item">
-				<span class="menu__item-tag">내정보</span>
-				
-				<c:choose>
-					<c:when test="${empty sessionScope.loginUser}">
-						<a class="menu__item-link" onclick="checkLogin()">My Page</a>
-					</c:when>
-					<c:otherwise>
-						<a class="menu__item-link" href="mypage">My Page</a>
-					</c:otherwise>
-				</c:choose>
-				
-				
+				<span class="menu__item-tag">공지사항</span>
+				<a class="menu__item-link" href="notice">NoticeInfo</a>
 			</span>
 		</nav>
 	</div>
 	</main>
-	
 	<script>
 	function checkLogin() {
 		if (<%= session.getAttribute("loginUser") %> == null) {

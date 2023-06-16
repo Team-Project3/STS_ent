@@ -19,5 +19,12 @@ public interface BookingService {
 	
 	//회원별 예약 리스트
 	List<totalbookVO> bookingMember(BookingVO vo);
+	
+	//예약 삭제
+	void deleteBooking(BookingVO vo);
+	
+	List<totalbookVO> bookingList();
+	
+	List<totalbookVO> bookingListcategory(String category);
 		
 }

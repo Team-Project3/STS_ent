@@ -35,9 +35,8 @@
 		       
 		        <label>&emsp;Birth</label>
 
-		        <input type="date" name="birth" id="birth">
+		        <input type="date" name="birth" id="birth" onclick="handleDateClick()">
 		        
-		       
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email" placeholder="e-mail"><br>
 		      

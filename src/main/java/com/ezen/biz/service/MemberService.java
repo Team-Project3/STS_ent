@@ -1,5 +1,7 @@
 package com.ezen.biz.service;
 
+import java.util.List;
+
 import com.ezen.biz.dto.MemberVO;
 
 public interface MemberService {
@@ -29,4 +31,7 @@ public interface MemberService {
 		
 	// 비밀번호 변경
 	void changePwd(MemberVO vo);
+	
+	//관리자 - 회원 리스트
+	List<MemberVO> memberlist();
 }

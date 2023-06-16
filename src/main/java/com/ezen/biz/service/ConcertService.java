@@ -12,4 +12,9 @@ public interface ConcertService {
 	
 	ConcertVO concertDetail(ConcertVO vo);
 
+	List<ConcertVO> AllList();
+	
+	List<ConcertVO> categoryList(String category);
+	
+	void updatetotalent(ConcertVO vo);
 }

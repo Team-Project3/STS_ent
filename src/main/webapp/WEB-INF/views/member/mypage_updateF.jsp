@@ -35,6 +35,7 @@ function submitForm() {
 		return false;
 	} else {
 		var theform = document.getElementById("update");
+		console.log() ="id";
 		alert("회원 정보가 수정되었습니다.");
 		theform.action = "mypage_update";
         theform.submit();

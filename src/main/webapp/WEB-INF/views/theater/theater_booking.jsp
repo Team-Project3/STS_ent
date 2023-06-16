@@ -11,7 +11,8 @@
 
 </head>
 <body>
-	<div class="movie-container"><form action="thboarddetail" id="thboard" method="post">
+	<div class="movie-container">
+	<form action="thboarddetail" id="thboard" method="post">
 		<label style="color:white; font-weight:bold;">영화 제목</label> 
 		<select id="movie">
 			<option value='${theater.price}'>${theater.tname}</option>

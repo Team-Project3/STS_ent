@@ -16,19 +16,21 @@
 	
 	<!-- mypage 후기 리스트 -->
 	<select id="reviewMember" resultMap="totalentMap">
-		select a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname
+		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname
 		from review a, total_ent b
 		where a.tseq=b.tseq and id=#{id}
 		order by regdate desc
 	</select>
 	
 	<resultMap id="totalentMap" type="com.ezen.biz.dto.totalentVO">
+	    <id property="rseq" column="rseq"/>
 	    <id property="id" column="id"/>
 	    <id property="tseq" column="tseq"/>
 	    <id property="regdate" column="regdate"/>
 	    <id property="rpoint" column="rpoint"/>
 	    <id property="rcontent" column="rcontent"/>
 	    <id property="tname" column="tname"/>
+	    <id property="category" column="category"/>
 	</resultMap>
 	
 	<!-- 리뷰 삭제 -->
@@ -37,4 +39,9 @@
 		WHERE id=#{id} and rseq=#{rseq}
 	</delete>
 	
+	<select id="reviewMemberlist" resultMap="totalentMap">
+		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname, b.category
+		from review a, total_ent b
+		where a.tseq=b.tseq
+	</select>
 </mapper>

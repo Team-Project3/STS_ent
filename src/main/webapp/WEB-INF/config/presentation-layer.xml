@@ -21,6 +21,7 @@
 	<mvc:resources location="/WEB-INF/views/member/" mapping="/member/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/assets/" mapping="/assets/**"></mvc:resources>
 	<!-- 파일 전송 객체 등록 -->
 	<!-- 사이즈가 -1이면 크기 무제한 -->
 	<bean id="multipartResolver"

@@ -24,4 +24,22 @@ public class ConcertServiceImpl implements ConcertService {
 		return concertDAO.concertDetail(vo);
 	}
 
+	@Override
+	public List<ConcertVO> AllList() {
+		// TODO Auto-generated method stub
+		return concertDAO.AllList();
+	}
+
+	@Override
+	public List<ConcertVO> categoryList(String category) {
+		// TODO Auto-generated method stub
+		return concertDAO.categoryList(category);
+	}
+
+	@Override
+	public void updatetotalent(ConcertVO vo) {
+		// TODO Auto-generated method stub
+		concertDAO.updatetotalent(vo);
+	}
+
 }
