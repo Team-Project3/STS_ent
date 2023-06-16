@@ -47,7 +47,7 @@
                                     <tbody>
                                     <c:forEach var="book" items="${booklist}" varStatus="loop">
                                         <tr>
-                                            <td>${book.bseq}</td>
+                                            <td><a id="detail" href="a_performance_booking_detail?bseq=${book.bseq}">${book.bseq}</a></td>
                                             <td>${book.id}</td>
                                             <td>
                                             <c:choose>

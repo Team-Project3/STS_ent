@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.ezen.biz.dto.AdminVO;
+import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.ConcertVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
@@ -174,6 +175,22 @@ public class AdminController {
 		model.addAttribute("category",category);
 		
 		return "admin/performance/a_performance_booking_f";
+	}
+	
+	//
+	@GetMapping("/a_performance_booking_detail")
+	public String a_performance_booking_detail(BookingVO vo,Model model,ConcertVO concertVO) {
+		
+		BookingVO bookingVO = bookingService.bookingdetail(vo);
+		
+		concertVO.setTseq(bookingVO.getTseq());
+		
+		ConcertVO totalent = concertService.concertDetail(concertVO);
+		
+		model.addAttribute("bookingVO",bookingVO);
+		model.addAttribute("totalent",totalent);
+		
+		return "admin/performance/a_performance_booking_detail";
 	}
 	
 	//관리자 - 회원 전체 리스트

@@ -54,4 +54,8 @@ public class BookingDAO {
 	public List<totalbookVO> bookingListcategory(String category) {
 		return mybatis.selectList("BookingMapper.bookingListcategory",category);
 	}
+	
+	public BookingVO bookingdetail(BookingVO vo) {
+		return mybatis.selectOne("BookingMapper.bookingdetail",vo);
+	}
 }
