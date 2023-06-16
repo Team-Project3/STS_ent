@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.deleteMember(id);
 	}
 	
-	@Override
+	@Override	//관리자 - 회원 리스트
 	public List<MemberVO> memberlist() {
 		return memberDao.memberlist();
 	}

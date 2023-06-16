@@ -251,8 +251,8 @@ sup {
 }
 
 a {
-  color: var(--bs-link-color);
-  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);

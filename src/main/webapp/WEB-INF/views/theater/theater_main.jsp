@@ -73,7 +73,6 @@
 				<c:if test="${loop.index % 3 == 0}">
 					<div class="contentmain">
 				</c:if>
-
 				<a href="thdetail?tseq=${theater.tseq}" class="contenta"><img src="img/theater/${theater.pimg}.jpg"
 					class="contentimg">
 					<div class="contentel">
