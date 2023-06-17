@@ -16,7 +16,11 @@
     </head>
 	<script type="text/javascript">
 	function a_updatebooking() {
-        location.href = "a_performance_edit?tseq=" + document.getElementById("tseq").value;
+		 if (confirm("결제상태를 변경할까요??") == true){    //확인
+			 document.getElementById("formm").submit();
+		 }else{   //취소
+		     return false;
+		 }
     }
 	</script>
     <body class="sb-nav-fixed">
@@ -41,10 +45,11 @@
                             </c:choose>
                             </div>
                             <div class="detailtable">
+                            <form action="a_performance_booking_edit" id="formm" method="post">
                             <table class="detailtable1">
                             	<tr>
                             	<td>예약 번호</td>
-                            	<td>${bookingVO.bseq}</td>
+                            	<td>${bookingVO.bseq}<input type="hidden" id="bseq" name="bseq" value="${bookingVO.bseq}"></td>
                             	</tr>
                             	<tr>
                             	<td>예약자 아이디</td>
@@ -92,19 +97,27 @@
                             	<tr>
                             	<td>결제 상태</td>
                             	<td>
-                            	<select>
+                            	<select id="bstatus" name="bstatus">
                             	<option value="${bookingVO.bstatus}">${bookingVO.bstatus}</option>
-                            	<option value="결제 취소">결제취소</option>
-                            	<option value="환불완료">환불처리중</option>
+                            	<c:if test="${bookingVO.bstatus != '결제완료'}">
+                            	<option value="결제완료">결제완료</option>
+                            	</c:if>
+                            	<c:if test="${bookingVO.bstatus != '환불처리중'}">
+                            	<option value="환불처리중">환불처리중</option>
+                            	</c:if>
+                            	<c:if test="${bookingVO.bstatus != '환불완료'}">
+                            	<option value="환불완료">환불완료</option>
+                            	</c:if>
                             	</select>
                             	</td>
                             	</tr>
                             	<tr>
                             	<td>
-                            	<button type="button" onclick="a_updatebooking()">상태 변경</button>&emsp;&emsp;
+                            	<button type="button" onclick="return a_updatebooking()">상태 변경</button>&emsp;&emsp;
                             	</td>
                             	</tr>
                             </table>
+                            </form>
 							</div>
 								<div>
                           		

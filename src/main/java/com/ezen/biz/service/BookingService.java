@@ -28,5 +28,7 @@ public interface BookingService {
 	List<totalbookVO> bookingListcategory(String category);
 	
 	BookingVO bookingdetail(BookingVO vo);
+	
+	void updatebooking(BookingVO vo);
 		
 }

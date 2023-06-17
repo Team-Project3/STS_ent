@@ -57,4 +57,9 @@
 	<select id="bookingdetail" resultType="Booking">
 		select * from booking where bseq = #{bseq}
 	</select>
+	
+	<update id="updatebooking">
+		update booking set bstatus = #{bstatus}
+		where bseq = #{bseq}
+	</update>
 </mapper>

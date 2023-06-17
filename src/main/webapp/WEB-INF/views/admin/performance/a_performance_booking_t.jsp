@@ -15,7 +15,7 @@
         <link href="css/a_performance.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed">       <c:if test="${not empty message}">${message}</c:if>
         <%@ include file="../a_header.jsp" %>
         <div id="layoutSidenav_content">
                 <main>

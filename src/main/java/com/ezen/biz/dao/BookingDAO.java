@@ -58,4 +58,8 @@ public class BookingDAO {
 	public BookingVO bookingdetail(BookingVO vo) {
 		return mybatis.selectOne("BookingMapper.bookingdetail",vo);
 	}
+	
+	public void updatebooking(BookingVO vo) {
+		mybatis.update("BookingMapper.updatebooking",vo);
+	}
 }

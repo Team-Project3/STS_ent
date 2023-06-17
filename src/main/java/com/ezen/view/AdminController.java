@@ -5,12 +5,16 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -191,6 +195,18 @@ public class AdminController {
 		model.addAttribute("totalent",totalent);
 		
 		return "admin/performance/a_performance_booking_detail";
+	}
+	
+	//
+	@PostMapping("/a_performance_booking_edit")
+	public String a_performance_booking_edit(BookingVO vo) {
+		
+		System.out.println(vo);
+		
+		bookingService.updatebooking(vo);
+
+		return "redirect:a_performance_booking_t";
+		
 	}
 	
 	//관리자 - 회원 전체 리스트

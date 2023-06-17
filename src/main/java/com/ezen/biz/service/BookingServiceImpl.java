@@ -58,4 +58,10 @@ public class BookingServiceImpl implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingDAO.bookingdetail(vo);
 	}
+
+	@Override
+	public void updatebooking(BookingVO vo) {
+		
+		bookingDAO.updatebooking(vo);
+	}
 }
