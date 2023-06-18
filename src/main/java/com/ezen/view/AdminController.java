@@ -1,5 +1,7 @@
 package com.ezen.view;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
@@ -157,6 +160,50 @@ public class AdminController {
 		return "redirect:a_performance_ent_detail?tseq="+vo.getTseq();
 	}
 	
+	//
+	@GetMapping("/a_performance_ent_insert")
+	public String a_performance_ent_insertform() {
+		
+		return "admin/performance/a_performance_ent_insert";
+	}
+	
+	@PostMapping("/a_performance_ent_insert")
+	public String a_performance_ent_insert_action(ConcertVO vo,
+												@RequestParam(value = "pimg")MultipartFile pimgfile,
+												@RequestParam(value = "cimg")MultipartFile cimgfile,
+												HttpSession session) {
+		
+		System.out.println(vo);
+		
+		if(!pimgfile.isEmpty()) {
+			
+			String pimgfilename = pimgfile.getOriginalFilename();
+			String cimgfilename = cimgfile.getOriginalFilename();
+			vo.setPimg(pimgfilename);
+			vo.setCimg(cimgfilename);
+			
+			String image_path = session.getServletContext()
+		               .getRealPath("WEB-INF/resources/img/");
+			
+			try {
+				pimgfile.transferTo(new File(image_path+pimgfilename));
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				cimgfile.transferTo(new File(image_path+cimgfilename));
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		concertService.inserttotalent(vo);
+		
+		
+		return "redirect:a_performance_ent_t";
+	}
 	
 	//
 	@RequestMapping("/a_performance_booking_t")

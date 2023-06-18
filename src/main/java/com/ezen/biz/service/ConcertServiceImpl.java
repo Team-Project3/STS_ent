@@ -42,4 +42,10 @@ public class ConcertServiceImpl implements ConcertService {
 		concertDAO.updatetotalent(vo);
 	}
 
+	@Override
+	public void inserttotalent(ConcertVO vo) {
+		// TODO Auto-generated method stub
+		concertDAO.inserttotalent(vo);
+	}
+
 }

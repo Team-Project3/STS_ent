@@ -33,4 +33,8 @@ public class ConcertDAO {
 	public void updatetotalent(ConcertVO vo) {
 		mybatis.update("ConcertMapper.updatetotalent",vo);
 	}
+	
+	public void inserttotalent(ConcertVO vo) {
+		mybatis.insert("ConcertMapper.inserttotalent",vo);
+	}
 }

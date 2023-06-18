@@ -12,54 +12,54 @@ import com.ezen.biz.dto.totalbookVO;
 
 @Repository
 public class BookingDAO {
-	
+
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
-	//예약 데이터 insert
+
+	// 예약 데이터 insert
 	public void insertBooking(BookingVO vo) {
-		mybatis.insert("BookingMapper.insertBooking",vo);
-		
+		mybatis.insert("BookingMapper.insertBooking", vo);
+
 	}
-	
-	//예약 데이터 seat
+
+	// 예약 데이터 seat
 	public List<String> selectTheater(BookingVO vo) {
-		return mybatis.selectList("BookingMapper.selectTheater",vo);
+		return mybatis.selectList("BookingMapper.selectTheater", vo);
 	}
-	
-	//예약 인원수 제한 확인
-	public int checkHead(BookingVO vo)  {
+
+	// 예약 인원수 제한 확인
+	public int checkHead(BookingVO vo) {
 		try {
 			return mybatis.selectOne("BookingMapper.checkHead", vo);
 		} catch (NullPointerException e) {
 			return 0;
 		}
-		
+
 	}
-	
-	//회원별 예약 리스트
+
+	// 회원별 예약 리스트
 	public List<totalbookVO> bookingMember(BookingVO vo) {
 		return mybatis.selectList("BookingMapper.bookingMember", vo);
 	}
-	
-	//예약 삭제
+
+	// 예약 삭제
 	public void deleteBooking(BookingVO vo) {
 		mybatis.delete("BookingMapper.deleteBooking", vo);
 	}
-	
+
 	public List<totalbookVO> bookingList() {
 		return mybatis.selectList("BookingMapper.bookingList");
 	}
-	
+
 	public List<totalbookVO> bookingListcategory(String category) {
-		return mybatis.selectList("BookingMapper.bookingListcategory",category);
+		return mybatis.selectList("BookingMapper.bookingListcategory", category);
 	}
-	
+
 	public BookingVO bookingdetail(BookingVO vo) {
-		return mybatis.selectOne("BookingMapper.bookingdetail",vo);
+		return mybatis.selectOne("BookingMapper.bookingdetail", vo);
 	}
-	
+
 	public void updatebooking(BookingVO vo) {
-		mybatis.update("BookingMapper.updatebooking",vo);
+		mybatis.update("BookingMapper.updatebooking", vo);
 	}
 }

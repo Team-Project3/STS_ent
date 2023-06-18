@@ -17,4 +17,6 @@ public interface ConcertService {
 	List<ConcertVO> categoryList(String category);
 	
 	void updatetotalent(ConcertVO vo);
+	
+	void inserttotalent(ConcertVO vo);
 }
