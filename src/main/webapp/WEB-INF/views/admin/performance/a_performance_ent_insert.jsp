@@ -74,12 +74,16 @@
 								<td><input type="text" id="price" name="price"></td>
 							</tr>
 							<tr>
+								<td>좌석 지정</td>
+								<td><input type="text" id="seat" name="seat"></td>
+							</tr>
+							<tr>
 								<td>공연 포스터 이미지</td>
-								<td><input type="file" id="pimg" name="pimg" accept=".gif, .jpg, .png"></td>
+								<td><input type="file" id="pimg" name="pimgfile" accept=".gif, .jpg, .png"></td>
 							</tr>
 							<tr>
 								<td>공연 내용 이미지</td>
-								<td><input type="file" id="cimg" name="cimg" accept=".gif, .jpg, .png"></td>
+								<td><input type="file" id="cimg" name="cimgfile" accept=".gif, .jpg, .png"></td>
 							</tr>
 						</table>
 						</form>

@@ -169,8 +169,8 @@ public class AdminController {
 	
 	@PostMapping("/a_performance_ent_insert")
 	public String a_performance_ent_insert_action(ConcertVO vo,
-												@RequestParam(value = "pimg")MultipartFile pimgfile,
-												@RequestParam(value = "cimg")MultipartFile cimgfile,
+												@RequestParam(value = "pimgfile")MultipartFile pimgfile,
+												@RequestParam(value = "cimgfile")MultipartFile cimgfile,
 												HttpSession session) {
 		
 		System.out.println(vo);
