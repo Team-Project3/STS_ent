@@ -14,40 +14,7 @@
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
     </head>
-	<script type="text/javascript">
-	function a_updateperformance() {
-        location.href = "a_performance_edit?tseq=" + document.getElementById("tseq").value;
-    }
-	function a_deleteperformance(){
-		var tseq = document.getElementById("tseq").value;
-		var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
-		 $.ajax({
-	           type: "POST",
-	           url: '${pageContext.request.contextPath}/a_performance_deleteAction',
-	           dataType: "json",
-	           contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-	           data: {
-	        	   a_password:promptObj,
-	        	   tseq:tseq
-	           }, 
-	           success: function(data){
-	        	   var result = data;
-	        	   console.log(result);
-	        	   if(result =='success'){
 
-		        	   alert(data);   
-	        	   }
-	           },
-	           error: function(data)
-	           {
-	            if (data.status == 401) {
-	                alert('failed.');
-	               return;
-	            }
-	           }
-	        });
-	    }		
-	</script>
     <body class="sb-nav-fixed">
        <%@ include file="../a_header.jsp" %>
                 <div id="layoutSidenav_content">
@@ -124,7 +91,43 @@
                         </div>
                     </div>
                  </div>
-                 
+         	<script type="text/javascript">
+	function a_updateperformance() {
+        location.href = "a_performance_edit?tseq=" + document.getElementById("tseq").value;
+    }
+	function a_deleteperformance(){
+		var tseq = document.getElementById("tseq").value;
+		var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
+		 $.ajax({
+	           type: "POST",
+	           url: '${pageContext.request.contextPath}/a_performance_deleteAction',
+	           dataType: "text",
+	           contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+	           data: {
+	        	   a_password:promptObj,
+	        	   tseq:tseq
+	           }, 
+	           success: function(data){
+	        	   var result = data;
+	        	   console.log(result);
+	        	   if(result =='success'){
+		        	   alert();   
+	        	   }
+	        	   else{
+						//다음페이지로 가게하는 매직
+	        		   document.write(result);
+	        	   }
+	           },
+	           error: function(data)
+	           {
+	            if (data.status == 401) {
+	                alert('failed.');
+	               return;
+	            }
+	           }
+	        });
+	    }		
+	</script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>

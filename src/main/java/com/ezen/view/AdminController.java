@@ -166,18 +166,18 @@ public class AdminController {
 		System.out.println(vo);
 		
 		AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
-		
+		String message = "";
 		if(loginadmin.getA_password().equals(vo.getA_password())) {
 			concertService.deletetotalent(concertVO);
 			
-			return "success";
+			message = "<script>alert('삭제되었습니다.');location.href='a_performance_ent_t';</script>";
+			
+			return message;
 		}
 		else {
 			
-			return "<script>alert(\"비밀번호가 올바르지 않습니다.\");</script>";
+			return "fail";
 		}
-		
-		
 	}
 	//
 	@GetMapping("/a_performance_ent_insert")
