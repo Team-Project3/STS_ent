@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+
+  .detailtable1 {
+    width: 730px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  .detailtable1 td {
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .detailtable1 select,
+  .detailtable1 input[type="text"],
+  .detailtable1 input[type="number"],
+  .detailtable1 input[type="file"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .detailtable1 select:focus,
+  .detailtable1 input[type="text"]:focus,
+  .detailtable1 input[type="number"]:focus {
+    outline: none;
+    border-color: #3366cc;
+    box-shadow: 0 0 5px #3366cc;
+  }
+  
+  .detailtable1 input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  .detailtable1 input[type="file"]:focus {
+    outline: none;
+  }
+  
+  .detailtable1 td:first-child {
+    font-weight: bold;
+    text-align: right;
+    width: 30%;
+  }
+  
+  /* Button Styles */
+  .register-button {
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
+    background-color: #3366cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #3355bb;
+  }
+  
+  /* Adjust alignment */
+  .center-align {
+    text-align: center;
+  }

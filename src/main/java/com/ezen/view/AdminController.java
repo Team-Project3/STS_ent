@@ -153,13 +153,32 @@ public class AdminController {
 	@PostMapping("/a_performance_edit")
 	public String a_performance_editAction(ConcertVO vo,Model model) {
 		
-		System.out.println(vo);
-		
 		concertService.updatetotalent(vo);
 		
 		return "redirect:a_performance_ent_detail?tseq="+vo.getTseq();
 	}
 	
+	//
+	@ResponseBody		
+	@PostMapping(value = "/a_performance_deleteAction")
+	public String a_performance_deleteAction(AdminVO vo,ConcertVO concertVO,HttpSession session) {
+		
+		System.out.println(vo);
+		
+		AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
+		
+		if(loginadmin.getA_password().equals(vo.getA_password())) {
+			concertService.deletetotalent(concertVO);
+			
+			return "success";
+		}
+		else {
+			
+			return "<script>alert(\"비밀번호가 올바르지 않습니다.\");</script>";
+		}
+		
+		
+	}
 	//
 	@GetMapping("/a_performance_ent_insert")
 	public String a_performance_ent_insertform() {
@@ -178,12 +197,35 @@ public class AdminController {
 		if(!pimgfile.isEmpty()) {
 			
 			String pimgfilename = pimgfile.getOriginalFilename();
-			String cimgfilename = cimgfile.getOriginalFilename();
-			vo.setPimg(pimgfilename);
-			vo.setCimg(cimgfilename);
+			int pimgindex = pimgfilename.lastIndexOf(".");
+			String pimgsubstring = pimgfilename.substring(0, pimgindex);
 			
-			String image_path = session.getServletContext()
-		               .getRealPath("WEB-INF/resources/img/");
+			String cimgfilename = cimgfile.getOriginalFilename();
+			int cimgindex = cimgfilename.lastIndexOf(".");
+			String cimgsubstring = cimgfilename.substring(0, cimgindex);
+			
+			vo.setPimg(pimgsubstring);
+			vo.setCimg(cimgsubstring);
+			
+			
+			String image_path = "";
+			
+			if(vo.getCategory().equals("1")) {
+				
+				image_path = session.getServletContext()
+			               .getRealPath("WEB-INF/resources/img/concert/");
+				
+			} else if(vo.getCategory().equals("2")) {
+				
+				image_path = session.getServletContext()
+			               .getRealPath("WEB-INF/resources/img/theater/");
+				
+			} else if (vo.getCategory().equals("3")) {
+				
+				image_path = session.getServletContext()
+			               .getRealPath("WEB-INF/resources/img/museum/");
+				
+			}
 			
 			try {
 				pimgfile.transferTo(new File(image_path+pimgfilename));

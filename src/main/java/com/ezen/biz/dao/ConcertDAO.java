@@ -37,4 +37,8 @@ public class ConcertDAO {
 	public void inserttotalent(ConcertVO vo) {
 		mybatis.insert("ConcertMapper.inserttotalent",vo);
 	}
+	
+	public void deletetotalent(ConcertVO vo) {
+		mybatis.delete("ConcertMapper.deletetotalent",vo);
+	}
 }

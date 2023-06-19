@@ -11,13 +11,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/a_performance.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
     </head>
 	<script type="text/javascript">
 	function a_updateperformance() {
         location.href = "a_performance_edit?tseq=" + document.getElementById("tseq").value;
     }
+	function a_deleteperformance(){
+		var tseq = document.getElementById("tseq").value;
+		var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
+		 $.ajax({
+	           type: "POST",
+	           url: '${pageContext.request.contextPath}/a_performance_deleteAction',
+	           dataType: "json",
+	           contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+	           data: {
+	        	   a_password:promptObj,
+	        	   tseq:tseq
+	           }, 
+	           success: function(data){
+	        	   var result = data;
+	        	   console.log(result);
+	        	   if(result =='success'){
+
+		        	   alert(data);   
+	        	   }
+	           },
+	           error: function(data)
+	           {
+	            if (data.status == 401) {
+	                alert('failed.');
+	               return;
+	            }
+	           }
+	        });
+	    }		
 	</script>
     <body class="sb-nav-fixed">
        <%@ include file="../a_header.jsp" %>

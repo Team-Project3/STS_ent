@@ -48,4 +48,10 @@ public class ConcertServiceImpl implements ConcertService {
 		concertDAO.inserttotalent(vo);
 	}
 
+	@Override
+	public void deletetotalent(ConcertVO vo) {
+		// TODO Auto-generated method stub
+		concertDAO.deletetotalent(vo);
+	}
+
 }

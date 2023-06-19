@@ -19,4 +19,6 @@ public interface ConcertService {
 	void updatetotalent(ConcertVO vo);
 	
 	void inserttotalent(ConcertVO vo);
+	
+	void deletetotalent(ConcertVO vo);
 }
