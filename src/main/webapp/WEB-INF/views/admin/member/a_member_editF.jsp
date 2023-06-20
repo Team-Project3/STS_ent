@@ -7,6 +7,7 @@
     <head>
     	<title>회원 정보</title>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/a_performance.css" rel="stylesheet" />
@@ -70,7 +71,7 @@
                             	</table>
 
 								<!-- <input type="submit" value="수정"> -->
-								<input type="button" onClick="editform()" value="수정">
+								<input class="btn btn-primary" type="button" onClick="editform()" value="수정">
                           		<!-- <button onclick="deleteform()">삭제</button> -->
                           		
                             </div>

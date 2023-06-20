@@ -21,4 +21,7 @@ public interface ReviewService {
 	
 	//包府磊 - 府轰 府胶飘
 	List<totalentVO> reviewMemberlist();
+	
+	//包府磊 - 府轰 叼抛老
+	totalentVO reviewDetail(int rseq);
 }
