@@ -179,7 +179,4 @@ public class MuseumController {
 		
 		return "museum/mbooking_success";
 	}
-	
-	
-	
 }

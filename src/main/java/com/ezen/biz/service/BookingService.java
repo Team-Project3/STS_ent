@@ -3,8 +3,6 @@ package com.ezen.biz.service;
 import java.util.List;
 
 import com.ezen.biz.dto.BookingVO;
-import com.ezen.biz.dto.MuseumVO;
-import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.Booking_Total_entVO;
 
 public interface BookingService {

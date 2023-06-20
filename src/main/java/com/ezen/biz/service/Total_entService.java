@@ -6,15 +6,13 @@ import com.ezen.biz.dto.Total_entVO;
 
 
 
-public interface ConcertService {
-
-	List<Total_entVO> concertList();
+public interface Total_entService {
 	
-	Total_entVO concertDetail(Total_entVO vo);
-
-	List<Total_entVO> AllList();
+	List<Total_entVO> total_entList(Total_entVO vo);
 	
-	List<Total_entVO> categoryList(String category);
+	Total_entVO total_entDetail(Total_entVO vo);
+	
+	List<Total_entVO> totalList();
 	
 	void updatetotalent(Total_entVO vo);
 	

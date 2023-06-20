@@ -7,18 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,15 +27,14 @@ import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
-import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.Booking_Total_entVO;
 import com.ezen.biz.dto.Review_Total_entVO;
 import com.ezen.biz.service.AdminService;
 import com.ezen.biz.service.BookingService;
-import com.ezen.biz.service.ConcertService;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.NoticeService;
 import com.ezen.biz.service.ReviewService;
+import com.ezen.biz.service.Total_entService;
 
 @Controller
 @SessionAttributes("admin")
@@ -48,7 +43,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	@Autowired
-	private ConcertService concertService;
+	private Total_entService total_entService;
 	@Autowired
 	private BookingService bookingService;
 	@Autowired
@@ -182,7 +177,7 @@ public class AdminController {
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(Total_entVO vo, Model model) {
 
-		List<Total_entVO> list = concertService.AllList();
+		List<Total_entVO> list = total_entService.totalList();
 
 		model.addAttribute("tlist", list);
 
@@ -191,12 +186,13 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_f")
-	public String a_performance_ent_f(Model model, @RequestParam("category") String category) {
+	public String a_performance_ent_f(Model model,Total_entVO vo) {
 
-		List<Total_entVO> list = concertService.categoryList(category);
+		List<Total_entVO> list = total_entService.total_entList(vo);
 
 		model.addAttribute("tlist", list);
-		model.addAttribute("category", category);
+		//이거 심화로 보자
+		model.addAttribute("category", vo.getCategory());
 
 		return "admin/performance/a_performance_ent_f";
 	}
@@ -205,9 +201,9 @@ public class AdminController {
 	@GetMapping("/a_performance_ent_detail")
 	public String a_performance_ent_detail(Total_entVO vo, Model model) {
 
-		Total_entVO concertVO = concertService.concertDetail(vo);
+		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
-		model.addAttribute("total", concertVO);
+		model.addAttribute("total", total_entVO);
 
 		return "admin/performance/a_performance_ent_detail";
 	}
@@ -216,9 +212,9 @@ public class AdminController {
 	@GetMapping("/a_performance_edit")
 	public String a_performance_editF(Total_entVO vo, Model model) {
 
-		Total_entVO concertVO = concertService.concertDetail(vo);
+		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
-		model.addAttribute("total", concertVO);
+		model.addAttribute("total", total_entVO);
 
 		return "admin/performance/a_performance_ent_editF";
 	}
@@ -227,7 +223,7 @@ public class AdminController {
 	@PostMapping("/a_performance_edit")
 	public String a_performance_editAction(Total_entVO vo, Model model) {
 
-		concertService.updatetotalent(vo);
+		total_entService.updatetotalent(vo);
 
 		return "redirect:a_performance_ent_detail?tseq=" + vo.getTseq();
 	}
@@ -242,7 +238,7 @@ public class AdminController {
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
 			String message = "";
 			if (loginadmin.getA_password().equals(vo.getA_password())) {
-				concertService.deletetotalent(concertVO);
+				total_entService.deletetotalent(concertVO);
 
 				message = "<script>alert('삭제되었습니다.');location.href='a_performance_ent_t';</script>";
 
@@ -314,7 +310,7 @@ public class AdminController {
 			}
 		}
 
-		concertService.inserttotalent(vo);
+		total_entService.inserttotalent(vo);
 
 		return "redirect:a_performance_ent_t";
 	}
@@ -350,7 +346,7 @@ public class AdminController {
 
 		concertVO.setTseq(bookingVO.getTseq());
 
-		Total_entVO totalent = concertService.concertDetail(concertVO);
+		Total_entVO totalent = total_entService.total_entDetail(concertVO);
 
 		model.addAttribute("bookingVO", bookingVO);
 		model.addAttribute("totalent", totalent);

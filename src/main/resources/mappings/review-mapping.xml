@@ -22,7 +22,7 @@
 		order by regdate desc
 	</select>
 	
-	<resultMap id="totalentMap" type="com.ezen.biz.dto.totalentVO">
+	<resultMap id="reviewtotalentMap" type="com.ezen.biz.dto.Review_Total_entVO">
 	    <id property="rseq" column="rseq"/>
 	    <id property="id" column="id"/>
 	    <id property="tseq" column="tseq"/>
@@ -53,9 +53,4 @@
 		where a.tseq = b.tseq and rseq=#{rseq}
 		order by regdate desc
 	</select>
-	
-	
-	
-	
-	
 </mapper>
