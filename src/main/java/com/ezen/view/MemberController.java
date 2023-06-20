@@ -260,7 +260,7 @@ public class MemberController {
 		reviewVO.setId(loginUser.getId());
 		reviewVO.setRseq(rseq);
 		
-		reviewService.deleteReview(reviewVO);
+		reviewService.deleteReview(reviewVO.getRseq());
 		
 		return "redirect:mypage";
 	}

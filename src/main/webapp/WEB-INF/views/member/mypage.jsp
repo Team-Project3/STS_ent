@@ -70,7 +70,7 @@
 							<tr>
 								<th>회원 ID</th>
 								<th>공연 제목</th>
-								<th>리뷰 별점</th>
+								<th>리뷰 평점</th>
 								<th>리뷰 내용</th>
 								<th>작성 일자</th>
 								<th>삭제</th>
@@ -82,7 +82,29 @@
 								<tr>
 									<td>${review.id}</td>
 									<td>${review.tname}</td>
-									<td>${review.rpoint}</td>
+									<%-- <td>${review.rpoint}</td> --%>
+									<td>
+										<c:choose>
+											<c:when test="${review.rpoint == 1}">
+												💗🖤🖤🖤🖤
+											</c:when>
+                        					<c:when test="${review.rpoint == 2}">
+                            					💗💗🖤🖤🖤
+                        					</c:when>
+                        					<c:when test="${review.rpoint == 3}">
+                            					💗💗💗🖤🖤
+                        					</c:when>
+                        					<c:when test="${review.rpoint == 4}">
+                            					💗💗💗💗🖤
+                        					</c:when>
+					                        <c:when test="${review.rpoint == 5}">
+												💗💗💗💗💗
+					                        </c:when>
+					                        <c:otherwise>
+												작성한 평점이 없습니다.
+					                        </c:otherwise>
+                    </c:choose>
+									</td>
 									<td>${review.rcontent}</td>
 									<td><fmt:formatDate value="${review.regdate}" pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
 									<td>

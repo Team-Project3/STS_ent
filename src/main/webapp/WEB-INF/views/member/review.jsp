@@ -18,17 +18,17 @@
 			<div>
 				<div id="reviewpoint">
 					<fieldset>
-						<span class="text-bold">별점을 선택해주세요</span>
+						<span class="text-bold">평점을 선택해주세요</span>
 						<input type="radio" name="rpoint" value="5" id="rpoint5"><label
-							for="rpoint5">★</label>
+							for="rpoint5">💗</label>
 						<input type="radio" name="rpoint" value="4" id="rpoint4"><label
-							for="rpoint4">★</label>
+							for="rpoint4">💗</label>
 						<input type="radio" name="rpoint" value="3" id="rpoint3"><label
-							for="rpoint3">★</label>
+							for="rpoint3">💗</label>
 						<input type="radio" name="rpoint" value="2" id="rpoint2"><label
-							for="rpoint2">★</label>
+							for="rpoint2">💗</label>
 						<input type="radio" name="rpoint" value="1" id="rpoint1"><label
-							for="rpoint1">★</label>
+							for="rpoint1">💗</label>
 					</fieldset>
 				</div>
 				<span>

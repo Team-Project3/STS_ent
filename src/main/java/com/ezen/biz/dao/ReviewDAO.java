@@ -32,8 +32,8 @@ public class ReviewDAO {
 	}
 	
 	//府轰 昏力
-	public void deleteReview(ReviewVO vo) {
-		mybatis.delete("ReviewMapper.deleteReview", vo);
+	public void deleteReview(int rseq) {
+		mybatis.delete("ReviewMapper.deleteReview", rseq);
 	}
 	
 	//包府磊 - 府轰 府胶飘
@@ -45,4 +45,6 @@ public class ReviewDAO {
 	public totalentVO reviewDetail(int rseq) {
 		return mybatis.selectOne("ReviewMapper.reviewDetail", rseq);
 	}
+	
+	
 }
