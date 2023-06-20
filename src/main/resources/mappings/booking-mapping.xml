@@ -26,12 +26,12 @@
 	
 	<select id="bookingList" resultMap="totalbookMap">
 		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus,t.price,t.category
-		from booking b, total_ent t where b.tseq=t.tseq
+		from booking b, total_ent t where b.tseq=t.tseq order by b.today desc
 	</select>
 	
 	<select id="bookingListcategory" resultMap="totalbookMap">
 		select b.bseq, t.tseq, t.tname, b.id, b.dday, b.seat, b.head, b.bstatus,t.price,t.category
-		from booking b, total_ent t where b.tseq=t.tseq and category = #{category}
+		from booking b, total_ent t where b.tseq=t.tseq and category = #{category} order by b.today desc
 	</select>
 	
 	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
@@ -54,5 +54,37 @@
 		WHERE id=#{id} and bseq=#{bseq}
 	</delete>
 	
+	<select id="bookingdetail" resultType="Booking">
+		select * from booking where bseq = #{bseq}
+	</select>
 	
+	<update id="updatebooking">
+		update booking set bstatus = #{bstatus}
+		where bseq = #{bseq}
+	</update>
+	
+	<delete id="adeletebooking">
+		delete from booking
+		where bseq = #{bseq}
+	</delete>
+	
+	<select id="sumprice" resultType="int">
+	  select  nvl(sum(trunc( b.head*t.price)),0)
+		from booking b, total_ent t where b.tseq=t.tseq and EXTRACT(MONTH FROM dday) = #{month}
+  		AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
+	
+	<select id="sumheadcategory" resultType="int">
+	  select nvl(sum(b.head),0)
+    	from  booking b, total_ent t 
+   		 where  b.tseq=t.tseq  and t.category = #{category} and EXTRACT(MONTH FROM dday) = #{month}
+  			AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
+	
+	<select id="sumheadtotal" resultType="int">
+		  select nvl(sum(b.head),0)
+    		from  booking b, total_ent t 
+   		 		where  b.tseq=t.tseq and EXTRACT(MONTH FROM dday) = #{month}
+  					AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
 </mapper>

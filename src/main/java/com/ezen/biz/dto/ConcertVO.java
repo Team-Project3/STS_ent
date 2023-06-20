@@ -2,6 +2,8 @@ package com.ezen.biz.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +17,9 @@ public class ConcertVO {
 	private String tname;
 	private String place;
 	private String time;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date sdate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date edate;
 	private int price;
 	private String seat;

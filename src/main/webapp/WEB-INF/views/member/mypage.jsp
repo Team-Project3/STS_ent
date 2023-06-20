@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>My Page</title>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"
@@ -30,8 +30,8 @@
 								<tr>
 									<td>이름</td>
 									<td id="name">${membervo.name }</td>
-									<td>생일</td>
-									<td id="birth">${membervo.birth }</td>
+									<td>생일</td><fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
+									<td id="birth">${birth}</td>
 								</tr>
 								<tr>
 									<td>아이디</td>
@@ -84,7 +84,7 @@
 									<td>${review.tname}</td>
 									<td>${review.rpoint}</td>
 									<td>${review.rcontent}</td>
-									<td>${review.regdate}</td>
+									<td><fmt:formatDate value="${review.regdate}" pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
 									<td>
                                 		<button class="delete-btn" onclick="deleteReview(${review.rseq})">삭제</button>
                             		</td>

@@ -10,7 +10,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <script src="js/modernizr.custom.js"></script>
@@ -19,6 +19,10 @@
 	<div class="container demo-1">
 		<header>
 			<h1>Admin Page</h1>
+			<div align="right">
+				<a href="#">${sessionScope.admin.a_name}(${sessionScope.admin.a_id})</a>&emsp;&emsp;&emsp;
+				<a href="adminlogout">LOGOUT</a>
+			</div>
 		</header>
 		<ul class="grid cs-style-1">
 			<li>

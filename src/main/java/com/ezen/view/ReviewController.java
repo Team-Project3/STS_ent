@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,9 +26,18 @@ import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.ReviewService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/reviews")
 public class ReviewController {
+	
+	/**
+	 * Slf4j Logger
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
+
 	
 	@Autowired
 	private ReviewService reviewService;
@@ -55,7 +66,9 @@ public class ReviewController {
 		// 로그인이 되어 있는지 확인
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		System.out.println(vo);
+		//sysout 같은거임
+		logger.info(vo.toString());
+		
 		// 로그인이 안되어 있는 경우 로그인 페이지로 이동
 		if (loginUser == null) {
 			return "login_form";

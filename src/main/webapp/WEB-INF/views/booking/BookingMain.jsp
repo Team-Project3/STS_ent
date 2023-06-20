@@ -129,7 +129,7 @@ const random = (length = 8) => {
   </script>
 </head>
 <body>
-<form action="BookingSuccess" id="submit" method="get"></form><!-- form 태그 여기다가 둔 이유 : 밑에다가 두면 무조건 rsp가 success로 인식하고 다음페이지로 보냄 -->
+<form action="BookingSuccess" id="submit" method="get"><input type="hidden" name="oseq" value="${orderVO.oseq}"></form><!-- form 태그 여기다가 둔 이유 : 밑에다가 두면 무조건 rsp가 success로 인식하고 다음페이지로 보냄 -->
 <button onclick="kakaoPay()"><img alt="" src="img/booking/kakaopay.png"></button>
 <button onclick="nicepay()"><img alt="" src="img/booking/nicepay.png"></button>
 <button onclick="kicc()"><img alt="" src="img/booking/kicc.webp"></button>

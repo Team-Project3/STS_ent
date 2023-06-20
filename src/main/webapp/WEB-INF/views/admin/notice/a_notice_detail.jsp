@@ -17,6 +17,12 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
+<script type="text/javascript">
+	function a_noticeedit() {
+    	var nseq = "${noticevo.nseq}";
+        window.location.href = "a_notice_updateF?nseq=" + nseq;
+    }
+	</script> 
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp" %>
 	<div id="layoutSidenav_content">
@@ -25,23 +31,32 @@
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Notice Information</li>
 			</ol>
+			<form id="update" name="formm" method="post">
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i> 
-						<a href="a_notice_main" id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${notice.nseq}<br>
+						<a href="a_notice_main" id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${noticevo.nseq}<br>
+						
+				</div>
+				<input type="hidden" value="${noticevo.nseq}" id="nseq">
+				<input type="hidden" value="${noticevo.a_id}" id="a_id">
+				<input type="hidden" value="${noticevo.ndate}" id="ndate"> 
+				<div class="card-body">
+				<h2 id="title" style="margin:20px 0 10px 0;">&nbsp;${noticevo.title}</h2>
+					<span id="a_id">&emsp;${noticevo.a_id}</span>&emsp;|&emsp; 
+					<span id="ndate"><fmt:formatDate value="${noticevo.ndate}"
+							pattern="yyyy-MM-dd" var="ndate" />${ndate}</span><br><br>
+					<span id="datatablesSimple" style="margin:30px 0;">
+						<span id="ncontent">&emsp;${noticevo.ncontent}</span>
+					</span>
 					
 				</div>
-				<div class="card-body">
-				<h2 id="title" style="margin:20px 0 10px 0;">&nbsp;${notice.title}</h2>
-					<span id="a_id">&emsp;${notice.a_id}</span>&emsp;|&emsp; 
-					<span id="ndate"><fmt:formatDate value="${notice.ndate}"
-							pattern="yyyy-MM-dd" var="ndate" />${ndate}</span><br><br>
-					<div id="datatablesSimple" style="margin:30px 0;">
-						<div id="ncontent">&emsp;${notice.ncontent}</div>
-
-					</div>
-				</div>
+				
 			</div>
+			<div align="right">
+					<button type="button" class="btn btn-primary" onclick="a_noticeedit()">공지 수정</button>
+			</div>
+			</form>
 		</div>
 	</div>
 

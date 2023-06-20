@@ -42,4 +42,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDao.reviewMemberlist();
 	}
 
+	@Override	//包府磊- 府轰 叼抛老
+	public totalentVO reviewDetail(int rseq) {
+		return reviewDao.reviewDetail(rseq);
+	}
+
 }

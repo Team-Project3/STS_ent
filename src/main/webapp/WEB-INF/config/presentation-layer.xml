@@ -17,7 +17,7 @@
 	<!-- mapping : 소스에서 리소스 (css,image) 지정 형식 -->
 	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/product_images/" mapping="/product_images/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/total_ent/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/member/" mapping="/member/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/js/" mapping="/js/**"></mvc:resources>
@@ -27,6 +27,7 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="-1"></property>
+		<property name="maxInMemorySize" value="100000000"></property>
 	</bean>
 	
 	<!-- View Resolver 등록 -->

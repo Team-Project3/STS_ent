@@ -52,4 +52,40 @@ public class BookingServiceImpl implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingDAO.bookingListcategory(category);
 	}
+
+	@Override
+	public BookingVO bookingdetail(BookingVO vo) {
+		// TODO Auto-generated method stub
+		return bookingDAO.bookingdetail(vo);
+	}
+
+	@Override
+	public void updatebooking(BookingVO vo) {
+		
+		bookingDAO.updatebooking(vo);
+	}
+
+	@Override
+	public void adeletebooking(BookingVO vo) {
+		
+		bookingDAO.adeletebooking(vo);
+	}
+
+	@Override
+	public int sumprice(int month, int year) {
+		// TODO Auto-generated method stub
+		return bookingDAO.sumprice(month, year);
+	}
+
+	@Override
+	public int sumheadcategory(int category, int month, int year) {
+		// TODO Auto-generated method stub
+		return bookingDAO.sumheadcategory(category, month, year);
+	}
+
+	@Override
+	public int sumheadtotal(int month, int year) {
+		// TODO Auto-generated method stub
+		return bookingDAO.sumheadtotal(month, year);
+	}
 }
