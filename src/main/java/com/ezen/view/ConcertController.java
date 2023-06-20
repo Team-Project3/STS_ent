@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.biz.dto.BookingVO;
-import com.ezen.biz.dto.ConcertVO;
+import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.MuseumVO;
 import com.ezen.biz.service.BookingService;
@@ -36,7 +36,7 @@ public class ConcertController {
 	@RequestMapping(value = "/concert_main", method = RequestMethod.GET)
 	public String concert(Model model) {
 
-		List<ConcertVO> concertList = concertService.concertList();
+		List<Total_entVO> concertList = concertService.concertList();
 
 		model.addAttribute("concertList", concertList);
 
@@ -45,11 +45,11 @@ public class ConcertController {
 
 	// 콘서트 디테일 화면
 	@RequestMapping("/concert_detail")
-	public String concertdetail(Model model, ConcertVO vo,  HttpSession session) {
+	public String concertdetail(Model model, Total_entVO vo,  HttpSession session) {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 
-		ConcertVO concert = concertService.concertDetail(vo);
+		Total_entVO concert = concertService.concertDetail(vo);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -87,11 +87,11 @@ public class ConcertController {
 	
 	//콘서트 booking 화면
 	@RequestMapping("/concert_booking")
-	public String concertbooking(ConcertVO vo, Model model, HttpSession session, BookingVO bookingvo,
+	public String concertbooking(Total_entVO vo, Model model, HttpSession session, BookingVO bookingvo,
 													@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday) throws ParseException {
 		MemberVO membervo = (MemberVO)session.getAttribute("loginUser");
 	
-		ConcertVO concert = concertService.concertDetail(vo);
+		Total_entVO concert = concertService.concertDetail(vo);
 		
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -151,14 +151,14 @@ public class ConcertController {
 	
 	//콘서트 예매 정보확인
 	@RequestMapping("/cbooking_detail")
-	public String mbooking_detail(ConcertVO vo, Model model, HttpSession session, BookingVO bookingVo,
+	public String mbooking_detail(Total_entVO vo, Model model, HttpSession session, BookingVO bookingVo,
 								@RequestParam("dday") @DateTimeFormat(pattern="yyyy-MM-dd") String dday,
 								@RequestParam("seat") String seat,
 								@RequestParam("head") int head,
 								@RequestParam("totalPrice") int totalPrice) {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
-		ConcertVO concert = concertService.concertDetail(vo);
+		Total_entVO concert = concertService.concertDetail(vo);
 		
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("concert", concert);

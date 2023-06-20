@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class totalbookVO {
+public class Booking_Total_entVO {
 	private int bseq;
 	private int tseq;
 	private String tname;

@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ConcertVO {
+public class Total_entVO {
 	private int tseq;
 	private String category;
 	private String tname;

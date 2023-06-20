@@ -5,7 +5,7 @@ import java.util.List;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MuseumVO;
 import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
+import com.ezen.biz.dto.Booking_Total_entVO;
 
 public interface BookingService {
 	//예약 데이터 insert
@@ -18,14 +18,14 @@ public interface BookingService {
 	int checkHead(BookingVO vo);
 	
 	//회원별 예약 리스트
-	List<totalbookVO> bookingMember(BookingVO vo);
+	List<Booking_Total_entVO> bookingMember(BookingVO vo);
 	
 	//예약 삭제
 	void deleteBooking(BookingVO vo);
 	
-	List<totalbookVO> bookingList();
+	List<Booking_Total_entVO> bookingList();
 	
-	List<totalbookVO> bookingListcategory(String category);
+	List<Booking_Total_entVO> bookingListcategory(String category);
 	
 	BookingVO bookingdetail(BookingVO vo);
 	

@@ -2,23 +2,23 @@ package com.ezen.biz.service;
 
 import java.util.List;
 
-import com.ezen.biz.dto.ConcertVO;
+import com.ezen.biz.dto.Total_entVO;
 
 
 
 public interface ConcertService {
 
-	List<ConcertVO> concertList();
+	List<Total_entVO> concertList();
 	
-	ConcertVO concertDetail(ConcertVO vo);
+	Total_entVO concertDetail(Total_entVO vo);
 
-	List<ConcertVO> AllList();
+	List<Total_entVO> AllList();
 	
-	List<ConcertVO> categoryList(String category);
+	List<Total_entVO> categoryList(String category);
 	
-	void updatetotalent(ConcertVO vo);
+	void updatetotalent(Total_entVO vo);
 	
-	void inserttotalent(ConcertVO vo);
+	void inserttotalent(Total_entVO vo);
 	
-	void deletetotalent(ConcertVO vo);
+	void deletetotalent(Total_entVO vo);
 }

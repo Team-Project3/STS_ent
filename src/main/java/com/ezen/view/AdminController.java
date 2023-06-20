@@ -28,12 +28,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
-import com.ezen.biz.dto.ConcertVO;
+import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
 import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
-import com.ezen.biz.dto.totalentVO;
+import com.ezen.biz.dto.Booking_Total_entVO;
+import com.ezen.biz.dto.Review_Total_entVO;
 import com.ezen.biz.service.AdminService;
 import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.ConcertService;
@@ -111,9 +111,9 @@ public class AdminController {
 	}
 
 	@GetMapping("/a_performance_main")
-	public String a_performance_main(ConcertVO vo, Model model) {
+	public String a_performance_main(Total_entVO vo, Model model) {
 
-		List<totalbookVO> booklist = bookingService.bookingList();
+		List<Booking_Total_entVO> booklist = bookingService.bookingList();
 
 		model.addAttribute("booklist", booklist);
 
@@ -180,9 +180,9 @@ public class AdminController {
 	
 	//
 	@GetMapping("/a_performance_ent_t")
-	public String a_performance_ent_t(ConcertVO vo, Model model) {
+	public String a_performance_ent_t(Total_entVO vo, Model model) {
 
-		List<ConcertVO> list = concertService.AllList();
+		List<Total_entVO> list = concertService.AllList();
 
 		model.addAttribute("tlist", list);
 
@@ -193,7 +193,7 @@ public class AdminController {
 	@GetMapping("/a_performance_ent_f")
 	public String a_performance_ent_f(Model model, @RequestParam("category") String category) {
 
-		List<ConcertVO> list = concertService.categoryList(category);
+		List<Total_entVO> list = concertService.categoryList(category);
 
 		model.addAttribute("tlist", list);
 		model.addAttribute("category", category);
@@ -203,9 +203,9 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_detail")
-	public String a_performance_ent_detail(ConcertVO vo, Model model) {
+	public String a_performance_ent_detail(Total_entVO vo, Model model) {
 
-		ConcertVO concertVO = concertService.concertDetail(vo);
+		Total_entVO concertVO = concertService.concertDetail(vo);
 
 		model.addAttribute("total", concertVO);
 
@@ -214,9 +214,9 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_edit")
-	public String a_performance_editF(ConcertVO vo, Model model) {
+	public String a_performance_editF(Total_entVO vo, Model model) {
 
-		ConcertVO concertVO = concertService.concertDetail(vo);
+		Total_entVO concertVO = concertService.concertDetail(vo);
 
 		model.addAttribute("total", concertVO);
 
@@ -225,7 +225,7 @@ public class AdminController {
 
 	//
 	@PostMapping("/a_performance_edit")
-	public String a_performance_editAction(ConcertVO vo, Model model) {
+	public String a_performance_editAction(Total_entVO vo, Model model) {
 
 		concertService.updatetotalent(vo);
 
@@ -235,7 +235,7 @@ public class AdminController {
 	//
 	@ResponseBody
 	@PostMapping(value = "/a_performance_deleteAction", produces = "application/text; charset=utf8")
-	public String a_performance_deleteAction(AdminVO vo, ConcertVO concertVO, HttpSession session) {
+	public String a_performance_deleteAction(AdminVO vo, Total_entVO concertVO, HttpSession session) {
 
 		try {
 
@@ -265,7 +265,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/a_performance_ent_insert")
-	public String a_performance_ent_insert_action(ConcertVO vo,
+	public String a_performance_ent_insert_action(Total_entVO vo,
 			@RequestParam(value = "pimgfile") MultipartFile pimgfile,
 			@RequestParam(value = "cimgfile") MultipartFile cimgfile, HttpSession session) {
 
@@ -323,7 +323,7 @@ public class AdminController {
 	@RequestMapping("/a_performance_booking_t")
 	public String a_performance_booking_t(Model model) {
 
-		List<totalbookVO> booklist = bookingService.bookingList();
+		List<Booking_Total_entVO> booklist = bookingService.bookingList();
 
 		model.addAttribute("booklist", booklist);
 
@@ -332,9 +332,9 @@ public class AdminController {
 
 	//
 	@RequestMapping("/a_performance_booking_f")
-	public String a_performance_booking_f(Model model, ConcertVO vo, @RequestParam("category") String category) {
+	public String a_performance_booking_f(Model model, Total_entVO vo, @RequestParam("category") String category) {
 
-		List<totalbookVO> booklist = bookingService.bookingListcategory(category);
+		List<Booking_Total_entVO> booklist = bookingService.bookingListcategory(category);
 
 		model.addAttribute("booklist", booklist);
 		model.addAttribute("category", category);
@@ -344,13 +344,13 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_booking_detail")
-	public String a_performance_booking_detail(BookingVO vo, Model model, ConcertVO concertVO) {
+	public String a_performance_booking_detail(BookingVO vo, Model model, Total_entVO concertVO) {
 
 		BookingVO bookingVO = bookingService.bookingdetail(vo);
 
 		concertVO.setTseq(bookingVO.getTseq());
 
-		ConcertVO totalent = concertService.concertDetail(concertVO);
+		Total_entVO totalent = concertService.concertDetail(concertVO);
 
 		model.addAttribute("bookingVO", bookingVO);
 		model.addAttribute("totalent", totalent);
@@ -537,7 +537,7 @@ public class AdminController {
 	@GetMapping("/a_review_main")
 	public String a_review_main(Model model) {
 
-		List<totalentVO> reviewlist = reviewService.reviewMemberlist();
+		List<Review_Total_entVO> reviewlist = reviewService.reviewMemberlist();
 
 		model.addAttribute("reviewlist", reviewlist);
 
@@ -546,9 +546,9 @@ public class AdminController {
 	
 	//包府磊 - 府轰 叼抛老
 	@GetMapping("/a_review_detail")
-	public String a_review_detail(Model model, totalentVO totalentvo) {
+	public String a_review_detail(Model model, Review_Total_entVO totalentvo) {
 		
-		totalentVO total = reviewService.reviewDetail(totalentvo.getRseq());
+		Review_Total_entVO total = reviewService.reviewDetail(totalentvo.getRseq());
 		
 		model.addAttribute("reviewvo", total);
 		System.out.println(total);

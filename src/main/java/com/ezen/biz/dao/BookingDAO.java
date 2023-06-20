@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ezen.biz.dto.BookingVO;
-import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
+import com.ezen.biz.dto.Booking_Total_entVO;
 
 @Repository
 public class BookingDAO {
@@ -39,7 +38,7 @@ public class BookingDAO {
 	}
 
 	// 회원별 예약 리스트
-	public List<totalbookVO> bookingMember(BookingVO vo) {
+	public List<Booking_Total_entVO> bookingMember(BookingVO vo) {
 		return mybatis.selectList("BookingMapper.bookingMember", vo);
 	}
 
@@ -48,11 +47,11 @@ public class BookingDAO {
 		mybatis.delete("BookingMapper.deleteBooking", vo);
 	}
 
-	public List<totalbookVO> bookingList() {
+	public List<Booking_Total_entVO> bookingList() {
 		return mybatis.selectList("BookingMapper.bookingList");
 	}
 
-	public List<totalbookVO> bookingListcategory(String category) {
+	public List<Booking_Total_entVO> bookingListcategory(String category) {
 		return mybatis.selectList("BookingMapper.bookingListcategory", category);
 	}
 
