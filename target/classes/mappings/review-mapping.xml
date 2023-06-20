@@ -5,7 +5,7 @@
 	<!-- 리뷰 등록 -->
 	<insert id="saveReview">
 		INSERT INTO review(rseq, tseq, rcontent, id, rpoint)
-		VALUES(rseq.NEXTVAL, #{tseq}, #{rcontent}, #{id}, 2)
+		VALUES(rseq.NEXTVAL, #{tseq}, #{rcontent}, #{id}, #{rpoint})
 	</insert>
 
 	<!-- 리뷰 리스트 -->
@@ -39,9 +39,23 @@
 		WHERE id=#{id} and rseq=#{rseq}
 	</delete>
 	
+	<!-- 관리자- 후기 리스트 -->
 	<select id="reviewMemberlist" resultMap="totalentMap">
 		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname, b.category
 		from review a, total_ent b
 		where a.tseq=b.tseq
 	</select>
+	
+	<!-- 관리자- 후기 디테일 -->
+	<select id="reviewDetail" resultMap="totalentMap">
+		select a.rseq, a.id, a.regdate, a.rpoint, a.rcontent, b.tname
+		from review a, total_ent b
+		where a.tseq = b.tseq and rseq=#{rseq}
+		order by regdate desc
+	</select>
+	
+	
+	
+	
+	
 </mapper>

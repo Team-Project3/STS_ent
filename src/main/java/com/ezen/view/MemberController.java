@@ -238,7 +238,7 @@ public class MemberController {
 	
 	//my page - È¸¿ø Å»Åð Ã³¸®
 	@RequestMapping(value = "/mypage_delete", method = RequestMethod.GET)
-	public String deleteMember(SessionStatus status,HttpSession session) throws Exception {
+	public String deleteMember(SessionStatus status, HttpSession session) throws Exception {
 	    
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		

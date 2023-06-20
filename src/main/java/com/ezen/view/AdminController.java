@@ -31,6 +31,7 @@ import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.ConcertVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
+import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.totalbookVO;
 import com.ezen.biz.dto.totalentVO;
 import com.ezen.biz.service.AdminService;
@@ -65,12 +66,14 @@ public class AdminController {
 
 	// 관리자 로그인 구현
 	@PostMapping("/adminlogin")
-	public String adminlogin(AdminVO vo, Model model) {
+	public String adminlogin(AdminVO vo, Model model, HttpSession session) {
+		
 		int result = adminService.adminCheck(vo);
 
 		if (result == 1) {
 			model.addAttribute("admin", adminService.getAdmin(vo.getA_id()));
-			return "admin/admin_main";
+
+			return "redirect: admin_main";
 
 		} else if (result == 0) {
 			model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
@@ -81,13 +84,20 @@ public class AdminController {
 			return "member/login_fail";
 
 		}
+		
 	}
 
 	// 관리자 메인 화면
 	@RequestMapping("/admin_main")
 	public String adminmain(HttpSession session) {
-
-		return "admin/admin_main";
+		
+		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
+		
+		if(adminvo == null) {
+			return "admin/a_session_fail";
+		} else {
+			return "admin/admin_main";
+		}
 	}
 
 	// 로그아웃 처리
@@ -95,6 +105,7 @@ public class AdminController {
 	public String adminlogout(SessionStatus status) {
 
 		status.setComplete();
+		
 		return "redirect:adminlogin_form";
 
 	}
@@ -434,8 +445,8 @@ public class AdminController {
 
 	// 관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
-	public String a_notice_main(NoticeVO vo, Model model) {
-
+	public String a_notice_main(NoticeVO noticevo, Model model) {
+		
 		List<NoticeVO> noticeList = noticeService.noticeList();
 
 		model.addAttribute("noticeList", noticeList);
@@ -445,11 +456,12 @@ public class AdminController {
 
 	// 공지사항 상세
 	@RequestMapping("/a_notice_detail")
-	public String noticeDetail(NoticeVO vo, Model model) {
+	public String noticeDetail(NoticeVO noticevo, Model model) {
+		
+		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
+		
+		model.addAttribute("noticevo", notice);
 
-		NoticeVO notice = noticeService.noticeDetail(vo);
-
-		model.addAttribute("notice", notice);
 		System.out.println(notice);
 
 		return "admin/notice/a_notice_detail";
@@ -458,24 +470,70 @@ public class AdminController {
 	// 공지사항 작성 form
 	@GetMapping("/a_notice_insertF")
 	public String noticeInsertF(Model model, HttpSession session) {
-
-		AdminVO admin = (AdminVO) session.getAttribute("admin");
-
+	
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
 		model.addAttribute("a_id", admin.getA_id());
 
 		return "admin/notice/a_notice_insertF";
 	}
 
-	// 공지사항 작성 form
+	//공지사항 작성 처리
 	@RequestMapping("/a_notice_insert")
-	public String noticeInsert(Model model, NoticeVO noticevo) {
 
+	public String noticeInsert(NoticeVO noticevo) {
+		
 		noticeService.noticeInsert(noticevo);
 
 		return "redirect:a_notice_main";
 	}
 
-	// 관리자 - 리뷰 리스트
+	//공지사항 수정 form
+	@RequestMapping("/a_notice_updateF")
+	public String noticeUpdateF(Model model, NoticeVO noticevo) {
+		
+		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
+		
+		System.out.println(noticevo);
+		
+		model.addAttribute("noticevo", notice);
+		
+		return "admin/notice/a_notice_updateF";
+	}
+	
+	//공지사항 수정 처리
+	@RequestMapping("/a_notice_update")
+	public String noticeUpdate(Model model, NoticeVO noticevo) {
+		
+		System.out.println(noticevo);
+		
+		noticeService.noticeUpdate(noticevo);
+		
+		return "redirect:a_notice_detail?nseq=" + noticevo.getNseq();
+	}
+	
+	//공지사항 삭제 페이지
+	@RequestMapping("/a_notice_deleteF")
+	public String noticeDeleteF(Model model, HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
+		
+		model.addAttribute("adminvo", adminvo);
+		
+		return "admin/notice/a_notice_deleteF";
+	}
+	
+	//공지사항 삭제 페이지
+	@RequestMapping("/a_notice_delete")
+	public String noticeDelete(Model model, NoticeVO noticevo) {
+		
+		noticeService.noticeDelete(noticevo.getNseq());
+		
+		return "redirect:a_notice_main";
+	}
+	
+	
+	//관리자 - 리뷰 리스트
 	@GetMapping("/a_review_main")
 	public String a_review_main(Model model) {
 
@@ -485,4 +543,18 @@ public class AdminController {
 
 		return "admin/review/a_review_main";
 	}
+	
+	//관리자 - 리뷰 디테일
+	@GetMapping("/a_review_detail")
+	public String a_review_detail(Model model, totalentVO totalentvo) {
+		
+		totalentVO total = reviewService.reviewDetail(totalentvo.getRseq());
+		
+		model.addAttribute("reviewvo", total);
+		System.out.println(total);
+		
+		return "admin/review/a_review_detail";
+	}
+	
+	
 }

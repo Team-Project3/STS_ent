@@ -13,16 +13,30 @@
 	<div id="review-container">
 	</div>
 	
-	<div class="container">
+	<div class="rcontainer">
 		<form id="reviewForm" name="reviewForm" method="post">
 			<div>
+				<div id="reviewpoint">
+					<fieldset>
+						<span class="text-bold">별점을 선택해주세요</span>
+						<input type="radio" name="rpoint" value="5" id="rpoint5"><label
+							for="rpoint5">★</label>
+						<input type="radio" name="rpoint" value="4" id="rpoint4"><label
+							for="rpoint4">★</label>
+						<input type="radio" name="rpoint" value="3" id="rpoint3"><label
+							for="rpoint3">★</label>
+						<input type="radio" name="rpoint" value="2" id="rpoint2"><label
+							for="rpoint2">★</label>
+						<input type="radio" name="rpoint" value="1" id="rpoint1"><label
+							for="rpoint1">★</label>
+					</fieldset>
+				</div>
 				<span>
                 	<input type="text" maxlength="100" id="rcontent" name="rcontent" placeholder="100자 이내로 후기를 입력해주세요"></input>
                 </span>
 				&emsp;&emsp;
 				<span id="button">
 					<a href='#' onClick="save_review()" class="btn">등록</a>
-					
 				</span>
 			</div>
 			<input type="hidden" value="${total_ent.tseq}" id="tseq" name="tseq" />
@@ -76,8 +90,7 @@
 				  } else {
 				    $("#review-container").html("<p>등록된 후기가 없습니다.</p>");
 				  }
-				},
-				
+				},		
 				
 			error: function() {
 				alert("조회하지 못했습니다.")
@@ -96,18 +109,28 @@
 	
 	//상품 댓글 등록
 	function save_review() {
+		var selectedRating = $('input[name="rpoint"]:checked').val();
+	    
+	    if (selectedRating === undefined) {
+	        alert("별점을 선택해주세요.");
+	        return;
+	    }
+
+	    
 		$.ajax({
 			type: 'POST',
 			url: 'reviews/save',
 			data: {
             	tseq: tseq,
-            	rcontent:$("#rcontent").val()
+            	rcontent:$("#rcontent").val(),
+            	rpoint: selectedRating
         	},
         	success: function(data) {
         		var membervo = document.getElementById("id").value;
             	if (data == 'success') {
             		reviewList(); // 상품평 목록 요청함수 호출
                 	$("#rcontent").val("");
+                	$('input[name="rpoint"]').prop('checked', false); 
             	} else if (membervo == null || membervo == "") {
 	                alert("로그인 후에 이용해주시기 바랍니다.");
 	                location.href = "login_form";
@@ -118,7 +141,7 @@
         	}
     	});
 	}
-</script>			
-	
+
+	</script>			
 </body>
 </html>
