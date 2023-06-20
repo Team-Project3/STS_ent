@@ -33,5 +33,13 @@ public class NoticeServiceImpl implements NoticeService {
 	public void noticeUpdate(NoticeVO vo) {
 		noticeDao.noticeUpdate(vo);	
 	}
+
+	@Override	//공지사항 삭제
+	public void noticeDelete(int nseq) {
+		noticeDao.noticeDelete(nseq);
+		
+	}
+	
+	
 	
 }

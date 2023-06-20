@@ -52,12 +52,13 @@ public class AdminController {
 	
 	//관리자 로그인 구현
 	@PostMapping("/adminlogin")
-	public String adminlogin(AdminVO vo, Model model) {
+	public String adminlogin(AdminVO vo, Model model, HttpSession session) {
+		
 		int result = adminService.adminCheck(vo);
 		
 		if (result == 1) {
 			model.addAttribute("admin", adminService.getAdmin(vo.getA_id()));
-			return "admin/admin_main";
+			return "redirect: admin_main";
 		
 		} else if (result == 0) {
 			model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
@@ -66,22 +67,29 @@ public class AdminController {
 		} else {
 			model.addAttribute("errorMessage", "계정이 존재하지 않습니다.");
 			return "member/login_fail";
-			
 		}
+		
 	}
 	
 	//관리자 메인 화면
 	@RequestMapping("/admin_main")
 	public String adminmain(HttpSession session) {
 		
-		return "admin/admin_main";
+		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
+		
+		if(adminvo == null) {
+			return "admin/a_session_fail";
+		} else {
+			return "admin/admin_main";
+		}
 	}
 	
 	//로그아웃 처리
 	@GetMapping("/adminlogout")
-	public String adminlogout(SessionStatus status ) {
+	public String adminlogout(SessionStatus status) {
 				
 		status.setComplete();
+		
 		return "redirect:adminlogin_form";
 
 	}
@@ -238,6 +246,8 @@ public class AdminController {
 		
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 		
+		System.out.println(noticevo);
+		
 		model.addAttribute("noticevo", notice);
 		
 		return "admin/notice/a_notice_updateF";
@@ -251,8 +261,29 @@ public class AdminController {
 		
 		noticeService.noticeUpdate(noticevo);
 		
-		return "redirect:a_member_detail";
+		return "redirect:a_notice_detail?nseq=" + noticevo.getNseq();
 	}
+	
+	//공지사항 삭제 페이지
+	@RequestMapping("/a_notice_deleteF")
+	public String noticeDeleteF(Model model, HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
+		
+		model.addAttribute("adminvo", adminvo);
+		
+		return "admin/notice/a_notice_deleteF";
+	}
+	
+	//공지사항 삭제 페이지
+	@RequestMapping("/a_notice_delete")
+	public String noticeDelete(Model model, NoticeVO noticevo) {
+		
+		noticeService.noticeDelete(noticevo.getNseq());
+		
+		return "redirect:a_notice_main";
+	}
+	
 	
 	//관리자 - 리뷰 리스트
 	@GetMapping("/a_review_main")

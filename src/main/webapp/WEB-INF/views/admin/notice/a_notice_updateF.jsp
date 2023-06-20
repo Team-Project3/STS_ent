@@ -18,32 +18,50 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
 <script type="text/javascript">
+//공지사항 수정
 function editform() {
 	var theform = document.getElementById("updateform");
 	alert("공지사항이 수정되었습니다.");
 	theform.action = "a_notice_update";
 	theform.submit();
 }
+
+//공지사항 삭제 페이지 이동
+function deleteform() {
+	if (confirm("공지사항을 삭제하시겠습니까?")) {
+		var form = document.getElementById("updateform");
+		alert("삭제되었습니다.");
+        form.action = "a_notice_delete";
+        form.submit(); 
+    }
+}
+
 </script>
 <body class="sb-nav-fixed">
 	<%@ include file="a_notice_header.jsp"%>
 	<div id="layoutSidenav_content">
-		<div class="container-fluid px-4">
-			<h1 class="mt-4">공지사항 수정</h1>
-			<ol class="breadcrumb mb-4">
-				<li class="breadcrumb-item active">Notice Information</li>
-			</ol>
-			
+		<form id="updateform" method="post">
+			<div class="container-fluid px-4">
+				<h1 class="mt-4">공지사항 수정</h1>
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item active">Notice Information</li>
+				</ol>
+
 				<div class="card mb-4">
 					<div class="card-header">
 						<i class="fas fa-table me-1"></i> <a href="a_notice_main"
 							id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${noticevo.nseq}<br>
+
 					</div>
-					<form id="updateform" method="post">
+
+					<input type="hidden" name="nseq" id="nseq" value="${noticevo.nseq}">
+					<input type="hidden" name="a_id" id="a_id" value="${noticevo.a_id}">
+					<input type="hidden" name="ndate"
+						value="<fmt:formatDate value='${noticevo.ndate}'
+							pattern='yyyy-MM-dd'/>">
+
+
 					<div class="card-body">
-						<span id="a_id">&emsp;${noticevo.a_id}</span>&emsp;|&emsp; 
-						<span id="ndate"><fmt:formatDate value="${noticevo.ndate}"
-							pattern="yyyy-MM-dd" var="ndate" />${ndate}</span><br>
 						<br>
 						<table>
 							<tr>
@@ -57,15 +75,22 @@ function editform() {
 									value="${noticevo.ncontent}"></td>
 							</tr>
 						</table>
-						<input class="btn btn-primary" type="button" onClick="editform()" id="editButton" value="수정">
+
 					</div>
-					</form>
+
 				</div>
-				
-			
-		</div>
+				<div align="right">
+					<input class="btn btn-primary" type="button" onClick="editform()"
+						id="editButton" value="수정">
+					<input class="btn btn-primary" type="button" onClick="deleteform()"
+						id="editButton" value="삭제">
+				</div>
+			</div>
+		</form>
 
 	</div>
+
+
 
 
 	<script src="js/scripts.js"></script>

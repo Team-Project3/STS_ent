@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>My Page</title>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"

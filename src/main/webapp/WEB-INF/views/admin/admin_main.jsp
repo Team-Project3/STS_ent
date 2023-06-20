@@ -19,6 +19,10 @@
 	<div class="container demo-1">
 		<header>
 			<h1>Admin Page</h1>
+			<div align="right">
+				<a href="#">${sessionScope.admin.a_name}(${sessionScope.admin.a_id})</a>&emsp;&emsp;&emsp;
+				<a href="adminlogout">LOGOUT</a>
+			</div>
 		</header>
 		<ul class="grid cs-style-1">
 			<li>

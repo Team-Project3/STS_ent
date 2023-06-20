@@ -33,5 +33,10 @@ public class NoticeDAO {
 	public void noticeUpdate(NoticeVO vo) {
 		mybatis.update("NoticeMapper.noticeUpdate", vo);
 	}
+	
+	//공지사항 삭제
+	public void noticeDelete(int nseq) {
+		mybatis.delete("NoticeMapper.noticeDelete", nseq);
+	}
 
 }

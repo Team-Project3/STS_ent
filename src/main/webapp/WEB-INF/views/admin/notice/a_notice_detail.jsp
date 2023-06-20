@@ -31,14 +31,16 @@
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Notice Information</li>
 			</ol>
+			<form id="update" name="formm" method="post">
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i> 
 						<a href="a_notice_main" id="detail"><b>공지사항</b></a>&nbsp;/&nbsp;No.${noticevo.nseq}<br>
 						
 				</div>
-				<form id="update" name="formm" method="post">
-				<input type="hidden" value="${noticevo.nseq}" id="nseq"> 
+				<input type="hidden" value="${noticevo.nseq}" id="nseq">
+				<input type="hidden" value="${noticevo.a_id}" id="a_id">
+				<input type="hidden" value="${noticevo.ndate}" id="ndate"> 
 				<div class="card-body">
 				<h2 id="title" style="margin:20px 0 10px 0;">&nbsp;${noticevo.title}</h2>
 					<span id="a_id">&emsp;${noticevo.a_id}</span>&emsp;|&emsp; 
@@ -47,12 +49,14 @@
 					<span id="datatablesSimple" style="margin:30px 0;">
 						<span id="ncontent">&emsp;${noticevo.ncontent}</span>
 					</span>
-					<button type="button" onclick="a_noticeedit()">공지 수정</button>
+					
 				</div>
-				</form>
+				
 			</div>
-			
-			
+			<div align="right">
+					<button type="button" class="btn btn-primary" onclick="a_noticeedit()">공지 수정</button>
+			</div>
+			</form>
 		</div>
 	</div>
 

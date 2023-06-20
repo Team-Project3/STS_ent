@@ -26,6 +26,12 @@
 		WHERE nseq=#{nseq}
 	</update>
 	
+	<!-- 관리자- 공지글 삭제 -->
+	<delete id="noticeDelete">
+		DELETE FROM notice
+		WHERE nseq=#{nseq}
+	</delete>
+	
 	
 	
 
