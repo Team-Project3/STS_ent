@@ -38,7 +38,7 @@ function deleteform() {
 
 </script>
 <body class="sb-nav-fixed">
-	<%@ include file="a_notice_header.jsp"%>
+	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
 		<form id="updateform" method="post">
 			<div class="container-fluid px-4">

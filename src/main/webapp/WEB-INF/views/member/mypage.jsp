@@ -30,8 +30,8 @@
 								<tr>
 									<td>이름</td>
 									<td id="name">${membervo.name }</td>
-									<td>생일</td>
-									<td id="birth">${membervo.birth }</td>
+									<td>생일</td><fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
+									<td id="birth">${birth}</td>
 								</tr>
 								<tr>
 									<td>아이디</td>

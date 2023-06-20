@@ -18,4 +18,13 @@
 		update total_ent set tname = #{tname},place=#{place},time = #{time},price = #{price}
 		where tseq = #{tseq}
 	</update>
+	
+	<insert id="inserttotalent">
+		insert into total_ent values
+		 (tseq.NEXTVAL,#{category},#{tname},#{place},#{time},#{sdate},#{edate},#{price},#{seat},#{pimg},#{cimg}) 
+	</insert>
+	
+	<delete id="deletetotalent">
+		delete from total_ent where tseq = #{tseq}
+	</delete>
 </mapper>

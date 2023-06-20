@@ -39,7 +39,7 @@
                         </ol>
                         
                         <div align="right">
-							<a class="btn btn-primary" href="#" id="perInsert" style="margin-bottom:10px;">공연 등록</a>
+							<a class="btn btn-primary" href="a_performance_ent_insert" id="perInsert" style="margin-bottom:10px;">공연 등록</a>
 						</div>
                         
                         <div class="card mb-4">

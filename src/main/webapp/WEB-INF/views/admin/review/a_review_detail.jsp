@@ -18,7 +18,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
 <body class="sb-nav-fixed">
-	<%@ include file="a_review_header.jsp"%>
+	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">리뷰 상세 정보</h1>
