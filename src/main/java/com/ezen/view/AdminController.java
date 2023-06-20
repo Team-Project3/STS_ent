@@ -18,6 +18,7 @@ import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.ConcertVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
+import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.totalbookVO;
 import com.ezen.biz.dto.totalentVO;
 import com.ezen.biz.service.AdminService;
@@ -295,4 +296,18 @@ public class AdminController {
 		
 		return "admin/review/a_review_main";
 	}
+	
+	//包府磊 - 府轰 叼抛老
+	@GetMapping("/a_review_detail")
+	public String a_review_detail(Model model, totalentVO totalentvo) {
+		
+		totalentVO total = reviewService.reviewDetail(totalentvo.getRseq());
+		
+		model.addAttribute("reviewvo", total);
+		System.out.println(total);
+		
+		return "admin/review/a_review_detail";
+	}
+	
+	
 }

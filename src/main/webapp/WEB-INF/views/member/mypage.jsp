@@ -84,7 +84,7 @@
 									<td>${review.tname}</td>
 									<td>${review.rpoint}</td>
 									<td>${review.rcontent}</td>
-									<td>${review.regdate}</td>
+									<td><fmt:formatDate value="${review.regdate}" pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
 									<td>
                                 		<button class="delete-btn" onclick="deleteReview(${review.rseq})">삭제</button>
                             		</td>

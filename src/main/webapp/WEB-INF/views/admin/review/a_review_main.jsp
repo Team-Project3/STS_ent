@@ -47,7 +47,7 @@
 							<c:forEach var="review" items="${reviewlist}" varStatus="loop">
 								<tr>
 									<td>${review.rseq}</td>
-									<td>${review.id}</td>
+									<td><a href="a_review_detail?rseq=${review.rseq}" id="detail">${review.id}</a></td>
 									<td>
 									<c:choose>
 										<c:when test="${review.category == 1}">콘서트</c:when>
@@ -55,7 +55,7 @@
 										<c:when test="${review.category == 3}">전시회</c:when>
 									</c:choose>
 									</td>
-									<td>${review.tname}</td>
+									<td><a href="a_review_detail?rseq=${review.rseq}" id="detail">${review.tname}</a></td>
 									<td>${review.rpoint}</td>
 								</tr>
 							</c:forEach>

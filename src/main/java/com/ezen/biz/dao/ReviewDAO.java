@@ -35,8 +35,14 @@ public class ReviewDAO {
 	public void deleteReview(ReviewVO vo) {
 		mybatis.delete("ReviewMapper.deleteReview", vo);
 	}
+	
 	//包府磊 - 府轰 府胶飘
 	public List<totalentVO> reviewMemberlist(){
 		return mybatis.selectList("ReviewMapper.reviewMemberlist");
+	}
+	
+	//包府磊 - 府轰 叼抛老
+	public totalentVO reviewDetail(int rseq) {
+		return mybatis.selectOne("ReviewMapper.reviewDetail", rseq);
 	}
 }
