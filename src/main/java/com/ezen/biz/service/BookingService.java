@@ -30,5 +30,12 @@ public interface BookingService {
 	BookingVO bookingdetail(BookingVO vo);
 	
 	void updatebooking(BookingVO vo);
+	
+	void adeletebooking(BookingVO vo);
 		
+	int sumprice(int month,int year);
+	
+	int sumheadcategory(int category,int month,int year);
+	
+	int sumheadtotal(int month,int year);
 }

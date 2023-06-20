@@ -22,6 +22,34 @@
 		     return false;
 		 }
     }
+	function a_deletebooking() {
+		var bseq = document.getElementById("bseq").value;
+		var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
+		 $.ajax({
+	           type: "POST",
+	           url: 'a_performance_booking_delete',
+	           dataType: "text",
+	           data: {
+	        	   a_password:promptObj,
+	        	   bseq:bseq
+	           }, 
+	           success: function(data){
+	        	   if(data =='fail'){
+	        		   alert("비밀번호를 틀렸습니다.");
+	        	   }
+	        	   else{
+						document.write(data);
+	        	   }
+	           },
+	           error: function(data)
+	           {
+	            if (data.status == 401) {
+	                alert('failed.');
+	               return;
+	            }
+	           }
+	        });
+	}
 	</script>
     <body class="sb-nav-fixed">
        <%@ include file="../a_header.jsp" %>
@@ -114,6 +142,7 @@
                             	<tr>
                             	<td>
                             	<button type="button" onclick="return a_updatebooking()">상태 변경</button>&emsp;&emsp;
+                            	<button type="button" onclick="return a_deletebooking()">예약 삭제</button>&emsp;&emsp;
                             	</td>
                             	</tr>
                             </table>

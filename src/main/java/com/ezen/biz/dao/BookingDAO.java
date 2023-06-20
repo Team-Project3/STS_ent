@@ -1,6 +1,7 @@
 package com.ezen.biz.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,21 @@ public class BookingDAO {
 
 	public void updatebooking(BookingVO vo) {
 		mybatis.update("BookingMapper.updatebooking", vo);
+	}
+	
+	public void adeletebooking(BookingVO vo) {
+		mybatis.delete("BookingMapper.adeletebooking",vo);
+	}
+	
+	public int sumprice(int month,int year) {
+		return mybatis.selectOne("BookingMapper.sumprice",Map.of("month", month, "year", year));
+	}
+	
+	public int sumheadcategory(int category,int month,int year) {
+		return mybatis.selectOne("BookingMapper.sumheadcategory",Map.of("category",category,"month", month, "year", year));
+	}
+	
+	public int sumheadtotal(int month,int year) {
+		return mybatis.selectOne("BookingMapper.sumheadtotal",Map.of("month", month, "year", year));
 	}
 }

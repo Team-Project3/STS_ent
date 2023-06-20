@@ -108,20 +108,20 @@
 	        	   tseq:tseq
 	           }, 
 	           success: function(data){
-	        	   var result = data;
-	        	   console.log(result);
-	        	   if(result =='success'){
-		        	   alert();   
+	        	   console.log(data);
+	        	   if(data =='fail'){
+	        		   alert("비밀번호를 틀렸습니다.");
 	        	   }
 	        	   else{
-						//다음페이지로 가게하는 매직
-	        		   document.write(result);
+	        		   console.log(data);
+						document.write(data);
 	        	   }
 	           },
 	           error: function(data)
 	           {
 	            if (data.status == 401) {
 	                alert('failed.');
+	                
 	               return;
 	            }
 	           }

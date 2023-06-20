@@ -62,4 +62,29 @@
 		update booking set bstatus = #{bstatus}
 		where bseq = #{bseq}
 	</update>
+	
+	<delete id="adeletebooking">
+		delete from booking
+		where bseq = #{bseq}
+	</delete>
+	
+	<select id="sumprice" resultType="int">
+	  select  nvl(sum(trunc( b.head*t.price)),0)
+		from booking b, total_ent t where b.tseq=t.tseq and EXTRACT(MONTH FROM dday) = #{month}
+  		AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
+	
+	<select id="sumheadcategory" resultType="int">
+	  select nvl(sum(b.head),0)
+    	from  booking b, total_ent t 
+   		 where  b.tseq=t.tseq  and t.category = #{category} and EXTRACT(MONTH FROM dday) = #{month}
+  			AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
+	
+	<select id="sumheadtotal" resultType="int">
+		  select nvl(sum(b.head),0)
+    		from  booking b, total_ent t 
+   		 		where  b.tseq=t.tseq and EXTRACT(MONTH FROM dday) = #{month}
+  					AND EXTRACT(YEAR FROM dday) = #{year}
+	</select>
 </mapper>
