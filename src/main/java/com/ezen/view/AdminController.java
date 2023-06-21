@@ -27,6 +27,7 @@ import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.NoticeVO;
+import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.Booking_Total_entVO;
 import com.ezen.biz.dto.Review_Total_entVO;
 import com.ezen.biz.service.AdminService;
@@ -395,6 +396,8 @@ public class AdminController {
 	// 관리자 - 회원 전체 리스트
 	@GetMapping("/a_member_main")
 	public String a_member_main(Model model) {
+		
+		
 
 		List<MemberVO> memberlist = memberService.memberlist();
 
@@ -416,14 +419,14 @@ public class AdminController {
 	}
 
 	// 관리자 - 회원 상세 정보 수정
-	@RequestMapping(value = "/a_member_editF")
+	@GetMapping(value = "/a_member_updateF")
 	public String updateMemberF(Model model, MemberVO membervo) {
 
 		MemberVO member = memberService.getMember(membervo.getId());
 
 		model.addAttribute("membervo", member);
 
-		return "admin/member/a_member_editF";
+		return "admin/member/a_member_updateF";
 	}
 
 	// 관리자 - 회원 상세 정보 수정 처리
@@ -438,6 +441,29 @@ public class AdminController {
 
 		return "redirect:a_member_detail?id=" + membervo.getId();
 	}
+	
+	//관리자- 회원 삭제
+	@ResponseBody
+	@PostMapping(value="/a_member_delete", produces = "application/text; charset=utf-8")
+	public String a_member_delete(HttpSession session, MemberVO memberVO, AdminVO vo) throws Exception {
+			
+		try {
+	
+			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
+			String message = "";
+			if (loginadmin.getA_password().equals(vo.getA_password())) {
+					
+				memberService.deleteMember(memberVO.getId());
+				message = "<script>alert('삭제되었습니다.');location.href='a_member_main';</script>";
+				return message;
+			} else {
+				return "fail";
+			}
+		} catch (NullPointerException e) {
+			return "<script>alert('로그인 후 이용해주세요.');location.href='adminlogin_form';</script>";
+		}
+	}
+	
 
 	// 관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
@@ -550,6 +576,15 @@ public class AdminController {
 		System.out.println(total);
 		
 		return "admin/review/a_review_detail";
+	}
+	
+	//관리자- 리뷰 삭제
+	@GetMapping("/a_review_delete")
+	public String a_review_delete(ReviewVO reviewvo) {
+		
+		reviewService.deleteReview(reviewvo.getRseq());
+		
+		return "redirect:a_review_main";
 	}
 	
 	

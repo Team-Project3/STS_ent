@@ -32,8 +32,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override	//府轰 昏力
-	public void deleteReview(ReviewVO vo) {
-		reviewDao.deleteReview(vo);
+	public void deleteReview(int rseq) {
+		reviewDao.deleteReview(rseq);
 	}
 
 	@Override	//包府磊 - 府轰 府胶飘

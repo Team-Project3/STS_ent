@@ -51,7 +51,7 @@
 			<li><a href="theater">Theater</a></li>
 			<li><a href="museum_main">Museum</a></li>
 			
-			<hr style="margin-top:300px;">
+			<hr style="margin-top:447px;">
 			<div class="admin">
 				<a href="adminlogin_form">@ Admin</a>
 			</div>

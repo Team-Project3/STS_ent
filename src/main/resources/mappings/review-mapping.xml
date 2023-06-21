@@ -36,7 +36,7 @@
 	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview">
 		DELETE FROM review
-		WHERE id=#{id} and rseq=#{rseq}
+		WHERE rseq=#{rseq}
 	</delete>
 	
 	<!-- 관리자- 후기 리스트 -->

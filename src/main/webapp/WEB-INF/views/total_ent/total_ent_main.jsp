@@ -23,49 +23,28 @@
 </head>
 
 <body>
-	<div class="theater">
-		<div class="slider-container">
-
-			<div class="image-video-slider">
-				<div class="image-video-slide image-slide" align="center">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드1.jpg); width: 800px; height: 475px;"></div>
+		<div class="slider">
+			<div class="slide-viewer">
+				<div class="slide-group">
+					<div class="slide slide-1">
+						<img src="img/theater/th슬라이드1.jpg" alt="">
+					</div>
+					<div class="slide slide-2">
+						<img src="img/theater/th슬라이드2.jpg" alt="">
+					</div>
+					<div class="slide slide-3">
+						<img src="img/theater/th슬라이드3.jpg" alt="">
+					</div>
+					<div class="slide slide-4">
+						<img src="img/theater/th슬라이드4.jpg" alt="">
+					</div>
 				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드2.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드3.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드4.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드5.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드6.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드7.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드8.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				<div class="image-video-slide image-slide">
-					<div class="inner"
-						style="background-image: url(img/theater/th슬라이드9.jpg); width: 850px; height: 475px;"></div>
-				</div>
-				
 			</div>
-			<!-- .slider-container -->
+			<div class="slide-nav">
+				<div class="prev"></div>
+				<div class="next"></div>
+			</div>
+			<div class="slide-buttons"></div>
 		</div>
 
 		<section style="width: 100%;">
@@ -73,10 +52,15 @@
 				<c:if test="${loop.index % 3 == 0}">
 					<div class="contentmain">
 				</c:if>
-				<a href="total_ent_detail?tseq=${total_ent.tseq}&category=${total_ent.category}" class="contenta">
-                  <c:if test="${total_ent.category ==1}"><img class="contentimg" src="img/concert/${total_ent.pimg}.jpg"></c:if>
-                  <c:if test="${total_ent.category ==2}"><img class="contentimg" src="img/theater/${total_ent.pimg}.jpg"></c:if>
-                  <c:if test="${total_ent.category ==3}"><img class="contentimg" src="img/museum/${total_ent.pimg}.jpg"></c:if>
+				<a
+					href="total_ent_detail?tseq=${total_ent.tseq}&category=${total_ent.category}"
+					class="contenta"> <c:if test="${total_ent.category ==1}">
+						<img class="contentimg" src="img/concert/${total_ent.pimg}.jpg">
+					</c:if> <c:if test="${total_ent.category ==2}">
+						<img class="contentimg" src="img/theater/${total_ent.pimg}.jpg">
+					</c:if> <c:if test="${total_ent.category ==3}">
+						<img class="contentimg" src="img/museum/${total_ent.pimg}.jpg">
+					</c:if>
 					<div class="contentel">
 						<p class="contentp">${total_ent.tname}</p>
 					</div>

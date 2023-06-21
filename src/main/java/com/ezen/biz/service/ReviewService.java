@@ -17,7 +17,7 @@ public interface ReviewService {
 	List<Review_Total_entVO> reviewMember(ReviewVO vo);
 	
 	//府轰 昏力
-	void deleteReview(ReviewVO vo);
+	void deleteReview(int rseq);
 	
 	//包府磊 - 府轰 府胶飘
 	List<Review_Total_entVO> reviewMemberlist();
