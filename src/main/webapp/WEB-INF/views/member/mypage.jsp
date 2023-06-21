@@ -132,6 +132,7 @@
 						<thead>
 							<tr>
 								<th>예약 ID</th>
+								<th>공연명</th>
 								<th>날짜</th>
 								<th>시간</th>
 								<th>좌석</th>
@@ -144,6 +145,7 @@
 							<c:forEach items="${concertList}" var="booking">
 								<tr id="concert">
 									<td>${booking.id}</td>
+									<td>${booking.tname}</td>
 									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>

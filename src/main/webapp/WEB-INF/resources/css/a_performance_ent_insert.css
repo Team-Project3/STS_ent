@@ -2,7 +2,7 @@
 
 
   .detailtable1 {
-  	margin:0 auto;
+     margin:0 auto;
     width: 1000px;
     margin-bottom: 20px;
     border-collapse: collapse;
@@ -40,44 +40,44 @@
   }
   
    #select {
-  	width:250px;
+     width:250px;
   }
   
   #picker {
-  	width: 400px;
-  	height: 300px;
+     width: 400px;
+     height: 300px;
   } 
   
   #sdatePicker, #edatePicker {
-  	width: 300px;
-  	margin-left:55px;
+     width: 300px;
+     margin-left:55px;
   }
   
   #sdatePicker td,
   #edatePicker td {
-  	width:20px;
+     width:20px;
   }
   
   #sdatePicker tbody,
   #edatePicker tbody {
-  	height: 200px;
+     height: 200px;
   }
   
   #sdatePicker td a,
   #edatePicker td a{
-  	text-align: center;
+     text-align: center;
   }
   
   
   .ui-datepicker-calendar > tbody td:first-child a,
   .ui-datepicker-calendar > thead th:first-child  { 
 
-	color: #f00; 
+   color: #f00; 
   }
 
   .ui-datepicker-calendar > tbody td:last-child a,
   .ui-datepicker-calendar > thead th:last-child { 
-	color: blue; 
+   color: blue; 
   }
   
   .detailtable1 input[type="file"]:focus {
@@ -91,14 +91,14 @@
   }
   
   #pimgcontainer img {
-  	margin-left: 170px;
-  	width: 200px;
-  	height: 300px;
+     margin-left: 170px;
+     width: 200px;
+     height: 300px;
   } 
   #cimgcontainer img {
-  	margin-left: 170px;
-  	width: 200px;
-  	height: 500px;
+     margin-left: 170px;
+     width: 200px;
+     height: 500px;
   }
   
   /* Button Styles */

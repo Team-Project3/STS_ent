@@ -13,225 +13,225 @@ body{
 }
 /* 
 .mypage {
-	height:auto;
+   height:auto;
 }
 .reviewlist, .concertList, 
 .memberinfo, .theaterList, 
 .exhibitionList{
-	height:auto;
-	width:70%;
-	margin: 0 auto 100px auto;
-	text-align: center;
+   height:auto;
+   width:70%;
+   margin: 0 auto 100px auto;
+   text-align: center;
 }
 
 h2 {
-	text-align:left;
+   text-align:left;
 }
 
 hr {
-	background-color:black; 
-	height:2px;
+   background-color:black; 
+   height:2px;
 }
 
 td {
-	width: 200px;
+   width: 200px;
 }
  */
  
  /* 
 .mypage {
-		background-color: #34333b;
-		padding: 20px;
-		border-radius: 8px;
-	}
+      background-color: #34333b;
+      padding: 20px;
+      border-radius: 8px;
+   }
 
-	.memberinfo {
-		margin-bottom: 30px;
-	}
+   .memberinfo {
+      margin-bottom: 30px;
+   }
 
-	.memberinfo h2 {
-		font-size: 24px;
-		color: white;
-		margin-bottom: 10px;
-	}
+   .memberinfo h2 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+   }
 
-	.memberinfo table {
-		width: 100%;
-		border-collapse: collapse;
-	}
+   .memberinfo table {
+      width: 100%;
+      border-collapse: collapse;
+   }
 
-	.memberinfo table td {
-		padding: 10px;
-		border: 1px solid #ccc;
-	}
+   .memberinfo table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+   }
 
-	.memberinfo button {
-		padding: 8px 20px;
-		background-color: #333;
-		color: #fff;
-		border: none;
-		border-radius: 4px;
-		margin-top: 10px;
-		cursor: pointer;
-	}
+   .memberinfo button {
+      padding: 8px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-top: 10px;
+      cursor: pointer;
+   }
 
-	.reviewlist,
-	.concertList,
-	.theaterList,
-	.exhibitionList {
-		margin-bottom: 30px;
-	}
+   .reviewlist,
+   .concertList,
+   .theaterList,
+   .exhibitionList {
+      margin-bottom: 30px;
+   }
 
-	.reviewlist h2,
-	.concertList h2,
-	.theaterList h2,
-	.exhibitionList h2 {
-		font-size: 24px;
-		color: white;
-		margin-bottom: 10px;
-	}
+   .reviewlist h2,
+   .concertList h2,
+   .theaterList h2,
+   .exhibitionList h2 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+   }
 
-	.reviewlist table,
-	.concertList table,
-	.theaterList table,
-	.exhibitionList table {
-		width: 100%;
-		border-collapse: collapse;
-	}
+   .reviewlist table,
+   .concertList table,
+   .theaterList table,
+   .exhibitionList table {
+      width: 100%;
+      border-collapse: collapse;
+   }
 
-	.reviewlist table th,
-	.reviewlist table td,
-	.concertList table th,
-	.concertList table td,
-	.theaterList table th,
-	.theaterList table td,
-	.exhibitionList table th,
-	.exhibitionList table td {
-		padding: 10px;
-		border: 1px solid #ccc;
-	}
+   .reviewlist table th,
+   .reviewlist table td,
+   .concertList table th,
+   .concertList table td,
+   .theaterList table th,
+   .theaterList table td,
+   .exhibitionList table th,
+   .exhibitionList table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+   }
 
-	.reviewlist table th {
-		background-color: #f2f2f2;
-		font-weight: bold;
-	}
+   .reviewlist table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+   }
 
-	.reviewlist table td:nth-child(3),
-	.reviewlist table td:nth-child(6),
-	.concertList table td:nth-child(6),
-	.theaterList table td:nth-child(6),
-	.exhibitionList table td:nth-child(6) {
-		text-align: center;
-	}
+   .reviewlist table td:nth-child(3),
+   .reviewlist table td:nth-child(6),
+   .concertList table td:nth-child(6),
+   .theaterList table td:nth-child(6),
+   .exhibitionList table td:nth-child(6) {
+      text-align: center;
+   }
 
-	.reviewlist table td:nth-child(3) span,
-	.reviewlist table td:nth-child(6) span,
-	.concertList table td:nth-child(6) span,
-	.theaterList table td:nth-child(6) span,
-	.exhibitionList table td:nth-child(6) span {
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		vertical-align: middle;
-	}
+   .reviewlist table td:nth-child(3) span,
+   .reviewlist table td:nth-child(6) span,
+   .concertList table td:nth-child(6) span,
+   .theaterList table td:nth-child(6) span,
+   .exhibitionList table td:nth-child(6) span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      vertical-align: middle;
+   }
 
-	.reviewlist table td:nth-child(3) span,
-	.reviewlist table td:nth-child(6) span {
-		margin-right: 5px;
-	}
+   .reviewlist table td:nth-child(3) span,
+   .reviewlist table td:nth-child(6) span {
+      margin-right: 5px;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(1) {
-		background-color: #ff3656;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(1) {
+      background-color: #ff3656;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(2) {
-		background-color: #ff3656;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(2) {
+      background-color: #ff3656;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(3) {
-		background-color: #ff6a4d;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(3) {
+      background-color: #ff6a4d;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(4) {
-		background-color: #ffd154;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(4) {
+      background-color: #ffd154;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(5) {
-		background-color: #b2e35e;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(5) {
+      background-color: #b2e35e;
+   }
 
-	.reviewlist table td:nth-child(3) span:nth-child(6) {
-		color: #ccc;
-	}
+   .reviewlist table td:nth-child(3) span:nth-child(6) {
+      color: #ccc;
+   }
 
-	.reviewlist table td:nth-child(6) span {
-		color: #333;
-	}
+   .reviewlist table td:nth-child(6) span {
+      color: #333;
+   }
 
-	.delete-btn {
-		padding: 6px 12px;
-		background-color: #ff3656;
-		color: #fff;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-	}
+   .delete-btn {
+      padding: 6px 12px;
+      background-color: #ff3656;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+   }
 
-	.delete-btn:hover {
-		background-color: #e82947;
-	}
+   .delete-btn:hover {
+      background-color: #e82947;
+   }
 
-	.delete-btn:active {
-		background-color: #c51835;
-	}
+   .delete-btn:active {
+      background-color: #c51835;
+   }
 
-	.delete-btn:focus {
-		outline: none;
-	}
+   .delete-btn:focus {
+      outline: none;
+   }
 
-	.delete-btn:disabled {
-		background-color: #ccc;
-		cursor: not-allowed;
-	}
+   .delete-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+   }
 
-	.delete-btn:disabled:hover {
-		background-color: #ccc;
-	}
+   .delete-btn:disabled:hover {
+      background-color: #ccc;
+   }
 
-	.delete-btn:disabled:active {
-		background-color: #ccc;
-	}
+   .delete-btn:disabled:active {
+      background-color: #ccc;
+   }
 
-	.delete-btn:disabled:focus {
-		outline: none;
-	}
+   .delete-btn:disabled:focus {
+      outline: none;
+   }
 
-	Hover Effect
-	.memberinfo button:hover,
-	.delete-btn:hover {
-		background-color: #222;
-	}
+   Hover Effect
+   .memberinfo button:hover,
+   .delete-btn:hover {
+      background-color: #222;
+   }
 
-	Active Effect
-	.memberinfo button:active,
-	.delete-btn:active {
-		background-color: #000;
-	}
+   Active Effect
+   .memberinfo button:active,
+   .delete-btn:active {
+      background-color: #000;
+   }
 
-	Transition Effect
-	.transition {
-		transition: background-color 0.3s ease;
-	}
+   Transition Effect
+   .transition {
+      transition: background-color 0.3s ease;
+   }
  */
  
  .memberinfo, .reviewlist,
  .concertList, .theaterList, .exhibitionList {
- 	margin-top: 120px;
+    margin-top: 120px;
  }
  
 .memberbtn {
-	text-align: right;
+   text-align: right;
 }
  
  .mypage {
@@ -323,47 +323,47 @@ tr:hover {
 
 /* footer */
 .footer {
-	position: absolute;
-  	bottom: 900;
-  	
-  	display: block;
-  	background-color: #34333b;
-	width: 100%;
-	text-align: center;
+   position: absolute;
+     bottom: 900;
+     
+     display: block;
+     background-color: #34333b;
+   width: 100%;
+   text-align: center;
 }
 
 .footer_menu {
-	height: 70px; 
-	position: relative;
-	text-align: center;
-	margin-bottom: 20px;
+   height: 70px; 
+   position: relative;
+   text-align: center;
+   margin-bottom: 20px;
 }
 
 .footer_menu > a {
-	display: inline-block;
-	line-height: 78px;
+   display: inline-block;
+   line-height: 78px;
     font-size: 15px;
     padding: 0 16px;
     position: relative;
-	color: white;
+   color: white;
 }
 
 .footer_txt {
     display: inline-block;
     height: 165px;
     width: 800px;
-	margin-left: 100px;
+   margin-left: 100px;
 }
 
 .footer_logo {
-	height: 200px;
-	display: inline-block;
-	text-align: center;
+   height: 200px;
+   display: inline-block;
+   text-align: center;
 }
 
 .flogo {
-	width: 160px;
-	height: 160px;	
+   width: 160px;
+   height: 160px;   
 }
 
 .footxt {
@@ -373,6 +373,5 @@ tr:hover {
     height:120px;
     display: inline-block;
     vertical-align: top;
-  	text-align: left;
+     text-align: left;
 }
-

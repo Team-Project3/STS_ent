@@ -11,16 +11,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.OrderVO;
-import com.ezen.biz.dto.TheaterVO;
+import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.OrderService;
-import com.ezen.biz.service.TheaterService;
+import com.ezen.biz.service.Total_entService;
 
 @Controller
 public class BookingController {
@@ -30,25 +29,10 @@ public class BookingController {
 	@Autowired
 	private BookingService bookingService;
 	@Autowired
-	private TheaterService theaterService;
+	private Total_entService total_entService;
 	
 	@RequestMapping("/BookingMain")
-	public String bookingprocessing(@RequestParam("tseq")int tseq,
-									@RequestParam("seat")String seat,
-									@RequestParam("id")String id,
-									@RequestParam("head")int head,
-									@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd")String dday,
-									OrderVO orderVO,Model model,TheaterVO theaterVO,
-									HttpSession session) throws ParseException {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date ddayformat = dateFormat.parse(dday);
-		
-		orderVO.setTseq(tseq);
-		orderVO.setSeat(seat);
-		orderVO.setId(id);
-		orderVO.setHead(head);
-		orderVO.setDday(ddayformat);
+	public String bookingprocessing(OrderVO orderVO,Model model,HttpSession session) throws ParseException {
 		
 		orderService.insertOrder(orderVO);
 		
@@ -56,9 +40,10 @@ public class BookingController {
 		
 		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq());
 		
-		theaterVO.setTseq(tseq);
+		Total_entVO total_entVO = new Total_entVO();
+		total_entVO.setTseq(orderVO.getTseq());
 		
-		TheaterVO totalVO = theaterService.theaterDetail(theaterVO);
+		Total_entVO totalVO = total_entService.total_entDetail(total_entVO);
 		
 		int totalprice = totalVO.getPrice() * orderVO2.getHead(); 
 		

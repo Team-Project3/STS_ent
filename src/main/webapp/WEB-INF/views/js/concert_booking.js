@@ -43,32 +43,48 @@
     function submit() {
     	//밑에 표시된 등급의 값 가져오기
     	var seatvalue = document.getElementById('seat').innerHTML;
+    	if(seatvalue =="" || seatvalue =="좌석을 선택해주세요"){
+    		alert("좌석을 선택해주세요");
+    		return false;
+    	}else{
     	//인원 수 가져오기
     	var seathead = document.getElementById(seatvalue+"seathead").value;
     	//잔여 석 가져오기
     	var maxhead =  document.getElementById(seatvalue).value;
-    	//날짜 가져오기
-    	var dday =  document.getElementById("dday").value;
-    	//영화 정보 가져오기
-    	var tseq =  document.getElementById("tseq").value;
-    	//총액 가져오기
-    	var totalprice = document.getElementById('totalprice').innerHTML;
     	//submit 판단
     	if(seatvalue =="" || seatvalue =="좌석을 선택해주세요"){
     		alert("좌석을 선택해주세요");
     		return false;
     	}
-    	else if(seathead =="인원을 선택해주세요" || seathead < 1){
+    	else if(seathead < 1){
     		alert("인원을 선택해주세요");
     		return false;
     	}
     	else if(parseInt(seathead) > parseInt(maxhead)){
-    		console.log(seathead);
     		alert("최대 예약 할수있는 좌석은"+maxhead+" 석 입니다.");
     		return false;
     	}
     	else{
-    		location.href = 'cbooking_detail?dday='+dday+'&head='+seathead+'&seat='+seatvalue
-    				+'&tseq='+tseq+'&totalPrice='+totalprice;
+    		
+    		var seattrim = seathead.trim();
+    		
+    		seattrim = seattrim.replace(/^0+/, '');
+    		
+    		var seat = document.createElement('input');
+    		seat.setAttribute("type", "hidden");
+    		seat.setAttribute("name", "seat");
+    		seat.setAttribute("value", seatvalue);
+    		
+    		var head = document.createElement('input');
+    		head.setAttribute("type", "hidden");
+    		head.setAttribute("name", "head");
+    		head.setAttribute("value", seattrim);
+
+    		var form = document.getElementById("total_ent_booking");
+    		form.appendChild(seat);
+    		form.appendChild(head);
+    		
+    		form.submit();
+    		}
     	}
 	}

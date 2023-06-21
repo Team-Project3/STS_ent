@@ -39,7 +39,4 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeDao.noticeDelete(nseq);
 		
 	}
-	
-	
-	
 }

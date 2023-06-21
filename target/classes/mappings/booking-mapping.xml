@@ -34,16 +34,16 @@
 		from booking b, total_ent t where b.tseq=t.tseq and category = #{category} order by b.today desc
 	</select>
 	
-	<resultMap type="com.ezen.biz.dto.totalbookVO" id="totalbookMap">
+	<resultMap type="com.ezen.biz.dto.Booking_Total_entVO" id="totalbookMap">
 		<id property="bseq" column="bseq"/>
-		<id property="tseq" column="tseq"/>
-		<id property="tname" column="tname"/>
 		<id property="id" column="id"/>
 		<id property="dday" column="dday"/>
-		<id property="time" column="time"/>
 		<id property="seat" column="seat"/>
 		<id property="head" column="head"/>
 		<id property="bstatus" column="bstatus"/>
+		<id property="tseq" column="tseq"/>
+		<id property="tname" column="tname"/>
+		<id property="time" column="time"/>
 		<id property="price" column="price"/>
 		<id property="category" column="category"/>
 	</resultMap>
