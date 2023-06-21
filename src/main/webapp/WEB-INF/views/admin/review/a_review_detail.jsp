@@ -17,6 +17,14 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
+<script type="text/javascript">
+function reviewdelete(rseq) {
+	if (confirm("해당 후기글을 삭제하시겠습니까?")) {
+		alert("삭제되었습니다.");
+        location.href = "a_review_delete?rseq=" + rseq;
+    }
+}
+</script>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
@@ -25,7 +33,7 @@
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Review Information</li>
 			</ol>
-			<form id="update" name="formm" method="post">
+			<form id="delete" name="formm" method="post">
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i> 
@@ -47,7 +55,7 @@
 				
 			</div>
 			<div align="right">
-					<button type="button" class="btn btn-primary" onclick="a_noticeedit()">공지 수정</button>
+				<button type="button" class="btn btn-primary" onclick="reviewdelete(${reviewvo.rseq})">리뷰 삭제</button>
 			</div>
 			</form>
 		</div>

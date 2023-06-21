@@ -37,6 +37,7 @@
 		    });
 		  });
 		
+		
 		function changeselect(){
 			var seat = "";
 			var selected = document.getElementById("category");

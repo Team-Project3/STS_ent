@@ -201,6 +201,7 @@ public class MemberController {
 		model.addAttribute("exhibitionList", exhibitionList);
 		model.addAttribute("membervo", membervo);
 		
+		System.out.println(theaterList);
 		return "member/mypage";
 	}
 	
@@ -260,7 +261,7 @@ public class MemberController {
 		reviewVO.setId(loginUser.getId());
 		reviewVO.setRseq(rseq);
 		
-		reviewService.deleteReview(reviewVO);
+		reviewService.deleteReview(reviewVO.getRseq());
 		
 		return "redirect:mypage";
 	}

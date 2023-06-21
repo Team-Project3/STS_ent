@@ -43,39 +43,48 @@
 						<table class="detailtable1">
 							<tr>
 								<td>공연 종류</td>
-								<td><select id="category" name="category"
-									onchange="changeselect()">
-										<option value="0">공연을 선택해 주세요</option>
-										<option value="1">콘서트</option>
-										<option value="2">연극</option>
-										<option value="3">전시회</option>
-								</select></td>
+								<td colspan="4">
+									<select id="category" name="category" onchange="changeselect()">
+											<option value="0">공연을 선택해 주세요</option>
+											<option value="1">콘서트</option>
+											<option value="2">연극</option>
+											<option value="3">전시회</option>
+									</select>
+								</td>
 							</tr>
 							<tr>
-								<td>공연 명</td>
-								<td><input type="text" id="tname" name="tname"></td>
+								<td>공연 이름</td>
+								<td colspan="4">
+									<input type="text" id="tname" name="tname">
+								</td>
 							</tr>
 							<tr>
 								<td>공연 장소</td>
-								<td><input type="text" id="place" name="place"></td>
+								<td colspan="4">
+									<input type="text" id="place" name="place">
+								</td>
 							</tr>
 							<tr>
 								<td>공연 시간</td>
-								<td><input type="text" name="time" id="time"
-									class="timepicker" readonly="readonly" value=""></td>
+								<td colspan="4">
+									<input type="text" name="time" id="time"
+									class="timepicker" readonly="readonly" value="">
+								</td>
 							</tr>
 							<tr>
 								<td>공연 날짜</td>
-								<td><div id="sdatePicker"></div></td>
-								<td><div id="edatePicker"></div></td>
+								<td id="picker" colspan="2"><div id="sdatePicker"></div></td>
+								<td id="picker" colspan="2"><div id="edatePicker"></div></td>
 							</tr>
 							<tr>
 								<td>공연 금액</td>
-								<td><input type="number" id="price" name="price" step="1000" min="0"></td>
+								<td colspan="4">
+									<input type="number" id="price" name="price" step="1000" min="0">
+								</td>
 							</tr>
 							<tr>
 								<td>좌석 배치</td>
-								<td>
+								<td colspan="4">
 									<div id="concertseat" style="display: none;">
 										R 석 <input type="number" id="rseat" max="30" min="1"><br>
 										<br> A 석 <input type="number" id="aseat" max="30" min="1"><br>
@@ -94,18 +103,18 @@
 							</tr>
 							<tr>
 								<td>공연 포스터 이미지</td>
-								<td><input type="file" id="pimg" name="pimgfile"
+								<td id="select"><input type="file" id="pimg" name="pimgfile"
 									accept=".jpg" onchange="return setpimg(event)"></td>
-								<td><div id="pimgcontainer"></div></td>
+								<td colspan="3"><div id="pimgcontainer"></div></td>
 							</tr>
 							<tr>
 								<td>공연 정보 이미지</td>
-								<td><input type="file" id="cimg" name="cimgfile"
+								<td id="select"><input type="file" id="cimg" name="cimgfile"
 									accept=".jpg" onchange="setcimg(event)"></td>
-								<td><div id="cimgcontainer"></div></td>
+								<td colspan="3"><div id="cimgcontainer"></div></td>
 							</tr>
 							<tr>
-								<td colspan="2" class="center-align">
+								<td colspan="4" class="center-align">
 									<button type="button" class="register-button"
 										onclick="return a_insertperformance()">Register</button>
 								</td>
@@ -116,6 +125,7 @@
 			</div>
 		</div>
 	</div>
+
 	<script src="js/a_performance_ent_insert.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
