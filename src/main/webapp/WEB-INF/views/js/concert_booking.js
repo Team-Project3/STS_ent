@@ -68,7 +68,7 @@
     		return false;
     	}
     	else{
-    		location.href = 'cbooking_detail?dday='+dday+'&head='+seathead+'&seat='+seatvalue
-    				+'&tseq='+tseq+'&totalPrice='+totalprice;
+    		var form = document.getElementById("total_ent_booking");
+    		form.submit();
     	}
 	}

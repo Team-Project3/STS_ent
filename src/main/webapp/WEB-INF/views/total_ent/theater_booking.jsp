@@ -11,8 +11,8 @@
 
 </head>
 <body>
+	<form action="total_ent_booking_detail" id="thboard" method="post">
 	<div class="movie-container">
-	<form action="thboarddetail" id="thboard" method="post">
 		<label style="color:white; font-weight:bold;">영화 제목</label> 
 		<select id="movie">
 			<option value='${theater.price}'>${theater.tname}</option>
@@ -80,7 +80,7 @@
 			id="total">0</span>
 	</p>
 <input type="hidden" value="${dday}" name="dday" id="dday">
-<script src="js/thboard.js" type="text/javascript"></script>
+<script src="js/thbooking.js" type="text/javascript"></script>
 </form>
 </body>
 </html>

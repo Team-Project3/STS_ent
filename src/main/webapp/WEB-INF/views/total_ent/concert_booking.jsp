@@ -34,6 +34,7 @@ background-color: red;
 <c:set var="aableseat" value="${a-head2}"></c:set>
 <c:set var="bableseat" value="${b-head3}"></c:set>
 <body>
+<form action="total_ent_booking_detail" method="post" id="total_ent_booking" onsubmit="return false;">
 <img src="img/concert/좌석배치도.png" id="chair">
 <div class="info">
 <h2>좌석 선택</h2>
@@ -83,6 +84,7 @@ background-color: red;
 <input type="hidden" id="Aprice" value="${Aprice}">
 <input type="hidden" id="Bprice" value="${Bprice}">
 </div>
+</form>
 </body>
 <script src="js/concert_booking.js"></script>
 </html>

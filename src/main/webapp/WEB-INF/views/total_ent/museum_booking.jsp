@@ -83,8 +83,7 @@ function submitForm() {
 }
 </script>
 <body>
-	<form action="mbooking_detail" method="post" id="museum_booking" onsubmit="return false;">
-	
+	<form action="total_ent_booking_detail" method="post" id="museum_booking" onsubmit="return false;">
 		<input type="hidden" name="tseq" value="${museum.tseq}">
 		전시회 제목: ${museum.tname}<br>
 	

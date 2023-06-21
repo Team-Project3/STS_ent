@@ -69,14 +69,18 @@
 		</div>
 
 		<section style="width: 100%;">
-			<c:forEach var="theater" items="${theaterList}" varStatus="loop">
+			<c:forEach var="total_ent" items="${total_entList}" varStatus="loop">
 				<c:if test="${loop.index % 3 == 0}">
 					<div class="contentmain">
 				</c:if>
-				<a href="thdetail?tseq=${theater.tseq}" class="contenta"><img src="img/theater/${theater.pimg}.jpg"
-					class="contentimg">
+				<a href="total_ent_detail?tseq=${total_ent.tseq}&category=${total_ent.category}" class="contenta">
+				<c:choose>
+                  <c:when test="${total_ent.category ==1}"><img alt="" src="img/concert/${total_ent.pimg}.jpg"></c:when>
+                  <c:when test="${total_ent.category ==2}"><img alt="" src="img/theater/${total_ent.pimg}.jpg"></c:when>
+                  <c:when test="${total_ent.category ==3}"><img alt="" src="img/museum/${total_ent.pimg}.jpg"></c:when>
+                </c:choose>
 					<div class="contentel">
-						<p class="contentp">${theater.tname}</p>
+						<p class="contentp">${total_ent.tname}</p>
 					</div>
 				</a>
 

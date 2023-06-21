@@ -10,19 +10,18 @@ function bookingdetail() {
 	var BookingMain = document.getElementById("BookingMain");
 	BookingMain.submit();
 }
-
 </script>
 <body>
 	<form action="BookingMain" id="BookingMain" method="post">
 		쨔잔<br><br>
 		아 이 디 : ${loginUser.id}<br>
-		전시회명 : ${museum.tname}<br>
-		전시날짜 : ${param.dday}<br>
-		시간정보 : ${seat}<br>
-		인원정보 : ${param.head}<br>
-		총 결제금액 : ${param.totalPrice}<br><br>
+		공연명 : ${concert.tname}<br>
+		공연날짜 : ${param.dday}<br>
+		(구역/시간)정보 : ${seat}<br>
+		인원정보 : ${param.head}명<br>
+		총 결제금액 : ${param.totalPrice}원<br><br>
 		
-		<input type="hidden" name="tseq" value="${museumVO.tseq }">
+		<input type="hidden" name="tseq" value="${concertVO.tseq}">
 		<input type="hidden" name="seat" value="${param.seat}">
 		<input type="hidden" name="id" value="${loginUser.id}">
 		<input type="hidden" name="head" value="${param.head}">

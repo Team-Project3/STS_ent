@@ -11,8 +11,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
-	function board() {
-		var tseq = ${theater.tseq};
+	function booking() {
+		var tseq = ${total_ent.tseq};
 		var membervo = document.getElementById("id").value;
 		var dday = document.getElementById("dday").value;
 		if (membervo == null || membervo == "") {
@@ -21,7 +21,7 @@
 		} else if (dday == "") {
 			alert("날짜를 선택해주세요.");
 		} else {
-			var url = "thboard?tseq=" + tseq + "&dday=" + dday;
+			var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;
 			window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
 		}
 	}
@@ -46,17 +46,14 @@
 <body>
 	<div class="thdetail">
 		<div class="thdetail_header">
-			<h1 onclick="location.href='theater'">&ensp;연극&emsp;<${theater.tname}></h1><br>
-			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${theater.place}</h3><br>
+			<h1 onclick="location.href='total_ent_main?category=${total_ent.category}'">&ensp;공연&emsp;<${total_ent.tname}></h1><br>
+			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${total_ent.place}</h3><br>
 			<hr>
 		</div>
-		
 		<div class="thdetail_info">
-		
 			<div>
-				<img id="pimg" src="img/theater/${theater.pimg}.jpg">
+				<img id="pimg" src="img/theater/${total_ent.pimg}.jpg">
 			</div>
-		
 			<div id="info">
 				<table>
 					<tr>
@@ -64,16 +61,16 @@
 						<h3>공연 정보</h3></td>
 					</tr>
 					<tr>
-						<td>연극명</td>
-						<td>${theater.tname}</td>
+						<td>공연명</td>
+						<td>${total_ent.tname}</td>
 					</tr>
 					<tr>
 						<td>장소</td>
-						<td>${theater.place}</td>
+						<td>${total_ent.place}</td>
 					</tr>
 					<tr>
 						<td>가격</td>
-						<td>${theater.price}</td>
+						<td>${total_ent.price}</td>
 					</tr>
 					<tr>
 						<td colspan="2"><br></td>
@@ -92,7 +89,7 @@
 					</tr>
 					<tr>
 						<td>공연시간</td>
-						<td>${theater.time}</td>
+						<td>${total_ent.time}</td>
 					</tr>	
 				</table>
 
@@ -101,11 +98,12 @@
 		</div>
 		
 		<input type="hidden" value="${membervo.id}" id="id">
+
 		<div class="booking">
 			<input type="date" id="dday" min="${formattedSDate}"
 				max="${formattedEDate}" value="Please select a date"
 				onfocus="this.value=''" onchange="validateDate(this)" name="dday">
-			<button onclick="board()">예약</button>
+			<button onclick="booking()">예약</button>
 			
 			<div>
 				총 좌석 : ${seat}
@@ -118,7 +116,7 @@
 		</ul>
 	
 	<div class="tab-section" id="cimg">
-		<img id="cimg" src="img/theater/${theater.cimg}.jpg">
+		<img id="cimg" src="img/theater/${total_ent.cimg}.jpg">
 	</div>
 		
 	<div class="tab-section" id="review">

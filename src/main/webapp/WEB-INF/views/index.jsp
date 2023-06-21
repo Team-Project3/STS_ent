@@ -88,15 +88,15 @@
 		<nav class="menu">
 			<span class="menu__item"> 
 				<span class="menu__item-tag">콘서트</span>
-				<a class="menu__item-link" href="concert_main">Concert</a>
+				<a class="menu__item-link" href="total_ent_main?category=1">Concert</a>
 			</span>
 			<span class="menu__item"> 
 				<span class="menu__item-tag">연극</span>
-				<a class="menu__item-link" href="theater">Theater</a>
+				<a class="menu__item-link" href="total_ent_main?category=2">Theater</a>
 			</span><br/>
 			<span class="menu__item"> 
 				<span class="menu__item-tag">전시</span>
-				<a class="menu__item-link" href="museum_main">Museum</a>
+				<a class="menu__item-link" href="total_ent_main?category=3">Museum</a>
 			</span>
 			<span class="menu__item">
 				<span class="menu__item-tag">공지사항</span>
