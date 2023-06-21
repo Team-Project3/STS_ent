@@ -57,6 +57,80 @@
 	}
 	
 </script>
+<style>
+table {
+  border-collapse: collapse;
+  width: 30%;
+}
+
+/* 테이블 셀 스타일 */
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td:first-child {
+  width: 10%;
+}
+td:nth-child(2) {
+  width: 20%;
+  
+}
+
+/* 입력 필드 스타일 */
+input[type="text"],
+input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ID 입력 필드 스타일 */
+#id {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+/* 버튼 스타일 */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* 테이블 헤더 스타일 */
+th {
+  padding: 10px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+/* 전화번호 입력 필드 스타일 */
+#phone {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* 이메일 입력 필드 스타일 */
+#email {
+  text-transform: lowercase;
+}
+
+/* 생년월일 입력 필드 스타일 */
+#birth {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+</style>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<!-- <form action="a_member_edit" id="edit" method="post"> -->

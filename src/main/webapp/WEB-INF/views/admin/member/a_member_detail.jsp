@@ -17,6 +17,30 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
+<style>
+table {
+	width: 900px;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+th, td {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+tr.active {
+	background-color: #eaeaea;
+}
+</style>
 <script type="text/javascript">
 	function a_editMember() {
     	var id = document.getElementById("id").value;
@@ -31,25 +55,59 @@
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Member Information</li>
 			</ol>
-				<div class="card mb-4">
-					<div class="card-header">
-						<i class="fas fa-table me-1"></i> 회원 정보<br>
-					</div>
+			<div class="card mb-4">
+				<div class="card-header">
+					<i class="fas fa-table me-1"></i> 회원 정보<br>
+				</div>
 
-					<input type="hidden" value="${membervo.id}" id="id">
-					<div class="card-body">
+				<input type="hidden" value="${membervo.id}" id="id">
+				<%-- <div class="card-body">
 						아이디 : ${membervo.id }<br> 비밀번호 : ${membervo.password }<br>
 						이름: ${membervo.name}<br> 전화번호 : ${membervo.phone }<br>
 						<fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd"
 							var="birth" />
 						생년월일 : ${birth}<br> 이메일 : ${membervo.email }<br>
 
-					</div>
+					</div> --%>
+
+				<div class="card-body">
+					<table>
+						<tr>
+							<th>항목</th>
+							<th>내용</th>
+						</tr>
+						<tr>
+							<td>아이디</td>
+							<td>${membervo.id}</td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td>${membervo.password}</td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td>${membervo.name}</td>
+						</tr>
+						<tr>
+							<td>전화번호</td>
+							<td>${membervo.phone}</td>
+						</tr>
+						<tr>
+							<td>생년월일</td>
+							<td><fmt:formatDate value="${membervo.birth}"
+									pattern="yyyy-MM-dd" var="birth" />${birth}</td>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td>${membervo.email}</td>
+						</tr>
+					</table>
 				</div>
-				<div align="right">
-					<button class="btn btn-primary" onclick="a_editMember()">수정</button>
-						&emsp;&emsp;
-				</div>
+			</div>
+			<div align="right">
+				<button class="btn btn-primary" onclick="a_editMember()">수정</button>
+				&emsp;&emsp;
+			</div>
 		</div>
 	</div>
 

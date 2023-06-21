@@ -31,6 +31,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+header {
+	position: sticky;
+	top: 0;
+	background-color: #34333b;
+	border-bottom: 1px solid white;
+	z-index: 10000;
+}
+
 .demo-2 {
 	--color-text: #fff;
 	--color-bg: #000;
@@ -367,12 +375,13 @@ main {
   position: relative;
   top: 50px;
   left: 52px;
-  
   z-index: 2000;
-  
   -webkit-user-select: none;
   user-select: none;
 }
+
+
+
 
 #menuToggle a
 {
@@ -464,7 +473,7 @@ main {
 #menu {
   position: absolute;
   width: 300px;
-  height: 100vh;
+  height: 110vh;
   margin: -100px 0 0 -55px;
   padding: 30px;
   padding-top: 125px;

@@ -2,7 +2,8 @@
 
 
   .detailtable1 {
-    width: 730px;
+  	margin:0 auto;
+    width: 1000px;
     margin-bottom: 20px;
     border-collapse: collapse;
     border: 1px solid #ccc;
@@ -35,6 +36,48 @@
   .detailtable1 input[type="file"] {
     border: none;
     padding: 0;
+    width:200px;
+  }
+  
+   #select {
+  	width:250px;
+  }
+  
+  #picker {
+  	width: 400px;
+  	height: 300px;
+  } 
+  
+  #sdatePicker, #edatePicker {
+  	width: 300px;
+  	margin-left:55px;
+  }
+  
+  #sdatePicker td,
+  #edatePicker td {
+  	width:20px;
+  }
+  
+  #sdatePicker tbody,
+  #edatePicker tbody {
+  	height: 200px;
+  }
+  
+  #sdatePicker td a,
+  #edatePicker td a{
+  	text-align: center;
+  }
+  
+  
+  .ui-datepicker-calendar > tbody td:first-child a,
+  .ui-datepicker-calendar > thead th:first-child  { 
+
+	color: #f00; 
+  }
+
+  .ui-datepicker-calendar > tbody td:last-child a,
+  .ui-datepicker-calendar > thead th:last-child { 
+	color: blue; 
   }
   
   .detailtable1 input[type="file"]:focus {
@@ -43,8 +86,19 @@
   
   .detailtable1 td:first-child {
     font-weight: bold;
-    text-align: right;
-    width: 30%;
+    text-align: center;
+    width: 200px;
+  }
+  
+  #pimgcontainer img {
+  	margin-left: 170px;
+  	width: 200px;
+  	height: 300px;
+  } 
+  #cimgcontainer img {
+  	margin-left: 170px;
+  	width: 200px;
+  	height: 500px;
   }
   
   /* Button Styles */
@@ -70,3 +124,5 @@
   .center-align {
     text-align: center;
   }
+  
+  

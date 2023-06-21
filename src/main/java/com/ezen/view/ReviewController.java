@@ -61,7 +61,7 @@ public class ReviewController {
 	}
 	
 	// 리뷰 등록
-	@PostMapping("/save")
+	@RequestMapping("/save")
 	public String saveComment(ReviewVO vo, HttpSession session) {
 		// 로그인이 되어 있는지 확인
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");

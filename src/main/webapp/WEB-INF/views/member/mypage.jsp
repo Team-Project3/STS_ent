@@ -44,10 +44,11 @@
 									<td colspan="3" id="email">${membervo.email }</td>
 								</tr>
 							</table>
-
-							<button class="listbtn_wr" type="button" onclick="editMember()">수정</button>&nbsp;&nbsp; 
-							<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
-
+							
+							<div class="memberbtn">
+								<button class="listbtn_wr" type="button" onclick="editMember()">수정</button>&nbsp;&nbsp; 
+								<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
+							</div>
 						</div>
 					</div>
 
@@ -56,7 +57,6 @@
 		</div>
 
 
-		<%-- 리뷰 목록 출력 부분 --%>
 		<div class="reviewlist">
 			<h2>리뷰 목록</h2>
 			<hr>
@@ -77,12 +77,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%-- 리뷰 목록을 반복하여 출력 --%>
+							
 							<c:forEach items="${reviewmemberlist}" var="review">
 								<tr>
 									<td>${review.id}</td>
 									<td>${review.tname}</td>
-									<%-- <td>${review.rpoint}</td> --%>
 									<td>
 										<c:choose>
 											<c:when test="${review.rpoint == 1}">
@@ -103,7 +102,7 @@
 					                        <c:otherwise>
 												작성한 평점이 없습니다.
 					                        </c:otherwise>
-                    </c:choose>
+                  					  </c:choose>
 									</td>
 									<td>${review.rcontent}</td>
 									<td><fmt:formatDate value="${review.regdate}" pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
@@ -119,16 +118,15 @@
 		</div>
 
 
-		<%-- 콘서트 예약 정보 --%>
 		<div class="concertList">
 			<h2>콘서트 예약 정보</h2>
 			<hr>
 			<c:choose>
-				<%-- 예약된 내역이 없는 경우 --%>
+				
 				<c:when test="${empty concertList}">
 					<p>예약된 내역이 없습니다.</p>
 				</c:when>
-				<%-- 예약된 내역이 있는 경우 --%>
+				
 				<c:otherwise>
 					<table>
 						<thead>
@@ -162,7 +160,6 @@
 			</c:choose>
 		</div>
 
-		<%-- 연극 예약 정보 --%>
 		<div class="theaterList">
 			<h2>연극 예약 정보</h2>
 			<hr>
@@ -175,6 +172,7 @@
 						<thead>
 							<tr>
 								<th>예약 ID</th>
+								<th>연극명</th>
 								<th>날짜</th>
 								<th>시간</th>
 								<th>좌석</th>
@@ -187,6 +185,7 @@
 							<c:forEach items="${theaterList}" var="booking">
 								<tr id="theater">
 									<td>${booking.id}</td>
+									<td>${booking.tname}</td>
 									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
@@ -203,7 +202,6 @@
 			</c:choose>
 		</div>
 
-		<%-- 전시회 예약 정보 --%>
 		<div class="exhibitionList">
 			<h2>전시회 예약 정보</h2>
 			<hr>
@@ -245,6 +243,7 @@
 		</div>
 
 	</div>
+
 
 
 

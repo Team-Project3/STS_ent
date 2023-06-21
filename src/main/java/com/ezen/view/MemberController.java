@@ -201,6 +201,7 @@ public class MemberController {
 		model.addAttribute("exhibitionList", exhibitionList);
 		model.addAttribute("membervo", membervo);
 		
+		System.out.println(theaterList);
 		return "member/mypage";
 	}
 	

@@ -18,7 +18,7 @@
 	
 	<!-- mypage 예약 리스트 -->
 	<select id="bookingMember" resultMap="totalbookMap">
-		select b.bseq, b.id, b.dday, t.time, b.seat, b.head, b.bstatus, t.category
+		select t.tname, b.bseq, b.id, b.dday, t.time, b.seat, b.head, b.bstatus, t.category
 		from booking b, total_ent t
 		where b.tseq=t.tseq and id=#{id} 
 		order by dday desc
