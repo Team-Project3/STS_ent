@@ -32,22 +32,7 @@ public class BookingController {
 	private Total_entService total_entService;
 	
 	@RequestMapping("/BookingMain")
-	public String bookingprocessing(@RequestParam("tseq")int tseq,
-									@RequestParam("seat")String seat,
-									@RequestParam("id")String id,
-									@RequestParam("head")int head,
-									@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd")String dday,
-									OrderVO orderVO,Model model,Total_entVO total_entVO,
-									HttpSession session) throws ParseException {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date ddayformat = dateFormat.parse(dday);
-		
-		orderVO.setTseq(tseq);
-		orderVO.setSeat(seat);
-		orderVO.setId(id);
-		orderVO.setHead(head);
-		orderVO.setDday(ddayformat);
+	public String bookingprocessing(OrderVO orderVO,Model model,HttpSession session) throws ParseException {
 		
 		orderService.insertOrder(orderVO);
 		
@@ -55,7 +40,8 @@ public class BookingController {
 		
 		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq());
 		
-		total_entVO.setTseq(tseq);
+		Total_entVO total_entVO = new Total_entVO();
+		total_entVO.setTseq(orderVO.getTseq());
 		
 		Total_entVO totalVO = total_entService.total_entDetail(total_entVO);
 		

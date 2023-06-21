@@ -53,7 +53,8 @@ function submitForm() {
 	var form = document.getElementById("museum_booking");
     var totalPriceInput = document.querySelector('input[name="totalPrice"]');
     var totalPrice = parseInt(document.getElementById("totalPrice").textContent);
-    var head = parseInt(document.getElementById("head").value);
+    var head = parseInt(document.getElementById("headvalue").value);
+    var headtrimm = document.getElementById("headvalue").value;
     var seat = document.getElementById("seat").value;
     var morningReservation = ${head};
     var afternoonReservation = ${head2};
@@ -77,6 +78,17 @@ function submitForm() {
     	alert("좌석을 선택해주세요");
     }
     else{
+		var headtrim = headtrimm.trim();
+		
+		headtrim = headtrim.replace(/^0+/, '');
+		
+		var headinput = document.createElement('input');
+		headinput.setAttribute("type", "hidden");
+		headinput.setAttribute("name", "head");
+		headinput.setAttribute("value", headtrim);
+		
+		form.appendChild(headinput);
+		
    		totalPriceInput.value = totalPrice;
     	form.submit();
     }    
@@ -97,7 +109,7 @@ function submitForm() {
 					<option value="오후">오후</option>
 				</select>
 		<br>
-		인원 수 : <input type="number" id="head" min="1" value="1" oninput="calculateTotal()" name="head">매<br>
+		인원 수 : <input type="number" id="headvalue" min="1" value="1" oninput="calculateTotal()" name="headvalue">매<br>
 		결제금액 : <span id="totalPrice">${museum.price}</span>원<br>
 		
 		오전 예약인원 : ${head}<br>

@@ -64,7 +64,7 @@ public class Total_entController {
 
 		String seat = "";
 
-		if (vo.getCategory() == "1") {
+		if (vo.getCategory().equals("1")) {
 
 			int r = 0, a = 0, b = 0;
 
@@ -80,10 +80,10 @@ public class Total_entController {
 				b = Integer.parseInt(matcher.group());
 			}
 
-			seat = "R석 : " + r + "석, A석 : " + a + "B석 : " + b + "석 ";
+			seat = "R석 : " + r + "석, A석 : " + a + "석, B석 : " + b + "석 ";
 		}
 
-		else if (vo.getCategory() == "2") {
+		else if (vo.getCategory().equals("2")) {
 
 			int width = 0;
 			int height = 0;
@@ -96,7 +96,7 @@ public class Total_entController {
 				height = Integer.parseInt(matcher.group());
 			}
 
-			seat = String.valueOf(width * height);
+			seat = String.valueOf(width * height) + " 석";
 		}
 
 		else {
@@ -130,13 +130,13 @@ public class Total_entController {
 			@RequestParam("dday") String dday) throws ParseException {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-
+		
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date ddayformat = sdf.parse(dday);
 
-		if (total_entVO.getCategory() == "1") {
+		if (total_entVO.getCategory().equals("1")) {
 			// S
 			bookingvo1.setDday(ddayformat);
 			bookingvo1.setSeat("R");
@@ -188,7 +188,7 @@ public class Total_entController {
 			return "total_ent/concert_booking";
 		}
 		
-		else if (total_entVO.getCategory() == "2") {
+		else if (total_entVO.getCategory().equals("2")) {
 			
 			bookingvo1.setTseq(total_entVO.getTseq());
 			bookingvo1.setDday(ddayformat);
@@ -275,29 +275,27 @@ public class Total_entController {
 	@RequestMapping("/total_ent_booking_detail")
 	public String mbooking_detail(Total_entVO vo, Model model, HttpSession session, BookingVO bookingVo,
 			@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd") String dday,
-			@RequestParam("seat") String seat, @RequestParam("head") int head,
-			@RequestParam("totalPrice") int totalPrice) {
+			@RequestParam("seat") String seat, 
+			@RequestParam("head") int head) {
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-
+	
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
-		System.out.println(bookingVo);
+
 		model.addAttribute("membervo", membervo);
 		model.addAttribute("concert", total_entVO);
 		model.addAttribute("dday", dday);
-		model.addAttribute("seat", seat);
-		model.addAttribute("head", head);
-		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("seat", bookingVo.getSeat());
+		model.addAttribute("head", bookingVo.getHead());
+		model.addAttribute("totalPrice", head*total_entVO.getPrice());
 
 		return "total_ent/total_ent_booking_detail";
 	}
 	
-	@PostMapping(value = "/thbookingdetail")
+	@PostMapping("/thbookingdetail")
 	public String thboarddetail(@RequestParam("selectedSeatsCount") int selectedSeatsCount,
 								@RequestParam("selectedSeats") String selectedSeats, 
 								@RequestParam("dday") String dday,
-								Total_entVO vo,
-								Model model,
-			HttpSession session) {
+								Total_entVO vo,Model model,HttpSession session) {
 
 		MemberVO membervo = new MemberVO();
 

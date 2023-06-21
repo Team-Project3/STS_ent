@@ -15,7 +15,7 @@
 	</select>
 	
 	<!-- mypage 후기 리스트 -->
-	<select id="reviewMember" resultMap="totalentMap">
+	<select id="reviewMember" resultMap="reviewtotalentMap">
 		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname
 		from review a, total_ent b
 		where a.tseq=b.tseq and id=#{id}
@@ -40,14 +40,14 @@
 	</delete>
 	
 	<!-- 관리자- 후기 리스트 -->
-	<select id="reviewMemberlist" resultMap="totalentMap">
+	<select id="reviewMemberlist" resultMap="reviewtotalentMap">
 		select a.rseq, a.id, a.tseq, a.regdate, a.rpoint, a.rcontent, b.tname, b.category
 		from review a, total_ent b
 		where a.tseq=b.tseq
 	</select>
 	
 	<!-- 관리자- 후기 디테일 -->
-	<select id="reviewDetail" resultMap="totalentMap">
+	<select id="reviewDetail" resultMap="reviewtotalentMap">
 		select a.rseq, a.id, a.regdate, a.rpoint, a.rcontent, b.tname
 		from review a, total_ent b
 		where a.tseq = b.tseq and rseq=#{rseq}

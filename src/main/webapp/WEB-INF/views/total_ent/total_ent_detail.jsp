@@ -52,7 +52,9 @@
 		</div>
 		<div class="thdetail_info">
 			<div>
-				<img id="pimg" src="img/theater/${total_ent.pimg}.jpg">
+				<c:if test="${total_ent.category ==1}"><img id="pimg" src="img/concert/${total_ent.pimg}.jpg"></c:if>
+				<c:if test="${total_ent.category ==2}"><img id="pimg" src="img/theater/${total_ent.pimg}.jpg"></c:if>
+				<c:if test="${total_ent.category ==3}"><img id="pimg" src="img/museum/${total_ent.pimg}.jpg"></c:if>
 			</div>
 			<div id="info">
 				<table>
@@ -116,7 +118,9 @@
 		</ul>
 	
 	<div class="tab-section" id="cimg">
-		<img id="cimg" src="img/theater/${total_ent.cimg}.jpg">
+		<c:if test="${total_ent.category ==1}"><img id="cimg" src="img/concert/${total_ent.cimg}.jpg"></c:if>
+		<c:if test="${total_ent.category ==2}"><img id="cimg" src="img/theater/${total_ent.cimg}.jpg"></c:if>
+		<c:if test="${total_ent.category ==3}"><img id="cimg" src="img/museum/${total_ent.cimg}.jpg"></c:if>
 	</div>
 		
 	<div class="tab-section" id="review">

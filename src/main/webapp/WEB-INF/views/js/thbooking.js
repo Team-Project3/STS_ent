@@ -99,8 +99,7 @@ function go_save(){
 		return false;
 	}
 	else {
-		const form = document.getElementById("thboard");
-        form.action = "thboarddetail";
+		var form = document.getElementById("thbooking");
         
         // 예약자 수
         const hiddenInput1 = document.createElement("input");
