@@ -66,9 +66,9 @@
 					<li><a href="index">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="notice">Notice</a></li>
-					<li><a href="concert_main">Concert</a></li>
-					<li><a href="theater">Theater</a></li>
-					<li><a href="museum_main">Museum</a></li>
+					<li><a href="total_ent_main?category=1">Concert</a></li>
+					<li><a href="total_ent_main?category=2">Theater</a></li>
+					<li><a href="total_ent_main?category=3">Museum</a></li>
 
 					<hr style="margin-top:447px;">
 					<div class="admin">

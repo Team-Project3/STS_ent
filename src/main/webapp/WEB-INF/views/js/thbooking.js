@@ -104,14 +104,14 @@ function go_save(){
         // 예약자 수
         const hiddenInput1 = document.createElement("input");
         hiddenInput1.type = "hidden";
-        hiddenInput1.name = "selectedSeatsCount";
+        hiddenInput1.name = "head";
         hiddenInput1.value = selectedSeatsCount;
         form.appendChild(hiddenInput1);
         
         // 좌석에 대한 정보 배열
         const hiddenInput2 = document.createElement("input");
         hiddenInput2.type = "hidden";
-        hiddenInput2.name = "selectedSeats";
+        hiddenInput2.name = "seat";
         hiddenInput2.value = JSON.stringify([...selectedSeats]);
         form.appendChild(hiddenInput2);
         

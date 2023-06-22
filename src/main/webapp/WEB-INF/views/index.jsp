@@ -17,7 +17,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3.11/dist/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script>
+		document.documentElement.className="js";
+		var supportsCssVars=function(){var e,t=document.createElement("style");
+		return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
+		supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/index.js" type="module"></script>
@@ -47,9 +51,9 @@
 			<li><a href="index">Home</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="notice">Notice</a></li>
-			<li><a href="concert_main">Concert</a></li>
-			<li><a href="theater">Theater</a></li>
-			<li><a href="museum_main">Museum</a></li>
+			<li><a href="total_ent_main?category=1">Concert</a></li>
+			<li><a href="total_ent_main?category=2">Theater</a></li>
+			<li><a href="total_ent_main?category=3">Museum</a></li>
 			
 			<hr style="margin-top:447px;">
 			<div class="admin">

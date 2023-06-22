@@ -21,7 +21,7 @@
 			<div class="seat selected"></div> <small>선택한 좌석</small>
 		</li>
 		<li><div class="seat occupied"></div> <small>예약됨</small></li>
-	</ul><form action="thbookingdetail" id="thbooking" method="post">
+	</ul><form action="total_ent_booking_detail" id="thbooking" method="post">
 	<div class="container">
 		<div class="screen"></div>
 		<%
