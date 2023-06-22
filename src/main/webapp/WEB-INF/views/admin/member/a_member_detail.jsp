@@ -19,7 +19,7 @@
 </head>
 <style>
 table {
-	width: 900px;
+	width: 600px;
 	border-collapse: collapse;
 }
 
@@ -31,6 +31,10 @@ th, td {
 	padding: 10px;
 	border-bottom: 1px solid #ccc;
 	text-align: left;
+}
+
+td:first-child {
+  width: 30%;
 }
 
 tr:hover {
@@ -46,7 +50,7 @@ tr.active {
     	var id = document.getElementById("id").value;
         location.href = "a_member_updateF?id=" + id;
     }
-	</script>
+</script>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
