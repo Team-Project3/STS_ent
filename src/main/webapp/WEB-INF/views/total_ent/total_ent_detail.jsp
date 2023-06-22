@@ -5,43 +5,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/theater.css" />
-<!-- 추가2줄 -->
+<title>total_ent_detail</title>
+<link rel="stylesheet" type="text/css" href="css/total_ent/total_ent_detail.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<script type="text/javascript">
-	function booking() {
-		var tseq = ${total_ent.tseq};
-		var membervo = document.getElementById("id").value;
-		var dday = document.getElementById("dday").value;
-		if (membervo == null || membervo == "") {
-			alert("로그인 후 이용해주세요.")
-			location.href = 'login_form';
-		} else if (dday == "") {
-			alert("날짜를 선택해주세요.");
-		} else {
-			var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;
-			window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=700")
-		}
-	}
-	function validateDate(input) {
-		if (input.value === "") {
-			alert("Please select a date.");
-		}
-	}
-	$(document).ready(function(){
-		$('body').removeClass('jsOff');
-		$('body').addClass('jsOn');
-		$('#tabs a').on ('click', function(e){
-		$('#tabs a.current').removeClass('current');
-		$('.tab-section:visible').hide();
-		$(this.hash).show();
-		$(this).addClass('current');
-		e.preventDefault;
-		}).filter(':first').click();
-	});
-</script>
+<script src="js/total_ent/total_ent_detail.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style type="text/css">
+#datePicker {
+	width: 300px;
+	margin-left: 55px;
+}
+
+#datePicker td{
+	width: 20px;
+}
+
+#datePicker tbody {
+	height: 200px;
+}
+
+#datePicker td a{
+	text-align: center;
+}
+
+.ui-datepicker-calendar>tbody td:first-child a, .ui-datepicker-calendar>thead th:first-child
+	{
+	color: #f00;
+}
+
+.ui-datepicker-calendar>tbody td:last-child a, .ui-datepicker-calendar>thead th:last-child
+	{
+	color: blue;
+}
+
+.ui-widget-content .ui-state-default {
+	border: 0px solid #c5c5c5;
+	font-weight: lighter;
+	text-align: center;
+	border-radius: 20px;
+}
+</style>
 </head>
 <body>
 	<div class="thdetail">
@@ -100,12 +107,13 @@
 		</div>
 		
 		<input type="hidden" value="${membervo.id}" id="id">
-
+		<input type="hidden" value="${total_ent.tseq}" id="tseq">
 		<div class="booking">
 			<input type="date" id="dday" min="${formattedSDate}"
 				max="${formattedEDate}" value="Please select a date"
 				onfocus="this.value=''" onchange="validateDate(this)" name="dday">
 			<button onclick="booking()">예약</button>
+			<div id="datePicker"></div>
 			
 			<div>
 				총 좌석 : ${seat}
@@ -133,4 +141,17 @@
 		<%@ include file="../footer.jsp"%>
 	</div>
 </body>
+<script type="text/javascript">
+$(function() {
+	$("#datePicker").datepicker({
+	      dateFormat: 'yy-mm-dd'
+	      ,minDate: 'today'
+	      ,showOn: "focus"
+	      ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+        ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+	    });
+});
+</script>
 </html>

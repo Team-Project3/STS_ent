@@ -11,12 +11,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>공지사항</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/notice.css" rel="stylesheet" />
+    <link href="css/notice/notice_main.css" rel="stylesheet" />
 </head>
 <body>
-	
 	<div class="notice_detail">
-
 		<div class="container-fluid px-4">
 			
 			<div class="card mb-4">
@@ -37,8 +35,6 @@
 			</div>
 		</div>
 	</div>
-
-	
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>
 	</div>

@@ -5,63 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 96vh;
-	font-family: Arial, sans-serif;
-	background-color: #f1f1f1;
-}
-
-.booking-form {
-	width: 509px;
-	padding: 20px;
-	border: 1px solid #e1e1e1;
-	border-radius: 5px;
-}
-
-.booking-form img {
-	width: 200px;
-	height: 300px;
-	object-fit: cover;
-	margin-bottom: -304px;
-}
-
-.booking-form table {
-	width: 280px;
-	margin-left: 229px;
-	border-collapse: collapse;
-}
-
-.booking-form th, .booking-form td {
-	padding: 10px;
-	text-align: left;
-	border: 1px solid #e1e1e1;
-}
-
-.booking-form th {
-	background-color: #d1d1d1;
-	font-weight: bold;
-	color: #444444;
-}
-
-.booking-form button {
-	width: 100%;
-	padding: 10px;
-	margin-top: 20px;
-	background-color: #4caf50;
-	border: none;
-	color: #ffffff;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.booking-form button:hover {
-	background-color: #45a049;
-}
-</style>
+<link rel='stylesheet' href='css/total_ent/total_ent_booking_detail.css'>
+<script src="js/total_ent/total_ent_booking_detail.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -100,31 +45,21 @@
 				</tr>
 				<tr>
 					<td>총 금액</td>
-					<td><c:set value="${bookingVO.head*total_entVO.price}" var="totalprice"></c:set>
-					${totalprice} 원
-					</td>
+					<td><c:set value="${bookingVO.head*total_entVO.price}" var="totalprice"></c:set> ${totalprice} 원</td>
 				</tr>
 				<tr>
 					<td>공연 날짜</td>
-					<td><fmt:formatDate value="${bookingVO.dday}"
-							pattern="yyyy-MM-dd" var="day" />${day}</td>
+					<td><fmt:formatDate value="${bookingVO.dday}" pattern="yyyy-MM-dd" var="day" />${day}</td>
 				</tr>
 			</table>
 			<button type="button" onclick="bookingdetail()">결제하기</button>
 
 			<input type="hidden" name="tseq" value="${total_entVO.tseq}">
-			<input type="hidden" name="seat" value="${seat}"> 
-			<input type="hidden" name="id" value="${membervo.id}"> 
-			<input type="hidden" name="head" value="${bookingVO.head}"> 
-			<input type="hidden" name="dday" value="${day}">
+			<input type="hidden" name="seat" value="${seat}"> <input
+				type="hidden" name="id" value="${membervo.id}"> <input
+				type="hidden" name="head" value="${bookingVO.head}"> <input
+				type="hidden" name="dday" value="${day}">
 		</form>
 	</div>
-
-	<script>
-		function bookingdetail() {
-			var BookingMain = document.getElementById("BookingMain");
-			BookingMain.submit();
-		}
-	</script>
 </body>
 </html>

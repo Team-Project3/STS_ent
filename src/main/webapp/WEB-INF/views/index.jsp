@@ -17,11 +17,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3.11/dist/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-		<script>
-		document.documentElement.className="js";
-		var supportsCssVars=function(){var e,t=document.createElement("style");
-		return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
-		supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/index.js" type="module"></script>
@@ -104,22 +99,10 @@
 			</span>
 			<span class="menu__item">
 				<span class="menu__item-tag">공지사항</span>
-				<a class="menu__item-link" href="notice">NoticeInfo</a>
+				<a class="menu__item-link" href="notice">Notice</a>
 			</span>
 		</nav>
 	</div>
 	</main>
-	<script>
-	function checkLogin() {
-		if (<%= session.getAttribute("loginUser") %> == null) {
-			alert("로그인 후에 이용 가능합니다.");
-			window.location.href = "login_form";
-		} else {
-			window.location.href = "mypage";
-		}
-	}
-	</script>
-	
-	
 </body>
 </html>

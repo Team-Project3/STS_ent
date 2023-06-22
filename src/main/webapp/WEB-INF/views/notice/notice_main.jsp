@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>공지사항</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/notice.css" rel="stylesheet" />
+    <link href="css/notice/notice_main.css" rel="stylesheet" />
 </head>
 <body>
 	
@@ -53,15 +53,13 @@
 			</div>
 		</div>
 	</div>
-
 	</div>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-	<script src="js/datatables-simple-demo.js"></script>
 
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>
 	</div>
 </body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+	<script src="js/datatables-simple-demo.js"></script>
 </html>

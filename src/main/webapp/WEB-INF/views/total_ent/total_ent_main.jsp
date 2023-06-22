@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/thmain.css" />
+<title>total_ent_main</title>
+<link rel="stylesheet" type="text/css" href="css/total_ent/total_ent_main.css" />
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
@@ -19,7 +19,7 @@
 	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript"
 	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/theater.js"></script>
+<script type="text/javascript" src="js/total_ent/total_ent_main.js"></script>
 </head>
 
 <body>

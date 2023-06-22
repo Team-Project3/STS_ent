@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Seat Booking</title>
-<link rel='stylesheet' href='css/thboard.css'>
+<title>theater_booking</title>
+<link rel='stylesheet' href='css/total_ent/theater_booking.css'>
 </head>
 <body>
 	<div class="movie-container">
@@ -68,7 +68,7 @@
 	</p>
 	<input type="hidden" value="${dday}" name="dday" id="dday">
 	<input type="hidden" name="tseq" value="${theater.tseq}">
-	<script src="js/thbooking.js" type="text/javascript"></script>
 	</form>
 </body>
+<script src="js/total_ent/theater_booking.js" type="text/javascript"></script>
 </html>
