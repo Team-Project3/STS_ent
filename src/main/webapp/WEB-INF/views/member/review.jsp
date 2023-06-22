@@ -78,10 +78,21 @@
 
 				    reviewList.forEach(function(review) {
 				      html += "<div class='review-item'>";
-				      html += "<strong>작성자 : " + review.id + "</strong>";
+					      if (review.rpoint === 5) {
+							  html += "<strong>💗💗💗💗💗</strong>";
+						  } else if (review.rpoint === 4) {
+							  html += "<strong>💗💗💗💗🖤</strong>";
+						  } else if (review.rpoint === 3) {
+							  html += "<strong>💗💗💗🖤🖤</strong>";
+						  } else if (review.rpoint === 2) {
+							  html += "<strong>💗💗🖤🖤🖤</strong>";
+						  } else if (review.rpoint === 1) {
+							  html += "<strong>💗🖤🖤🖤🖤</strong>";
+						  }
+				      html += "&emsp;<strong>작성자 : " + review.id + "</strong>";
 				      html += "&emsp;&emsp;<span>작성일 : " + formatDate(review.regdate) + "</span>";
-				      html += "<br>";
-				      html += review.rcontent;
+				      html += "<br><br>";
+				      html += "<span style='font-size: 16px;'>" + review.rcontent + "</span>";
 				      html += "</div>";
 				    });
 
