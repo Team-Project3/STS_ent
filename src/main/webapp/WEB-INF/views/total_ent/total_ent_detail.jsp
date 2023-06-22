@@ -41,6 +41,14 @@
 		e.preventDefault;
 		}).filter(':first').click();
 	});
+	function setActiveTab(element) {
+		  var tabs = document.querySelectorAll('.jsOn ul#tabs li a');
+		  tabs.forEach(function(tab) {
+		    tab.classList.remove('active');
+		  });
+		  element.classList.add('active');
+		}
+	
 </script>
 </head>
 <body>
@@ -124,7 +132,6 @@
 	</div>
 		
 	<div class="tab-section" id="review">
-		<h1>후기글</h1>
 		<%@ include file="../member/review.jsp" %>
 	</div>
 	

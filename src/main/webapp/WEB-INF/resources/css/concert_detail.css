@@ -21,6 +21,15 @@
 	margin-bottom: 20px;
 }
 
+#rcontent::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+#reviewinsert {
+	margin: 30px 0;
+}
+
 .btn {
 	text-align:center;
 	display: inline-block;
@@ -56,7 +65,7 @@
     display: none;
 }
 #reviewForm label{
-    font-size: 2.5em;
+    font-size: 2em;
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }

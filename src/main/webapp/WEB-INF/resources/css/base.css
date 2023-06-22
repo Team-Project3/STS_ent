@@ -29,6 +29,8 @@ body {
 	font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 header {
@@ -37,6 +39,7 @@ header {
 	background-color: #34333b;
 	border-bottom: 1px solid white;
 	z-index: 10000;
+	width: 100%;
 }
 
 .demo-2 {
@@ -369,8 +372,7 @@ main {
 	}
 }
 
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: relative;
   top: 50px;
@@ -405,7 +407,6 @@ main {
   position: absolute;
   top: -20px;
   left: -10px;
-  
   cursor: pointer;
   
   opacity: 0; /* hide this */

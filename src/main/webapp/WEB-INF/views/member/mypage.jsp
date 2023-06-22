@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +20,67 @@
 	<div class="mypage">
 		<input type="hidden" value="${membervo.id}" id="id">
 		<div>
-			
-				<div class="memberinfo">
-					<div class="member">
-						<h2>회원 정보</h2>
-						<hr>
 
-						<div>
-							<table>
+			<div class="memberinfo">
+				<div class="member">
+					<div>
+						<div id="vcard">
+							<div id="card-content">
+								<div id="profile">
+									<span class="avatar"><span class="typicons-user icon"></span>
+										<span class="info">${membervo.name }<br />
+									</span>
+									</span>
+								</div>
+								<div id="options">
+									<ul>
+										<li><br>ID<br><br>${membervo.id }</li>
+										<li><br>BIRTH<br><br><fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd"/></li>
+										<li><br>PHONE<br><br>${membervo.phone }</li>
+										<li><br>E-MAIL<br><br>${membervo.email }</li>
+									</ul>
+									
+								</div>
+							</div>
+							<div id="side-bar">
+								<ul>
+									<li><a type="button" onclick="editMember()">수정</a></li>
+									<li><a type="button" onclick="deleteMember()">탈퇴</a></li>
+								</ul>
+							</div>
+						</div>
+
+
+
+
+
+
+						<%-- <table id="membertable">
+							<tr>
+								<td>이름</td>
+								<td id="name">${membervo.name }</td>
+							</tr>
+							<tr>
+								<td>생일</td>
+								<fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd" var="birth" />
+								<td id="birth">${birth}</td>
+							</tr>
+							<tr>
+								<td>아이디</td>
+								<td id="id">${membervo.id }</td>
+							</tr>
+							<tr>
+								<td>전화번호</td>
+								<td id="phone">${membervo.phone }</td>
+							</tr>
+							<tr>
+								<td>이메일</td>
+								<td id="email">${membervo.email }</td>
+							</tr>
+						</table> --%>
+						
+						
+						<%-- <table>
 								<tr>
 									<td>이름</td>
 									<td id="name">${membervo.name }</td>
@@ -41,19 +95,19 @@
 								</tr>
 								<tr>
 									<td>이메일</td>
-									<td colspan="3" id="email">${membervo.email }</td>
+									<td id="email">${membervo.email }</td>
 								</tr>
-							</table>
-							
-							<div class="memberbtn">
-								<button class="listbtn_wr" type="button" onclick="editMember()">수정</button>&nbsp;&nbsp; 
-								<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
-							</div>
-						</div>
-					</div>
+							</table> 
 
+						<div class="memberbtn">
+							<button class="listbtn_wr" type="button" onclick="editMember()">수정</button>	&nbsp;&nbsp; 
+							<input type="button" class="listbtn_wr" onclick="deleteMember()" value="탈퇴">
+						</div>--%>
+					</div>
 				</div>
-			
+
+			</div>
+
 		</div>
 
 
@@ -67,7 +121,7 @@
 				<c:otherwise>
 					<table>
 						<thead>
-							<tr>
+							<tr style="background-color: #c8c8c8; color: black;">
 								<th>회원 ID</th>
 								<th>공연 제목</th>
 								<th>리뷰 평점</th>
@@ -77,38 +131,38 @@
 							</tr>
 						</thead>
 						<tbody>
-							
+
 							<c:forEach items="${reviewmemberlist}" var="review">
 								<tr>
 									<td>${review.id}</td>
 									<td>${review.tname}</td>
-									<td>
-										<c:choose>
+									<td><c:choose>
 											<c:when test="${review.rpoint == 1}">
 												💗🖤🖤🖤🖤
 											</c:when>
-                        					<c:when test="${review.rpoint == 2}">
+											<c:when test="${review.rpoint == 2}">
                             					💗💗🖤🖤🖤
                         					</c:when>
-                        					<c:when test="${review.rpoint == 3}">
+											<c:when test="${review.rpoint == 3}">
                             					💗💗💗🖤🖤
                         					</c:when>
-                        					<c:when test="${review.rpoint == 4}">
+											<c:when test="${review.rpoint == 4}">
                             					💗💗💗💗🖤
                         					</c:when>
-					                        <c:when test="${review.rpoint == 5}">
+											<c:when test="${review.rpoint == 5}">
 												💗💗💗💗💗
 					                        </c:when>
-					                        <c:otherwise>
+											<c:otherwise>
 												작성한 평점이 없습니다.
 					                        </c:otherwise>
-                  					  </c:choose>
-									</td>
+										</c:choose></td>
 									<td>${review.rcontent}</td>
-									<td><fmt:formatDate value="${review.regdate}" pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
+									<td><fmt:formatDate value="${review.regdate}"
+											pattern="yyyy-MM-dd" var="regdate" />${regdate}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReview(${review.rseq})">삭제</button>
-                            		</td>
+										<button class="delete-btn"
+											onclick="deleteReview(${review.rseq})">삭제</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -122,15 +176,15 @@
 			<h2>콘서트 예약 정보</h2>
 			<hr>
 			<c:choose>
-				
+
 				<c:when test="${empty concertList}">
 					<p>예약된 내역이 없습니다.</p>
 				</c:when>
-				
+
 				<c:otherwise>
 					<table>
 						<thead>
-							<tr>
+							<tr style="background-color: #c8c8c8; color: black;">
 								<th>예약 ID</th>
 								<th>공연명</th>
 								<th>날짜</th>
@@ -146,14 +200,16 @@
 								<tr id="concert">
 									<td>${booking.id}</td>
 									<td>${booking.tname}</td>
-									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
+									<td><fmt:formatDate value="${booking.dday}"
+											pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
-                            		</td>
+										<button class="delete-btn"
+											onclick="deleteReservation(${booking.bseq})">삭제</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -172,7 +228,7 @@
 				<c:otherwise>
 					<table>
 						<thead>
-							<tr>
+							<tr style="background-color: #c8c8c8; color: black;">
 								<th>예약 ID</th>
 								<th>연극명</th>
 								<th>날짜</th>
@@ -188,14 +244,16 @@
 								<tr id="theater">
 									<td>${booking.id}</td>
 									<td>${booking.tname}</td>
-									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
+									<td><fmt:formatDate value="${booking.dday}"
+											pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
-                            		</td>
+										<button class="delete-btn"
+											onclick="deleteReservation(${booking.bseq})">삭제</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -214,7 +272,7 @@
 				<c:otherwise>
 					<table>
 						<thead>
-							<tr>
+							<tr style="background-color: #c8c8c8; color: black;">
 								<th>예약 ID</th>
 								<th>날짜</th>
 								<th>시간</th>
@@ -228,14 +286,16 @@
 							<c:forEach items="${exhibitionList}" var="booking">
 								<tr id="exhibition">
 									<td>${booking.id}</td>
-									<td><fmt:formatDate value="${booking.dday}" pattern="yyyy-MM-dd" var="dday" />${dday}</td>
+									<td><fmt:formatDate value="${booking.dday}"
+											pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>
 									<td>${booking.seat}</td>
 									<td>${booking.head}</td>
 									<td>${booking.bstatus}</td>
 									<td>
-                                		<button class="delete-btn" onclick="deleteReservation(${booking.bseq})">삭제</button>
-                            		</td>
+										<button class="delete-btn"
+											onclick="deleteReservation(${booking.bseq})">삭제</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -252,7 +312,7 @@
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>
 	</div>
-<script type="text/javascript">
+	<script type="text/javascript">
 //회원 수정 페이지 이동
 function editMember() {
 	window.location.href = "mypage_updateF";

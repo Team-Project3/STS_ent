@@ -15,7 +15,7 @@
 	
 	<div class="rcontainer">
 		<form id="reviewForm" name="reviewForm" method="post">
-			<div>
+			<div id="reviewinsert">
 				<div id="reviewpoint">
 					<fieldset>
 						<span class="text-bold">평점을 선택해주세요</span>
@@ -32,7 +32,7 @@
 					</fieldset>
 				</div>
 				<span>
-                	<input type="text" maxlength="100" id="rcontent" name="rcontent" placeholder="100자 이내로 후기를 입력해주세요"></input>
+                	<input type="text" maxlength="50" id="rcontent" name="rcontent" placeholder="50자 이내로 후기를 입력해주세요"></input>
                 </span>
 				&emsp;&emsp;
 				<span id="button">
@@ -99,7 +99,7 @@
 				    $("#review-container").html(html);
 				    
 				  } else {
-				    $("#review-container").html("<p>등록된 후기가 없습니다.</p>");
+				    $("#review-container").html("<p>&emsp;&emsp;등록된 후기가 없습니다.</p>");
 				  }
 				},		
 				
@@ -126,7 +126,6 @@
 	        alert("별점을 선택해주세요.");
 	        return;
 	    }
-
 	    
 		$.ajax({
 			type: 'POST',
@@ -148,7 +147,7 @@
     	        }
         	},
         	error: function(request, status, error) {
-            	alert("error:" + error);
+            	alert("50글자 이내로 작성 및 등록 가능합니다.");
         	}
     	});
 	}

@@ -95,7 +95,7 @@ CREATE TABLE review (
 	tseq NUMBER NOT NULL,
 	regdate	DATE DEFAULT sysdate,
 	rpoint NUMBER NOT NULL,
-	rcontent VARCHAR2(100) NOT NULL
+	rcontent VARCHAR2(150) NOT NULL
 );
 
 

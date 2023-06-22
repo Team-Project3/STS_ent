@@ -11,6 +11,7 @@
 body{
     background-color: #34333b;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .notice_main {
