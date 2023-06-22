@@ -35,7 +35,7 @@ public class Total_entController {
 	@Autowired
 	private BookingService bookingService;
 
-	// 콘서트 메인 화면
+	// 공연 메인 화면
 	@GetMapping("/total_ent_main")
 	public String concert(Total_entVO vo, Model model) {
 
