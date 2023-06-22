@@ -201,7 +201,6 @@ public class MemberController {
 		model.addAttribute("exhibitionList", exhibitionList);
 		model.addAttribute("membervo", membervo);
 		
-		System.out.println(theaterList);
 		return "member/mypage";
 	}
 	
@@ -221,7 +220,6 @@ public class MemberController {
 	
 		memberService.updateMember(vo);
 		
-		System.out.println(vo);
 		model.addAttribute("loginUser", memberService.getMember(vo.getId()));
 		model.addAttribute("membervo",vo);
 		return "redirect:mypage";
@@ -256,7 +254,6 @@ public class MemberController {
 								@RequestParam("rseq")int rseq,ReviewVO reviewVO) {
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		System.out.println(loginUser);
 		
 		reviewVO.setId(loginUser.getId());
 		reviewVO.setRseq(rseq);
@@ -280,6 +277,4 @@ public class MemberController {
 		
 		return "redirect:mypage";
 	}
-	
-	
 }

@@ -272,48 +272,20 @@ public class Total_entController {
 	}
 
 	// 콘서트 예매 정보확인
-	@RequestMapping("/total_ent_booking_detail")
-	public String mbooking_detail(Total_entVO vo, Model model, HttpSession session, BookingVO bookingVo,
-			@RequestParam("dday") @DateTimeFormat(pattern = "yyyy-MM-dd") String dday,
-			@RequestParam("seat") String seat, 
-			@RequestParam("head") int head) {
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-	
-		Total_entVO total_entVO = total_entService.total_entDetail(vo);
-
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("concert", total_entVO);
-		model.addAttribute("dday", dday);
-		model.addAttribute("seat", bookingVo.getSeat());
-		model.addAttribute("head", bookingVo.getHead());
-		model.addAttribute("totalPrice", head*total_entVO.getPrice());
-
-		return "total_ent/total_ent_booking_detail";
-	}
-	
-	@PostMapping("/thbookingdetail")
-	public String thboarddetail(@RequestParam("selectedSeatsCount") int selectedSeatsCount,
-								@RequestParam("selectedSeats") String selectedSeats, 
-								@RequestParam("dday") String dday,
-								Total_entVO vo,Model model,HttpSession session) {
-
-		MemberVO membervo = new MemberVO();
-
-
-		membervo = (MemberVO) session.getAttribute("loginUser");
-
-		Total_entVO theaterVO = total_entService.total_entDetail(vo);
-
-		int totalprice = theaterVO.getPrice() * selectedSeatsCount;
+	@PostMapping("/total_ent_booking_detail")
+	public String mbooking_detail(Total_entVO vo, Model model, HttpSession session, BookingVO bookingVO) {
 		
-		String modifiedString = selectedSeats.replaceAll("[\\[\\]\"]", "");
+		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+		
+		Total_entVO total_entVO = total_entService.total_entDetail(vo);
+		
+		String seat = bookingVO.getSeat().replaceAll("[\\[\\]\"]", "");
 
-		model.addAttribute("selectedSeatsCount", selectedSeatsCount);
-		model.addAttribute("selectedSeats", modifiedString);
-		model.addAttribute("totalprice", totalprice);
-		model.addAttribute("theaterVO", theaterVO);
+		model.addAttribute("total_entVO", total_entVO);
 		model.addAttribute("membervo", membervo);
-		model.addAttribute("dday", dday);
-		return "total_ent/thbooking_detail";
+		model.addAttribute("seat", seat);
+		model.addAttribute("bookingVO",bookingVO);
+		
+		return "total_ent/total_ent_booking_detail";
 	}
 }

@@ -22,7 +22,7 @@
 			alert("날짜를 선택해주세요.");
 		} else {
 			var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;
-			window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=500")
+			window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=700")
 		}
 	}
 	function validateDate(input) {

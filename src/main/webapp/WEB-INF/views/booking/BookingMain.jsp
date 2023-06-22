@@ -8,6 +8,46 @@ img {
 	width: 200px;
 	height: 100px;
 }
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 96vh;
+	font-family: Arial, sans-serif;
+	background-color: #f1f1f1;
+}
+
+.payment-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.payment-button {
+	background-color: #4CAF50;
+	border: none;
+	color: #ffffff;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 200px;
+	height: 120px;
+}
+
+.payment-button:hover {
+	background-color: #45A049;
+}
+
+.payment-button img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
@@ -129,10 +169,24 @@ const random = (length = 8) => {
   </script>
 </head>
 <body>
-<form action="BookingSuccess" id="submit" method="get"><input type="hidden" name="oseq" value="${orderVO.oseq}"></form><!-- form 태그 여기다가 둔 이유 : 밑에다가 두면 무조건 rsp가 success로 인식하고 다음페이지로 보냄 -->
-<button onclick="kakaoPay()"><img alt="" src="img/booking/kakaopay.png"></button>
-<button onclick="nicepay()"><img alt="" src="img/booking/nicepay.png"></button>
-<button onclick="kicc()"><img alt="" src="img/booking/kicc.webp"></button>
-<button onclick="tosspayments()"><img alt="" src="img/booking/toss.png"></button>
+<div class="container">
+	<div class="payment-buttons">
+		<button onclick="kakaoPay()" class="payment-button">
+			<img alt="" src="img/booking/kakaopay.png">
+		</button>
+		<button onclick="nicepay()" class="payment-button">
+			<img alt="" src="img/booking/nicepay.png">
+		</button>
+		<button onclick="kicc()" class="payment-button">
+			<img alt="" src="img/booking/kicc.webp">
+		</button>
+		<button onclick="tosspayments()" class="payment-button">
+			<img alt="" src="img/booking/toss.png">
+		</button>
+	</div>
+</div>
+<form action="BookingSuccess" id="submit" method="get">
+	<input type="hidden" name="oseq" value="${orderVO.oseq}">
+</form>
 </body>
 </html>
