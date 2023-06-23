@@ -39,6 +39,7 @@ public class ReviewController {
 	
 	// ¸®ºä ¸®½ºÆ®
 	@GetMapping("/list")
+	
 	public Map<String, Object> reciewList(ReviewVO vo) {
 		
 		Map<String, Object> reviewInfo = new HashMap<>();
