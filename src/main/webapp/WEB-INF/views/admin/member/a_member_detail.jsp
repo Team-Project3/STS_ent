@@ -14,43 +14,10 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
 <link href="css/a_performance.css" rel="stylesheet" />
+<link href="css/admin/member/a_member_detail.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
-<style>
-table {
-	width: 600px;
-	border-collapse: collapse;
-}
-
-th {
-	background-color: #f2f2f2;
-}
-
-th, td {
-	padding: 10px;
-	border-bottom: 1px solid #ccc;
-	text-align: left;
-}
-
-td:first-child {
-  width: 30%;
-}
-
-tr:hover {
-	background-color: #f5f5f5;
-}
-
-tr.active {
-	background-color: #eaeaea;
-}
-</style>
-<script type="text/javascript">
-	function a_editMember() {
-    	var id = document.getElementById("id").value;
-        location.href = "a_member_updateF?id=" + id;
-    }
-</script>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
@@ -65,8 +32,6 @@ tr.active {
 					<i class="fas fa-table me-1"></i> 
 						<a href="a_member_main" id="detail">회원 정보</a><br>
 				</div>
-
-				<input type="hidden" value="${membervo.id}" id="id">
 				<div class="card-body">
 					<table>
 						<tr>
@@ -102,13 +67,11 @@ tr.active {
 				</div>
 			</div>
 			<div align="right">
-				<button class="btn btn-primary" onclick="a_editMember()">수정</button>
+				<button class="btn btn-primary" onclick="location.href='a_member_updateF?id=${membervo.id}'">수정</button>
 				&emsp;&emsp;
 			</div>
 		</div>
 	</div>
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/scripts.js"></script>

@@ -14,70 +14,11 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
 <link href="css/a_performance.css" rel="stylesheet" />
+<link href="css/admin/review/a_review_detail.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script src="js/admin/review/a_review_detail.js"></script>
 </head>
-<style>
-table {
-  margin-top: 25px;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-}
-
-tr:first-child {
-  background-color: #f1f1f1;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-td:nth-child(1) {
-  width: 13%;
-}
-
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4) {
-  width: 10%;
-}
-
-td:nth-child(5) {
-  width: 30%;
-}
-
-.rating {
-  display: inline-block;
-  font-size: 20px;
-}
-
-.rating span {
-  color: #ff69b4;
-}
-
-.rating span:before {
-  content: "💗";
-}
-
-.rating span.inactive:before {
-  content: "🖤";
-}
-</style>
-<script type="text/javascript">
-function reviewdelete(rseq) {
-	if (confirm("해당 후기글을 삭제하시겠습니까?")) {
-		alert("삭제되었습니다.");
-        location.href = "a_review_delete?rseq=" + rseq;
-    }
-}
-</script>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">

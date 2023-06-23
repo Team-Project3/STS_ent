@@ -1,5 +1,3 @@
-
-
 function idcheck() {
 	// ID값 입력 여부 확인
 	if (document.getElementById("id").value == "") {
@@ -162,4 +160,11 @@ function changePassword() {
 		form.action = "change_pwd";
 		form.submit();
 	}
+}
+
+function idok(){
+	var openerForm = window.opener.document.forms["go_signup"];
+	openerForm.id.value="${id}"; 
+	openerForm.reid.value="${id}";
+	self.close();
 }

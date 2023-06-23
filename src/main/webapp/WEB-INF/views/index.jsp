@@ -18,7 +18,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/index.js" type="module"></script>
 </head>
 <body class="demo-1 loading">

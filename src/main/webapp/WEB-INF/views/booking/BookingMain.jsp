@@ -3,52 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-img {
-	width: 200px;
-	height: 100px;
-}
-
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 96vh;
-	font-family: Arial, sans-serif;
-	background-color: #f1f1f1;
-}
-
-.payment-buttons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 20px;
-}
-
-.payment-button {
-	background-color: #4CAF50;
-	border: none;
-	color: #ffffff;
-	padding: 10px;
-	font-weight: bold;
-	font-size: 16px;
-	border-radius: 5px;
-	cursor: pointer;
-	width: 200px;
-	height: 120px;
-}
-
-.payment-button:hover {
-	background-color: #45A049;
-}
-
-.payment-button img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/booking/bookingmain.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <meta charset="UTF-8">

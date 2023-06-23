@@ -15,26 +15,13 @@
 <link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" href="https://use.typekit.net/cze1cgq.css">
 <link rel="stylesheet" type="text/css" href="css/base.css" />
-<script type="text/javascript" src="js/member.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.11/dist/gsap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-<script>
-	document.documentElement.className = "js";
-	var supportsCssVars = function() {
-		var e, t = document.createElement("style");
-		return t.innerHTML = "root: { --tmp-var: bold; }", document.head
-				.appendChild(t),
-				e = !!(window.CSS && window.CSS.supports && window.CSS
-						.supports("font-weight", "var(--tmp-var)")),
-				t.parentNode.removeChild(t), e
-	};
-	supportsCssVars()
-			|| alert("Please view this demo in a modern browser that supports CSS Variables.");
-</script>
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>

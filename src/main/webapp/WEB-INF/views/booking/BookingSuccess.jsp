@@ -5,16 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-function goindex() {
-	window.close();
-	window.opener.location.href="index";
-}
-function gomypage() {
-	window.close();
-	window.opener.location.href="mypage";
-}
-</script>
+<script src="js/booking/bookingsuccess.js"></script>
 </head>
 <body>
 <h1>${id} 님 예약이 완료되었습니다.</h1>

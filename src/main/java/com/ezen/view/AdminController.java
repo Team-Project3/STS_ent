@@ -266,8 +266,6 @@ public class AdminController {
 			@RequestParam(value = "pimgfile") MultipartFile pimgfile,
 			@RequestParam(value = "cimgfile") MultipartFile cimgfile, HttpSession session) {
 
-		System.out.println(vo);
-
 		if (!pimgfile.isEmpty()) {
 
 			String pimgfilename = pimgfile.getOriginalFilename();
@@ -359,8 +357,6 @@ public class AdminController {
 	@PostMapping("/a_performance_booking_edit")
 	public String a_performance_booking_edit(BookingVO vo) {
 
-		System.out.println(vo);
-
 		bookingService.updatebooking(vo);
 
 		return "redirect:a_performance_booking_t";
@@ -409,7 +405,6 @@ public class AdminController {
 	// 관리자 - 회원 상세 정보
 	@GetMapping("/a_member_detail")
 	public String a_member_detail(Model model, MemberVO membervo) {
-		System.out.println("/a_member_detail api 호출");
 
 		MemberVO member = memberService.getMember(membervo.getId());
 
@@ -432,13 +427,9 @@ public class AdminController {
 	// 관리자 - 회원 상세 정보 수정 처리
 	@PostMapping("/a_member_editt")
 	public String updateMember(MemberVO membervo, Model model) {
-		System.out.println("/a_member_edit api 호출");
-
-		System.out.println(membervo);
-
+		
 		memberService.updateMember(membervo);
-		System.out.println("업데이트 완료");
-
+		
 		return "redirect:a_member_detail?id=" + membervo.getId();
 	}
 	
@@ -516,8 +507,6 @@ public class AdminController {
 		
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 		
-		System.out.println(noticevo);
-		
 		model.addAttribute("noticevo", notice);
 		
 		return "admin/notice/a_notice_updateF";
@@ -526,8 +515,6 @@ public class AdminController {
 	//공지사항 수정 처리
 	@RequestMapping("/a_notice_update")
 	public String noticeUpdate(Model model, NoticeVO noticevo) {
-		
-		System.out.println(noticevo);
 		
 		noticeService.noticeUpdate(noticevo);
 		
@@ -573,7 +560,6 @@ public class AdminController {
 		Review_Total_entVO total = reviewService.reviewDetail(totalentvo.getRseq());
 		
 		model.addAttribute("reviewvo", total);
-		System.out.println(total);
 		
 		return "admin/review/a_review_detail";
 	}

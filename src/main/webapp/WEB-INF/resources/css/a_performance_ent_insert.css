@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-.detailtable1 {
-	margin: 0 auto;
-	width: 1000px;
-	margin-bottom: 20px;
-	border-collapse: collapse;
-	border: 1px solid #ccc;
-}
 
   .detailtable2 {
      margin:0 auto;
@@ -78,113 +71,64 @@
   .ui-datepicker-calendar > tbody td:first-child a,
   .ui-datepicker-calendar > thead th:first-child  { 
 
-.detailtable1 select, .detailtable1 input[type="text"], .detailtable1 input[type="number"],
-	.detailtable1 input[type="file"] {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	font-size: 14px;
-}
+   color: #f00; 
+  }
 
-.detailtable1 select:focus, .detailtable1 input[type="text"]:focus,
-	.detailtable1 input[type="number"]:focus {
-	outline: none;
-	border-color: #3366cc;
-	box-shadow: 0 0 5px #3366cc;
+  .ui-datepicker-calendar > tbody td:last-child a,
+  .ui-datepicker-calendar > thead th:last-child { 
+   color: blue; 
+  }
+  
+  .detailtable1 input[type="file"]:focus {
+    outline: none;
+  }
+  
+  .ui-widget-content .ui-state-default {
+   border: 0px solid #c5c5c5;
+   font-weight: lighter;
+   text-align: center;
+   border-radius: 20px;
 }
-
-.detailtable1 input[type="file"] {
-	border: none;
-	padding: 0;
-	width: 200px;
-}
-
-#select {
-	width: 250px;
-}
-
-#picker {
-	width: 400px;
-	height: 300px;
-}
-
-#sdatePicker, #edatePicker {
-	width: 300px;
-	margin-left: 55px;
-}
-
-#sdatePicker td, #edatePicker td {
-	width: 20px;
-}
-
-#sdatePicker tbody, #edatePicker tbody {
-	height: 200px;
-}
-
-#sdatePicker td a, #edatePicker td a {
-	text-align: center;
-}
-
-.ui-datepicker-calendar>tbody td:first-child a, .ui-datepicker-calendar>thead th:first-child
-	{
-	color: #f00;
-}
-
-.ui-datepicker-calendar>tbody td:last-child a, .ui-datepicker-calendar>thead th:last-child
-	{
-	color: blue;
-}
-
-.ui-widget-content .ui-state-default {
-	border: 0px solid #c5c5c5;
-	font-weight: lighter;
-	text-align: center;
-	border-radius: 20px;
-}
-
-.detailtable1 input[type="file"]:focus {
-	outline: none;
-}
-
-.detailtable1 td:first-child {
-	font-weight: bold;
-	text-align: center;
-	width: 200px;
-}
-
-#pimgcontainer img {
-	margin-left: 170px;
-	width: 200px;
-	height: 300px;
-}
-
-#cimgcontainer img {
-	margin-left: 170px;
-	width: 200px;
-	height: 500px;
-}
-
-/* Button Styles */
-.register-button {
-	display: block;
-	width: 100%;
-	padding: 15px 30px;
-	background-color: #3366cc;
-	color: #fff;
-	border: none;
-	border-radius: 4px;
-	font-size: 16px;
-	text-align: center;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-.register-button:hover {
-	background-color: #3355bb;
-}
-
-/* Adjust alignment */
-.center-align {
-	text-align: center;
-}
+  
+  .detailtable1 td:first-child {
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+  }
+  
+  #pimgcontainer img {
+     margin-left: 170px;
+     width: 200px;
+     height: 300px;
+  } 
+  #cimgcontainer img {
+     margin-left: 170px;
+     width: 200px;
+     height: 500px;
+  }
+  
+  /* Button Styles */
+  .register-button {
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
+    background-color: #3366cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #3355bb;
+  }
+  
+  /* Adjust alignment */
+  .center-align {
+    text-align: center;
+  }
+  
+  

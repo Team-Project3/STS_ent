@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+#a_id {
+	font-size: 16px;
+	color: #999;
+}
+
+#ndate {
+	font-size: 14px;
+	color: #777;
+	margin-bottom: 20px;
+}
+
+#ncontent {
+	font-size: 16px;
+	color: #555;
+	line-height: 30;
+}
+
+/* 테이블 스타일 */
+#datatablesSimple {
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+/* 활성 상태 스타일 */
+#datatablesSimple.active {
+	background-color: #f5f5f5;
+}
+
+/* 호버 상태 스타일 */
+#datatablesSimple:hover {
+	background-color: #ebebeb;
+}
+
+/* 투명 활성 상태 스타일 */
+#datatablesSimple.transactive {
+	background-color: transparent;
+	border: none;
+}

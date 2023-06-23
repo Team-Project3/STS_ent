@@ -16,42 +16,8 @@
 <link href="css/a_performance.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script type="text/javascript" src="js/admin/performance/a_performance_booking_detail.js"></script>
 </head>
-<script type="text/javascript">
-	function a_updatebooking() {
-		if (confirm("결제상태를 변경할까요??") == true) { //확인
-			document.getElementById("formm").submit();
-		} else { //취소
-			return false;
-		}
-	}
-	function a_deletebooking() {
-		var bseq = document.getElementById("bseq").value;
-		var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
-		$.ajax({
-			type : "POST",
-			url : 'a_performance_booking_delete',
-			dataType : "text",
-			data : {
-				a_password : promptObj,
-				bseq : bseq
-			},
-			success : function(data) {
-				if (data == 'fail') {
-					alert("비밀번호를 틀렸습니다.");
-				} else {
-					document.write(data);
-				}
-			},
-			error : function(data) {
-				if (data.status == 401) {
-					alert('failed.');
-					return;
-				}
-			}
-		});
-	}
-</script>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
