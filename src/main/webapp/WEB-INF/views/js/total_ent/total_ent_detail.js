@@ -9,12 +9,22 @@ function booking() {
 		alert("날짜를 선택해주세요.");
 	} else {
 		document.body.style.pointerEvents = "none";
-		document.body.style.opacity = "0.5";
+		document.body.style.opacity = "0.2";
 		
 		var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;
-		window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=700")
+		window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=700");
 		
-	}
+		 window.addEventListener('message', function(event) {
+		      if (event.data === 'windowClosed') {
+		        document.body.style.pointerEvents = "auto";
+		        document.body.style.opacity = "1";
+		        
+		        alert("예약이 취소되었습니다.");
+		      }
+		    });
+		    var openerOrigin = window.location.origin;
+		    newWindow.postMessage(openerOrigin, '*');
+		  }
 }
 function validateDate(input) {
 	if (input.value === "") {

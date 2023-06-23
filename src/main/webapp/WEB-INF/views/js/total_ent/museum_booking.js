@@ -85,3 +85,7 @@ function submitForm() {
     	form.submit();
     }    
 }
+window.addEventListener('beforeunload', function() {
+	  // Send a message to the opener window indicating that it is being closed
+	  window.opener.postMessage('windowClosed', '*');
+	});
