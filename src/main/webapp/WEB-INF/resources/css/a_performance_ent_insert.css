@@ -1,23 +1,22 @@
 @charset "UTF-8";
 
 
-  .detailtable1 {
+  .detailtable2 {
      margin:0 auto;
     width: 1000px;
-    margin-bottom: 20px;
     border-collapse: collapse;
     border: 1px solid #ccc;
   }
   
-  .detailtable1 td {
+  .detailtable2 td {
     padding: 3px;
     border: 1px solid #ccc;
   }
   
-  .detailtable1 select,
-  .detailtable1 input[type="text"],
-  .detailtable1 input[type="number"],
-  .detailtable1 input[type="file"] {
+  .detailtable2 select,
+  .detailtable2 input[type="text"],
+  .detailtable2 input[type="number"],
+  .detailtable2 input[type="file"] {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -25,15 +24,15 @@
     font-size: 14px;
   }
   
-  .detailtable1 select:focus,
-  .detailtable1 input[type="text"]:focus,
-  .detailtable1 input[type="number"]:focus {
+  .detailtable2 select:focus,
+  .detailtable2 input[type="text"]:focus,
+  .detailtable2 input[type="number"]:focus {
     outline: none;
     border-color: #3366cc;
     box-shadow: 0 0 5px #3366cc;
   }
   
-  .detailtable1 input[type="file"] {
+  .detailtable2 input[type="file"] {
     border: none;
     padding: 0;
     width:200px;

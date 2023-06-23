@@ -35,12 +35,13 @@
 			</ol>
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table me-1"></i> 공연 등록<br>
+					<i class="fas fa-table me-1"></i> 
+						<a href="a_performance_ent_t" id="detail">공연 등록</a><br>
 				</div>
 				<div class="card-body">
 					<form action="a_performance_ent_insert" method="post" id="formm"
 						name="formm" enctype="multipart/form-data">
-						<table class="detailtable1">
+						<table class="detailtable2">
 							<tr>
 								<td>공연 종류</td>
 								<td colspan="4">
