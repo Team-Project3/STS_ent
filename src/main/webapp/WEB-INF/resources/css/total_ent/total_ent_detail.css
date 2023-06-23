@@ -33,7 +33,7 @@ body {
 	margin: 2%;
 	float: left;
 	width: 500px;
-    height: 650px;
+    height: 655px;
 }
 
 .img {
@@ -42,7 +42,7 @@ body {
 }
 
 #info {
-	margin-top: 3%;
+	margin-top: 1%;
 	margin-right: 300px;
 	float: right;
 }
@@ -50,7 +50,7 @@ body {
 table {
 	border-collapse: collapse;
 	width: 500px;
-	height:450px;
+	height:350px;
 }
 
 
@@ -61,7 +61,7 @@ table {
 	width: 850px;
 }
 .booking{
-	margin: 60px auto;
+	margin: 60px auto 200px auto;
 	text-align:center;
 }
 
@@ -87,7 +87,7 @@ p { font-family: Helvetica, Arial, sans-serif;}
   border-top-right-radius: 7px;
   font-size: 1.5em;
   width: 1400px;
-  margin: 60px auto;
+  margin: 260px auto;
 }
 
 .jsOn ul#tabs:after {

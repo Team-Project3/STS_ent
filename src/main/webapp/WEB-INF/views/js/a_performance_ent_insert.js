@@ -221,7 +221,6 @@
 			form.appendChild(seatinput);
 			
 			var sdate = document.getElementById("sdatePicker").value;
-			console.log(sdate);
 			var sdateinput = document.createElement('input');
 			sdateinput.setAttribute("type", "hidden");
 			sdateinput.setAttribute("name", "sdate");

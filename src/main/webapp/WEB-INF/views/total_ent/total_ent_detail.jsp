@@ -17,7 +17,7 @@
 <style type="text/css">
 #datePicker {
 	width: 300px;
-	margin-left: 55px;
+	height: 100px;
 }
 
 #datePicker td{
@@ -42,12 +42,90 @@
 	color: blue;
 }
 
+.ui-datepicker-calendar>tbody{
+	width: 799px;
+	height: 500px;
+}
+
 .ui-widget-content .ui-state-default {
 	border: 0px solid #c5c5c5;
 	font-weight: lighter;
 	text-align: center;
 	border-radius: 20px;
 }
+.ui-datepicker-calendar{
+height: 100px;
+}
+
+   /* Customize the datepicker appearance */
+  .ui-datepicker {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    margin-top: -380px;
+    margin-left: 250px;
+  }
+
+  .ui-datepicker-header {
+    background-color: #222222;
+    color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    height: 30px;
+  }
+
+  .ui-datepicker-title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    background-color: #222222;
+    color: #ffffff;
+  }
+
+  .ui-datepicker-prev:hover,
+  .ui-datepicker-next:hover {
+    background-color: #444444;
+  }
+
+  .ui-datepicker-calendar td {
+    text-align: center;
+    padding: 5px;
+  }
+
+  .ui-datepicker-calendar .ui-state-default {
+    background-color: #444444;
+    border-radius: 50%;
+    color: #ffffff;
+  }
+
+  .ui-datepicker-calendar .ui-state-default:hover {
+    background-color: #666666;
+  }
+
+  .ui-datepicker-calendar .ui-state-active {
+    background-color: #96C7ED;
+  }
+  .bookingbutton{
+  margin-left: 900px;
+  }
+  .ui-datepicker table{
+  	height: 263px;
+  }
+  .date{
+  	margin-top: -300px;
+  	margin-left: 600px;
+  	margin-right: 200px;
+  	margin-bottom: -214px;
+  	height: 323px;
+  }
 </style>
 </head>
 <body>
@@ -82,9 +160,6 @@
 						<td>${total_ent.price}</td>
 					</tr>
 					<tr>
-						<td colspan="2"><br></td>
-					</tr>
-					<tr>
 						<td colspan="2" style="border-bottom: 1px solid white;">
 						<h3>공연 시간 안내</h3></td>
 					</tr>
@@ -101,25 +176,18 @@
 						<td>${total_ent.time}</td>
 					</tr>	
 				</table>
-
 			</div>
-			
 		</div>
-		
+		<div class="date">
+		<div id="datePicker"></div>
+		<div class = "bookingbutton">
+				총 좌석 : ${seat}    <button onclick="booking()">예약</button>
+			</div>
+			</div>
 		<input type="hidden" value="${membervo.id}" id="id">
 		<input type="hidden" value="${total_ent.tseq}" id="tseq">
-		<div class="booking">
-			<input type="date" id="dday" min="${formattedSDate}"
-				max="${formattedEDate}" value="Please select a date"
-				onfocus="this.value=''" onchange="validateDate(this)" name="dday">
-			<button onclick="booking()">예약</button>
-			<div id="datePicker"></div>
-			
-			<div>
-				총 좌석 : ${seat}
-			</div>
-		</div>
-		
+		<input type="hidden" id="sdate" value="${formattedSDate}">
+		<input type="hidden" id="edate" value="${formattedEDate}">
 		<ul id="tabs">
 			<li><a href="#cimg">공연정보</a></li>
 			<li><a href="#review" onClick="reviewList()">후기</a></li>
@@ -135,7 +203,6 @@
 		<h1>후기글</h1>
 		<%@ include file="../member/review.jsp" %>
 	</div>
-	
 	</div>
 	<div class="footer">
 		<%@ include file="../footer.jsp"%>
@@ -143,9 +210,18 @@
 </body>
 <script type="text/javascript">
 $(function() {
+	var sdate = document.getElementById("sdate").value;
+	var edate = document.getElementById("edate").value;
+	var today = new Date();
+	
+	if (new Date(sdate) < today) {
+		sdate = today;
+	    }
+	
 	$("#datePicker").datepicker({
 	      dateFormat: 'yy-mm-dd'
-	      ,minDate: 'today'
+	      ,minDate: sdate
+	      ,maxDate: edate
 	      ,showOn: "focus"
 	      ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
         ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트

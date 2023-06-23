@@ -1,15 +1,19 @@
 function booking() {
 	var tseq = document.getElementById("tseq").value;
 	var membervo = document.getElementById("id").value;
-	var dday = document.getElementById("dday").value;
+	var dday = document.getElementById("datePicker").value;
 	if (membervo == null || membervo == "") {
 		alert("로그인 후 이용해주세요.")
 		location.href = 'login_form';
 	} else if (dday == "") {
 		alert("날짜를 선택해주세요.");
 	} else {
+		
+		document.body.style.opacity = "0.5";
+		
 		var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;
 		window.open(url, "_blank_","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=900, height=700")
+		
 	}
 }
 function validateDate(input) {
