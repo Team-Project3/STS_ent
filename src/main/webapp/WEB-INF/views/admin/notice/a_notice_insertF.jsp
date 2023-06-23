@@ -32,7 +32,7 @@
 						<a href="a_notice_main" id="detail"><b>공지사항 </b></a><br>
 				</div>
 				<div class="card-body">
-					<input type="hidden" id="a_id" name="a_id" value="${noticevo.a_id}">
+					<input type="hidden" id="a_id" name="a_id" value="${a_id}">
 					<table>
 						<tr>
 							<td>제목</td>

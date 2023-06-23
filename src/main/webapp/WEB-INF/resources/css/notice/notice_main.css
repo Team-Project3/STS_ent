@@ -11,6 +11,8 @@
 body{
     background-color: #34333b;
     overflow: auto;
+    overflow-x: hidden;
+
 }
 
 .notice_main {
@@ -237,7 +239,7 @@ h1{
 
 /* footer */
 .footer {
-	height: 350px;
+	height: 250px;
 }
 
 .footer_menu {

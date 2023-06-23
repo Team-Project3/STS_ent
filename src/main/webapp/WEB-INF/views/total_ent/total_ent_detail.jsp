@@ -200,7 +200,6 @@ height: 100px;
 	</div>
 		
 	<div class="tab-section" id="review">
-		<h1>후기글</h1>
 		<%@ include file="../member/review.jsp" %>
 	</div>
 	</div>

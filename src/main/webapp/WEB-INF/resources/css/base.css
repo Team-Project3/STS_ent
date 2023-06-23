@@ -10,36 +10,36 @@
 }
 
 body {
-   margin: 0;
-   --color-text: #e5e3e0;
-   --color-bg: white;
-   --color-link: #e5e3e0;
-   --color-link-hover: #fff;
-   --color-title: #faedba;
-   --color-bg-item: #282b27;
-   --color-menu-tag: #f0b579;
-   --color-menu-link: #fff;
-   --color-menu-link-hover: #f0b579;
-   --font-menu-link: rigatoni, sans-serif;
-   --font-weight-menu-link: 400;
-   --font-size-menu-link: 5vw;
-   --clip-1: polygon(37% 15%, 63% 15%, 63% 85%, 37% 85%);
-   color: var(--color-text);
-   background-color: var(--color-bg);
-   font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-   overflow-x: hidden;
-   width: 100%;
+	margin: 0;
+	--color-text: #e5e3e0;
+	--color-bg: white;
+	--color-link: #e5e3e0;
+	--color-link-hover: #fff;
+	--color-title: #faedba;
+	--color-bg-item: #282b27;
+	--color-menu-tag: #f0b579;
+	--color-menu-link: #fff;
+	--color-menu-link-hover: #f0b579;
+	--font-menu-link: rigatoni, sans-serif;
+	--font-weight-menu-link: 400;
+	--font-size-menu-link: 5vw;
+	--clip-1: polygon(37% 15%, 63% 15%, 63% 85%, 37% 85%);
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: soleil, Futura, "Trebuchet MS", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 header {
-   position: sticky;
-   top: 0;
-   background-color: #34333b;
-   border-bottom: 1px solid white;
-   z-index: 10000;
-   width: 100%;
+	position: sticky;
+	top: 0;
+	background-color: #34333b;
+	border-bottom: 1px solid white;
+	z-index: 10000;
+	width: 100%;
 }
 
 .demo-2 {

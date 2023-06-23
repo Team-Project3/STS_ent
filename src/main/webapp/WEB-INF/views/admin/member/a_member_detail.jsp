@@ -54,6 +54,7 @@ tr.active {
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp"%>
 	<div id="layoutSidenav_content">
+	
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">회원 정보</h1>
 			<ol class="breadcrumb mb-4">
@@ -61,19 +62,11 @@ tr.active {
 			</ol>
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table me-1"></i> 회원 정보<br>
+					<i class="fas fa-table me-1"></i> 
+						<a href="a_member_main" id="detail">회원 정보</a><br>
 				</div>
 
 				<input type="hidden" value="${membervo.id}" id="id">
-				<%-- <div class="card-body">
-						아이디 : ${membervo.id }<br> 비밀번호 : ${membervo.password }<br>
-						이름: ${membervo.name}<br> 전화번호 : ${membervo.phone }<br>
-						<fmt:formatDate value="${membervo.birth}" pattern="yyyy-MM-dd"
-							var="birth" />
-						생년월일 : ${birth}<br> 이메일 : ${membervo.email }<br>
-
-					</div> --%>
-
 				<div class="card-body">
 					<table>
 						<tr>

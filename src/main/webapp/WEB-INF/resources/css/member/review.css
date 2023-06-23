@@ -1,31 +1,40 @@
 @charset "UTF-8";
 
 #seatimg {
-	height: 400px;
-	width: 550px;
+   height: 400px;
+   width: 550px;
 }
 
 #review-container {
-	color: white;
-	margin-top: 80px;
+   color: white;
+   margin-top: 80px;
 }
 
 .review-item, #rcontent {
-	position: relative;
-	margin-left: 30px ;
-	background-color: rgba(255, 255, 255, 0.2);
-	padding: 20px;
-	border-radius: 6px;
-	width: 500px;
-	box-shadow: 0 0 4px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08);
-	margin-bottom: 20px;
+   position: relative;
+   margin-left: 30px ;
+   background-color: rgba(255, 255, 255, 0.2);
+   padding: 20px;
+   border-radius: 6px;
+   width: 500px;
+   box-shadow: 0 0 4px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08);
+   margin-bottom: 20px;
+}
+
+#rcontent::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+#reviewinsert {
+   margin: 30px 0;
 }
 
 .btn {
-	text-align:center;
-	display: inline-block;
-	width: 70px;
-	margin-top: 30px;
+   text-align:center;
+   display: inline-block;
+   width: 70px;
+   margin-top: 30px;
     background-color: #ffffff;
     color: #080710;
     padding: 15px 0;
@@ -36,15 +45,15 @@
 }
 
 .rcontainer {
-	margin-top: 80px;
-	margin-left: 30px;
-	border: 1px solid white;
-	width: 1000px;
+   margin-top: 80px;
+   margin-left: 30px;
+   border: 1px solid white;
+   width: 1000px;
 }
 
 /* 별점 */
 #reviewForm fieldset{
-	margin-left: 30px ;
+   margin-left: 30px ;
     display: inline-block;
     direction: rtl;
     border:0;
@@ -56,7 +65,7 @@
     display: none;
 }
 #reviewForm label{
-    font-size: 2.5em;
+    font-size: 2em;
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }
@@ -69,4 +78,3 @@
 #reviewForm input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 #CD1F48;
 }
-

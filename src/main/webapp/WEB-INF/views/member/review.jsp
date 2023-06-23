@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/concert_detail.css" />
+<link rel="stylesheet" type="text/css" href="css/member/review.css" />
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 	
 	<div class="rcontainer">
 		<form id="reviewForm" name="reviewForm" method="post">
-			<div>
+			<div id="reviewinsert">
 				<div id="reviewpoint">
 					<fieldset>
 						<span class="text-bold">평점을 선택해주세요</span>
@@ -31,7 +31,7 @@
 					</fieldset>
 				</div>
 				<span>
-                	<input type="text" maxlength="100" id="rcontent" name="rcontent" placeholder="100자 이내로 후기를 입력해주세요"></input>
+                	<input type="text" maxlength="50" id="rcontent" name="rcontent" placeholder="50자 이내로 후기를 입력해주세요" />
                 </span>
 				&emsp;&emsp;
 				<span id="button">
@@ -98,7 +98,7 @@
 				    $("#review-container").html(html);
 				    
 				  } else {
-				    $("#review-container").html("<p>등록된 후기가 없습니다.</p>");
+				    $("#review-container").html("<p>&emsp;&emsp;등록된 후기가 없습니다.</p>");
 				  }
 				},		
 				
@@ -119,38 +119,44 @@
 	
 	//상품 댓글 등록
 	function save_review() {
-		var selectedRating = $('input[name="rpoint"]:checked').val();
-	    
-	    if (selectedRating === undefined) {
-	        alert("별점을 선택해주세요.");
-	        return;
-	    }
+		  var selectedRating = $('input[name="rpoint"]:checked').val();
 
-	    
-		$.ajax({
-			type: 'POST',
-			url: 'reviews/save',
-			data: {
-            	tseq: tseq,
-            	rcontent:$("#rcontent").val(),
-            	rpoint: selectedRating
-        	},
-        	success: function(data) {
-        		var membervo = document.getElementById("id").value;
-            	if (data == 'success') {
-            		reviewList(); // 상품평 목록 요청함수 호출
-                	$("#rcontent").val("");
-                	$('input[name="rpoint"]').prop('checked', false); 
-            	} else if (membervo == null || membervo == "") {
-	                alert("로그인 후에 이용해주시기 바랍니다.");
-	                location.href = "login_form";
-    	        }
-        	},
-        	error: function(request, status, error) {
-            	alert("error:" + error);
-        	}
-    	});
-	}
+		  if (selectedRating === undefined) {
+		    alert("별점을 선택해주세요.");
+		    return;
+		  }
+
+		  var rcontent = $("#rcontent").val();
+		  if (rcontent.length > 51) {
+		    $("#errorMessage").text("50글자 이내로 작성 및 등록 가능합니다.");
+		    alert("50글자 이내로 작성 및 등록 가능합니다.");
+		    return;
+		  }
+
+		  $.ajax({
+		    type: 'POST',
+		    url: 'reviews/save',
+		    data: {
+		      tseq: tseq,
+		      rcontent: rcontent,
+		      rpoint: selectedRating
+		    },
+		    success: function (data) {
+		      var membervo = document.getElementById("id").value;
+		      if (data == 'success') {
+		        reviewList(); // 상품평 목록 요청함수 호출
+		        $("#rcontent").val("");
+		        $('input[name="rpoint"]').prop('checked', false);
+		      } else if (membervo == null || membervo == "") {
+		        alert("로그인 후에 이용해주시기 바랍니다.");
+		        location.href = "login_form";
+		      }
+		    },
+		    error: function (request, status, error) {
+		      $("#errorMessage").text("50글자 이내로 작성 및 등록 가능합니다.");
+		    }
+		  });
+		}
 
 	</script>			
 </body>

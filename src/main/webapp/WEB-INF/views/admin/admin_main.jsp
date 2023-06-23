@@ -11,8 +11,8 @@
 <meta name="keywords" content="" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="img/favicon.png">
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/default.css" /> -->
+<link rel="stylesheet" type="text/css" href="css/admin/admin_main.css" />
 <script src="js/modernizr.custom.js"></script>
 </head>
 <body>

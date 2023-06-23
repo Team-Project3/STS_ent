@@ -8,10 +8,75 @@
 	border: 1px solid #ccc;
 }
 
-.detailtable1 td {
-	padding: 3px;
-	border: 1px solid #ccc;
-}
+  .detailtable2 {
+     margin:0 auto;
+    width: 1000px;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+  
+  .detailtable2 td {
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .detailtable2 select,
+  .detailtable2 input[type="text"],
+  .detailtable2 input[type="number"],
+  .detailtable2 input[type="file"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .detailtable2 select:focus,
+  .detailtable2 input[type="text"]:focus,
+  .detailtable2 input[type="number"]:focus {
+    outline: none;
+    border-color: #3366cc;
+    box-shadow: 0 0 5px #3366cc;
+  }
+  
+  .detailtable2 input[type="file"] {
+    border: none;
+    padding: 0;
+    width:200px;
+  }
+  
+   #select {
+     width:250px;
+  }
+  
+  #picker {
+     width: 400px;
+     height: 300px;
+  } 
+  
+  #sdatePicker, #edatePicker {
+     width: 300px;
+     margin-left:55px;
+  }
+  
+  #sdatePicker td,
+  #edatePicker td {
+     width:20px;
+  }
+  
+  #sdatePicker tbody,
+  #edatePicker tbody {
+     height: 200px;
+  }
+  
+  #sdatePicker td a,
+  #edatePicker td a{
+     text-align: center;
+  }
+  
+  
+  .ui-datepicker-calendar > tbody td:first-child a,
+  .ui-datepicker-calendar > thead th:first-child  { 
 
 .detailtable1 select, .detailtable1 input[type="text"], .detailtable1 input[type="number"],
 	.detailtable1 input[type="file"] {

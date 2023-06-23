@@ -8,7 +8,7 @@ function booking() {
 	} else if (dday == "") {
 		alert("날짜를 선택해주세요.");
 	} else {
-		
+		document.body.style.pointerEvents = "none";
 		document.body.style.opacity = "0.5";
 		
 		var url = "total_ent_booking?tseq=" + tseq + "&dday=" + dday;

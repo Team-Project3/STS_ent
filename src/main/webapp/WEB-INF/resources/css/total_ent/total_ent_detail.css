@@ -11,6 +11,7 @@ body {
 	overflow: auto;
 	background-color: #34333b;
 	height: auto;
+	overflow-x: hidden;
 }
 
 .thdetail {

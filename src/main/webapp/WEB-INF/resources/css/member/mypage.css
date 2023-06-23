@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #34333b;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.memberinfo, .reviewlist,
+.concertList, .theaterList, .exhibitionList {
+	margin-top: 120px;
+}
+ 
+.memberbtn {
+   text-align: right;
+}
+ 
+ .mypage {
+  font-family: Arial, sans-serif;
+  margin: 50px auto 200px auto;
+  width: 1200px;
+}
+
+h2 {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+table td:first-child {width: 150px;}
+
+#name, #birth, #phone, #email {width:300px;}
+
+#membertable {width:80%;margin:0 auto;}
+
+th {
+  font-weight: bold;
+}
+
+
+tr:hover {
+  background-color: black;
+  transition: background-color 0.3s;
+}
+
+.listbtn_wr, .delete-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 20px;
+}
+
+.listbtn_wr:hover, .delete-btn:hover {
+  background-color: #45a049;
+}
+
+.listbtn_wr:active, .delete-btn:active {
+  background-color: #3e8e41;
+}
+
+.mypage input[type="button"] {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mypage input[type="button"]:hover {
+  background-color: #005b7f;
+}
+
+.mypage input[type="button"]:active {
+  background-color: #004466;
+}
+
+.mypage .reviewlist p, .mypage .concertList p, .mypage .theaterList p, .mypage .exhibitionList p {
+  margin-top: 0;
+}
+
+/* footer */
+.footer {
+	position: absolute;
+	bottom: 900;
+	display: block;
+	background-color: #34333b;
+	width: 100%;
+	text-align: center;
+}
+
+.footer_menu {
+   height: 70px; 
+   position: relative;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.footer_menu > a {
+   display: inline-block;
+   line-height: 78px;
+    font-size: 15px;
+    padding: 0 16px;
+    position: relative;
+   color: white;
+}
+
+.footer_txt {
+    display: inline-block;
+    height: 165px;
+    width: 800px;
+   margin-left: 100px;
+}
+
+.footer_logo {
+   height: 200px;
+   display: inline-block;
+   text-align: center;
+}
+
+.flogo {
+   width: 160px;
+   height: 160px;   
+}
+
+.footxt {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 500px;
+    height:120px;
+    display: inline-block;
+    vertical-align: top;
+     text-align: left;
+}
+@import url(https://weloveiconfonts.com/api/?family=typicons);
+@import url(https://fonts.googleapis.com/css?family=Exo:500,700);
+
+/* typicons */
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+
+
+#vcard {
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+  background: #31A66C;
+  border-radius: 4px;
+  box-shadow: 0px 5px 15px rgba(0,0,0, .3);
+}
+#card-content {
+  width:89%;
+  float: left;
+  height: 100%;
+  
+}
+#side-bar {
+  width: 125px;
+  float: right;
+  background: #fff;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  box-shadow: -5px 0px 15px rgba(0,0,0, .3);
+}
+#profile {
+  
+  height: 200px;
+  border-bottom: solid 1px rgba(255,255,255,.2);
+}
+
+#options ul {
+  margin: 0;
+  padding: 0;
+}
+#options ul li{
+  text-align: center;
+  font-family: Exo;
+  font-size: 14px;
+  color: white;
+  list-style-type: none;
+  display: inline-block;
+  float: left;
+  width: 250px;
+  height: 100px;
+  border-right: solid 1px rgba(255,255,255,.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,.3);
+}
+#options ul li:last-child{
+  border-right: none;
+}
+#options ul li span.icon {
+  display: block;
+  margin-top: 25px;
+  color: white;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+#btn {
+  margin-top: 50px;
+}
+#side-bar ul li{
+  text-align: center;
+  font-family: Exo;
+  font-size: 12px;
+  color: #414141;
+  list-style-type: none;
+  display: inline-block;
+  float: left;
+  width: 125px;
+  margin: 65px 0;
+  
+}
+a {
+	color: #34333b;
+	font-weight: bold;
+}
+#side-bar ul li:last-child{
+  border-bottom: none;
+}
+#side-bar ul li span.icon {
+  display: block;
+  margin-top: 25px;
+  color: #414141;
+  font-size: 36px;
+  line-height: 32px;
+}
+
+#profile {
+  padding-top: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+span.avatar span.icon{
+  display: inline-block;
+  color: #414141;
+  font-size: 72px;
+  line-height: 100px;
+  background: #46af7b;
+  border: solid 3px rgba(255,255,255, .2);
+  overflow: hidden;
+  padding-top: 1px;
+  width: 90px;
+  height: 90px;
+  border-radius: 46px;
+}
+span.info {
+  padding-top: 10px;
+  display: block;
+  font-family: Exo;
+  font-size: 18px;
+  color: rgba(255,255,255, .7);
+  font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.3);
+}
+
