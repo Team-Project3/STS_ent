@@ -1,12 +1,13 @@
+var formSubmitted = false;
+
 function bookingdetail() {
 	var BookingMain = document.getElementById("BookingMain");
+	formSubmitted = true;
 	BookingMain.submit();
 }
 
-window.opener.document.body.style.pointerEvents = "none";
-window.opener.document.body.style.opacity = "0.2";
-
-window.addEventListener('onbeforeunload ', function() {
-	  // Send a message to the opener window indicating that it is being closed
-	  window.opener.postMessage('windowClosed', '*');
-	});
+window.addEventListener('beforeunload', function() {
+	if (!formSubmitted) {
+		window.opener.postMessage('windowClosed', '*');
+	}
+});

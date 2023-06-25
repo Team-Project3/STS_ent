@@ -63,7 +63,7 @@ public class AdminController {
 	// 관리자 로그인 구현
 	@PostMapping("/adminlogin")
 	public String adminlogin(AdminVO vo, Model model, HttpSession session) {
-		
+
 		int result = adminService.adminCheck(vo);
 
 		if (result == 1) {
@@ -80,16 +80,16 @@ public class AdminController {
 			return "member/login_fail";
 
 		}
-		
+
 	}
 
 	// 관리자 메인 화면
 	@RequestMapping("/admin_main")
 	public String adminmain(HttpSession session) {
-		
-		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
-		
-		if(adminvo == null) {
+
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+
+		if (adminvo == null) {
 			return "admin/a_session_fail";
 		} else {
 			return "admin/admin_main";
@@ -101,7 +101,7 @@ public class AdminController {
 	public String adminlogout(SessionStatus status) {
 
 		status.setComplete();
-		
+
 		return "redirect:adminlogin_form";
 
 	}
@@ -115,65 +115,61 @@ public class AdminController {
 
 		return "admin/performance/a_performance_main";
 	}
-	
+
 	//
 	@ResponseBody
-	@PostMapping(value = "/chart_area_demo",produces = "application/text; charset=utf8")
+	@PostMapping(value = "/chart_area_demo", produces = "application/text; charset=utf8")
 	public String chart_area_demo() {
-		
-		 LocalDate currentDate = LocalDate.now();
-		    int currentMonth = currentDate.getMonthValue();
-		    int currentYear = currentDate.getYear();
 
-		    List<Integer> prices = new ArrayList<>();
-
-		    for (int i = 0; i < 13; i++) {
-		        int month = currentMonth + i;
-		        int year = currentYear;
-
-		        if (month > 12) {
-		            month = month % 12;
-		            year++;
-		        }
-
-		        int price = bookingService.sumprice(month, year);
-		        prices.add(price);
-		    }
-
-		    String pricesString = prices.stream()
-		            .map(String::valueOf)
-		            .collect(Collectors.joining(","));
-		    
-		    return pricesString;
-	}
-	
-	//
-	@ResponseBody
-	@PostMapping(value = "/chart_bar_demo",produces = "application/text; charset=utf8")
-	public String chart_bar_demo() {
-		
 		LocalDate currentDate = LocalDate.now();
 		int currentMonth = currentDate.getMonthValue();
-	    int currentYear = currentDate.getYear();
-	    
-	    List<Integer> heads = new ArrayList<>();
-	    
-	    for (int i = 1; i <= 3; i++) {
+		int currentYear = currentDate.getYear();
+
+		List<Integer> prices = new ArrayList<>();
+
+		for (int i = 0; i < 13; i++) {
+			int month = currentMonth + i;
+			int year = currentYear;
+
+			if (month > 12) {
+				month = month % 12;
+				year++;
+			}
+
+			int price = bookingService.sumprice(month, year);
+			prices.add(price);
+		}
+
+		String pricesString = prices.stream().map(String::valueOf).collect(Collectors.joining(","));
+
+		return pricesString;
+	}
+
+	//
+	@ResponseBody
+	@PostMapping(value = "/chart_bar_demo", produces = "application/text; charset=utf8")
+	public String chart_bar_demo() {
+
+		LocalDate currentDate = LocalDate.now();
+		int currentMonth = currentDate.getMonthValue();
+		int currentYear = currentDate.getYear();
+
+		List<Integer> heads = new ArrayList<>();
+
+		for (int i = 1; i <= 3; i++) {
 			int head = bookingService.sumheadcategory(i, currentMonth, currentYear);
-			
+
 			heads.add(head);
 		}
-	    int totalhead = bookingService.sumheadtotal(currentMonth, currentYear);
-	    
-	    heads.add(totalhead);
-	    
-	    String headssString = heads.stream()
-	            .map(String::valueOf)
-	            .collect(Collectors.joining(","));
-	    
-	    return headssString;
+		int totalhead = bookingService.sumheadtotal(currentMonth, currentYear);
+
+		heads.add(totalhead);
+
+		String headssString = heads.stream().map(String::valueOf).collect(Collectors.joining(","));
+
+		return headssString;
 	}
-	
+
 	//
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(Total_entVO vo, Model model) {
@@ -187,12 +183,12 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_f")
-	public String a_performance_ent_f(Model model,Total_entVO vo) {
+	public String a_performance_ent_f(Model model, Total_entVO vo) {
 
 		List<Total_entVO> list = total_entService.total_entList(vo);
 
 		model.addAttribute("tlist", list);
-		//이거 심화로 보자
+		// 이거 심화로 보자
 		model.addAttribute("category", vo.getCategory());
 
 		return "admin/performance/a_performance_ent_f";
@@ -362,19 +358,20 @@ public class AdminController {
 		return "redirect:a_performance_booking_t";
 
 	}
-	
+
 	//
 	@ResponseBody
 	@PostMapping(value = "/a_performance_booking_delete", produces = "application/text; charset=utf8")
-	public String a_performance_booking_delete(HttpSession session,BookingVO bookingVO,HttpServletResponse response,AdminVO vo) {
-		
+	public String a_performance_booking_delete(HttpSession session, BookingVO bookingVO, HttpServletResponse response,
+			AdminVO vo) {
+
 		try {
 
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
 			String message = "";
 			response.setContentType("text/html; charset=UTF-8");
 			if (loginadmin.getA_password().equals(vo.getA_password())) {
-					
+
 				bookingService.adeletebooking(bookingVO);
 				message = "<script>alert('삭제되었습니다.');location.href='a_performance_booking_t';</script>";
 
@@ -392,8 +389,6 @@ public class AdminController {
 	// 관리자 - 회원 전체 리스트
 	@GetMapping("/a_member_main")
 	public String a_member_main(Model model) {
-		
-		
 
 		List<MemberVO> memberlist = memberService.memberlist();
 
@@ -427,23 +422,23 @@ public class AdminController {
 	// 관리자 - 회원 상세 정보 수정 처리
 	@PostMapping("/a_member_editt")
 	public String updateMember(MemberVO membervo, Model model) {
-		
+
 		memberService.updateMember(membervo);
-		
+
 		return "redirect:a_member_detail?id=" + membervo.getId();
 	}
-	
-	//관리자- 회원 삭제
+
+	// 관리자- 회원 삭제
 	@ResponseBody
-	@PostMapping(value="/a_member_delete", produces = "application/text; charset=utf-8")
+	@PostMapping(value = "/a_member_delete", produces = "application/text; charset=utf-8")
 	public String a_member_delete(HttpSession session, MemberVO memberVO, AdminVO vo) throws Exception {
-			
+
 		try {
-	
+
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
 			String message = "";
 			if (loginadmin.getA_password().equals(vo.getA_password())) {
-					
+
 				memberService.deleteMember(memberVO.getId());
 				message = "<script>alert('삭제되었습니다.');location.href='a_member_main';</script>";
 				return message;
@@ -454,12 +449,11 @@ public class AdminController {
 			return "<script>alert('로그인 후 이용해주세요.');location.href='adminlogin_form';</script>";
 		}
 	}
-	
 
 	// 관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
 	public String a_notice_main(NoticeVO noticevo, Model model) {
-		
+
 		List<NoticeVO> noticeList = noticeService.noticeList();
 
 		model.addAttribute("noticeList", noticeList);
@@ -470,9 +464,9 @@ public class AdminController {
 	// 공지사항 상세
 	@RequestMapping("/a_notice_detail")
 	public String noticeDetail(NoticeVO noticevo, Model model) {
-		
+
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
-		
+
 		model.addAttribute("noticevo", notice);
 
 		System.out.println(notice);
@@ -483,66 +477,65 @@ public class AdminController {
 	// 공지사항 작성 form
 	@GetMapping("/a_notice_insertF")
 	public String noticeInsertF(Model model, HttpSession session) {
-	
-		AdminVO admin = (AdminVO)session.getAttribute("admin");
-		
+
+		AdminVO admin = (AdminVO) session.getAttribute("admin");
+
 		model.addAttribute("a_id", admin.getA_id());
 
 		return "admin/notice/a_notice_insertF";
 	}
 
-	//공지사항 작성 처리
+	// 공지사항 작성 처리
 	@RequestMapping("/a_notice_insert")
 
 	public String noticeInsert(NoticeVO noticevo) {
-		
+
 		noticeService.noticeInsert(noticevo);
 
 		return "redirect:a_notice_main";
 	}
 
-	//공지사항 수정 form
+	// 공지사항 수정 form
 	@RequestMapping("/a_notice_updateF")
 	public String noticeUpdateF(Model model, NoticeVO noticevo) {
-		
+
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
-		
+
 		model.addAttribute("noticevo", notice);
-		
+
 		return "admin/notice/a_notice_updateF";
 	}
-	
-	//공지사항 수정 처리
+
+	// 공지사항 수정 처리
 	@RequestMapping("/a_notice_update")
 	public String noticeUpdate(Model model, NoticeVO noticevo) {
-		
+
 		noticeService.noticeUpdate(noticevo);
-		
+
 		return "redirect:a_notice_detail?nseq=" + noticevo.getNseq();
 	}
-	
-	//공지사항 삭제 페이지
+
+	// 공지사항 삭제 페이지
 	@RequestMapping("/a_notice_deleteF")
 	public String noticeDeleteF(Model model, HttpSession session) {
-		
-		AdminVO adminvo = (AdminVO)session.getAttribute("admin");
-		
+
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+
 		model.addAttribute("adminvo", adminvo);
-		
+
 		return "admin/notice/a_notice_deleteF";
 	}
-	
-	//공지사항 삭제 페이지
+
+	// 공지사항 삭제 페이지
 	@RequestMapping("/a_notice_delete")
 	public String noticeDelete(Model model, NoticeVO noticevo) {
-		
+
 		noticeService.noticeDelete(noticevo.getNseq());
-		
+
 		return "redirect:a_notice_main";
 	}
-	
-	
-	//관리자 - 리뷰 리스트
+
+	// 관리자 - 리뷰 리스트
 	@GetMapping("/a_review_main")
 	public String a_review_main(Model model) {
 
@@ -552,26 +545,25 @@ public class AdminController {
 
 		return "admin/review/a_review_main";
 	}
-	
-	//관리자 - 리뷰 디테일
+
+	// 관리자 - 리뷰 디테일
 	@GetMapping("/a_review_detail")
 	public String a_review_detail(Model model, Review_Total_entVO totalentvo) {
-		
+
 		Review_Total_entVO total = reviewService.reviewDetail(totalentvo.getRseq());
-		
+
 		model.addAttribute("reviewvo", total);
-		
+
 		return "admin/review/a_review_detail";
 	}
-	
-	//관리자- 리뷰 삭제
+
+	// 관리자- 리뷰 삭제
 	@GetMapping("/a_review_delete")
 	public String a_review_delete(ReviewVO reviewvo) {
-		
+
 		reviewService.deleteReview(reviewvo.getRseq());
-		
+
 		return "redirect:a_review_main";
 	}
-	
-	
+
 }

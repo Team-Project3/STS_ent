@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.OrderVO;
@@ -30,52 +33,65 @@ public class BookingController {
 	private BookingService bookingService;
 	@Autowired
 	private Total_entService total_entService;
-	
+
 	@RequestMapping("/BookingMain")
-	public String bookingprocessing(OrderVO orderVO,Model model,HttpSession session) throws ParseException {
-		
+	public String bookingprocessing(OrderVO orderVO, Model model, HttpSession session) throws ParseException {
+
 		orderService.insertOrder(orderVO);
-		
+
 		MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
-		
+
 		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq());
-		
+
 		Total_entVO total_entVO = new Total_entVO();
 		total_entVO.setTseq(orderVO.getTseq());
-		
+
 		Total_entVO totalVO = total_entService.total_entDetail(total_entVO);
-		
-		int totalprice = totalVO.getPrice() * orderVO2.getHead(); 
-		
-		model.addAttribute("orderVO",orderVO2);
-		
-		model.addAttribute("totalVO",totalVO);
-		
-		model.addAttribute("memberVO",memberVO);
-		
-		model.addAttribute("totalprice",totalprice);
-		
+
+		int totalprice = totalVO.getPrice() * orderVO2.getHead();
+
+		model.addAttribute("orderVO", orderVO2);
+
+		model.addAttribute("totalVO", totalVO);
+
+		model.addAttribute("memberVO", memberVO);
+
+		model.addAttribute("totalprice", totalprice);
+
 		return "booking/BookingMain";
 	}
-	
+
+	@ResponseBody
+	@PostMapping(value = "/order_delete", produces = "application/text; charset=utf8")
+	public String order_delete(OrderVO vo, HttpSession session) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		if (loginUser == null) {
+
+			return "fail";
+
+		} else {
+			orderService.deleteOrder(vo.getOseq());
+
+			return "success";
+		}
+	}
+
 	@RequestMapping("/BookingSuccess")
-	public String bookingSuccess(@RequestParam("oseq")int oseq,
-									Model model,OrderVO orderVO,BookingVO bookingVO) {
-		
+	public String bookingSuccess(@RequestParam("oseq") int oseq, Model model, OrderVO orderVO, BookingVO bookingVO) {
+
 		orderVO = orderService.getOrder(oseq);
 		
 		bookingVO.setTseq(orderVO.getTseq());
 		bookingVO.setSeat(orderVO.getSeat());
 		bookingVO.setId(orderVO.getId());
 		bookingVO.setHead(orderVO.getHead());
-		bookingVO.setDday(orderVO.getDday());	
-		
+		bookingVO.setDday(orderVO.getDday());
+
 		bookingService.insertBooking(bookingVO);
-		
+
 		model.addAttribute("id", orderVO.getId());
-		
+
 		return "booking/BookingSuccess";
 	}
-	
-	
+
 }

@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel='stylesheet' href='css/total_ent/total_ent_booking_detail.css'>
 <script src="js/total_ent/total_ent_booking_detail.js"></script>
 </head>

@@ -1,46 +1,18 @@
 var am = document.getElementById("am").value;
 var pm = document.getElementById("pm").value;
-	
-function calculateTotal() {
-	var ticketPrice = parseInt("${museum.price}");
-    var ticketQuantity = parseInt(document.getElementById("head").value);
-    var totalPrice = ticketPrice * ticketQuantity;
-    var seatOption = document.getElementById("seat");
-    var selectedSeat = seatOption.options[seatOption.selectedIndex].value;
-    var currentReservation = parseInt("${head}"); // 현재 예약 인원
+var formSubmitted = false;
 
-    // 예약 시간이 오전인 경우
-    if (selectedSeat === "오전") {
-        var availableSeats = am - currentReservation; // 오전 예약 가능한 자리 수 계산
-        if (availableSeats < 0) {
-            availableSeats = 0; // 음수 값이면 0으로 설정
-        }
+//input number 가 활성화 되었을때의 함수
+$('#headvalue').on('input', function(e) {
+	// 숫자 높일때마다의 값을 가져옴
+	var clickhead = parseInt($(this).val());
 
-        // 선택한 인원이 예약 가능한 자리 수보다 크면 선택한 인원을 예약 가능한 자리 수로 제한
-        if (ticketQuantity > availableSeats) {
-            alert("오전 예약 가능한 인원은 " + availableSeats + "명까지입니다.");
-            document.getElementById("head").value = availableSeats;
-            ticketQuantity = availableSeats;
-        }
-    }
-    // 예약 시간이 오후인 경우
-    else if (selectedSeat === "오후") {
-        var availableSeats = pm - parseInt("${head2}"); // 오후 예약 가능한 자리 수 계산
-        if (availableSeats < 0) {
-            availableSeats = 0; // 음수 값이면 0으로 설정
-        }
+	var price = document.getElementById('price').value;
+	// 총 가격 표시
+	totalAmount = clickhead * price;
+	document.getElementById('totalPrice').innerHTML = totalAmount;
+});
 
-        // 선택한 인원이 예약 가능한 자리 수보다 크면 선택한 인원을 예약 가능한 자리 수로 제한
-        if (ticketQuantity > availableSeats) {
-            alert("오후 예약 가능한 인원은 " + availableSeats + "명까지입니다.");
-            document.getElementById("head").value = availableSeats;
-            ticketQuantity = availableSeats;
-        }
-    }
-
-    totalPrice = ticketPrice * ticketQuantity; // 변경된 인원에 따른 총 가격 계산
-    document.getElementById("totalPrice").textContent = totalPrice;
-}
 function submitForm() {
 	var form = document.getElementById("museum_booking");
     var totalPriceInput = document.querySelector('input[name="totalPrice"]');
@@ -48,8 +20,8 @@ function submitForm() {
     var head = parseInt(document.getElementById("headvalue").value);
     var headtrimm = document.getElementById("headvalue").value;
     var seat = document.getElementById("seat").value;
-    var morningReservation = document.getElementById("head1").value;
-    var afternoonReservation = document.getElementById("head2").value;
+    var morningReservation = parseInt(document.getElementById("head1").value);
+    var afternoonReservation = parseInt(document.getElementById("head2").value);
     var mseat=morningReservation + head;
     var aseat=afternoonReservation + head;
     if (document.getElementById("seat").value == "") {
@@ -82,10 +54,13 @@ function submitForm() {
 		form.appendChild(headinput);
 		
    		totalPriceInput.value = totalPrice;
+   		formSubmitted = true;
     	form.submit();
     }    
 }
-window.addEventListener('beforeunload', function() {
-	  // Send a message to the opener window indicating that it is being closed
-	  window.opener.postMessage('windowClosed', '*');
-	});
+window.addEventListener('beforeunload', function(event) {
+	  if (!formSubmitted) {
+	    // Send a message to the opener window indicating that it is being closed
+	    window.opener.postMessage('windowClosed', '*');
+	  }
+});

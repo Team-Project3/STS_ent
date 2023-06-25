@@ -18,8 +18,37 @@ function booking() {
 		      if (event.data === 'windowClosed') {
 		        document.body.style.pointerEvents = "auto";
 		        document.body.style.opacity = "1";
-		        
-		        alert("예약이 취소되었습니다.");
+		        alert("예매가 취소되었습니다.");
+		      }
+		      else{
+		    	  var oseq = event.data;
+		    	  
+		    	  $.ajax({
+		    			type : "POST",
+		    			url : 'order_delete',
+		    			dataType : "text",
+		    			contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+		    			data : {
+		    				oseq : oseq
+		    			},
+		    			success : function(data) {
+		    				if (data == 'success') {
+		    					document.body.style.pointerEvents = "auto";
+		    			        document.body.style.opacity = "1";
+		    			        alert("예매가 취소되었습니다.");
+		    				} else {
+		    					alert("로그인 후 예매 해 주세요.");
+		    					window.opener.location.href="login_form";
+		    				}
+		    			},
+		    			error : function(data) {
+		    				if (data.status == 401) {
+		    					alert('failed.');
+
+		    					return;
+		    				}
+		    			}
+		    		});
 		      }
 		    });
 		    var openerOrigin = window.location.origin;
