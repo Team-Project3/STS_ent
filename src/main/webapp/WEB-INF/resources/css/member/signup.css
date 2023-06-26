@@ -3,6 +3,7 @@ body {
 	 overflow: auto;
 	 height: 1200px;
 	 background-color:#34333b;
+	 overflow-x:hidden; 
 }
 form {
 	height: 920px;

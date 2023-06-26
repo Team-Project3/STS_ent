@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+table td:first-child {
+	width: 10%;
+	text-align: center;
+	font-weight: bold;
+	padding: 16px;
+}
+
+table td:last-child {
+	width: 100%;
+	padding: 16px;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+tbody tr:active {
+  background-color: #e6e6e6;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
+  
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+  border-color: #999;
+}
+
+#ncontent {
+	height: 450px;
+}

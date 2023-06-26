@@ -105,7 +105,8 @@ public class AdminController {
 		return "redirect:adminlogin_form";
 
 	}
-
+	
+	//관리자 - 메인 페이지
 	@GetMapping("/a_performance_main")
 	public String a_performance_main(Total_entVO vo, Model model) {
 
@@ -115,8 +116,8 @@ public class AdminController {
 
 		return "admin/performance/a_performance_main";
 	}
-
-	//
+	
+	//관리자 - 메인 페이지 차트
 	@ResponseBody
 	@PostMapping(value = "/chart_area_demo", produces = "application/text; charset=utf8")
 	public String chart_area_demo() {
@@ -145,32 +146,38 @@ public class AdminController {
 		return pricesString;
 	}
 
-	//
+	
+	//관리자 - 메인 페이지 차트
 	@ResponseBody
-	@PostMapping(value = "/chart_bar_demo", produces = "application/text; charset=utf8")
+	@PostMapping(value = "/chart_bar_demo",produces = "application/text; charset=utf8")
 	public String chart_bar_demo() {
-
+		
 		LocalDate currentDate = LocalDate.now();
 		int currentMonth = currentDate.getMonthValue();
 		int currentYear = currentDate.getYear();
 
-		List<Integer> heads = new ArrayList<>();
+		List<Integer> prices = new ArrayList<>();
 
-		for (int i = 1; i <= 3; i++) {
-			int head = bookingService.sumheadcategory(i, currentMonth, currentYear);
+		for (int i = 0; i < 13; i++) {
+			int month = currentMonth + i;
+			int year = currentYear;
 
-			heads.add(head);
+			if (month > 12) {
+				month = month % 12;
+				year++;
+			}
+
+			int price = bookingService.sumprice(month, year);
+			prices.add(price);
 		}
-		int totalhead = bookingService.sumheadtotal(currentMonth, currentYear);
 
-		heads.add(totalhead);
+		String pricesString = prices.stream().map(String::valueOf).collect(Collectors.joining(","));
 
-		String headssString = heads.stream().map(String::valueOf).collect(Collectors.joining(","));
-
-		return headssString;
+		return pricesString;
 	}
 
-	//
+	
+	//관리자 - 공연 메인 페이지 
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(Total_entVO vo, Model model) {
 
@@ -188,7 +195,6 @@ public class AdminController {
 		List<Total_entVO> list = total_entService.total_entList(vo);
 
 		model.addAttribute("tlist", list);
-		// 이거 심화로 보자
 		model.addAttribute("category", vo.getCategory());
 
 		return "admin/performance/a_performance_ent_f";
@@ -485,9 +491,9 @@ public class AdminController {
 		return "admin/notice/a_notice_insertF";
 	}
 
-	// 공지사항 작성 처리
-	@RequestMapping("/a_notice_insert")
 
+	//공지사항 작성 처리
+	@PostMapping(value="/a_notice_insert")
 	public String noticeInsert(NoticeVO noticevo) {
 
 		noticeService.noticeInsert(noticevo);

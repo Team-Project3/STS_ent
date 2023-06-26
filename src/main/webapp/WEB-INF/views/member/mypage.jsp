@@ -44,8 +44,8 @@
 							</div>
 							<div id="side-bar">
 								<ul>
-									<li><a type="button" onclick="editMember()">수정</a></li>
-									<li><a type="button" onclick="deleteMember()">탈퇴</a></li>
+									<li><a id="mbtn" type="button" onclick="editMember()">수정</a></li>
+									<li><a id="mbtn" type="button" onclick="deleteMember()">탈퇴</a></li>
 								</ul>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 					<p>${noReviewMessage}</p>
 				</c:when>
 				<c:otherwise>
-					<table>
+					<table class="memberReview">
 						<thead>
 							<tr style="background-color: #c8c8c8; color: black;">
 								<th>회원 ID</th>
@@ -213,6 +213,7 @@
 						<thead>
 							<tr style="background-color: #c8c8c8; color: black;">
 								<th>예약 ID</th>
+								<th>공연명</th>
 								<th>날짜</th>
 								<th>시간</th>
 								<th>좌석</th>
@@ -225,6 +226,7 @@
 							<c:forEach items="${exhibitionList}" var="booking">
 								<tr id="exhibition">
 									<td>${booking.id}</td>
+									<td>${booking.tname}</td>
 									<td><fmt:formatDate value="${booking.dday}"
 											pattern="yyyy-MM-dd" var="dday" />${dday}</td>
 									<td>${booking.time}</td>

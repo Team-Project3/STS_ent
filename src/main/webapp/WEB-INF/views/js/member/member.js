@@ -61,6 +61,7 @@ function go_save() {
 	}
 }
 
+//비밀번호 체크
 function check_pwd(){
 	var password = document.getElementById('password').value;
 	var num = password.search(/[0-9]/g);
@@ -88,6 +89,7 @@ function check_pwd(){
 
 }
 
+//전화번호 하이픈 자동 생성
 function hypenTel(target) {
 	  const maxLength = 11; // 최대 글자 수
 

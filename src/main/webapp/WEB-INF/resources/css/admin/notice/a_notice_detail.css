@@ -20,8 +20,7 @@
 
 #ncontent {
 	font-size: 16px;
-	color: #555;
-	line-height: 30;
+	color: #555;	
 }
 
 /* 테이블 스타일 */
@@ -31,6 +30,8 @@
 	border-collapse: collapse;
 	border: 1px solid #ccc;
 	padding: 10px;
+	height: 400px;
+	white-space: pre-line;
 }
 
 /* 활성 상태 스타일 */

@@ -10,10 +10,8 @@
 
 body{
     background-color: #34333b;
-    overflow: auto;
     overflow-x: hidden;
 }
-
 
 .memberinfo, .reviewlist,
 .concertList, .theaterList, .exhibitionList {
@@ -133,6 +131,7 @@ tr:hover {
 /* footer */
 .footer {
 	position: absolute;
+	bottom: 900;
 	display: block;
 	background-color: #34333b;
 	width: 100%;
@@ -263,14 +262,13 @@ tr:hover {
   margin: 65px 0;
   
 }
-a, #mbtn {
+a {
 	color: #34333b;
 	font-weight: bold;
-	cursor: pointer;
 }
 
-#mbtn:hover {
-	color: green;
+a:hover {
+	color: green;	
 }
 
 #side-bar ul li:last-child{

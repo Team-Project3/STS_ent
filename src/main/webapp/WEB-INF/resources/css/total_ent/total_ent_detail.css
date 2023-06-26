@@ -88,8 +88,8 @@ p { font-family: Helvetica, Arial, sans-serif;}
   border-top-right-radius: 7px;
   font-size: 1.5em;
   width: 1400px;
-  margin: 260px auto;
-}
+  margin: 260px auto 100px auto;
+} 
 
 .jsOn ul#tabs:after {
   clear: both;
@@ -121,7 +121,7 @@ p { font-family: Helvetica, Arial, sans-serif;}
 .jsOn .tab-section {
   color: white;
   padding: 2em;
-  margin: 0 auto;
+  margin: 0 auto 100px auto;
   width:1400px;
 }
 

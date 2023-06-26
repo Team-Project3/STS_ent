@@ -30,7 +30,8 @@
 			<form name="formm" id="update" method="post">
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table me-1"></i> 회원 정보 수정<br>
+					<i class="fas fa-table me-1"></i> 
+						<a href="a_member_main" id="detail">회원 정보</a><br>
 				</div>
 					<div class="card-body">
 						<table>
@@ -51,7 +52,7 @@
 							</tr>
 							<tr>
 								<td>전화번호</td>
-								<td><input id="phone" name="phone" type="text"
+								<td><input id="phone" name="phone" type="text" oninput="hypenTel(this)"
 									value="${membervo.phone}"></td>
 							</tr>
 							<tr>
