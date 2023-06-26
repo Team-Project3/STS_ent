@@ -88,4 +88,9 @@ public class BookingServiceImpl implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingDAO.sumheadtotal(month, year);
 	}
+
+	@Override
+	public void deleteBookingfromid(String id) {
+		bookingDAO.deleteBookingfromid(id);
+	}
 }

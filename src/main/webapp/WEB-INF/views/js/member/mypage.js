@@ -62,17 +62,40 @@ function deleteMember() {
 
     if (concertlist !== "" || theaterlist !== "" || exhibitionlist !== "") {
         if (confirm("회원님의 예약 내역이 존재합니다.\n환불 처리가 안되오니 신중하게 생각해")) {
-            var url = "mypage_deleteF?membervo=" + membervo;
-            window.open(url, "_blank_",
-                "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700");
+        	deletepro();
         }
     } else {
         if (confirm("정말로 탈퇴하시겠습니까?")) {
-            var url = "mypage_deleteF?membervo=" + membervo;
-            window.open(url, "_blank_",
-                "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700");
+        	deletepro();
         }
     }
+}
+
+function deletepro() {
+	var promptObj = prompt('회원 비밀번호를 입력하세요.', '');
+	$.ajax({
+		type : "POST",
+		url : 'member_delete',
+		dataType : "text",
+		contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+		data : {
+			password : promptObj
+		},
+		success : function(data) {
+			if (data == 'fail') {
+				alert("비밀번호를 틀렸습니다.");
+			} else {
+				document.write(data);
+			}
+		},
+		error : function(data) {
+			if (data.status == 401) {
+				alert('failed.');
+
+				return;
+			}
+		}
+	});
 }
 
 //리뷰 삭제

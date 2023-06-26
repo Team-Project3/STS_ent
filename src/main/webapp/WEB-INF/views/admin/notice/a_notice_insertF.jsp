@@ -14,9 +14,9 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
 <link href="css/admin/notice/a_notice_insertF.css" rel="stylesheet" />
-<script src="js/admin/notice/a_notice_insertF.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script src="js/admin/notice/a_notice_insertF.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<%@ include file="../a_header.jsp" %>
@@ -26,7 +26,7 @@
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Notice Information</li>
 			</ol>
-			<form id="insertform" method="post">
+			<form id="insertform" method="post" onsubmit="return false;">
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table me-1"></i> 
@@ -47,10 +47,10 @@
 					</table>
 				</div>
 			</div>
+			</form>
 			<div align="right">
 				<input class="btn btn-primary" type="button" onClick="insertform()" value="등록">
 			</div>
-			</form>
 		</div>
 	</div>
 

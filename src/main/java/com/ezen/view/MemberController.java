@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.Booking_Total_entVO;
 import com.ezen.biz.dto.Review_Total_entVO;
+import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.ReviewService;
@@ -60,6 +62,12 @@ public class MemberController {
 			model.addAttribute("errorMessage", "계정이 존재하지 않습니다.");
 			return "member/login_fail"; // 로그인 실패시
 		}
+	}
+	
+	@RequestMapping("/naverlogin")
+	public String naverlogin() {
+		
+		return "member/naverlogin";
 	}
 
 	//회원가입 화면
@@ -225,28 +233,32 @@ public class MemberController {
 		return "redirect:mypage";
 	}
 	
-	//my page - 회원 탈퇴 페이지
-	@RequestMapping(value="/mypage_deleteF")
-	public String deleteMemberF(Model model, HttpSession session) {
-		
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-		
-		model.addAttribute("membervo", membervo);
-		return "member/mypage_deleteF";
-	}
-	
 	//my page - 회원 탈퇴 처리
-	@RequestMapping(value = "/mypage_delete", method = RequestMethod.GET)
-	public String deleteMember(SessionStatus status, HttpSession session) throws Exception {
-	    
-		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
-		
-		memberService.deleteMember(membervo.getId());
-			 
-		status.setComplete();
-			 
-		return "redirect:index";
-	}	
+	@ResponseBody
+	@PostMapping(value = "/member_delete", produces = "application/text; charset=utf8")
+	public String member_delete(MemberVO vo, HttpSession session,SessionStatus status) throws Exception {
+
+		try {
+
+			MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+			String message = "";
+			if (loginUser.getPassword().equals(vo.getPassword())) {
+				
+				memberService.deleteMember(loginUser.getId());
+				bookingService.deleteBookingfromid(loginUser.getId());
+				status.setComplete();
+				message = "<script>alert('삭제되었습니다. 저희 서비스를 이용해주셔서 감사했습니다.');location.href='index';</script>";
+
+				return message;
+			} else {
+
+				return "fail";
+			}
+
+		} catch (NullPointerException e) {
+			return "<script>alert('로그인 후 이용해주세요.');location.href='login_form';</script>";
+		}
+	}
 	
 	//리뷰 삭제
 	@RequestMapping(value="/reviewDelete",method = RequestMethod.GET)

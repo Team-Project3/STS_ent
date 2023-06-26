@@ -19,7 +19,6 @@ function a_deleteperformance() {
 			tseq : tseq
 		},
 		success : function(data) {
-			console.log(data);
 			if (data == 'fail') {
 				alert("비밀번호를 틀렸습니다.");
 			} else {

@@ -36,4 +36,6 @@ public interface BookingService {
 	int sumheadcategory(int category,int month,int year);
 	
 	int sumheadtotal(int month,int year);
+	
+	void deleteBookingfromid(String id);
 }

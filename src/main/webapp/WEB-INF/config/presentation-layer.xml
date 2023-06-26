@@ -37,24 +37,7 @@
 		<property name="contentType" value="text/html;charset=UTF-8"></property>
 	</bean>
 	
-	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
-		<property name="exceptionMappings"> 
-			<props> 
-				<prop key="java.lang.ArithmeticException">common/arithmeticError</prop> 
-				<prop key="java.lang.NullPointerException">common/nullPointerError</prop> 
-			</props> 
-		</property> 
-		<property name="defaultErrorView" value="common/error"/> 
-	</bean> --> 
-
-	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="defaultErrorView" value="error"/> 
+	</bean>
 </beans>
-
-
-
-
-
-
-
-
-
