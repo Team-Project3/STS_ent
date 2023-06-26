@@ -19,7 +19,7 @@ public class MemberVO {
 	private String name;
 	private String phone;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date birth;
+	private String birth;
 	private String email;
 	
 }

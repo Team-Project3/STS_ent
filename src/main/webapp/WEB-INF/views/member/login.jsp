@@ -13,7 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 
@@ -40,33 +41,20 @@
         </div>
         <div id="naverIdLogin"></div>
     </form>
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    
 </div>
 <div class="footer">
 <%@ include file="../footer.jsp" %>
 </div>
 </body>
-<script type="text/javascript">
-
-const naverLogin = new naver.LoginWithNaverId(
-        {
-            clientId: "IK04q9z9rJMeoi3tE_bf",
-            callbackUrl: "http://localhost:8506/biz/index",
-            loginButton: {color: "green", type: 3, height: 40, width: 120}
-        }
-    );
-naverLogin.init();
-naverLogin.getLoginStatus(function (status) {
-    if (status) {
-    	const name=naverLogin.user.getName();
-        const birthday=naverLogin.user.getBirthday();
-        const email=naverLogin.user.getEmail();
-        const mobile=naverLogin.user.getMobile();
-        const id=naverLogin.user.get();
-		alert(birthday);
-		alert(name);
-		alert(email);
-    }
-  });
-</script>
+  <script type="text/javascript">
+  	const naverLogin = new naver.LoginWithNaverId(
+	        {
+	            clientId: "IK04q9z9rJMeoi3tE_bf",
+	            callbackUrl: "http://localhost:8506/biz/naverlogin",
+	            loginButton: {color: "green", type: 3, height: 40, width: 120}
+	        }
+	    );
+  	naverLogin.init();
+  </script>
 </html>
