@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+.site-footer {
+	background-color: #34333b;
+	padding: 30px 0 10px 0;
+	font-size: 15px;
+	line-height: 24px;
+	color: #737373;
+}
+
+.logo-justify {
+	margin-right: 30px;
+}
+
+.row {
+	width: 100%; 
+	display : flex;
+	justify-content: center;
+	display: flex;
+	margin: 0 auto;
+}
+
+.row2 {
+	width: 100%; 
+	display : flex;
+	justify-content: center;
+	display: flex;
+	margin: 30px auto 0 auto;
+}
+
+.site-footer hr {
+	border-top-color: #bbb;
+	opacity: 0.5
+}
+
+.site-footer hr.small {
+	margin: 20px 0
+}
+
+.site-footer h6 {
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-top: 5px;
+	letter-spacing: 2px;
+	margin-right: 70px;
+	width: 150px;
+}
+
+#fleft {
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-top: 5px;
+	letter-spacing: 2px;
+	width: 130px;
+}
+
+.site-footer a {
+	color: #737373;
+}
+
+.site-footer a:hover {
+	color: #3366cc;
+	text-decoration: none;
+}
+
+.footer-links {
+	padding-left: 0;
+	list-style: none;
+	margin-right: 30px;
+}
+
+.footer-links li {
+	display: block
+}
+
+.footer-links a {
+	color: #737373
+}
+
+.footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+	color: #3366cc;
+	text-decoration: none;
+}
+
+.footer-links.inline li {
+	display: inline-block;
+}
+
+.site-footer .social-icons {
+	text-align: right;
+}
+
+.site-footer .social-icons a {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 6px;
+	margin-right: 0;
+	border-radius: 100%;
+	background-color: #33353d
+}
+
+.copyright-text {
+	margin-right: 30px;
+}
+
+@media ( max-width :991px) {
+	.site-footer [class^=col-] {
+		margin-bottom: 30px
+	}
+}
+
+@media ( max-width :767px) {
+	.site-footer {
+		padding-bottom: 0
+	}
+	.site-footer .copyright-text, .site-footer .social-icons {
+		text-align: center
+	}
+}
+
+.social-icons {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none
+}
+
+.social-icons li {
+	display: inline-block;
+	margin-bottom: 4px
+}
+
+.social-icons li.title {
+	margin-right: 15px;
+	text-transform: uppercase;
+	color: #96a2b2;
+	font-weight: 700;
+	font-size: 13px
+}
+
+.social-icons #ficon {
+	background-color: #eceeef;
+	color: #818a91;
+	font-size: 16px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	text-align: center;
+	border-radius: 100%;
+}
+
+
+@media ( max-width :767px) {
+	.social-icons li.title {
+		display: block;
+		margin-right: 0;
+		font-weight: 600
+	}
+}
+
+.text-justify {
+	width: 400px;
+}
+
+.flogo {
+	margin: 30px 70px;
+	width: 150px;
+	height: 150px;
+}
