@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel='stylesheet' href='css/total_ent/total_ent_booking_detail.css'>
 <script src="js/total_ent/total_ent_booking_detail.js"></script>
 </head>
@@ -52,8 +54,9 @@
 					<td><fmt:formatDate value="${bookingVO.dday}" pattern="yyyy-MM-dd" var="day" />${day}</td>
 				</tr>
 			</table>
-			<button type="button" onclick="bookingdetail()">결제하기</button>
-
+			<div class = "buttons">
+			<button type="button" onclick="prevpage()" class="prevbutton">이전으로</button>&emsp;&emsp;<button type="button" onclick="bookingdetail()" class="nextbutton">결제하기</button>
+			</div>
 			<input type="hidden" name="tseq" value="${total_entVO.tseq}">
 			<input type="hidden" name="seat" value="${seat}"> <input
 				type="hidden" name="id" value="${membervo.id}"> <input

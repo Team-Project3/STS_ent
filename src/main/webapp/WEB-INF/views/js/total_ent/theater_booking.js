@@ -7,6 +7,7 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 const selectedSeats = [];
+var formSubmitted = false;
 populateUI();
 
 let ticketPrice = +movieSelect.value;
@@ -100,7 +101,7 @@ function go_save(){
 	}
 	else {
 		var form = document.getElementById("thbooking");
-        
+		formSubmitted = true;
         // 예약자 수
         const hiddenInput1 = document.createElement("input");
         hiddenInput1.type = "hidden";
@@ -116,8 +117,16 @@ function go_save(){
         form.appendChild(hiddenInput2);
         
         form.submit();
+        
 	}
 }
 
 //initial count and total set
 updateSelectedCount();
+
+window.addEventListener('beforeunload', function(event) {
+	  if (!formSubmitted) {
+	    // Send a message to the opener window indicating that it is being closed
+	    window.opener.postMessage('windowClosed', '*');
+	  }
+});

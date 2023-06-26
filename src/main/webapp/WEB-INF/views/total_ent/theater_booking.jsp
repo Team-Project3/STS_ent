@@ -58,11 +58,8 @@
 		%>
 	</div>
 	<div class="th_button">
-		<button class="btn-5" onclick="return go_save()" type="button">이전</button>
-		&emsp;
 		<button class="btn-5" onclick="return go_save()" type="button">다음</button>
 	</div>
-
 	<p class="text">
 		선택 좌석&ensp;<span id="count">0</span>&emsp;
 		총 가격&ensp;<span id="total">0</span>
