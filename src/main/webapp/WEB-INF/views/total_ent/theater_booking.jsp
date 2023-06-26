@@ -57,9 +57,7 @@
 			}
 		%>
 	</div>
-	<div class="th_button">
-		<button onclick="return go_save()" type="button">이전</button>
-		&emsp;
+	<div class="button-container">
 		<button onclick="return go_save()" type="button">다음</button>
 	</div>
 

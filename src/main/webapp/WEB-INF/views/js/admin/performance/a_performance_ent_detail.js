@@ -11,7 +11,7 @@ function a_deleteperformance() {
 	var promptObj = prompt('관리자 비밀번호를 입력하세요.', '');
 	$.ajax({
 		type : "POST",
-		url : '/a_performance_deleteAction',
+		url : 'a_performance_deleteAction',
 		dataType : "text",
 		contentType : 'application/x-www-form-urlencoded; charset=utf-8',
 		data : {

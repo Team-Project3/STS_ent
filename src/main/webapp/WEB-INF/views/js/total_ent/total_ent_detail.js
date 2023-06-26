@@ -20,6 +20,9 @@ function booking() {
 		        document.body.style.opacity = "1";
 		        alert("예매가 취소되었습니다.");
 		      }
+		      else if(event.data === 'successClosed'){
+		    	  location.href = 'index';
+		      }
 		      else{
 		    	  var oseq = event.data;
 		    	  

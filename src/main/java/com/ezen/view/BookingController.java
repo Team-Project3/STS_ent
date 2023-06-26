@@ -1,13 +1,12 @@
 package com.ezen.view;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.OrderVO;
@@ -26,7 +24,11 @@ import com.ezen.biz.service.Total_entService;
 
 @Controller
 public class BookingController {
-
+	/**
+	 * Slf4j Logger
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(BookingController.class);
+	
 	@Autowired
 	private OrderService orderService;
 	@Autowired
@@ -77,8 +79,10 @@ public class BookingController {
 	}
 
 	@RequestMapping("/BookingSuccess")
-	public String bookingSuccess(@RequestParam("oseq") int oseq, Model model, OrderVO orderVO, BookingVO bookingVO) {
+	public String bookingSuccess(@RequestParam("oseq") int oseq, Model model, OrderVO orderVO, BookingVO bookingVO,HttpSession session) {
 
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
 		orderVO = orderService.getOrder(oseq);
 		
 		bookingVO.setTseq(orderVO.getTseq());
@@ -88,10 +92,31 @@ public class BookingController {
 		bookingVO.setDday(orderVO.getDday());
 
 		bookingService.insertBooking(bookingVO);
+		BookingVO bookingVO2 = bookingService.bookingdetail(bookingVO);
+		
+		Total_entVO vo = new Total_entVO();
+		vo.setTseq(bookingVO2.getTseq());
+		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
-		model.addAttribute("id", orderVO.getId());
-
+		logger.info(bookingVO.getSeat());
+		
+		String img = "";
+		
+		if(total_entVO.getCategory().equals("1")) {
+			img = "img/concert/"+total_entVO.getPimg()+".jpg";
+		}
+		else if (total_entVO.getCategory().equals("2")) {
+			img = "img/theater/"+total_entVO.getPimg()+".jpg";
+		}
+		else {
+			img = "img/museum/"+total_entVO.getPimg()+".jpg";
+		}
+		
+		model.addAttribute("total_entVO",total_entVO);
+		model.addAttribute("bookingVO",bookingVO2);
+		model.addAttribute("id",loginUser.getId());
+		model.addAttribute("img",img);
+		orderService.deleteOrder(oseq);
 		return "booking/BookingSuccess";
 	}
-
 }

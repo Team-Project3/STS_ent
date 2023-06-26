@@ -6,6 +6,11 @@ function bookingdetail() {
 	BookingMain.submit();
 }
 
+function prevpage(){
+	formSubmitted = true;
+	history.back();
+}
+
 window.addEventListener('beforeunload', function() {
 	if (!formSubmitted) {
 		window.opener.postMessage('windowClosed', '*');

@@ -40,8 +40,12 @@
 	color: #444444;
 }
 
-.booking-form button {
-	width: 100%;
+.buttons{
+	margin-left: 12px;
+}
+
+.booking-form .nextbutton {
+	width: 45%;
 	padding: 10px;
 	margin-top: 20px;
 	background-color: #4caf50;
@@ -51,6 +55,20 @@
 	cursor: pointer;
 }
 
-.booking-form button:hover {
+.booking-form .prevbutton {
+	width: 45%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #aaaaaa;
+	border: none;
+	color: #ffffff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.booking-form .nextbutton:hover {
 	background-color: #45a049;
+}
+.booking-form .prevbutton:hover {
+	background-color: #646464;
 }
