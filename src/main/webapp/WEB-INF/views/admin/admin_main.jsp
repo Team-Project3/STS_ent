@@ -11,9 +11,9 @@
 <meta name="keywords" content="" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="img/favicon.png">
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/component.css" />
-<script src="js/modernizr.custom.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="css/default.css" /> -->
+<link rel="stylesheet" type="text/css" href="css/admin/admin_main.css" />
+<script src="js/admin/admin_main.js"></script>
 </head>
 <body>
 	<div class="container demo-1">
@@ -64,10 +64,8 @@
 		</ul>
 	</div>
 	<!-- /container -->
-	<script src="js/toucheffects.js"></script>
 	<%
 	//양식 다시제출 확인 페이지 없애기위한 코드
-	
 		response.setHeader("Cache-Control", "no-store");
 		response.setHeader("Pragma", "no-cache");
 		response.setDateHeader("Expires", 0);

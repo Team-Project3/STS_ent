@@ -34,7 +34,6 @@ public class NoticeController {
 		NoticeVO notice = noticeService.noticeDetail(vo.getNseq());
 		
 		model.addAttribute("notice", notice);
-		System.out.println(notice);
 		
 		return "notice/notice_detail";
 	}

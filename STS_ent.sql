@@ -70,8 +70,8 @@ CREATE TABLE total_ent (
 	edate DATE NOT NULL,
 	price NUMBER NOT NULL,
 	seat VARCHAR(255) NULL,
-	pimg VARCHAR2(100) NULL,
-	cimg VARCHAR2(100) NOT NULL
+	pimg VARCHAR2(40) NULL,
+	cimg VARCHAR2(40) NOT NULL
 );
 
 
@@ -95,7 +95,7 @@ CREATE TABLE review (
 	tseq NUMBER NOT NULL,
 	regdate	DATE DEFAULT sysdate,
 	rpoint NUMBER NOT NULL,
-	rcontent VARCHAR2(100) NOT NULL
+	rcontent VARCHAR2(150) NOT NULL
 );
 
 

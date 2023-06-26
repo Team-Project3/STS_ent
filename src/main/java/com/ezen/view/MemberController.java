@@ -22,8 +22,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
-import com.ezen.biz.dto.totalentVO;
+import com.ezen.biz.dto.Booking_Total_entVO;
+import com.ezen.biz.dto.Review_Total_entVO;
 import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.ReviewService;
@@ -170,15 +170,15 @@ public class MemberController {
 		bookingvo.setId(membervo.getId());
 		
 		//리뷰 리스트
-		List<totalentVO> list = reviewService.reviewMember(reviewvo);
+		List<Review_Total_entVO> list = reviewService.reviewMember(reviewvo);
 		
 		//예약 리스트
-		List<totalbookVO> bookinglist = bookingService.bookingMember(bookingvo);
-			List<totalbookVO> concertList = new ArrayList<>();
-			List<totalbookVO> theaterList = new ArrayList<>();
-			List<totalbookVO> exhibitionList = new ArrayList<>();
+		List<Booking_Total_entVO> bookinglist = bookingService.bookingMember(bookingvo);
+			List<Booking_Total_entVO> concertList = new ArrayList<>();
+			List<Booking_Total_entVO> theaterList = new ArrayList<>();
+			List<Booking_Total_entVO> exhibitionList = new ArrayList<>();
 		
-		for (totalbookVO booking : bookinglist) {
+		for (Booking_Total_entVO booking : bookinglist) {
 		    if (booking.getCategory() == 1) {
 		        concertList.add(booking);
 		    } else if (booking.getCategory() == 2) {
@@ -220,7 +220,6 @@ public class MemberController {
 	
 		memberService.updateMember(vo);
 		
-		System.out.println(vo);
 		model.addAttribute("loginUser", memberService.getMember(vo.getId()));
 		model.addAttribute("membervo",vo);
 		return "redirect:mypage";
@@ -255,12 +254,11 @@ public class MemberController {
 								@RequestParam("rseq")int rseq,ReviewVO reviewVO) {
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		System.out.println(loginUser);
 		
 		reviewVO.setId(loginUser.getId());
 		reviewVO.setRseq(rseq);
 		
-		reviewService.deleteReview(reviewVO);
+		reviewService.deleteReview(reviewVO.getRseq());
 		
 		return "redirect:mypage";
 	}
@@ -279,6 +277,4 @@ public class MemberController {
 		
 		return "redirect:mypage";
 	}
-	
-	
 }

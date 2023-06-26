@@ -51,7 +51,7 @@
                                     <c:forEach var="total" items="${tlist}" varStatus="loop">
                                         <tr>
                                             <td><a id="detail" href="a_performance_ent_detail?tseq=${total.tseq}">${total.tseq}</a></td>
-                                            <td>${total.tname}</td>
+                                            <td><a id="detail" href="a_performance_ent_detail?tseq=${total.tseq}">${total.tname}</a></td>
                                             <td>                          
                                             <c:choose>
                                             <c:when test="${total.category == 1}">콘서트</c:when>

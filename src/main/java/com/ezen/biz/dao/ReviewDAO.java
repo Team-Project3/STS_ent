@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ezen.biz.dto.ReviewVO;
-import com.ezen.biz.dto.totalbookVO;
-import com.ezen.biz.dto.totalentVO;
+import com.ezen.biz.dto.Review_Total_entVO;
 
 @Repository
 public class ReviewDAO {
@@ -27,22 +26,24 @@ public class ReviewDAO {
 	}
 	
 	//회원별 후기 리스트
-	public List<totalentVO> reviewMember(ReviewVO vo) {
+	public List<Review_Total_entVO> reviewMember(ReviewVO vo) {
 		return mybatis.selectList("ReviewMapper.reviewMember", vo);
 	}
 	
 	//리뷰 삭제
-	public void deleteReview(ReviewVO vo) {
-		mybatis.delete("ReviewMapper.deleteReview", vo);
+	public void deleteReview(int rseq) {
+		mybatis.delete("ReviewMapper.deleteReview", rseq);
 	}
 	
 	//관리자 - 리뷰 리스트
-	public List<totalentVO> reviewMemberlist(){
+	public List<Review_Total_entVO> reviewMemberlist(){
 		return mybatis.selectList("ReviewMapper.reviewMemberlist");
 	}
 	
 	//관리자 - 리뷰 디테일
-	public totalentVO reviewDetail(int rseq) {
+	public Review_Total_entVO reviewDetail(int rseq) {
 		return mybatis.selectOne("ReviewMapper.reviewDetail", rseq);
 	}
+	
+	
 }

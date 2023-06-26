@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* 테이블 컨테이너 스타일 */
+.table-container {
+  width: 1400px;
+  overflow-x: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 스타일 */
+table {
+  width: 1400px;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+/* 테이블 헤더 스타일 */
+thead th {
+  padding: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #333;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 테이블 셀 스타일 */
+td {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 짝수 행 배경색 */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 호버 효과 */
+tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* 액티브 효과 */
+tbody tr:active {
+  background-color: #e6e6e6;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* 입력 필드 호버 및 포커스 효과 */
+input[type="text"]:hover,
+input[type="text"]:focus {
+  border-color: #999;
+}
+
+table th:first-child {
+	width: 100px;
+}
+
+#a_id, #ndate {
+	width: 500px;
+}

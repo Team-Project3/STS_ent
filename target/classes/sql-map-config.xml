@@ -4,29 +4,24 @@
 	<properties resource="database.properties">
 	</properties>
 	<typeAliases>
-		<typeAlias type="com.ezen.biz.dto.TheaterVO" alias="Theater"/>
-		<typeAlias type="com.ezen.biz.dto.ConcertVO" alias="Concert"/>
 		<typeAlias type="com.ezen.biz.dto.MemberVO" alias="Member"/>
 		<typeAlias type="com.ezen.biz.dto.AdminVO" alias="Admin"/>
-		<typeAlias type="com.ezen.biz.dto.MuseumVO" alias="Museum"/>
 		<typeAlias type="com.ezen.biz.dto.BookingVO" alias="Booking"/>
 		<typeAlias type="com.ezen.biz.dto.OrderVO" alias="Order"/>
 		<typeAlias type="com.ezen.biz.dto.ReviewVO" alias="Review"/>
-		<typeAlias type="com.ezen.biz.dto.totalentVO" alias="totalent"/>
-		<typeAlias type="com.ezen.biz.dto.totalbookVO" alias="totalbook"/>
 		<typeAlias type="com.ezen.biz.dto.NoticeVO" alias="Notice"/>
+		<typeAlias type="com.ezen.biz.dto.Total_entVO" alias="total_ent"/>
+		<typeAlias type="com.ezen.biz.dto.Review_Total_entVO" alias="review_total_ent"/>
+		<typeAlias type="com.ezen.biz.dto.Booking_Total_entVO" alias="booking_total_ent"/>
 	</typeAliases>
-	
 	<!-- sql 매핑 파일 등록 -->
 	<mappers>
-		<mapper resource="mappings/theater-mapping.xml"/>
-		<mapper resource="mappings/concert-mapping.xml"/>
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/admin-mapping.xml"/>
-		<mapper resource="mappings/museum-mapping.xml"/>
 		<mapper resource="mappings/booking-mapping.xml"/>
 		<mapper resource="mappings/order-mapping.xml"/>
 		<mapper resource="mappings/review-mapping.xml"/>
 		<mapper resource="mappings/notice-mapping.xml"/>
+		<mapper resource="mappings/total_ent-mapping.xml"/>
 	</mappers>
 </configuration>
