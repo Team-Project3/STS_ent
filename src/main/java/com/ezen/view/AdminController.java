@@ -105,7 +105,8 @@ public class AdminController {
 		return "redirect:adminlogin_form";
 
 	}
-
+	
+	//관리자 - 메인 페이지
 	@GetMapping("/a_performance_main")
 	public String a_performance_main(Total_entVO vo, Model model) {
 
@@ -116,7 +117,7 @@ public class AdminController {
 		return "admin/performance/a_performance_main";
 	}
 	
-	//
+	//관리자 - 메인 페이지 차트
 	@ResponseBody
 	@PostMapping(value = "/chart_area_demo",produces = "application/text; charset=utf8")
 	public String chart_area_demo() {
@@ -147,7 +148,7 @@ public class AdminController {
 		    return pricesString;
 	}
 	
-	//
+	//관리자 - 메인 페이지 차트
 	@ResponseBody
 	@PostMapping(value = "/chart_bar_demo",produces = "application/text; charset=utf8")
 	public String chart_bar_demo() {
@@ -174,7 +175,7 @@ public class AdminController {
 	    return headssString;
 	}
 	
-	//
+	//관리자 - 공연 메인 페이지 
 	@GetMapping("/a_performance_ent_t")
 	public String a_performance_ent_t(Total_entVO vo, Model model) {
 
@@ -192,7 +193,7 @@ public class AdminController {
 		List<Total_entVO> list = total_entService.total_entList(vo);
 
 		model.addAttribute("tlist", list);
-		//이거 심화로 보자
+
 		model.addAttribute("category", vo.getCategory());
 
 		return "admin/performance/a_performance_ent_f";
@@ -492,7 +493,7 @@ public class AdminController {
 	}
 
 	//공지사항 작성 처리
-	@RequestMapping("/a_notice_insert")
+	@PostMapping(value="/a_notice_insert")
 
 	public String noticeInsert(NoticeVO noticevo) {
 		

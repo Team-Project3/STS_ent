@@ -286,3 +286,13 @@ h1{
   	text-align: left;
 }
 
+#datatablesSimple2 {
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	padding: 10px;
+	height: 400px;
+	white-space: pre-line;
+}
+

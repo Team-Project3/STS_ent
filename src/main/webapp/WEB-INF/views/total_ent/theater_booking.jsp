@@ -16,11 +16,11 @@
 		</select>
 	</div>
 	<ul class="showcase">
-		<li><div class="seat"></div> <small>선택가능</small></li>
+		<li><div class="seat"></div> <small>선택 가능</small></li>
 		<li>
 			<div class="seat selected"></div> <small>선택한 좌석</small>
 		</li>
-		<li><div class="seat occupied"></div> <small>예약됨</small></li>
+		<li><div class="seat occupied"></div> <small>선택 불가</small></li>
 	</ul><form action="total_ent_booking_detail" id="thbooking" method="post">
 	<div class="container">
 		<div class="screen"></div>
@@ -58,13 +58,14 @@
 		%>
 	</div>
 	<div class="th_button">
-		<button onclick="return go_save()" type="button">이전</button>
+		<button class="btn-5" onclick="return go_save()" type="button">이전</button>
 		&emsp;
-		<button onclick="return go_save()" type="button">다음</button>
+		<button class="btn-5" onclick="return go_save()" type="button">다음</button>
 	</div>
 
 	<p class="text">
-		고른 좌석 <span id="count">0</span> 총 가격<span id="total">0</span>
+		선택 좌석&ensp;<span id="count">0</span>&emsp;
+		총 가격&ensp;<span id="total">0</span>
 	</p>
 	<input type="hidden" value="${dday}" name="dday" id="dday">
 	<input type="hidden" name="tseq" value="${theater.tseq}">

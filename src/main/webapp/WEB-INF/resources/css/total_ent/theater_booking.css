@@ -20,12 +20,15 @@ body {
 	height: 800px;
 }
 
-.th_button a {
-	
+.th_button {
+	text-align: center;
+	cursor: pointer;
 }	
 
 .movie-container {
     margin: 25px 0 8px 0;
+    width: 200px;
+    text-align: center;
 }
 
 .movie-container select {
@@ -47,18 +50,18 @@ body {
 
 .container {
     perspective: 100px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    margin: 5px auto 30px auto;
+    width: 370px;
+    text-align: center;
 }
 
 .seat {
     background-color: white;
-    height: 15px;
-    width: 17px;
-    margin: 3px;
+    height: 27px;
+    width: 29px;
+    margin: 4px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    text-align: center;
 }
 
 .seat.selected {
@@ -89,13 +92,14 @@ body {
 
 .showcase {
     background: rgba(0, 0, 0, 0.1);
-    padding: 5px 8px;
+    padding: 10px;
     border-radius: 5px;
     color: white;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     height: 30px;
+    width: 490px;
 }
 
 .showcase li {
@@ -111,15 +115,17 @@ body {
 
 .row {
     display: flex;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .screen {
     background-color: white;
-    height: 70px;
+    height: 75px;
     width: 100%;
-    margin: 15px 0;
+    margin: 45px 0;
     transform: rotateX(-45deg);
     box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7)
 }
@@ -127,9 +133,40 @@ body {
 p.text {
     margin: 5px 0;
     color: white;
+    text-align: center;
 }
 
 p.text span {
     color: #6feaf6;
 }
 
+.btn-5 {
+  background : #34333b;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position:relative;
+  overflow:hidden;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.btn-5:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background : #fff;
+  left: 0;
+  bottom: 0;
+  transition: all .3s;
+  opacity: 0.3;
+}
+
+.btn-5:hover:before {
+  width: 100%;
+}

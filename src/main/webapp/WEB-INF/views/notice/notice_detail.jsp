@@ -27,7 +27,7 @@
 					<br>
 				</div>
 				<div class="card-body">
-					<div id="datatablesSimple">
+					<div id="datatablesSimple2">
 						<div id="ncontent">&emsp;${notice.ncontent}</div>
 						
 					</div>
