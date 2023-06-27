@@ -21,8 +21,7 @@
 		        <label>&emsp;User ID</label>
 		        <input type="text" name="id" id="id" value="${id}" size="12" placeholder="아이디">
 		        <input type="hidden" name="reid" id="reid" value="${reid}">
-		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"
-		        		style="font-weight:bold; color:#E8F5FF;"><br>
+		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"><br>
 		        
 		        <label>&emsp;Password</label> 
 		        <input type="password"  name="password" id="password" placeholder="비밀번호"><br> 

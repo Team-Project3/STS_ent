@@ -20,7 +20,7 @@
 <div class="login_form">
         
     
-    <form method="post" action="login">
+    <form method="post" action="login" id="loginform">
         <h3>Sign In</h3>
 		<br><br>
         
