@@ -2,7 +2,7 @@
 -- 사용자 테이블
 -- 컬럼명: 아이디, 비밀번호, 이름, 전화번호, 생년월일, 이메일
 create table member (
-    id varchar(20) primary key,
+    id varchar(100) primary key,
     password varchar2(20) not null,
     name varchar2(40) not null,
     phone varchar2(20) not null,
