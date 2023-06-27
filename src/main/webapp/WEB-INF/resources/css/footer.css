@@ -6,6 +6,7 @@
 	font-size: 15px;
 	line-height: 24px;
 	color: #737373;
+	border-top: 0.1px solid #c8c8c8;
 }
 
 .logo-justify {
@@ -25,7 +26,7 @@
 	display : flex;
 	justify-content: center;
 	display: flex;
-	margin: 30px auto 0 auto;
+	margin: 0 auto;
 }
 
 .site-footer hr {
@@ -43,8 +44,8 @@
 	text-transform: uppercase;
 	margin-top: 5px;
 	letter-spacing: 2px;
-	margin-right: 70px;
-	width: 150px;
+	margin-right: 60px;
+	width: 185px;
 }
 
 #fleft {
@@ -162,11 +163,11 @@
 }
 
 .text-justify {
-	width: 400px;
+	width: 425px;
 }
 
 .flogo {
-	margin: 30px 70px;
+	margin: 30px 82px;
 	width: 150px;
 	height: 150px;
 }

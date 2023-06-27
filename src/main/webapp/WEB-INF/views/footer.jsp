@@ -7,8 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/footer.css" />
 </head>
 <body>
-	<!-- Site footer -->
-	<hr>
 	<footer class="site-footer">
 
 		<div class="container">
