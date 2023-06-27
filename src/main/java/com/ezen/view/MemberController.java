@@ -1,15 +1,12 @@
 package com.ezen.view;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,13 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.ezen.biz.dto.AdminVO;
 import com.ezen.biz.dto.BookingVO;
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.dto.ReviewVO;
 import com.ezen.biz.dto.Booking_Total_entVO;
 import com.ezen.biz.dto.Review_Total_entVO;
-import com.ezen.biz.dto.Total_entVO;
 import com.ezen.biz.service.BookingService;
 import com.ezen.biz.service.MemberService;
 import com.ezen.biz.service.ReviewService;
@@ -96,7 +91,14 @@ public class MemberController {
 		}
 
 	}
+	
+	// 카카오 로그인 폼
+		@GetMapping("/kakaologin")
+		public String kakaologinf() {
 
+			return "member/kakaologin";
+		
+		}
 	// 회원가입 화면
 	@RequestMapping("/signup_form")
 	public String signupView() {

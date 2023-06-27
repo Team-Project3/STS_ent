@@ -1,14 +1,14 @@
 
 body {
-	 overflow: auto;
-	 height: 1200px;
-	 background-color:#34333b;
-	 overflow-x:hidden; 
+    overflow: auto;
+    height: 1200px;
+    background-color:#34333b;
+    overflow-x:hidden; 
 }
 
 #signup {
-	height: 920px;
-	width: 40%;
+   height: 920px;
+   width: 40%;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -22,13 +22,13 @@ body {
 }
 
 fieldset {
-	margin: 0 auto;
-	width: 85%;
-	margin-top: 30px;
+   margin: 0 auto;
+   width: 85%;
+   margin-top: 30px;
 }
 
 input{
-	margin: 0 auto;
+   margin: 0 auto;
     display: block;
     height: 40px;
     width: 95%;
@@ -42,8 +42,7 @@ input{
 
 ::placeholder,
 input[type="date"] {
-	color: #c8c8c8;
-	font-weight: bold;
+   color: #c8c8c8;
 }
 
 
@@ -51,18 +50,18 @@ input[type="date"] {
 input[type="text"]:focus,
 input[type="hidden"]:focus,
 input[type="password"]:focus{
-	background-color: #E8F5FF;
+   background-color: #E8F5FF;
 }
 
 legend {
-	font-size: 28px;
-	font-weight: bold;
-	color: white;
+   font-size: 28px;
+   font-weight: bold;
+   color: white;
 }
 
 label {
-	color: white;
-	font-weight: bold;
+   color: white;
+   font-weight: bold;
 }
 
 button{
@@ -78,16 +77,17 @@ button{
 }
 
 .dup {
-	font-weight:bold; 
-	color:#E8F5FF;
+   font-weight:bold; 
+   border-radius: 20px;
+   background-color: #E8F5FF;
 }
 
 
 /* footer */
 .footer{
-	position: absolute;
-  	bottom: 900;
-  	top: 1300px;
-  	background-color: #34333b;
-	width: 100%;
+   position: absolute;
+     bottom: 900;
+     top: 1300px;
+     background-color: #34333b;
+   width: 100%;
 }

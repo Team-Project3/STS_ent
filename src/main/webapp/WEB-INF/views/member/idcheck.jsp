@@ -12,7 +12,7 @@
 <div id="wrap">
   <h1>ID 중복확인</h1>
   <form method="post" name="formm" id="theform" style="margin-right:0 " action="id_check_form" >
-    User ID <input type="text" name="id" value="${id}"> 
+    User ID <input type="text" name="id" value="${id}" id="id"> 
             <input type="submit" value="검색" class="submit"><br>     
     <div style="margin-top: 20px">   
       <c:if test="${message == 1}">

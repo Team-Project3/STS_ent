@@ -166,7 +166,8 @@ function changePassword() {
 
 function idok(){
 	var openerForm = window.opener.document.forms["go_signup"];
-	openerForm.id.value="${id}"; 
-	openerForm.reid.value="${id}";
+	var id=document.getElementById("id").value;
+	openerForm.id.value=id; 
+	openerForm.reid.value=id;
 	self.close();
 }

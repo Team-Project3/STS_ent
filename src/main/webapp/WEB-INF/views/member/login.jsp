@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 
@@ -40,6 +42,10 @@
 			<a class="submit" href="signup_form">SIGN UP</a>
         </div>
         <div id="naverIdLogin"></div>
+        <a id="kakao-login-btn" href="javascript:kakaologin()">
+    <img src="//k.kakaocdn.net/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="83%" height ="50px" />
+    </a>
+<p id="token-result"></p>
     </form>
     
 </div>
@@ -48,6 +54,7 @@
 </div>
 </body>
   <script type="text/javascript">
+  
   	const naverLogin = new naver.LoginWithNaverId(
 	        {
 	            clientId: "IK04q9z9rJMeoi3tE_bf",
@@ -57,4 +64,14 @@
 	    );
   	naverLogin.init();
   </script>
+<script>
+  function kakaologin() {
+    Kakao.init('e6642bc88fd411b12f3c678d2f563941');
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:8506/biz/kakaologin',
+    });
+  }
+
+  // Rest of the code...
+</script>
 </html>
