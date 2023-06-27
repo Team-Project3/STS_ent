@@ -28,15 +28,15 @@
         <input type="password" placeholder="PASSWORD" name="password">
 		<br>
 		<div style="text-align: right;">
-			<a type="button" class="submit" onclick="find_id_form()">ID/PW 찾기</a>
+			<a type="button" class="submit1" onclick="find_id_form()">ID/PW 찾기</a>
 			
         </div>
         
-        <button type="submit" class="submit">Log In</button>
+        <button type="submit" class="submit2">Log In</button>
         <br><br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
-			<a class="submit" href="signup_form">SIGN UP</a>
+			<a class="submit3" href="signup_form">SIGN UP</a>
         </div>
     </form>
 </div>

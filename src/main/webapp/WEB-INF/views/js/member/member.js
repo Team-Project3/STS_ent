@@ -22,6 +22,16 @@ function handleDateClick() {
     birthInput.max = today;
 }
 
+//중복 체크 버튼을 클릭할 때 중복 체크 여부를 확인하고, 체크되지 않았다면 알림창 띄우기
+function checkDuplicate() {
+    if (document.getElementById("reid").value == "") {
+        alert("아이디 중복체크를 해주시기 바랍니다.");
+        return false;
+    } else {
+        go_save();
+    }
+}
+
 //회원 가입 시 필수 입력 확인
 function go_save() {
 	if (document.getElementById("id").value == "") {
@@ -99,8 +109,6 @@ function hypenTel(target) {
 	  target.value = value.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`); // 형식 변환
 }
 
-
-
 //아이디 찾기 창 띄우기
 function find_id_form() {
 	var url = "find_id_form";
@@ -166,7 +174,8 @@ function changePassword() {
 
 function idok(){
 	var openerForm = window.opener.document.forms["go_signup"];
-	openerForm.id.value="${id}"; 
-	openerForm.reid.value="${id}";
+	var id=document.getElementById("id").value;
+	openerForm.id.value=id; 
+	openerForm.reid.value=id;
 	self.close();
 }

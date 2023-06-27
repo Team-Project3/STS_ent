@@ -1,9 +1,22 @@
-
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
 	 overflow: auto;
 	 height: 1200px;
 	 background-color:#34333b;
 	 overflow-x:hidden; 
+}
+
+#signup * {
+	font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
 }
 
 #signup {
@@ -23,7 +36,7 @@ body {
 
 fieldset {
 	margin: 0 auto;
-	width: 85%;
+	width: 90%;
 	margin-top: 30px;
 }
 
@@ -31,7 +44,7 @@ input{
 	margin: 0 auto;
     display: block;
     height: 40px;
-    width: 95%;
+    width: 98%;
     background-color: rgba(255,255,255,0.07);
     border-radius: 3px;
     padding: 0 10px;
@@ -40,17 +53,9 @@ input{
     font-weight: 300;
 }
 
-::placeholder,
-input[type="date"] {
+::placeholder, input[type="text"], 
+input[type="password"], input[type="date"] {
 	color: #c8c8c8;
-}
-
-
-
-input[type="text"]:focus,
-input[type="hidden"]:focus,
-input[type="password"]:focus{
-	background-color: #E8F5FF;
 }
 
 legend {
@@ -80,6 +85,7 @@ button{
 	font-weight:bold; 
 	border-radius: 20px;
 	background-color: #E8F5FF;
+	cursor: pointer;
 }
 
 

@@ -33,8 +33,7 @@
 		        <input type="text" name="name" id="name" placeholder="이름"><br> 
 		       
 		        <label>&emsp;Birth</label>
-
-		        <input type="date" name="birth" id="birth" onclick="handleDateClick()">
+		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" />
 		        
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" name="email" id="email" placeholder="e-mail"><br>
@@ -45,7 +44,7 @@
 		        
 		        <div class="clear" style="text-align: center;">
 					<div id="buttons">
-						<button type="button" class="submit"  onclick="go_save()">회원가입</button>&nbsp;&nbsp;&nbsp;&nbsp;	
+						<button type="button" class="submit"  onclick="checkDuplicate()">회원가입</button>&nbsp;&nbsp;&nbsp;&nbsp;	
 						<button type="reset"  class="cancel" onclick="location='index'">취소</button>
 					</div>
 				</div>
