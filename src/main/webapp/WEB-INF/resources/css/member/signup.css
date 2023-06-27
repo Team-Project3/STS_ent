@@ -43,7 +43,6 @@ input{
 ::placeholder,
 input[type="date"] {
 	color: #c8c8c8;
-	font-weight: bold;
 }
 
 
@@ -79,7 +78,8 @@ button{
 
 .dup {
 	font-weight:bold; 
-	color:#E8F5FF;
+	border-radius: 20px;
+	background-color: #E8F5FF;
 }
 
 
