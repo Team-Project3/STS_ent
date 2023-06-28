@@ -95,7 +95,7 @@ public class MemberController {
 	// 카카오 로그인 폼
 		@GetMapping("/kakaologin")
 		public String kakaologinf() {
-
+			//
 			return "member/kakaologin";
 		
 		}
