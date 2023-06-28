@@ -42,10 +42,8 @@
 					<h6 id="fleft">Quick Links</h6>
 					<ul class="footer-links">
 						<li><a href="aboutus">About Us</a></li>
-						<li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-						<li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-						<li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-						<li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+						<li><a href="contactus">Contact Us</a></li>
+						<li><a href="privacy_policy">Privacy Policy</a></li>
 					</ul>
 				</div>
 			</div>
