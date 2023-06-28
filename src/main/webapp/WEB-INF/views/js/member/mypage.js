@@ -1,5 +1,5 @@
+//회원 탈퇴
 function submitForm() {
-
 	var pw = document.getElementById("pw").value;
 	var password = document.getElementById("password").value;
 	console.log(pw);
@@ -20,6 +20,7 @@ function submitForm() {
 	}
 }
 
+//회원 수정
 function submitUpdate() {
 	var email = document.getElementById("email").value;
     var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -29,7 +30,14 @@ function submitUpdate() {
 	var eng = password.search(/[a-z]/ig);
 	var spe = password.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 	
-	if(password.length <= 8 || password.length >= 12){
+    var phone = document.getElementById("phone").value;
+    var phonePattern = /^[\d-]+$/;
+	
+	if (document.getElementById("name").value == "") {
+		alert("이름을 입력하세요.");
+		document.getElementById("name").focus();
+		return false;
+	} else if(password.length <= 8 || password.length >= 12){
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
         return false;
@@ -40,27 +48,26 @@ function submitUpdate() {
 	} else if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
-	} else if (document.getElementById("id").value == "") {
-		alert("아이디를 입력하세요.");
-		document.getElementById("id").focus();
-		return false;
-	} else if (document.getElementById("name").value == "") {
-		alert("이름을 입력하세요.");
-		document.getElementById("name").focus();
-		return false;
 	} else if (document.getElementById("email").value == "") {
 		alert("이메일을 입력하세요.");
 		document.getElementById("email").focus();
 		return false;
-		
 	} else if(!emailPattern.test(email)) {
-		alert("이메일을 제대로 입력해주세요.");
+		alert("이메일을 다시 입력해주세요.");
 	    document.getElementById("email").focus();
 	    return false;
 	} else if (document.getElementById("phone").value == "") {
 		alert("핸드폰번호를 입력하세요.");
 		document.getElementById("phone").focus();
 		return false;
+	} else if(phone.length < 13 || phone.length > 14) {
+		alert("전화번호를 다시 입력해주세요.");
+		phone.focus();
+		return false;
+	} else if (!phonePattern.test(phone)) {
+	    alert("전화번호는 숫자만 입력해주세요.");
+	    phone.focus();
+	    return false;
 	} else {
 		var theform = document.getElementById("update");
 		alert("회원 정보가 수정되었습니다.");

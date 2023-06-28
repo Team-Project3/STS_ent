@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="../header.jsp" %>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,28 +19,29 @@
 		<fieldset>
 			<legend>Sign Up</legend><br>
 		        <label>&emsp;User ID</label>
-		        <input type="text" name="id" id="id" value="${id}" size="12" placeholder="아이디">
+		        
+		        <input type="text" maxlength="20" name="id" id="id" value="${id}" size="12" placeholder="아이디">
 		        <input type="hidden" name="reid" id="reid" value="${reid}">
 		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"><br>
 		        
 		        <label>&emsp;Password</label> 
-		        <input type="password"  name="password" id="password" placeholder="비밀번호"><br> 
+		        <input type="password" maxlength="30" name="password" id="password" placeholder="비밀번호"><br> 
 		        
 		        <label>&emsp;Retype Password</label> 
-		        <input type="password"  name="passwordCheck" id="passwordCheck" placeholder="비밀번호 체크" onchange="check_pwd()"><br> 
+		        <input type="password" maxlength="30" name="passwordCheck" id="passwordCheck" placeholder="비밀번호 체크" onchange="check_pwd()"><br> 
 		        
 		        <label>&emsp;Name</label>
-		        <input type="text" name="name" id="name" placeholder="이름"><br> 
+		        <input type="text" maxlength="20" name="name" id="name" placeholder="이름"><br> 
 		       
 		        <label>&emsp;Birth</label>
 		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" />
 		        
 		        <label>&emsp;E-Mail</label>
-		        <input type="text" name="email" id="email" placeholder="e-mail"><br>
+		        <input type="text" maxlength="50" name="email" id="email" placeholder="e-mail"><br>
 		      
 		        <label>&emsp;Phone</label>
 
-		        <input type="text" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
+		        <input type="text" maxlength="50" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
 		        
 		        <div class="clear" style="text-align: center;">
 					<div id="buttons">

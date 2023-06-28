@@ -17,11 +17,11 @@
 			<table>
 				<tr>
 					<td align="right"><label> 이름</label></td>
-					<td><input type="text" name="name" id="name" value=""></td>
+					<td><input maxlength="30" type="text" name="name" id="name" value=""></td>
 				</tr>
 				<tr>
 					<td align="right"><label> 이메일</label></td>
-					<td><input type="text" name="email" id="email" value=""></td>
+					<td><input maxlength="50" type="text" name="email" id="email" value=""></td>
 				</tr>
 				<tr>
 					<td align="right" colspan="2"><input type="button"
@@ -35,15 +35,15 @@
 			<table>
 				<tr>
 					<td align="right"><label> 아이디</label></td>
-					<td><input type="text" name="id" id="id2" value=""></td>
+					<td><input maxlength="30" type="text" name="id" id="id2" value=""></td>
 				</tr>
 				<tr>
 					<td align="right"><label> 이름</label></td>
-					<td><input type="text" name="name" id="name2" value=""></td>
+					<td><input maxlength="30" type="text" name="name" id="name2" value=""></td>
 				</tr>
 				<tr>
 					<td align="right"><label> 이메일</label></td>
-					<td><input type="text" name="email" id="email2" value=""></td>
+					<td><input maxlength="50" type="text" name="email" id="email2" value=""></td>
 				</tr>
 				<tr>
 					<td align="right" colspan="2"><input type="button"

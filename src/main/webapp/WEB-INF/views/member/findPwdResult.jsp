@@ -28,15 +28,15 @@ function idok(){
 			<table>
 				<tr>
 					<td>User ID</td>
-					<td><input type=text name="id" value="${id}" readonly="readonly"></td>
+					<td><input maxlength="30" type=text name="id" value="${id}" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호</td>
-					<td><input type="password" name="password" id="password"></td>
+					<td><input maxlength="30" type="password" name="password" id="password"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호 확인</td>
-					<td><input type="password" name="pwdCheck" id="pwdcheck"></td>
+					<td><input maxlength="30" type="password" name="pwdCheck" id="pwdcheck"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="button" value="확인" onclick="changePassword()"></td>

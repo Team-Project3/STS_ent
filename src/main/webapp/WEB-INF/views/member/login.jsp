@@ -24,8 +24,8 @@
         <h3>Sign In</h3>
 		<br><br>
         
-        <input type="text" placeholder="ID" name="id" value="${id}">
-        <input type="password" placeholder="PASSWORD" name="password">
+        <input maxlength="30" type="text" placeholder="ID" name="id" value="${id}">
+        <input maxlength="30" type="password" placeholder="PASSWORD" name="password">
 		<br>
 		<div style="text-align: right;">
 			<a type="button" class="submit1" onclick="find_id_form()">ID/PW 찾기</a>

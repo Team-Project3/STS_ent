@@ -43,7 +43,7 @@
 							<tr>
 								<td>비밀번호</td>
 								<td><input id="password" name="password" type="text"
-									value="${membervo.password}"></td>
+									value="${membervo.password}" onchange="check_pwd()"></td>
 							</tr>
 							<tr>
 								<td>이름</td>

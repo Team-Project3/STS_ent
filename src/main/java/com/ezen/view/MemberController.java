@@ -71,7 +71,9 @@ public class MemberController {
 	//회원가입 처리
 	@RequestMapping("/signup")
 	public String signupAction(MemberVO vo) {
-
+		
+		System.out.println(vo);
+		
 	    memberService.insertMember(vo);
 	    
 	    return "redirect:login_form";
