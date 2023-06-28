@@ -277,4 +277,10 @@ public class MemberController {
 		
 		return "redirect:mypage";
 	}
+	
+	//about us
+	@GetMapping("/aboutus")
+	public String aboutus() {
+		return "aboutus";
+	}
 }

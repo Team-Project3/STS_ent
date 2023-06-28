@@ -13,25 +13,33 @@
 <script type="text/javascript" src="js/member/mypage.js"></script>
 </head>
 <body>
-<div class="mypage">
+<div class="mypageUpdate">
 	<form name="formm" id="update" method="post">
 	
-		<div class="memberinfo" align="center">
+		<div class="memberinfo">
 			<div class="member">
-				<span id="h">회원 정보</span>
-				<hr>
+				<h1>회원 정보 수정</h1>
 				
+				<fmt:formatDate value='${membervo.birth}' pattern='yyyy-MM-dd' var="birth"/>
 				<div>
 					<table>
 						<tr>
 							<td>이름</td>
 							<td><input id="name" name="name" type="text" value="${membervo.name}"></td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td id="password"><input type="password" value="${membervo.password}" name="password"></td>
+						</tr>
+						<tr>
 							<td>생일</td>
-							<td id="birth"><input type="text" value="${membervo.birth}" name="birth" readonly="readonly"></td>
+							<td id="birth"><input type="text" value="${birth}" name="birth" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<td>아이디</td>
 							<td><input id="id" name="id" type="text" value="${membervo.id}" readonly="readonly"></td>
+						</tr>
+						<tr>
 							<td>전화번호</td>
 							<td><input id="phone" name="phone" type="text" value="${membervo.phone}"></td>
 						</tr>
@@ -39,8 +47,10 @@
 							<td>이메일</td>
 							<td colspan="3"><input id="email" name="email" type="text" value="${membervo.email}"></td>
 						</tr>
+						<tr>
+							<td colspan="2"><input class="listbtn_wr" type="button" value="수정" onClick="submitUpdate()"></td>
+						</tr>
 					</table>
-			 		<input class="listbtn_wr" type="button" value="수정" onClick="submitUpdate()">		 		     
 				</div>
 			</div>
 		</div>

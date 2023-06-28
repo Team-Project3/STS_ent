@@ -28,12 +28,15 @@ function checkDuplicate() {
         alert("아이디 중복체크를 해주시기 바랍니다.");
         return false;
     } else {
-        go_save();
+    	go_save();
     }
 }
 
 //회원 가입 시 필수 입력 확인
 function go_save() {
+	var email = document.getElementById("email").value;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
 	if (document.getElementById("id").value == "") {
 		alert("사용자 아이디를 입력해 주세요");
 		document.getElementById("id").focus();
@@ -54,16 +57,18 @@ function go_save() {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
 		return false;
-
 	} else if (document.getElementById("birth").value ==="") {
 		alert("생년월일을 입력해 주세요");
 		document.getElementById("birth").focus();
 		return false;
-
 	} else if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
 		document.getElementById("email").focus();
 		return false;
+	} else if(!emailPattern.test(email)) {
+		alert("이메일을 제대로 입력해주세요.");
+	    document.getElementById("email").focus();
+	    return false;
 	} else {
 		alert('회원가입이 완료되었습니다.');
 		document.getElementById("signup").action = "signup"
@@ -177,5 +182,7 @@ function idok(){
 	var id=document.getElementById("id").value;
 	openerForm.id.value=id; 
 	openerForm.reid.value=id;
+	openerForm.id.disabled = true;
 	self.close();
+	
 }
