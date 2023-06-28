@@ -40,7 +40,7 @@ CREATE TABLE booking (
 	bseq NUMBER	NOT NULL primary key,
 	tseq NUMBER	NOT NULL,
 	bstatus VARCHAR2(20) NOT NULL,
-	seat VARCHAR2(200) NOT NULL,
+	seat VARCHAR2(500) NOT NULL,
 	id VARCHAR2(20)	NOT NULL,
 	head NUMBER	NOT NULL,
 	today DATE NOT NULL,
@@ -79,9 +79,9 @@ CREATE TABLE total_ent (
 CREATE TABLE notice (
 	nseq NUMBER	NOT NULL primary key,
 	a_id VARCHAR2(20) NOT NULL,
-	title VARCHAR2(30) NOT NULL,
+	title VARCHAR2(80) NOT NULL,
 	ndate DATE DEFAULT sysdate,
-	ncontent VARCHAR2(200) NOT NULL
+	ncontent VARCHAR2(2000) NOT NULL
 );
 
 insert into notice values(nseq.nextval, 'admin', '공지사항 테스트', sysdate, '으아아아아아아아아아아아');

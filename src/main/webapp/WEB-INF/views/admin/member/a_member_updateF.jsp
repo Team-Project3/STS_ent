@@ -43,17 +43,17 @@
 							<tr>
 								<td>비밀번호</td>
 								<td><input id="password" name="password" type="text"
-									value="${membervo.password}"></td>
+									value="${membervo.password}" maxlength="20"></td>
 							</tr>
 							<tr>
 								<td>이름</td>
 								<td><input id="name" name="name" type="text"
-									value="${membervo.name}"></td>
+									value="${membervo.name}" maxlength="20"></td>
 							</tr>
 							<tr>
 								<td>전화번호</td>
 								<td><input id="phone" name="phone" type="text" oninput="hypenTel(this)"
-									value="${membervo.phone}"></td>
+									value="${membervo.phone}"  maxlength="20"></td>
 							</tr>
 							<tr>
 								<td>생년월일</td>
@@ -65,7 +65,7 @@
 							<tr>
 								<td>이메일</td>
 								<td><input id="email" name="email" type="text"
-									value="${membervo.email}"></td>
+									value="${membervo.email}"  maxlength="20"></td>
 							</tr>
 						</table>
 					</div>

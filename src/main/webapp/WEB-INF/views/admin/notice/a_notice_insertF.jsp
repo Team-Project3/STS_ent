@@ -37,12 +37,12 @@
 					<table>
 						<tr>
 							<td>제목</td>
-							<td><input type="text" id="title" name="title" placeholder="공지글 제목"></td>
+							<td><input type="text" id="title" name="title" placeholder="공지글 제목" maxlength="20"></td>
 						</tr>
 						<tr>
 							<td>내용</td>
 							<td>
-							<textarea id="ncontent" name="ncontent" placeholder="공지글 내용"></textarea></td>
+							<textarea id="ncontent" name="ncontent" placeholder="공지글 내용" maxlength="400"></textarea></td>
 						</tr>
 					</table>
 				</div>

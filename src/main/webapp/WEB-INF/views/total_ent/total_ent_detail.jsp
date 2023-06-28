@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
 <title>total_ent_detail</title>
@@ -129,7 +129,7 @@ height: 100px;
   }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false" ondragstart="return false" onkeydown="return false">
 	<div class="thdetail">
 		<div class="thdetail_header">
 			<h1 onclick="location.href='total_ent_main?category=${total_ent.category}'">&ensp;공연&emsp;<${total_ent.tname}></h1><br>
@@ -214,7 +214,9 @@ $(function() {
 	var edate = document.getElementById("edate").value;
 	var today = new Date();
 	
+	
 	if (new Date(sdate) < today) {
+		today.setDate(today.getDate() + 1);
 		sdate = today;
 	    }
 	

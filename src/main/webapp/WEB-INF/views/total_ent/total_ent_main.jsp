@@ -15,7 +15,7 @@
 <script type="text/javascript" src="js/total_ent/total_ent_main.js"></script>
 </head>
 
-<body>
+<body oncontextmenu="return false">
 	<div class="slider">
 		<div class="slide-viewer">
 			<div class="slide-group">

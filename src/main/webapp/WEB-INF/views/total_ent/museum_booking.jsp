@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel='stylesheet' href='css/total_ent/museum_booking.css'>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     </head>
-<body>
+<body oncontextmenu="return false">
     <div class="container">
         <div class="image-container">
             <img id="img" src="img/museum/${museum.pimg}.jpg">
@@ -37,7 +37,7 @@
                     <tr>
                         <td class="title">인원 수</td>
                         <td>
-                            <input type="number" id="headvalue" min="1" value="1" oninput="calculateTotal()" name="headvalue">매
+                            <input type="number" id="headvalue" min="1" value="1" oninput="return onlyNumber(this);" name="headvalue" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)">매
                         </td>
                     </tr>
                     <tr>

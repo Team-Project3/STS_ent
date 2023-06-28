@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
 <link rel="stylesheet" type="text/css"
 	href="css/booking/bookingmain.css" />
@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body oncontextmenu="return false">
 	<div class="container">
 		<div class="payment-buttons">
 			<button onclick="kakaoPay()" class="payment-button">
