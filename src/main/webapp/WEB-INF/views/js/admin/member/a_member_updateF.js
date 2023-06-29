@@ -14,9 +14,15 @@ function editform() {
 		alert("이름을 입력해 해주세요");
 		document.getElementById("name").focus();
 		return false;
+	} else if(document.getElementById("name").value.search(/\s/) != -1){
+		alert("이름을 공백 없이 입력해주세요.");
+		return false;
 	} else if (document.getElementById("phone").value == "") {
 		alert("전화번호를 입력해 주세요");
 		document.getElementById("phone").focus();
+		return false;
+	} else if(document.getElementById("phone").value.search(/\s/) != -1){
+		alert("전화번호를 공백 없이 입력해주세요.");
 		return false;
 	} else if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
@@ -26,6 +32,9 @@ function editform() {
 		alert("이메일을 다시 입력해주세요.");
 	    document.getElementById("email").focus();
 	    return false;
+	} else if(document.getElementById("email").value.search(/\s/) != -1){
+		alert("이메일을 공백 없이 입력해주세요.");
+		return false;
 	} else if(phone.length < 13 || phone.length > 14) {
 		alert("전화번호를 다시 입력해주세요.");
 		phone.focus();

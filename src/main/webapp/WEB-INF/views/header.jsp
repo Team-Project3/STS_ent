@@ -57,7 +57,7 @@
 					<li><a href="total_ent_main?category=2">Theater</a></li>
 					<li><a href="total_ent_main?category=3">Museum</a></li>
 
-					<hr style="margin-top:447px;">
+					<hr style="margin-top:400px;">
 					<div class="admin">
 						<a href="adminlogin_form">@ Admin</a>
 					</div>
@@ -90,13 +90,13 @@
             	</li>
 			</ul>
 			
-			<form>
+			<div class="formm">
 				<input class="form-control" type="search" placeholder="Search"
 					aria-label="Search">
 				<button class="btn" type="submit">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
-			</form>
+			</div>
 		</nav>
 
 

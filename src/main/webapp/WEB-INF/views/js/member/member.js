@@ -58,6 +58,9 @@ function go_save() {
 		alert("사용자 아이디를 입력해 주세요");
 		document.getElementById("id").focus();
 		return false;
+	} else if(document.getElementById("id").value.search(/\s/) != -1){
+		alert("아이디는 공백 없이 입력해주세요.");
+		return false;
 	} else if (document.getElementById("reid").value == "") {
 		alert("아이디 중복체크를 해주세요");
 		document.getElementById("reid").focus();
@@ -74,9 +77,15 @@ function go_save() {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
 		return false;
+	} else if(document.getElementById("name").value.search(/\s/) != -1){
+		alert("이름을 공백 없이 입력해주세요.");
+		return false;
 	} else if (document.getElementById("birth").value ==="") {
 		alert("생년월일을 입력해 주세요");
 		document.getElementById("birth").focus();
+		return false;
+	} else if(document.getElementById("email").value.search(/\s/) != -1){
+		alert("이메일을 공백 없이 입력해주세요.");
 		return false;
 	} else if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
@@ -98,6 +107,9 @@ function go_save() {
 	    alert("전화번호는 숫자만 입력해주세요.");
 	    phone.focus();
 	    return false;
+	} else if(document.getElementById("phone").value.search(/\s/) != -1){
+		alert("전화번호를 공백 없이 입력해주세요.");
+		return false;
 	} else {
 		alert('회원가입이 완료되었습니다.');
 		document.getElementById("signup").action = "signup"
@@ -116,11 +128,11 @@ function check_pwd(){
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
         return false;
-	}else if(password.search(/\s/) != -1){
+	} else if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
-	}else if(num < 0 || eng < 0 || spe < 0 ){
+	} else if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
 	}
@@ -190,11 +202,27 @@ function findPassword() {
 
 //비밀번호 찾기 후 새 비밀번호 변경
 function changePassword() {
-	if (document.getElementById("password").value == "") {
+	var password = document.getElementById("password").value;
+	var num = password.search(/[0-9]/g);
+	var eng = password.search(/[a-z]/ig);
+	var spe = password.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+	if(password.length <= 8 || password.length >= 12){
+		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
+		document.getElementById("password").value = "";
+        return false;
+	} else if(password.search(/\s/) != -1){
+		alert("비밀번호는 공백 없이 입력해주세요.");
+		document.getElementById("password").value = "";
+		return false;
+	} else if(num < 0 || eng < 0 || spe < 0 ){
+		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
+		return false;
+	} else if (document.getElementById("password").value == "") {
 		alert("비밀번호를 입력해 주세요");
 		document.getElementById("password").focus();
 		return false;
-	} else if (document.getElementById("password").value
+	} else if(document.getElementById("password").value
 				!= document.getElementById("pwdcheck").value) {
 		alert("비밀번호가 맞지 않습니다.");
 		document.getElementById("password").focus();

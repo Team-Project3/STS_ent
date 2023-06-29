@@ -24,8 +24,6 @@
 <body>
 
 <div class="login_form">
-        
-    
     <form method="post" action="login" id="loginform">
         <h3>Sign In</h3>
 		<br><br>
@@ -35,23 +33,23 @@
 		<br>
 		<div style="text-align: right;">
 			<a type="button" class="submit1" onclick="find_id_form()">ID/PW 찾기</a>
-			
-        </div>
+		</div>
         
         <button type="submit" class="submit2">Log In</button>
-        <br><br>
+        
+        <div class="social">
+			<div id="naverIdLogin"></div>
+			<div id="kakaoIdLogin">
+		        <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+		  			<img src="img/kakaoLogin.png" alt="카카오 로그인 버튼"/>
+				</a>
+			</div>
+        </div>
+        <br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
 			<a class="submit3" href="signup_form">SIGN UP</a>
         </div>
-        <div id="naverIdLogin"></div>
-        <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-    alt="카카오 로그인 버튼" />
-</a>
-<p id="token-result"></p>
-<button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
-
     </form>
     
 </div>
@@ -65,7 +63,7 @@
 	        {
 	            clientId: "IK04q9z9rJMeoi3tE_bf",
 	            callbackUrl: "http://localhost:8506/biz/naverlogin",
-	            loginButton: {color: "green", type: 1, height: 40, width: 120}
+	            loginButton: {color: "green", type: 6, height: 43, width: 180}
 	        }
 	    );
   	naverLogin.init();

@@ -37,6 +37,9 @@ function submitUpdate() {
 		alert("이름을 입력하세요.");
 		document.getElementById("name").focus();
 		return false;
+	} else if(document.getElementById("name").value.search(/\s/) != -1){
+		alert("이름을 공백 없이 입력해주세요.");
+		return false;
 	} else if(password.length <= 8 || password.length >= 12){
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
@@ -56,6 +59,9 @@ function submitUpdate() {
 		alert("이메일을 다시 입력해주세요.");
 	    document.getElementById("email").focus();
 	    return false;
+	} else if(document.getElementById("email").value.search(/\s/) != -1){
+		alert("이메일을 공백 없이 입력해주세요.");
+		return false;
 	} else if (document.getElementById("phone").value == "") {
 		alert("핸드폰번호를 입력하세요.");
 		document.getElementById("phone").focus();
@@ -68,6 +74,9 @@ function submitUpdate() {
 	    alert("전화번호는 숫자만 입력해주세요.");
 	    phone.focus();
 	    return false;
+	} else if(document.getElementById("phone").value.search(/\s/) != -1){
+		alert("전화번호를 공백 없이 입력해주세요.");
+		return false;
 	} else {
 		var theform = document.getElementById("update");
 		alert("회원 정보가 수정되었습니다.");
