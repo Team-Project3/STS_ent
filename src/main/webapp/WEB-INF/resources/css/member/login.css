@@ -11,7 +11,6 @@ body{
     background-color: #34333b;
     overflow: auto;
     height: 800px;
-    overflow-x:hidden; 
 }
 
 .login_form{
@@ -45,7 +44,8 @@ body{
     right: -30px;
     bottom: -80px;
 }
-form{
+
+#loginform {
     height: 480px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
@@ -59,14 +59,13 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
-form *{
+#loginform *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-form h3{
+#loginform h3{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
@@ -104,9 +103,18 @@ button{
     border-radius: 4rem;
     cursor: pointer;
 }
-.submit{
+.submit1, .submit2, .submit3 {
 	color: #a7e8fa;
+	cursor: pointer;
+	transition: background-color .5s;
+	transition: color .5s;
 }
+
+.submit2:hover {
+	color: black;
+	background-color: #c8c8c8;
+}
+
 .social{
   margin-top: 30px;
   display: flex;
@@ -136,53 +144,6 @@ button{
 	position: absolute;
   	bottom: 900;
   	top: 920px;
-  	display: block;
   	background-color: #34333b;
 	width: 100%;
-	text-align: center;
 }
-
-.footer_menu {
-	height: 70px; 
-	position: relative;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-.footer_menu > a {
-	display: inline-block;
-	line-height: 78px;
-    font-size: 15px;
-    padding: 0 16px;
-    position: relative;
-	color: white;
-}
-
-.footer_txt {
-    display: inline-block;
-    height: 165px;
-    width: 800px;
-	margin-left: 100px;
-}
-
-.footer_logo {
-	height: 200px;
-	display: inline-block;
-	text-align: center;
-}
-
-.flogo {
-	width: 160px;
-	height: 160px;	
-}
-
-.footxt {
-    margin-left: 50px;
-    margin-top: 30px;
-    width: 500px;
-    height:120px;
-    display: inline-block;
-    vertical-align: top;
-  	text-align: left;
-}
-

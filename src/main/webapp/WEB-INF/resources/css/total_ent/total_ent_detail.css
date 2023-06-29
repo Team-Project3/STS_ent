@@ -43,17 +43,28 @@ body {
 }
 
 #info {
-	margin-top: 1%;
-	margin-right: 300px;
+	margin-top: 23px;
+	margin-right: 130px;
 	float: right;
 }
 
 table {
 	border-collapse: collapse;
-	width: 500px;
-	height:350px;
+	width: 666px;
+	height:267px;
+	font-size: 15px;
 }
 
+#datetable {
+	width: 300px;
+	border: 1px solid #c8c8c8;
+	border-radius: 30px;
+	height: 300px;
+}
+
+table td {
+	padding-left: 10px;
+}
 
 .tab-section {
 	height: auto;
@@ -66,9 +77,7 @@ table {
 	text-align:center;
 }
 
-
-
-/* 추가 부분 */
+/* 공연정보 및 후기 jQuery */
 h1 { font-family: 'Pacifico', sans-serif; font-size: 2em; }
 p { font-family: Helvetica, Arial, sans-serif;}
 
@@ -84,8 +93,7 @@ p { font-family: Helvetica, Arial, sans-serif;}
 .jsOn ul#tabs {
   border-bottom-style: solid;
   border-bottom-color: #a0d468;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-radius: 7px;
   font-size: 1.5em;
   width: 1400px;
   margin: 260px auto 100px auto;
@@ -103,7 +111,6 @@ p { font-family: Helvetica, Arial, sans-serif;}
 }
 
 .jsOn ul#tabs a {
-  border-right: 1px solid #8cc152;
   color: white;
   display: block;
   padding: 0.5em 1.125em;
@@ -130,51 +137,153 @@ p { font-family: Helvetica, Arial, sans-serif;}
 }
 
 
-/* footer */
-.footer {
-	height: 350px;
+/* datepicker */
+#datePicker {
+	width: 300px;
+	height: 100px;
 }
 
-.footer_menu {
-	height: 70px;
-	position: relative;
+#datePicker td {
+	width: 20px;
+}
+
+#datePicker tbody {
+	height: 200px;
+}
+
+#datePicker td a {
 	text-align: center;
-	margin-bottom: 20px;
 }
 
-.footer_menu>a {
-	display: inline-block;
-	line-height: 78px;
+.ui-datepicker-calendar>tbody td:first-child a, .ui-datepicker-calendar>thead th:first-child
+	{
+	color: #f00;
+}
+
+.ui-datepicker-calendar>tbody td:last-child a, .ui-datepicker-calendar>thead th:last-child
+	{
+	color: blue;
+}
+
+.ui-datepicker-calendar>tbody {
+	width: 799px;
+	height: 500px;
+}
+
+.ui-widget-content .ui-state-default {
+	border: 0px solid #c5c5c5;
+	font-weight: lighter;
+	text-align: center;
+	border-radius: 20px;
+}
+
+.ui-datepicker-calendar {
+	height: 100px;
+}
+
+/* Customize the datepicker appearance */
+.ui-datepicker {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	background-color: #333333;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	width: 300px;
+	height: 300px;
+	margin: -451px 0 0 250px;
+}
+
+.ui-datepicker-header {
+	background-color: #222222;
+	color: #ffffff;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px;
+	height: 30px;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+	font-weight: bold;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+	background-color: #222222;
+	color: #ffffff;
+}
+
+.ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+	background-color: #444444;
+}
+
+.ui-datepicker-calendar td {
+	text-align: center;
+	padding: 5px;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+	background-color: #444444;
+	border-radius: 50%;
+	color: #ffffff;
+}
+
+.ui-datepicker-calendar .ui-state-default:hover {
+	background-color: #666666;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+	background-color: #96C7ED;
+}
+
+.bookingbutton {
+	margin: -115px 0 0 550px;
+	width: 400px;
+	text-align: center;
+	padding: 15px;
 	font-size: 15px;
-	padding: 0 16px;
-	position: relative;
-	color: white;
 }
 
-.footer_txt {
-	display: inline-block;
-	height: 165px;
-	width: 800px;
-	text-align: center;
-	margin-left: 600px;
+.ui-datepicker table {
+	height: 265px;
 }
 
-.footer_logo {
-	width: 200px;
-	height: 200px;
-	display: inline-block;
-	text-align: center;
+.date {
+	margin: -100px 200px -120px 625px;
+	height: 323px;
+}
+`
+.ui-widget.ui-widget-content {
+	height: 302px;
 }
 
-.flogo {
-	width: 160px;
-	height: 160px;
-}
-
-.footxt {
-	margin-left: 50px;
-	width: 500px;
-	height: 200px;
-	display: inline-block;
-	text-align: left;
+button {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+    &.outline {
+        position: relative;
+        z-index: 3;
+        background: transparent;
+        color: #c8c8c8;
+        font-size: 14px;
+        border-color: #c8c8c8;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 22px;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        transition: all 0.2s linear;
+        a {
+            text-decoration: none;
+        }
+    }
+    &.outline:hover {
+        color: white;
+        background: #7dc21e;
+        border-color: white;
+        transition: all 0.2s linear;
+    }
+    &.outline:active {
+        border-radius: 22px;
+    }
 }

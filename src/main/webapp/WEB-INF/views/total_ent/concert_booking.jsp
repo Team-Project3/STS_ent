@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -12,7 +12,7 @@
 <c:set var="rableseat" value="${r-head1}"></c:set>
 <c:set var="aableseat" value="${a-head2}"></c:set>
 <c:set var="bableseat" value="${b-head3}"></c:set>
-<body>
+<body oncontextmenu="return false">
   <div class="container">
   	<div class="img">
   	<h2>공연장 정보</h2>
@@ -25,7 +25,7 @@
           <tr>
             <td class="buttontd">
               <button type="button" value="R" class="seatbutton">R석</button>
-              <div><input type="hidden" min="1" max="${rableseat}" id="Rseathead" class="seathead" pattern="0*[1-9][0-9]*"></div>
+              <div><input type="hidden" min="1" max="${rableseat}" id="Rseathead" class="seathead" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)"></div>
             </td>
             <td>
               <c:out value="잔여석 : ${rableseat} 석"></c:out>
@@ -34,7 +34,7 @@
           <tr>
             <td>
               <button type="button" value="A" class="seatbutton">A석</button>
-              <div><input type="hidden" min="1" max="${aableseat}" id="Aseathead" class="seathead" pattern="0*[1-9][0-9]*"></div>
+              <div><input type="hidden" min="1" max="${aableseat}" id="Aseathead" class="seathead" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)"></div>
             </td>
             <td>
               잔여석 : ${aableseat} 석
@@ -43,14 +43,14 @@
           <tr>
             <td>
               <button type="button" value="B" class="seatbutton">B석</button>
-              <div><input type="hidden" min="1" max="${bableseat}" id="Bseathead" class="seathead" pattern="0*[1-9][0-9]*"></div>
+              <div><input type="hidden" min="1" max="${bableseat}" id="Bseathead" class="seathead" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)"></div>
             </td>
             <td>
               <c:out value="잔여석 : ${bableseat} 석"></c:out>
             </td>
           </tr>
           <tr>
-            <td>
+            <td colspan="2">
               <div class="seat-selection" id="seat">좌석을 선택해주세요</div>
               <div class="totalprice" id="totalprice">0</div>
             </td>

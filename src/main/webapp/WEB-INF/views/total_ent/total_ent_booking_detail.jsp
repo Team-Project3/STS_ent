@@ -3,14 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel='stylesheet' href='css/total_ent/total_ent_booking_detail.css'>
 <script src="js/total_ent/total_ent_booking_detail.js"></script>
 </head>
-<body>
+<body oncontextmenu="return false">
 	<div class="container">
 		<form action="BookingMain" id="BookingMain" method="post"
 			class="booking-form">
@@ -34,7 +34,7 @@
 					<td>${membervo.id}</td>
 				</tr>
 				<tr>
-					<td>공연 명</td>
+					<td>공연명</td>
 					<td>${total_entVO.tname}</td>
 				</tr>
 				<tr>

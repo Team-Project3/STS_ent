@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+/* 회원가입- id 중복체크 */
+.idcheck {
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+}
+
+#wrap {
+	width: 385px;
+	height: 200px;
+	margin: 53px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.idcheckhead {
+	text-align: center;
+}
+
+#theform {
+	margin-top: 20px;
+}
+
+#theform input[type="text"] {
+	width: 200px;
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+}
+
+.submit {
+	padding: 5px 10px;
+	font-size: 14px;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.submit:hover {
+	background-color: #45a049;
+}
+
+.message {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.message .error {
+	color: #ff0000;
+}
+
+.message .success {
+	color: #008000;
+}
+
+.cancel {
+	padding: 5px 10px;
+	font-size: 14px;
+	background-color: #ccc;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.cancel:hover {
+	background-color: #999;
+}
+
+
+/* id,pw 찾기 */
+.findidpw {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+.form-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form-container form {
+	width: 45%; /* 폼 너비 조정 */
+}
+
+#find {
+	width: 630px;
+	height: 281px;
+	margin: 48px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	justify-content: center;
+}
+
+#findId, #findPW {
+	width: 300px;
+}
+
+#findId h1,
+#findPW h1 {
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+#findId label,
+#findPW label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+#findId input[type="text"],
+#findPW input[type="text"] {
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+#findId input[type="button"],
+#findPW input[type="button"] {
+	width: 50%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+#findId input[type="button"]:hover,
+#findPW input[type="button"]:hover {
+	background-color: #45a049;
+}
+
+.message {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.message.success {
+	color: #4CAF50;
+}
+
+.message.error {
+	color: #f44336;
+}
+
+/* 비밀번호 변경 화면 */
+.findpwd {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+.changepwd {
+	width: 600px;
+	height: 290px;
+	margin: 53px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#pwd_form h1 {
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 40px;	
+}
+
+#pwd_form table {
+	width: 100%;
+}
+
+#pwd_form table td:first-child {
+	padding-left: 5%;
+	width: 30%;
+}
+	
+
+#pwd_form input[type="text"],
+#pwd_form input[type="password"] {
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+#pwd_form input[type="button"] {
+	width: 40%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+#pwd_form input[type="button"]:hover {
+	background-color: #45a049;
+}
+
+#text {
+	font-size: 20px;
+	margin: 70px auto;
+	text-align: center;
+}
+
+#text input[type="button"] {
+	margin: 60px auto;
+}
+
+/* 아이디 찾기 결과 */
+.findIdResult {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+#idResult {
+	width: 600px;
+	height: 290px;
+	margin: 53px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+#idResult h1 {
+	font-size: 25px;
+	text-align: center;
+	margin: 60px auto;	
+}
+
+#text2 {
+	font-size: 20px;
+	margin: 50px auto 42px auto;
+	text-align: center;
+}
+
+#id_check_form input[type="button"] {
+	width: 40%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}

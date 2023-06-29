@@ -2,14 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>theater_booking</title>
 <link rel='stylesheet' href='css/total_ent/theater_booking.css'>
 </head>
-<body>
+<body oncontextmenu="return false">
 	<div class="movie-container">
 		<label style="color: white; font-weight: bold;">영화 제목</label> <select
 			id="movie"><option value='${theater.price}'>${theater.tname}</option>

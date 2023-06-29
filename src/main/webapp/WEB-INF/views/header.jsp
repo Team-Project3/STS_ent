@@ -66,14 +66,43 @@
 		</nav>
 
 
-		<nav class="headerlogo" style="text-align: center; margin-top: 10px;">
+		<nav class="headerlogo">
 			<a>
 				<div>
-					<img alt="" src="img/HEADER_LOGO_sts.png"
+					<img id="headerlogo" src="img/HEADER_LOGO_sts.png"
 						onclick="location='index'">
 				</div>
 			</a>
 		</nav>
+
+
+		<nav class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link" href="index">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="notice">Notice</a></li>
+				<li class="nav-item dropdown">
+              		<a href="#">Content</a>
+					<ul>
+				      <li><a href="total_ent_main?category=1">Concert</a></li>
+				      <li><a href="total_ent_main?category=2">Theater</a></li>
+				      <li><a href="total_ent_main?category=3">Museum</a></li>
+				    </ul>
+            	</li>
+			</ul>
+			
+			<form>
+				<input class="form-control" type="search" placeholder="Search"
+					aria-label="Search">
+				<button class="btn" type="submit">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+			</form>
+		</nav>
+
+
+
 	</header>
+	
+	
 </body>
 </html>

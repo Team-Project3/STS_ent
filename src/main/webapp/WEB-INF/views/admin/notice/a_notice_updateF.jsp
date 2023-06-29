@@ -46,7 +46,7 @@
 							<tr>
 								<th>작성자</th>
 								<td><input type="text" id="a_id" name="a_id" readonly="readonly"
-									value="${noticevo.a_id}"></td>
+									value="${noticevo.a_id}" maxlength="20"></td>
 								<th>작성일</th>
 								<td><input type="text" id="ndate" name="ndate" readonly="readonly"
 											value="<fmt:formatDate value='${noticevo.ndate}' pattern='yyyy-MM-dd'/>">
@@ -54,7 +54,7 @@
 							</tr>
 							<tr>
 								<th>내용</th>
-								<td colspan="3"><textarea id="ncontent" name="ncontent" style="height:450px;">${noticevo.ncontent}</textarea></td>
+								<td colspan="3"><textarea id="ncontent" name="ncontent" style="height:450px;" maxlength="400">${noticevo.ncontent}</textarea></td>
 							</tr>
 						</table>
 					</div>

@@ -67,6 +67,10 @@ public class BookingDAO {
 		mybatis.delete("BookingMapper.adeletebooking",vo);
 	}
 	
+	public void deleteBookingfromid(String id) {
+		mybatis.delete("BookingMapper.deleteBookingfromid",id);
+	}
+	
 	public int sumprice(int month,int year) {
 		return mybatis.selectOne("BookingMapper.sumprice",Map.of("month", month, "year", year));
 	}

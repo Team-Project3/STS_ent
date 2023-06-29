@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -11,7 +11,7 @@
 <fmt:formatDate value="${bookingVO.today}" pattern="yyyy-MM-dd" var="today" />
 <fmt:formatDate value="${bookingVO.dday}" pattern="yyyy-MM-dd" var="dday" />
 </head>
-<body>
+<body oncontextmenu="return false">
 <div class="container">
   <div class="image">
     <img alt="" src="${img}">

@@ -71,6 +71,11 @@
 		where bseq = #{bseq}
 	</delete>
 	
+	<delete id="deleteBookingfromid">
+		DELETE FROM booking
+		WHERE id=#{id}
+	</delete>
+	
 	<select id="sumprice" resultType="int">
 	  select  nvl(sum(trunc( b.head*t.price)),0)
 		from booking b, total_ent t where b.tseq=t.tseq and EXTRACT(MONTH FROM dday) = #{month}

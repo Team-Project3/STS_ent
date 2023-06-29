@@ -56,13 +56,13 @@
 							<tr>
 								<td>공연 이름</td>
 								<td colspan="4">
-									<input type="text" id="tname" name="tname">
+									<input type="text" id="tname" name="tname" maxlength="10">
 								</td>
 							</tr>
 							<tr>
 								<td>공연 장소</td>
 								<td colspan="4">
-									<input type="text" id="place" name="place">
+									<input type="text" id="place" name="place" maxlength="10">
 								</td>
 							</tr>
 							<tr>
@@ -80,25 +80,25 @@
 							<tr>
 								<td>공연 금액</td>
 								<td colspan="4">
-									<input type="number" id="price" name="price" step="1000" min="0">
+									<input type="number" id="price" name="price" step="1000" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
 								</td>
 							</tr>
 							<tr>
 								<td>좌석 배치</td>
 								<td colspan="4">
 									<div id="concertseat" style="display: none;">
-										R 석 <input type="number" id="rseat" max="30" min="1"><br>
-										<br> A 석 <input type="number" id="aseat" max="30" min="1"><br>
-										<br> B 석 <input type="number" id="bseat" max="30" min="1">
+										R 석 <input type="number" id="rseat" max="30" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="cseat"><br>
+										<br> A 석 <input type="number" id="aseat" max="30" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="cseat"><br>
+										<br> B 석 <input type="number" id="bseat" max="30" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="cseat">
 									</div>
 									<div id="theaterseat" style="display: none;">
-										가로 <input type="number" id="width" max="9" min="1"><br>
-										<br> 세로 <input type="number" id="length" max="9" min="1">
+										가로 <input type="number" id="width" max="9" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="tseat"><br>
+										<br> 세로 <input type="number" id="length" max="9" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="tseat">
 									</div>
 									<div id="museumseat" style="display: none;">
-										오전 최대 인원 <input type="number" id="am" max="30" min="1"><br>
+										오전 최대 인원 <input type="number" id="am" max="30" min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="mseat"><br>
 										<br> 오후 최대 인원 <input type="number" id="pm" max="30"
-											min="1">
+											min="1" maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="mseat">
 									</div>
 								</td>
 							</tr>
