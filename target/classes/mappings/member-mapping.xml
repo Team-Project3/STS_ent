@@ -7,6 +7,12 @@
 		select * from member 
 		where id=#{id} 
 	</select>
+	
+	<!-- 회원 email를 조건으로 회원 조회 -->
+	<select id="getMemberEmail" resultType="Member">
+		select * from member 
+		where email=#{email} 
+	</select>
 
 	<!-- 회원 존재 여부 조회-->
 	<select id="confirmID" resultType="String">

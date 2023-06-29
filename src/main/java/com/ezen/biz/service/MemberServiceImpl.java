@@ -65,4 +65,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.memberlist();
 	}
 
+	@Override
+	public MemberVO getMemberEmail(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return memberDao.getMemberEmail(vo);
+	}
+
 }

@@ -1,7 +1,5 @@
-/**
- * 
- */
-if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+
+if(document.getElementById("id").value == ""){
 	window.close();
 	window.opener.location.href="login_form";
 }

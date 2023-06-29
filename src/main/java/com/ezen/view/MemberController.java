@@ -73,7 +73,7 @@ public class MemberController {
 	@PostMapping(value = "/naverlogin", produces = "application/text; charset=utf8")
 	public String naverloginaction(MemberVO vo, Model model) {
 
-		String message = "";		
+		String message = "";
 
 		MemberVO memberVO = memberService.getMember(vo.getId());
 		if (memberVO == null) {
@@ -91,39 +91,39 @@ public class MemberController {
 		}
 
 	}
-	
+
 	// 카카오 로그인 폼
-		@GetMapping("/kakaologin")
-		public String kakaologinf() {
-			//
-			return "member/kakaologin";
-		
+	@GetMapping("/kakaologin")
+	public String kakaologinf() {
+		//
+		return "member/kakaologin";
+
+	}
+
+	// 네이버 로그인 처리
+	@ResponseBody
+	@PostMapping(value = "/kakaologin", produces = "application/text; charset=utf8")
+	public String kakaologinaction(MemberVO vo, Model model) {
+
+		String message = "";
+
+		MemberVO memberVO = memberService.getMember(vo.getId());
+		if (memberVO == null) {
+			memberService.insertMember(vo);
+			model.addAttribute("loginUser", memberService.getMember(vo.getId()));
+			message = "<script>alert('회원가입 되었습니다.');location.href='index';</script>";
+
+			return message;
+
+		} else {
+			model.addAttribute("loginUser", memberService.getMember(memberVO.getId()));
+			message = "<script>alert('로그인 되었습니다.');location.href='index';</script>";
+
+			return message;
 		}
-		
-		// 네이버 로그인 처리
-		@ResponseBody
-		@PostMapping(value = "/kakaologin", produces = "application/text; charset=utf8")
-		public String kakaologinaction(MemberVO vo, Model model) {
 
-			String message = "";		
+	}
 
-			MemberVO memberVO = memberService.getMember(vo.getId());
-			if (memberVO == null) {
-				memberService.insertMember(vo);
-				model.addAttribute("loginUser", memberService.getMember(vo.getId()));
-				message = "<script>alert('회원가입 되었습니다.');location.href='index';</script>";
-
-				return message;
-
-			} else {
-				model.addAttribute("loginUser", memberService.getMember(memberVO.getId()));
-				message = "<script>alert('로그인 되었습니다.');location.href='index';</script>";
-
-				return message;
-			}
-
-		}
-		
 	// 회원가입 화면
 	@RequestMapping("/signup_form")
 	public String signupView() {
@@ -137,6 +137,21 @@ public class MemberController {
 		memberService.insertMember(vo);
 
 		return "redirect:login_form";
+
+	}
+
+	// 이메일 중복 확인
+	@ResponseBody
+	@PostMapping(value = "/emailcheck", produces = "application/text; charset=utf8")
+	public String emailcheck(MemberVO vo) {
+		
+		MemberVO memberVO = memberService.getMemberEmail(vo);
+		if (memberVO == null) {
+			return "success";
+
+		} else {//회원이 있을때
+			return "fail";
+		}
 
 	}
 
@@ -338,25 +353,25 @@ public class MemberController {
 
 		return "redirect:mypage";
 	}
-	
-	//footer- about us
+
+	// footer- about us
 	@GetMapping("/aboutus")
 	public String aboutus() {
 		return "aboutus";
 	}
-	
-	//footer- contact us
+
+	// footer- contact us
 	@GetMapping("/contactus")
 	public String contactus() {
 		return "contactus";
 	}
-	
-	//footer- privacy policy
+
+	// footer- privacy policy
 	@GetMapping("/privacy_policy")
 	public String privacy_policy() {
 		return "privacy_policy";
 	}
-	
+
 	@GetMapping("/session_fail")
 	public String session_fail() {
 		return "member/session_fail";

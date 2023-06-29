@@ -35,15 +35,18 @@ function submitUpdate() {
     var phone = document.getElementById("phone").value;
     var phonePattern = /^[\d-]+$/;
 	
+    if(password.length < 8 || password.length > 12){
+		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
+		document.getElementById("password").value = "";
+        return false;
+	} 
+    
 	if (document.getElementById("name").value == "") {
 		alert("이름을 입력하세요.");
 		document.getElementById("name").focus();
 		return false;
-	} else if(password.length <= 8 || password.length >= 12){
-		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
-		document.getElementById("password").value = "";
-        return false;
-	} else if(password.search(/\s/) != -1){
+	} 
+	if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
@@ -76,6 +79,8 @@ function submitUpdate() {
 		theform.action = "mypage_update";
 		theform.submit();
 	}
+	
+	
 }
 
 //전화번호 하이픈 자동 생성
