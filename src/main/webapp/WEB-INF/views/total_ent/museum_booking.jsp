@@ -4,7 +4,8 @@
 <html oncontextmenu="return false">
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>전시 예약</title>
+    <link rel="shortcut icon" href="img/favicon.png">
     <link rel='stylesheet' href='css/total_ent/museum_booking.css'>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     </head>

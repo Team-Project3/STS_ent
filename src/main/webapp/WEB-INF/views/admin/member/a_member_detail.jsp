@@ -13,6 +13,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
+	<link rel="shortcut icon" href="img/favicon.png">
 <link href="css/a_performance.css" rel="stylesheet" />
 <link href="css/admin/member/a_member_detail.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

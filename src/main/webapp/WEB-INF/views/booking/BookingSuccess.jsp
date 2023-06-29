@@ -5,7 +5,8 @@
 <html oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예약 성공</title>
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/booking/bookingsuccess.css" />
 <script src="js/booking/bookingsuccess.js"></script>
 <fmt:formatDate value="${bookingVO.today}" pattern="yyyy-MM-dd" var="today" />

@@ -5,6 +5,7 @@
 <html oncontextmenu="return false">
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="img/favicon.png">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="css/total_ent/concert_booking.css">
 <title>concert_booking</title>

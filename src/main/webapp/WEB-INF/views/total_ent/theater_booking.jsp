@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>theater_booking</title>
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel='stylesheet' href='css/total_ent/theater_booking.css'>
 </head>
 <body oncontextmenu="return false">

@@ -7,8 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 정보 수정</title>
 <link rel="stylesheet" type="text/css" href="css/member/mypage_updateF.css" />
+<link rel="shortcut icon" href="img/favicon.png">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/member/mypage.js"></script>
 

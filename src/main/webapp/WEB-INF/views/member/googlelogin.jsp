@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구글 로그인중</title>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
 <script>

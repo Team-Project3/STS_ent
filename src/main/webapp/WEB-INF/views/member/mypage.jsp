@@ -15,6 +15,7 @@
 	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="js/member/mypage.js"></script>
 <link rel="stylesheet" type="text/css" href="css/member/mypage.css" />
+<link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
 	<div class="mypage">

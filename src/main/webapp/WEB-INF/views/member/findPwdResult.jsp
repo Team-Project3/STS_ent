@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
+<link rel="shortcut icon" href="img/favicon.png">
 <script src="https://code.jquery.com/jquery-3.6.2.min.js"
 	integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
 	crossorigin="anonymous"></script>

@@ -11,6 +11,7 @@
         <title>회원 목록</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/a_performance.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="img/favicon.png">
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
