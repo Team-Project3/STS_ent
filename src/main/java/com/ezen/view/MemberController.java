@@ -122,7 +122,13 @@ public class MemberController {
 		}
 
 	}
+	
+	//구글 로그인 폼
+	@PostMapping("/googlelogin")
+	public String googleloginf() {
+		return "member/googlelogin";
 
+	}
 	// 회원가입 화면
 	@RequestMapping("/signup_form")
 	public String signupView() {
