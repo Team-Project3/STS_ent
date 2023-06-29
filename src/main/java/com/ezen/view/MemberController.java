@@ -95,12 +95,11 @@ public class MemberController {
 	// 카카오 로그인 폼
 	@GetMapping("/kakaologin")
 	public String kakaologinf() {
-		//
 		return "member/kakaologin";
 
 	}
 
-	// 네이버 로그인 처리
+	// 카카오 로그인 처리
 	@ResponseBody
 	@PostMapping(value = "/kakaologin", produces = "application/text; charset=utf8")
 	public String kakaologinaction(MemberVO vo, Model model) {
@@ -137,7 +136,6 @@ public class MemberController {
 		memberService.insertMember(vo);
 
 		return "redirect:login_form";
-
 	}
 
 	// 이메일 중복 확인
@@ -154,7 +152,6 @@ public class MemberController {
 		}
 
 	}
-
 	// id 중복체크
 	@RequestMapping(value = "/id_check_form")
 	public String idCheckView(MemberVO vo, Model model) {

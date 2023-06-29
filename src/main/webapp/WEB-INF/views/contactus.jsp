@@ -24,9 +24,7 @@
 					</div>
 				</div>
 				<div class="bottom-text">
-					<p>Fixyman is proud to be the name that nearly 1 million
-						homeowners have trusted since 1996 for home improvement and
-						repair, providing virtually any home repair.</p>
+					<p>As a developer, we constantly strive for learning and growth, and we enjoy taking up new challenges to solve problems and discover innovative solutions. With our passion and skills, we are eager to contribute to achieving team goals through collaboration.</p>
 				</div>
 			</div>
 			<div class="contact-address-box row">
@@ -46,13 +44,13 @@
 							class="path20"></span>
 						</span>
 					</div>
-					<h3>Lorem Ipsum</h3>
-					<h2>Lorem Ipsum is simply dummy</h2>
+					<h3>Learn EZEN</h3>
+					<h2>자바 기반 빅데이터 SW개발자 양성</h2>
 				</div>
 				<!--End Single Contact Address Box-->
 				<!--Start Single Contact Address Box-->
 				<div class="col-sm-4 single-contact-address-box main-branch">
-					<h3>Lorem Ipsum</h3>
+					<h3>NIMHYUNWOOK,Inc.</h3>
 					<div class="inner">
 						<ul>
 							<li>
@@ -61,18 +59,17 @@
 								</div>
 								<div class="text">
 									<p>
-										Lorem Ipsum, 40C, Lorem Ipsum dummy,<br> Lorem Ipsum, Ch
-										98054
+										GunJung 6F, 1637, Nambusunhwan-ro, Gwanak-gu, Seoul, Republic of Korea
 									</p>
 								</div>
 							</li>
 							<li>
 								<div class="title">
-									<h4>Ph & Fax:</h4>
+									<h4>Ph & Email</h4>
 								</div>
 								<div class="text">
 									<p>
-										+123 456 789 <br> test@info.com
+										02)2088-5679 <br> reaver75@ezenac.co.kr
 									</p>
 								</div>
 							</li>
@@ -98,8 +95,8 @@
 							class="path4"></span>
 						</span>
 					</div>
-					<h3>Lorem Ipsum</h3>
-					<h2>Lorem Ipsum is simply dummy</h2>
+					<h3>Thanks To</h3>
+					<h2>Mr.Cha, kkcha@daum.net</h2>
 				</div>
 				<!--End Single Contact Address Box-->
 			</div>

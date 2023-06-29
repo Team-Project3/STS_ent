@@ -18,7 +18,7 @@
 <article> 
 	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
-			<legend>Sign Up</legend><br>
+			<legend>Sign Up</legend><br> 
 		        <label>&emsp;User ID</label>
 		        
 		        <input type="text" maxlength="20" name="id" id="id" value="${id}" size="12" placeholder="아이디">
@@ -35,11 +35,11 @@
 		        <input type="text" maxlength="20" name="name" id="name" placeholder="이름"><br> 
 		       
 		        <label>&emsp;Birth</label>
-		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" />
+		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" /><br> 
 		        
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" maxlength="50" name="email" id="email" placeholder="e-mail"><br>
-		      
+		       
 		        <label>&emsp;Phone</label>
 		        <input type="text" maxlength="50" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
 		        

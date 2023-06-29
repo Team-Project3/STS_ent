@@ -82,13 +82,13 @@
             	</li>
 			</ul>
 			
-			<form>
+			<div class="formm">
 				<input class="form-control" type="search" placeholder="Search"
 					aria-label="Search">
 				<button class="btn" type="submit">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
-			</form>
+			</div>
 		</nav>
 	</header>
 </body>

@@ -16,17 +16,22 @@
 <body oncontextmenu="return false">
 	<div class="container">
 		<div class="payment-buttons">
+			<h1>결제 수단</h1>
 			<button onclick="kakaoPay()" class="payment-button">
-				<img alt="" src="img/booking/kakaopay.png">
-			</button>
+				<img class="l" src="img/booking/kakaopay.png">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="nicepay()" class="payment-button">
-				<img alt="" src="img/booking/nicepay.png">
-			</button>
+				<img class="l" src="img/booking/nicepay.png">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="kicc()" class="payment-button">
-				<img alt="" src="img/booking/kicc.webp">
-			</button>
+				<img class="l" src="img/booking/kicc.webp">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="tosspayments()" class="payment-button">
-				<img alt="" src="img/booking/toss.png">
+				<img class="l" src="img/booking/toss.png">
+				<img class="p" src="img/화살표.png">
 			</button>
 		</div>
 	</div>

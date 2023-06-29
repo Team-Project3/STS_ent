@@ -24,8 +24,6 @@
 <body>
 
 <div class="login_form">
-        
-    
     <form method="post" action="login" id="loginform">
         <h3>Sign In</h3>
 		<br><br>
@@ -35,11 +33,10 @@
 		<br>
 		<div style="text-align: right;">
 			<a type="button" class="submit1" onclick="find_id_form()">ID/PW 찾기</a>
-			
-        </div>
+		</div>
         
         <button type="submit" class="submit2">Log In</button>
-        <br><br>
+        <br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
 			<a class="submit3" href="signup_form">SIGN UP</a>
@@ -51,9 +48,6 @@
         <a id="kakao-login-btn" href="javascript:loginWithKakao()">
   <img src="img/kakaologin.png" alt="카카오 로그인 버튼" />
 </a>
-<p id="token-result"></p>
-<button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
-
     </form>
     
 </div>
@@ -61,7 +55,7 @@
 <%@ include file="../footer.jsp" %>
 </div>
 </body>
-  <script type="text/javascript">
+<script type="text/javascript">
   
   	const naverLogin = new naver.LoginWithNaverId(
 	        {

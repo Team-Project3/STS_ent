@@ -59,4 +59,5 @@
 	<select id="memberlist" resultType="Member">
 		select * from member
 	</select>
+	
 </mapper>

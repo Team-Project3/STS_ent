@@ -1,46 +1,69 @@
 @charset "UTF-8";
 
 img {
-	width: 200px;
-	height: 100px;
+	width: 150px;
+	height: 80px;
 }
 
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 96vh;
+body {
+	height: 93vh;
 	font-family: Arial, sans-serif;
 	background-color: #f1f1f1;
 }
 
+.container {
+	margin: 40px 0;
+	padding: 20px;
+	border: 1px solid #e1e1e1;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .payment-buttons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-wrap: wrap;
 	gap: 20px;
+	width: 100%;
 }
 
 .payment-button {
-	background-color: #4CAF50;
 	border: none;
 	color: #ffffff;
-	padding: 10px;
+	padding: 10px 10px 10px 50px;
 	font-weight: bold;
 	font-size: 16px;
-	border-radius: 5px;
 	cursor: pointer;
-	width: 200px;
+	width: 100%;
 	height: 120px;
+	text-align: left;
+}
+
+.payment-buttons h1 {
+	margin-left: 20px;	
+}
+
+.payment-button .l {
+	width: 250px;
+	height: 100%;
+	object-fit: contain;
+}
+
+.payment-button .p {	
+	width:50px;
+	height: 95px;
+	margin-left: 430px;
+	object-fit: contain;
+}
+
+.payment-buttons button {
+	border-top: 2px solid #c8c8c8;
+	background-color: #fff;
+}
+
+.payment-buttons button:last-child {
+	border-bottom: 2px solid #c8c8c8;
 }
 
 .payment-button:hover {
-	background-color: #45A049;
-}
-
-.payment-button img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+	background-color: #c8c8c8;
 }

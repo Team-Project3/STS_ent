@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO getMember(String id) {
 		return memberDao.getMember(id);
 	}
-
+	
 	@Override	// 회원 존재 여부 조회
 	public int confirmID(String id) {
 		return memberDao.confirmID(id);
@@ -70,5 +70,4 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDao.getMemberEmail(vo);
 	}
-
 }

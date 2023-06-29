@@ -80,8 +80,6 @@ var email=document.getElementById("email").value;
 // 회원 가입 시 필수 입력 확인
 function go_save() {
 	
-	
-	
 	var email = document.getElementById("email").value;
 	var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	var phone = document.getElementById("phone").value;
@@ -165,12 +163,14 @@ function check_pwd() {
 	if (password.length <= 8 || password.length >= 12) {
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
-		return false;
-	} else if (password.search(/\s/) != -1) {
+
+        return false;
+	} else if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
-	} else if (num < 0 || eng < 0 || spe < 0) {
+
+	} else if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
 	}
@@ -242,12 +242,28 @@ function findPassword() {
 
 // 비밀번호 찾기 후 새 비밀번호 변경
 function changePassword() {
-	if (document.getElementById("password").value == "") {
+	var password = document.getElementById("password").value;
+	var num = password.search(/[0-9]/g);
+	var eng = password.search(/[a-z]/ig);
+	var spe = password.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+	if(password.length <= 8 || password.length >= 12){
+		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
+		document.getElementById("password").value = "";
+        return false;
+	} else if(password.search(/\s/) != -1){
+		alert("비밀번호는 공백 없이 입력해주세요.");
+		document.getElementById("password").value = "";
+		return false;
+	} else if(num < 0 || eng < 0 || spe < 0 ){
+		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
+		return false;
+	} else if (document.getElementById("password").value == "") {
 		alert("비밀번호를 입력해 주세요");
 		document.getElementById("password").focus();
 		return false;
-	} else if (document.getElementById("password").value != document
-			.getElementById("pwdcheck").value) {
+	} else if(document.getElementById("password").value
+				!= document.getElementById("pwdcheck").value) {
 		alert("비밀번호가 맞지 않습니다.");
 		document.getElementById("password").focus();
 		return false;
