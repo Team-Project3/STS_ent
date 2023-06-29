@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
-  integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+  integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
 <script>
 
 </script>
@@ -79,7 +79,8 @@ function loginWithKakao() {
     });
   }
 
-  function requestUserInfo() {
+/*  
+function requestUserInfo() {
     Kakao.API.request({
       url: '/v2/user/me',
     })
@@ -108,7 +109,7 @@ function loginWithKakao() {
   function getCookie(name) {
     var parts = document.cookie.split(name + '=');
     if (parts.length === 2) { return parts[1].split(';')[0]; }
-  }
+  } */
 
 </script>
 </html>

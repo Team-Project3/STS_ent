@@ -95,10 +95,35 @@ public class MemberController {
 	// 카카오 로그인 폼
 		@GetMapping("/kakaologin")
 		public String kakaologinf() {
-
+			//
 			return "member/kakaologin";
 		
 		}
+		
+		// 네이버 로그인 처리
+		@ResponseBody
+		@PostMapping(value = "/kakaologin", produces = "application/text; charset=utf8")
+		public String kakaologinaction(MemberVO vo, Model model) {
+
+			String message = "";		
+
+			MemberVO memberVO = memberService.getMember(vo.getId());
+			if (memberVO == null) {
+				memberService.insertMember(vo);
+				model.addAttribute("loginUser", memberService.getMember(vo.getId()));
+				message = "<script>alert('회원가입 되었습니다.');location.href='index';</script>";
+
+				return message;
+
+			} else {
+				model.addAttribute("loginUser", memberService.getMember(memberVO.getId()));
+				message = "<script>alert('로그인 되었습니다.');location.href='index';</script>";
+
+				return message;
+			}
+
+		}
+		
 	// 회원가입 화면
 	@RequestMapping("/signup_form")
 	public String signupView() {

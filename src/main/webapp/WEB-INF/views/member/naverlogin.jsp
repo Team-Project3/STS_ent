@@ -22,6 +22,7 @@ naverLogin.getLoginStatus(function (status) {
     if (status) {
     	
     	const id = naverLogin.user.getId();
+    	var idstring = id.substring(0,8);
     	const name=naverLogin.user.getName();
         const birthday=naverLogin.user.getBirthday();
         const birthYear = naverLogin.user.getBirthyear();
@@ -35,7 +36,7 @@ naverLogin.getLoginStatus(function (status) {
     		dataType : "text",
     		contentType : 'application/x-www-form-urlencoded; charset=utf-8',
     		data : {
-    			id : id,
+    			id : idstring,
     			password : '1',
     			name : name,
     			phone : mobile,
