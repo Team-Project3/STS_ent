@@ -52,12 +52,9 @@ $.ajax({
 		          var formattedBirthday = month + '-' + day;
 		    	  var birth = response.kakao_account.birthyear+'-'+formattedBirthday;
 		    	  var phoneNumber = response.kakao_account.phone_number;
-	    		  phoneNumber = phoneNumber.replace(/[\s-]/g, '');
-	    	  	  phoneNumber = phoneNumber.substring(3);
+	    	  	  phoneNumber = phoneNumber.substring(4);
 	    		  var phone = 0+phoneNumber;
-	    		  
-	    		  alert(phone);
-	    		  
+	    		  	    		  
 	    	    	$.ajax({
 	    	    		type : "POST",
 	    	    		url : 'kakaologin',
@@ -89,7 +86,7 @@ $.ajax({
 
 	    	  })
 	    	  .catch(function(error) {
-	    	    console.log(error);
+	    		  alert('에러가 발생했습니다');
 	    	  });
 	  },
 	  error: function(jqXHR, error) {

@@ -60,7 +60,6 @@ header {
 
 li {
 	display: flex;
-	width: 100px;
 }
 
 .nav-item {
@@ -172,14 +171,6 @@ header button.btn {
   background: transparent;
   color: #3a4d60;
 }
-
-
-
-
-
-
-
-
 
 .demo-2 {
    --color-text: #fff;

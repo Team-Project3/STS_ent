@@ -338,4 +338,22 @@ public class MemberController {
 
 		return "redirect:mypage";
 	}
+	
+	//footer- about us
+	@GetMapping("/aboutus")
+	public String aboutus() {
+		return "aboutus";
+	}
+	
+	//footer- contact us
+	@GetMapping("/contactus")
+	public String contactus() {
+		return "contactus";
+	}
+	
+	//footer- privacy policy
+	@GetMapping("/privacy_policy")
+	public String privacy_policy() {
+		return "privacy_policy";
+	}
 }

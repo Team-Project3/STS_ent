@@ -18,7 +18,7 @@ public class MemberVO {
 	private String password;
 	private String name;
 	private String phone;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	private String email;
 	

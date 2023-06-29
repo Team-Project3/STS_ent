@@ -50,7 +50,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td colspan="2">
               <div class="seat-selection" id="seat">좌석을 선택해주세요</div>
               <div class="totalprice" id="totalprice">0</div>
             </td>

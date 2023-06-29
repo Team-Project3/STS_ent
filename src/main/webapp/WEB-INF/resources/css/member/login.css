@@ -61,7 +61,6 @@ body{
 }
 #loginform *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -104,9 +103,18 @@ button{
     border-radius: 4rem;
     cursor: pointer;
 }
-.submit{
+.submit1, .submit2, .submit3 {
 	color: #a7e8fa;
+	cursor: pointer;
+	transition: background-color .5s;
+	transition: color .5s;
 }
+
+.submit2:hover {
+	color: black;
+	background-color: #c8c8c8;
+}
+
 .social{
   margin-top: 30px;
   display: flex;

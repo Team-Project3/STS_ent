@@ -30,19 +30,19 @@
         <h3>Sign In</h3>
 		<br><br>
         
-        <input type="text" placeholder="ID" name="id" value="${id}">
-        <input type="password" placeholder="PASSWORD" name="password">
+        <input maxlength="30" type="text" placeholder="ID" name="id" value="${id}">
+        <input maxlength="30" type="password" placeholder="PASSWORD" name="password">
 		<br>
 		<div style="text-align: right;">
-			<a type="button" class="submit" onclick="find_id_form()">ID/PW 찾기</a>
+			<a type="button" class="submit1" onclick="find_id_form()">ID/PW 찾기</a>
 			
         </div>
         
-        <button type="submit" class="submit">Log In</button>
+        <button type="submit" class="submit2">Log In</button>
         <br><br>
         <div style="text-align: right;">
 			아직 회원이 아니신가요?&nbsp;&nbsp;
-			<a class="submit" href="signup_form">SIGN UP</a>
+			<a class="submit3" href="signup_form">SIGN UP</a>
         </div>
         <div id="naverIdLogin"></div>
         <a id="kakao-login-btn" href="javascript:loginWithKakao()">
@@ -78,38 +78,5 @@ function loginWithKakao() {
       redirectUri: 'http://localhost:8506/biz/kakaologin',
     });
   }
-
-/*  
-function requestUserInfo() {
-    Kakao.API.request({
-      url: '/v2/user/me',
-    })
-      .then(function(res) {
-        alert(JSON.stringify(res));
-      })
-      .catch(function(err) {
-        alert(
-          'failed to request user information: ' + JSON.stringify(err)
-        );
-      });
-  }
-
-  // 아래는 데모를 위한 UI 코드입니다.
-  displayToken()
-  function displayToken() {
-    var token = getCookie('authorize-access-token');
-
-    if(token) {
-      Kakao.Auth.setAccessToken(token);
-      document.querySelector('#token-result').innerText = 'login success, ready to request API';
-      document.querySelector('button.api-btn').style.visibility = 'visible';
-    }
-  }
-
-  function getCookie(name) {
-    var parts = document.cookie.split(name + '=');
-    if (parts.length === 2) { return parts[1].split(';')[0]; }
-  } */
-
 </script>
 </html>

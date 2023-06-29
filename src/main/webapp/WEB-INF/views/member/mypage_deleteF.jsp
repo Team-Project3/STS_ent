@@ -14,7 +14,7 @@
 
 <body>
 	<p>비밀번호를 입력하세요:</p>
-	<input type="password" id="password" name="password" required>
+	<input maxlength="30" type="password" id="password" name="password" required>
 	<br>
 	<br>
 	<button type="button" onclick="return submitForm()">탈퇴</button>

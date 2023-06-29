@@ -120,8 +120,14 @@ public class AdminController {
 	//관리자 - 메인 페이지 차트
 	@ResponseBody
 	@PostMapping(value = "/chart_area_demo", produces = "application/text; charset=utf8")
-	public String chart_area_demo() {
-
+	public String chart_area_demo(HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		LocalDate currentDate = LocalDate.now();
 		int currentMonth = currentDate.getMonthValue();
 		int currentYear = currentDate.getYear();
@@ -150,7 +156,13 @@ public class AdminController {
 	//관리자 - 메인 페이지 차트
 	@ResponseBody
 	@PostMapping(value = "/chart_bar_demo",produces = "application/text; charset=utf8")
-	public String chart_bar_demo() {
+	public String chart_bar_demo(HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 		
 		LocalDate currentDate = LocalDate.now();
 		int currentMonth = currentDate.getMonthValue();
@@ -179,7 +191,13 @@ public class AdminController {
 	
 	//관리자 - 공연 메인 페이지 
 	@GetMapping("/a_performance_ent_t")
-	public String a_performance_ent_t(Total_entVO vo, Model model) {
+	public String a_performance_ent_t(Total_entVO vo, Model model, HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		List<Total_entVO> list = total_entService.totalList();
 
@@ -190,8 +208,14 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_f")
-	public String a_performance_ent_f(Model model, Total_entVO vo) {
+	public String a_performance_ent_f(Model model, Total_entVO vo, HttpSession session) {
 
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		List<Total_entVO> list = total_entService.total_entList(vo);
 
 		model.addAttribute("tlist", list);
@@ -202,7 +226,13 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_detail")
-	public String a_performance_ent_detail(Total_entVO vo, Model model) {
+	public String a_performance_ent_detail(Total_entVO vo, Model model, HttpSession session) {
+
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
@@ -213,7 +243,12 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_edit")
-	public String a_performance_editF(Total_entVO vo, Model model) {
+	public String a_performance_editF(Total_entVO vo, Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
@@ -224,7 +259,12 @@ public class AdminController {
 
 	//
 	@PostMapping("/a_performance_edit")
-	public String a_performance_editAction(Total_entVO vo, Model model) {
+	public String a_performance_editAction(Total_entVO vo, Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		total_entService.updatetotalent(vo);
 
@@ -239,6 +279,12 @@ public class AdminController {
 		try {
 
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
+			
+			if (loginadmin == null) {
+				return "admin/a_session_fail";
+			}
+
+			
 			String message = "";
 			if (loginadmin.getA_password().equals(vo.getA_password())) {
 				total_entService.deletetotalent(concertVO);
@@ -258,8 +304,13 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_ent_insert")
-	public String a_performance_ent_insertform() {
-
+	public String a_performance_ent_insertform(HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		return "admin/performance/a_performance_ent_insert";
 	}
 
@@ -267,6 +318,12 @@ public class AdminController {
 	public String a_performance_ent_insert_action(Total_entVO vo,
 			@RequestParam(value = "pimgfile") MultipartFile pimgfile,
 			@RequestParam(value = "cimgfile") MultipartFile cimgfile, HttpSession session) {
+		
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		if (!pimgfile.isEmpty()) {
 
@@ -318,7 +375,12 @@ public class AdminController {
 
 	//
 	@RequestMapping("/a_performance_booking_t")
-	public String a_performance_booking_t(Model model) {
+	public String a_performance_booking_t(Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		List<Booking_Total_entVO> booklist = bookingService.bookingList();
 
@@ -329,7 +391,13 @@ public class AdminController {
 
 	//
 	@RequestMapping("/a_performance_booking_f")
-	public String a_performance_booking_f(Model model, Total_entVO vo, @RequestParam("category") String category) {
+	public String a_performance_booking_f(Model model, Total_entVO vo, HttpSession session, 
+										@RequestParam("category") String category) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		List<Booking_Total_entVO> booklist = bookingService.bookingListcategory(category);
 
@@ -341,7 +409,12 @@ public class AdminController {
 
 	//
 	@GetMapping("/a_performance_booking_detail")
-	public String a_performance_booking_detail(BookingVO vo, Model model, Total_entVO concertVO) {
+	public String a_performance_booking_detail(BookingVO vo, Model model, Total_entVO concertVO, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
 
 		BookingVO bookingVO = bookingService.bookingdetail(vo);
 
@@ -357,8 +430,13 @@ public class AdminController {
 
 	//
 	@PostMapping("/a_performance_booking_edit")
-	public String a_performance_booking_edit(BookingVO vo) {
-
+	public String a_performance_booking_edit(BookingVO vo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		bookingService.updatebooking(vo);
 
 		return "redirect:a_performance_booking_t";
@@ -368,9 +446,14 @@ public class AdminController {
 	//
 	@ResponseBody
 	@PostMapping(value = "/a_performance_booking_delete", produces = "application/text; charset=utf8")
-	public String a_performance_booking_delete(HttpSession session, BookingVO bookingVO, HttpServletResponse response,
-			AdminVO vo) {
-
+	public String a_performance_booking_delete(HttpSession session, BookingVO bookingVO, 
+									HttpServletResponse response, AdminVO vo) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		try {
 
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
@@ -394,8 +477,13 @@ public class AdminController {
 
 	// 관리자 - 회원 전체 리스트
 	@GetMapping("/a_member_main")
-	public String a_member_main(Model model) {
-
+	public String a_member_main(Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		List<MemberVO> memberlist = memberService.memberlist();
 
 		model.addAttribute("memberlist", memberlist);
@@ -405,8 +493,13 @@ public class AdminController {
 
 	// 관리자 - 회원 상세 정보
 	@GetMapping("/a_member_detail")
-	public String a_member_detail(Model model, MemberVO membervo) {
-
+	public String a_member_detail(Model model, MemberVO membervo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		MemberVO member = memberService.getMember(membervo.getId());
 
 		model.addAttribute("membervo", member);
@@ -416,8 +509,13 @@ public class AdminController {
 
 	// 관리자 - 회원 상세 정보 수정
 	@GetMapping(value = "/a_member_updateF")
-	public String updateMemberF(Model model, MemberVO membervo) {
-
+	public String updateMemberF(Model model, MemberVO membervo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		MemberVO member = memberService.getMember(membervo.getId());
 
 		model.addAttribute("membervo", member);
@@ -427,8 +525,13 @@ public class AdminController {
 
 	// 관리자 - 회원 상세 정보 수정 처리
 	@PostMapping("/a_member_editt")
-	public String updateMember(MemberVO membervo, Model model) {
-
+	public String updateMember(MemberVO membervo, Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		memberService.updateMember(membervo);
 
 		return "redirect:a_member_detail?id=" + membervo.getId();
@@ -438,7 +541,12 @@ public class AdminController {
 	@ResponseBody
 	@PostMapping(value = "/a_member_delete", produces = "application/text; charset=utf-8")
 	public String a_member_delete(HttpSession session, MemberVO memberVO, AdminVO vo) throws Exception {
-
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		try {
 
 			AdminVO loginadmin = (AdminVO) session.getAttribute("admin");
@@ -458,8 +566,13 @@ public class AdminController {
 
 	// 관리자 - 공지사항 리스트
 	@GetMapping("/a_notice_main")
-	public String a_notice_main(NoticeVO noticevo, Model model) {
-
+	public String a_notice_main(NoticeVO noticevo, Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		List<NoticeVO> noticeList = noticeService.noticeList();
 
 		model.addAttribute("noticeList", noticeList);
@@ -469,8 +582,13 @@ public class AdminController {
 
 	// 공지사항 상세
 	@RequestMapping("/a_notice_detail")
-	public String noticeDetail(NoticeVO noticevo, Model model) {
-
+	public String noticeDetail(NoticeVO noticevo, Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 
 		model.addAttribute("noticevo", notice);
@@ -485,6 +603,10 @@ public class AdminController {
 	public String noticeInsertF(Model model, HttpSession session) {
 
 		AdminVO admin = (AdminVO) session.getAttribute("admin");
+		
+		if (admin == null) {
+			return "admin/a_session_fail";
+		}
 
 		model.addAttribute("a_id", admin.getA_id());
 
@@ -494,8 +616,13 @@ public class AdminController {
 
 	//공지사항 작성 처리
 	@PostMapping(value="/a_notice_insert")
-	public String noticeInsert(NoticeVO noticevo) {
-
+	public String noticeInsert(NoticeVO noticevo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		noticeService.noticeInsert(noticevo);
 
 		return "redirect:a_notice_main";
@@ -503,8 +630,13 @@ public class AdminController {
 
 	// 공지사항 수정 form
 	@RequestMapping("/a_notice_updateF")
-	public String noticeUpdateF(Model model, NoticeVO noticevo) {
-
+	public String noticeUpdateF(Model model, NoticeVO noticevo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 
 		model.addAttribute("noticevo", notice);
@@ -514,8 +646,13 @@ public class AdminController {
 
 	// 공지사항 수정 처리
 	@RequestMapping("/a_notice_update")
-	public String noticeUpdate(Model model, NoticeVO noticevo) {
-
+	public String noticeUpdate(Model model, NoticeVO noticevo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
+		
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		noticeService.noticeUpdate(noticevo);
 
 		return "redirect:a_notice_detail?nseq=" + noticevo.getNseq();
@@ -527,6 +664,10 @@ public class AdminController {
 
 		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
 
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		model.addAttribute("adminvo", adminvo);
 
 		return "admin/notice/a_notice_deleteF";
@@ -534,8 +675,13 @@ public class AdminController {
 
 	// 공지사항 삭제 페이지
 	@RequestMapping("/a_notice_delete")
-	public String noticeDelete(Model model, NoticeVO noticevo) {
+	public String noticeDelete(Model model, NoticeVO noticevo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
 
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		noticeService.noticeDelete(noticevo.getNseq());
 
 		return "redirect:a_notice_main";
@@ -543,8 +689,13 @@ public class AdminController {
 
 	// 관리자 - 리뷰 리스트
 	@GetMapping("/a_review_main")
-	public String a_review_main(Model model) {
+	public String a_review_main(Model model, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
 
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		List<Review_Total_entVO> reviewlist = reviewService.reviewMemberlist();
 
 		model.addAttribute("reviewlist", reviewlist);
@@ -554,8 +705,13 @@ public class AdminController {
 
 	// 관리자 - 리뷰 디테일
 	@GetMapping("/a_review_detail")
-	public String a_review_detail(Model model, Review_Total_entVO totalentvo) {
+	public String a_review_detail(Model model, Review_Total_entVO totalentvo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
 
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		Review_Total_entVO total = reviewService.reviewDetail(totalentvo.getRseq());
 
 		model.addAttribute("reviewvo", total);
@@ -565,8 +721,13 @@ public class AdminController {
 
 	// 관리자- 리뷰 삭제
 	@GetMapping("/a_review_delete")
-	public String a_review_delete(ReviewVO reviewvo) {
+	public String a_review_delete(ReviewVO reviewvo, HttpSession session) {
+		AdminVO adminvo = (AdminVO) session.getAttribute("admin");
 
+		if (adminvo == null) {
+			return "admin/a_session_fail";
+		}
+		
 		reviewService.deleteReview(reviewvo.getRseq());
 
 		return "redirect:a_review_main";

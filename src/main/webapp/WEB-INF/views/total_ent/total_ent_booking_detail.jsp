@@ -34,7 +34,7 @@
 					<td>${membervo.id}</td>
 				</tr>
 				<tr>
-					<td>공연 명</td>
+					<td>공연명</td>
 					<td>${total_entVO.tname}</td>
 				</tr>
 				<tr>
