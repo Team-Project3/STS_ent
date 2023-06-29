@@ -17,7 +17,7 @@
 <article> 
 	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
-			<legend>Sign Up</legend><br>
+			<legend>Sign Up</legend><br> 
 		        <label>&emsp;User ID</label>
 		        
 		        <input type="text" maxlength="20" name="id" id="id" value="${id}" size="12" placeholder="아이디">
