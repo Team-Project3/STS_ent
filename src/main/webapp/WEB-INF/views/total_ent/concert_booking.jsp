@@ -67,6 +67,7 @@
         <c:set var="Bprice" value="${concert.price*0.6}"></c:set>
         <input type="hidden" id="Aprice" value="${Aprice}">
         <input type="hidden" id="Bprice" value="${Bprice}">
+        <input type="hidden" id="id" value="${membervo.id}">
       </form>
       <button type="button" id="nextButton" onclick="return submit()">Next</button>
     </div>

@@ -1,6 +1,11 @@
 /**
  * 
  */
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
+
 const container = document.querySelector('.container');
 const seats = document.querySelectorAll('.row .seat:not(.occupied)');
 const count = document.getElementById('count');

@@ -1,5 +1,10 @@
 var formSubmitted = false;
 
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
+
 function bookingdetail() {
 	var BookingMain = document.getElementById("BookingMain");
 	formSubmitted = true;

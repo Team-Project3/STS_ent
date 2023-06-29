@@ -356,4 +356,9 @@ public class MemberController {
 	public String privacy_policy() {
 		return "privacy_policy";
 	}
+	
+	@GetMapping("/session_fail")
+	public String session_fail() {
+		return "member/session_fail";
+	}
 }

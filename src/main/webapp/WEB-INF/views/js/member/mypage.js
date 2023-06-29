@@ -1,4 +1,6 @@
 //회원 탈퇴
+
+
 function submitForm() {
 	var pw = document.getElementById("pw").value;
 	var password = document.getElementById("password").value;

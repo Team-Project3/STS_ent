@@ -2,6 +2,11 @@ var am = document.getElementById("am").value;
 var pm = document.getElementById("pm").value;
 var formSubmitted = false;
 
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
+
 //input number 가 활성화 되었을때의 함수
 $('#headvalue').on('input', function(e) {
 	// 숫자 높일때마다의 값을 가져옴
