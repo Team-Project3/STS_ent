@@ -18,7 +18,7 @@ public class MemberDAO {
 	public MemberVO getMember(String id) {
 		return mybatis.selectOne("MemberMapper.getMember", id);
 	}
-
+	
 	// 회원 존재 여부 조회
 	public int confirmID(String id) {
 		String password = mybatis.selectOne("MemberMapper.confirmID",id);
@@ -31,18 +31,18 @@ public class MemberDAO {
 
 	//회원 로그인 인증(1:성공, 0:비번틀림, -1:비회원)
 	public int loginID(MemberVO vo) {
-			int result = -1;
-			String password = mybatis.selectOne("MemberMapper.confirmID", vo);
-			
-			if(password == null) {
-				result = -1;
-			} else if(password.equals(vo.getPassword())) {
-				result = 1;
-			} else {
-				result = 0;
-			}
-			return result;
+		int result = -1;
+		String password = mybatis.selectOne("MemberMapper.confirmID", vo);
+		
+		if(password == null) {
+			result = -1;
+		} else if(password.equals(vo.getPassword())) {
+			result = 1;
+		} else {
+			result = 0;
 		}
+		return result;
+	}
 		
 	// 회원가입 작업
 	public void insertMember(MemberVO vo) {

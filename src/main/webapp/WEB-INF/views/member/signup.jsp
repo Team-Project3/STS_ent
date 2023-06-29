@@ -34,11 +34,11 @@
 		        <input type="text" maxlength="20" name="name" id="name" placeholder="이름"><br> 
 		       
 		        <label>&emsp;Birth</label>
-		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" />
+		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" /><br> 
 		        
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" maxlength="50" name="email" id="email" placeholder="e-mail"><br>
-		      
+		       
 		        <label>&emsp;Phone</label>
 		        <input type="text" maxlength="50" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
 		        
