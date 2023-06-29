@@ -8,6 +8,11 @@ var name = document.getElementById("name").value;
 var phone = document.getElementById("phone").value;
 var form = document.getElementById("submit");
 var formSubmitted = false;
+
+if(name == null || name == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
 IMP.init("imp53212873"); // / 예: imp00000000
 
 const random = (length = 8) => {

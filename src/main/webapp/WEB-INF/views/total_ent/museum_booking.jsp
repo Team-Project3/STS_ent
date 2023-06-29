@@ -64,6 +64,7 @@
                 <input type="hidden" value="${head}" id="head1">
                 <input type="hidden" value="${head2}" id="head2">
                 <input type="hidden" value="${museum.price}" id="price">
+                <input type="hidden" id="id" value="${membervo.id}">
             </form>
         </div>
     </div>

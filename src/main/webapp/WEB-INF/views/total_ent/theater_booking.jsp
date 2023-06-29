@@ -66,6 +66,7 @@
 	</p>
 	<input type="hidden" value="${dday}" name="dday" id="dday">
 	<input type="hidden" name="tseq" value="${theater.tseq}">
+	<input type="hidden" id="id" value="${membervo.id}">
 	</form>
 </body>
 <script src="js/total_ent/theater_booking.js" type="text/javascript"></script>

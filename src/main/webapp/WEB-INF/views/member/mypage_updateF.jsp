@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/member/mypage_updateF.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/member/mypage.js"></script>
+
 </head>
 <body>
 <div class="mypageUpdate">
@@ -60,4 +61,10 @@
 	<%@ include file="../footer.jsp"%>
 </div>
 </body>
+<script type="text/javascript">
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	alert("세션이 만료되었습니다 다시로그인 해주세요");
+	location.href="login_form";
+}
+</script>
 </html>

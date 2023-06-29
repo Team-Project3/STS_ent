@@ -44,10 +44,12 @@
 			아직 회원이 아니신가요?&nbsp;&nbsp;
 			<a class="submit3" href="signup_form">SIGN UP</a>
         </div>
-        <div id="naverIdLogin"></div>
+        <div id="naverIdLogin" style="display:none;"></div>
+        <div class="social-login">
+	<a href="#no" title="네이버ID로 로그인" class="naver-login" id="naverLogin"><i class="xi-naver"></i><img alt="" src="img/naverlogin.png"></a> <!-- 커스텀 버튼-->
+</div>
         <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-    alt="카카오 로그인 버튼" />
+  <img src="img/kakaologin.png" alt="카카오 로그인 버튼" />
 </a>
 <p id="token-result"></p>
 <button class="api-btn" onclick="requestUserInfo()" style="visibility:hidden">사용자 정보 가져오기</button>
@@ -65,10 +67,15 @@
 	        {
 	            clientId: "IK04q9z9rJMeoi3tE_bf",
 	            callbackUrl: "http://localhost:8506/biz/naverlogin",
-	            loginButton: {color: "green", type: 1, height: 40, width: 120}
+	            loginButton: {color: "green", type: 3, height: 50, width: 120}
 	        }
 	    );
   	naverLogin.init();
+  	
+  	$(document).on("click", "#naverLogin", function(){
+        var naverLogin = document.getElementById("naverIdLogin").firstChild;
+        naverLogin.click();
+    });
   </script>
 <script type="text/javascript">
 Kakao.init('e6642bc88fd411b12f3c678d2f563941'); // 사용하려는 앱의 JavaScript 키 입력
