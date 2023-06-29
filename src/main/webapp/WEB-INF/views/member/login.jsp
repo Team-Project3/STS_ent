@@ -66,7 +66,7 @@
   	const naverLogin = new naver.LoginWithNaverId(
 	        {
 	            clientId: "IK04q9z9rJMeoi3tE_bf",
-	            callbackUrl: "http://localhost:8506/biz/naverlogin",
+	            callbackUrl: "http://192.168.0.70:8506/biz/naverlogin",
 	            loginButton: {color: "green", type: 3, height: 50, width: 120}
 	        }
 	    );

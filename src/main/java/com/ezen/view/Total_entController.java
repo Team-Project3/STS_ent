@@ -223,7 +223,7 @@ public class Total_entController {
 			model.addAttribute("dday",dday);
 			model.addAttribute("width",width);
 			model.addAttribute("height",height);
-			
+			model.addAttribute("membervo", membervo);
 			return "total_ent/theater_booking";
 		}
 		else {

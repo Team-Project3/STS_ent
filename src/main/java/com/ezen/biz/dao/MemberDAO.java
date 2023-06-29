@@ -43,6 +43,10 @@ public class MemberDAO {
 			}
 			return result;
 		}
+	//이메일 조회
+	public MemberVO getMemberEmail(MemberVO vo) {
+		return mybatis.selectOne("MemberMapper.getMemberEmail",vo);
+	}
 		
 	// 회원가입 작업
 	public void insertMember(MemberVO vo) {
