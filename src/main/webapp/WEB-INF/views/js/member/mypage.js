@@ -134,7 +134,7 @@ function deleteMember() {
     var exhibitionlist = exhibitionElement ? exhibitionElement.value : "";
 
     if (concertlist !== "" || theaterlist !== "" || exhibitionlist !== "") {
-        if (confirm("회원님의 예약 내역이 존재합니다.\n환불 처리가 안되오니 신중하게 생각해")) {
+        if (confirm("회원님의 예약 내역이 존재합니다.\n환불 처리가 안되오니 신중하게 결정해주세요.")) {
         	deletepro();
         }
     } else {
