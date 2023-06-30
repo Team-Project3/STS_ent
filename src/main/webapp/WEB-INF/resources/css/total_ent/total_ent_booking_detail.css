@@ -80,3 +80,7 @@ body {
 .booking-form .prevbutton:hover {
 	background-color: #646464;
 }
+
+.booking-form table td:first-child {
+	width: 90px;
+}

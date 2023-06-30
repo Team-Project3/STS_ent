@@ -97,6 +97,10 @@ function save_review() {
 		success : function(data) {
 			var membervo = document.getElementById("id").value;
 			if (data == 'success') {
+				
+				
+				
+				
 				reviewList(); // 상품평 목록 요청함수 호출
 				$("#rcontent").val("");
 				$('input[name="rpoint"]').prop('checked', false);

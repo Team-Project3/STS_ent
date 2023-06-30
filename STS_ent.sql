@@ -2,11 +2,11 @@
 -- 사용자 테이블
 -- 컬럼명: 아이디, 비밀번호, 이름, 전화번호, 생년월일, 이메일
 create table member (
-    id varchar(100) primary key,
+    id varchar2(20) primary key,
     password varchar2(20) not null,
-    name varchar2(40) not null,
-    phone varchar2(20) not null,
-    birth date not null,
+    name varchar2(20) not null,
+    phone varchar2(15) not null,
+    birth Date,
     email varchar2(40) not null
 );
 
@@ -36,14 +36,16 @@ select * from admin;
 -- 예약 테이블
 -- 컬럼명: 예매번호, 공연번호, 결제상태, 좌석, 아이디, 예약인원수, 예약일자, 공연일자
 CREATE TABLE booking (
-	bseq NUMBER	NOT NULL primary key,
-	tseq NUMBER	NOT NULL,
-	bstatus VARCHAR2(20) NOT NULL,
-	seat VARCHAR2(500) NOT NULL,
-	id VARCHAR2(20)	NOT NULL,
-	head NUMBER	NOT NULL,
-	today DATE NOT NULL,
-	dday DATE NOT NULL
+   bseq NUMBER   NOT NULL primary key,
+   tseq NUMBER   NOT NULL,
+        constraint fk_bo_tseq foreign key(tseq) references total_ent(tseq),
+   bstatus VARCHAR2(20) NOT NULL,
+   seat VARCHAR2(500) NOT NULL,
+   id VARCHAR2(20)   NOT NULL,
+        constraint fk_bo_id foreign key(id) references member(id),
+   head NUMBER   NOT NULL,
+   today DATE NOT NULL,
+   dday DATE NOT NULL
 );
 
 --------------------------------------------------------------------------------------------------------------
@@ -51,12 +53,14 @@ CREATE TABLE booking (
 -- 주문 테이블
 -- 컬럼명: 주문번호, 공연번호, 좌석, 아이디, 예약인원수, 공연일자
 CREATE TABLE orders (
-	oseq NUMBER	NOT NULL primary key,
-	tseq NUMBER	NOT NULL,
-	seat VARCHAR2(500) NOT NULL,
-	id VARCHAR2(20)	NOT NULL,
-	head NUMBER	NOT NULL,
-	dday DATE NOT NULL
+   oseq NUMBER   NOT NULL primary key,
+   tseq NUMBER   NOT NULL,
+        constraint fk_or_tseq foreign key(tseq) references total_ent(tseq),
+   seat VARCHAR2(500) NOT NULL,
+   id VARCHAR2(20)   NOT NULL,
+        constraint fk_or_id foreign key(id) references member(id),
+   head NUMBER   NOT NULL,
+   dday DATE NOT NULL
 );
 
 --------------------------------------------------------------------------------------------------------------
@@ -64,17 +68,17 @@ CREATE TABLE orders (
 -- 공연 테이블
 -- 컬럼명: 공연번호, 종류, 공연명, 장소, 시간, 공연시작일, 공연종료일, 가격, 좌석, 포스터이미지, 정보이미지
 CREATE TABLE total_ent (
-	tseq NUMBER	NOT NULL primary key,
-	category CHAR NOT NULL,
-	tname VARCHAR2(40) NOT NULL,
-	place VARCHAR2(100)	NOT NULL,
-	time VARCHAR2(15) NULL,
+   tseq NUMBER   NOT NULL primary key,
+   category CHAR(1) NOT NULL,
+   tname VARCHAR2(40) NOT NULL,
+   place VARCHAR2(100)   NOT NULL,
+   time VARCHAR2(15) NULL,
     sdate DATE NOT NULL,
-	edate DATE NOT NULL,
-	price NUMBER NOT NULL,
-	seat VARCHAR(255) NULL,
-	pimg VARCHAR2(40) NULL,
-	cimg VARCHAR2(40) NOT NULL
+   edate DATE NOT NULL,
+   price NUMBER NOT NULL,
+   seat VARCHAR(30) NULL,
+   pimg VARCHAR2(100) NULL,
+   cimg VARCHAR2(100) NOT NULL
 );
 
 --------------------------------------------------------------------------------------------------------------
@@ -82,11 +86,12 @@ CREATE TABLE total_ent (
 -- 공지사항 테이블
 -- 컬럼명: 공지번호, 관리자아이디, 제목, 공지작성일, 내용
 CREATE TABLE notice (
-	nseq NUMBER	NOT NULL primary key,
-	a_id VARCHAR2(20) NOT NULL,
-	title VARCHAR2(80) NOT NULL,
-	ndate DATE DEFAULT sysdate,
-	ncontent VARCHAR2(2000) NOT NULL
+   nseq NUMBER   NOT NULL primary key,
+   a_id VARCHAR2(20) NOT NULL,
+        constraint fk_no_a_id foreign key(a_id) references admin(a_id),
+   title VARCHAR2(80) NOT NULL,
+   ndate DATE DEFAULT sysdate,
+   ncontent VARCHAR2(2000) NOT NULL
 );
 
 --------------------------------------------------------------------------------------------------------------
@@ -94,12 +99,14 @@ CREATE TABLE notice (
 -- 후기 테이블
 -- 컬럼명: 후기번호, 아이디, 공ㅇ녀번호, 후기작성일, 평점, 내용 
 CREATE TABLE review (
-	rseq NUMBER	NOT NULL primary key,
-	id	VARCHAR2(20) NULL,
-	tseq NUMBER NOT NULL,
-	regdate	DATE DEFAULT sysdate,
-	rpoint NUMBER NOT NULL,
-	rcontent VARCHAR2(150) NOT NULL
+   rseq NUMBER   NOT NULL primary key,
+   id   VARCHAR2(20) NULL,
+        constraint fk_re_id foreign key(id) references member(id),
+   tseq NUMBER NOT NULL,
+        constraint fk_re_tseq foreign key(tseq) references total_ent(tseq),
+   regdate   DATE DEFAULT sysdate,
+   rpoint NUMBER NOT NULL,
+   rcontent VARCHAR2(150) NOT NULL
 );
 
 --------------------------------------------------------------------------------------------------------------
@@ -116,20 +123,20 @@ insert into total_ent values(tseq.NEXTVAL,'1','차학연 팬미팅','YES24 LIVE HALL',
 insert into total_ent values(tseq.NEXTVAL,'1','코다라인 내한 공연','YES24 LIVE HALL','20:00',to_date('2023-09-22','yyyy-mm-dd'),to_date('2023-09-22','yyyy-mm-dd'),99000,'s20a30b40','코다라인','코다라인_D');
 
 --연극 데이터
-insert into total_ent values(tseq.NEXTVAL,'2','망원동 브라더스','홍대 제이엘씨어터','17:00',to_date('2023-02-12','yyyy-mm-dd'),to_date('2023-12-31','yyyy-mm-dd'),50000,'가로8세로10','망원동 브라더스','망원동 브라더스_D');
+insert into total_ent values(tseq.NEXTVAL,'2','망원동 브라더스','홍대 제이엘씨어터','17:00',to_date('2023-02-12','yyyy-mm-dd'),to_date('2023-12-31','yyyy-mm-dd'),50000,'가로8세로9','망원동 브라더스','망원동 브라더스_D');
 insert into total_ent values(tseq.NEXTVAL,'2','비누향기','대학로 서연아트홀','15:20',to_date('2023-01-10','yyyy-mm-dd'),to_date('2023-12-31','yyyy-mm-dd'),50000,'가로8세로7','비누향기','비누향기_D');
-insert into total_ent values(tseq.NEXTVAL,'2','세일즈맨의 죽음','예그린 씨어터','19:00',to_date('2023-06-16','yyyy-mm-dd'),to_date('2023-07-16','yyyy-mm-dd'),60000,'가로10세로7','세일즈맨의 죽음','세일즈맨의 죽음_D');
-insert into total_ent values(tseq.NEXTVAL,'2','수상한 흥신소','소극장 선물 1관','18:00',to_date('2023-03-11','yyyy-mm-dd'),to_date('2023-12-31','yyyy-mm-dd'),35000,'가로16세로10','수상한 흥신소','수상한 흥신소_D');
+insert into total_ent values(tseq.NEXTVAL,'2','세일즈맨의 죽음','예그린 씨어터','19:00',to_date('2023-06-16','yyyy-mm-dd'),to_date('2023-07-16','yyyy-mm-dd'),60000,'가로9세로7','세일즈맨의 죽음','세일즈맨의 죽음_D');
+insert into total_ent values(tseq.NEXTVAL,'2','수상한 흥신소','소극장 선물 1관','18:00',to_date('2023-03-11','yyyy-mm-dd'),to_date('2023-12-31','yyyy-mm-dd'),35000,'가로9세로7','수상한 흥신소','수상한 흥신소_D');
 insert into total_ent values(tseq.NEXTVAL,'2','연극 라면','대학로 해피씨어터','19:00',to_date('2023-03-04','yyyy-mm-dd'),to_date('2023-07-31','yyyy-mm-dd'),50000,'가로8세로9','연극 라면','연극 라면_D');
 insert into total_ent values(tseq.NEXTVAL,'2','오백에 삼십','대학로 세우아트센터 1관','17:00',to_date('2023-04-01','yyyy-mm-dd'),to_date('2023-07-31','yyyy-mm-dd'),40000,'가로7세로6','오백에 삼십','오백에 삼십_D');
 insert into total_ent values(tseq.NEXTVAL,'2','옥탑방 고양이','대학로 틴틴홀','19:30',to_date('2023-03-01','yyyy-mm-dd'),to_date('2023-07-31','yyyy-mm-dd'),10000,'가로8세로8','옥탑방 고양이','옥탑방 고양이_D');
-insert into total_ent values(tseq.NEXTVAL,'2','최초의 웃음','씨어터 쿰','18:00',to_date('2023-05-31','yyyy-mm-dd'),to_date('2023-07-04','yyyy-mm-dd'),50000,'가로9세로10','최초의 웃음','최초의 웃음_D');
+insert into total_ent values(tseq.NEXTVAL,'2','최초의 웃음','씨어터 쿰','18:00',to_date('2023-05-31','yyyy-mm-dd'),to_date('2023-07-04','yyyy-mm-dd'),50000,'가로9세로8','최초의 웃음','최초의 웃음_D');
 insert into total_ent values(tseq.NEXTVAL,'2','행오버','정극장','18:00',to_date('2023-01-31','yyyy-mm-dd'),to_date('2023-07-31','yyyy-mm-dd'),40000,'가로7세로6','행오버','행오버_D');
 
 --전시회 데이터
 insert into total_ent values(tseq.NEXTVAL, '3', '강원 세계 산림 엑스포', '강원 고성 세계잼버리수련장', '-', to_date('2023-09-22','yyyy-mm-dd'), to_date('2023-10-22','yyyy-mm-dd'), 8000, '오전20오후20', '강원', '강원_D');
 insert into total_ent values(tseq.NEXTVAL, '3', '루이스 웨인', '강동아트센터 아트랑 1-3층', '-', to_date('2023-06-13','yyyy-mm-dd'), to_date('2023-08-31','yyyy-mm-dd'), 15000, '오전20오후20', '고양이', '고양이_D');
-insert into total_ent values(tseq.NEXTVAL, '3', '데이비드와 브리티시 팝아트', 'DDP', '-', to_date('2023-03-23','yyyy-mm-dd'), to_date('2023-07-02','yyyy-mm-dd'), 20000, '오전20오후20', '팝아트', '팝아트_D');
+insert into total_ent values(tseq.NEXTVAL, '3', '데이비드와 브리티시 팝아트', 'DDP', '-', to_date('2023-03-23','yyyy-mm-dd'), to_date('2023-09-02','yyyy-mm-dd'), 20000, '오전20오후20', '팝아트', '팝아트_D');
 insert into total_ent values(tseq.NEXTVAL, '3', 'Seoul POPCON', '서울 코엑스 C,D홀', '-', to_date('2023-08-25','yyyy-mm-dd'), to_date('2023-08-27','yyyy-mm-dd'), 28000, '오전20오후20', '서울 팝콘', '서울 팝콘_D');
 insert into total_ent values(tseq.NEXTVAL, '3', 'BAR/SPRIT SHOW', '서울 코엑스 D홀', '-', to_date('2023-07-28','yyyy-mm-dd'), to_date('2023-07-30','yyyy-mm-dd'), 25000, '오전20오후20', '서울바앤스피릿쇼', '서울바앤스피릿쇼_D');
 insert into total_ent values(tseq.NEXTVAL, '3', '숭고 SUBLIME', '뮤지엄 웨이브', '-', to_date('2023-06-17','yyyy-mm-dd'), to_date('2023-09-17','yyyy-mm-dd'), 20000, '오전20오후20', '숭고', '숭고_D');
