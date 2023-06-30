@@ -77,7 +77,7 @@ public class Total_entController {
 				b = Integer.parseInt(matcher.group());
 			}
 
-			seat = "R석 : " + r + "석, A석 : " + a + "석, B석 : " + b + "석 ";
+			seat = "R석 " + r + "석, A석 " + a + "석, B석 " + b + "석 ";
 		}
 
 		else if (vo.getCategory().equals("2")) {
