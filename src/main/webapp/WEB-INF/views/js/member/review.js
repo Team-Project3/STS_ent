@@ -67,6 +67,7 @@
 	//상품 댓글 등록
 	function save_review() {
 		  var selectedRating = $('input[name="rpoint"]:checked').val();
+		  
 
 		  if (selectedRating === undefined) {
 		    alert("별점을 선택해주세요.");
@@ -94,7 +95,7 @@
 		        reviewList(); // 상품평 목록 요청함수 호출
 		        $("#rcontent").val("");
 		        $('input[name="rpoint"]').prop('checked', false);
-		      } else if (membervo == null || membervo == "") {
+		      } else {
 		        alert("로그인 후에 이용해주시기 바랍니다.");
 		        location.href = "login_form";
 		      }

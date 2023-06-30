@@ -8,14 +8,19 @@ function idcheck() {
 	if (id.length < 5 || id.length >= 12) {
 		alert("아이디는 5글자 이상, 12글자 이하만 이용 가능합니다.");
 		return false;
-	} else if (id.search(/\s/) != -1) {
+	} 
+	if (document.getElementById("name").value.includes("<") || document.getElementById("name").value.includes(">")) {
+        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
+        return false;
+    } 
+	if (id.search(/\s/) != -1) {
 		alert("아이디는 공백 없이 입력해주세요.");
 		return false;
-	} else if (num < 0 || eng < 0) {
+	} 
+	if (num < 0 || eng < 0) {
 		alert("영문 및 숫자를 혼합하여 입력해주세요.");
 		return false;
 	}
-
 	if (id == "") {
 		alert("아이디를 입력해주세요");
 		id.focus();
@@ -111,7 +116,6 @@ function go_save() {
 		document.getElementById("password").value = "";
 		return false;
 	}
-	
 	if (document.getElementById("name").value == "") {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
@@ -163,20 +167,18 @@ function check_pwd() {
 	if (password.length <= 8 || password.length >= 12) {
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
-
-        return false;
-	} else if(password.search(/\s/) != -1){
+		return false;
+	} 
+	if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
-
-	} else if(num < 0 || eng < 0 || spe < 0 ){
+	} 
+	if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
 	}
-
 	if (!passwordCheck.equals(password)) {
-
 		alert("비밀번호가 일치하지 않습니다.");
 		history.back(-1);
 	}
@@ -208,15 +210,15 @@ function findMemberId() {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name").focus();
 		return false;
-	} else if (document.getElementById("email").value == "") {
+	} 
+	if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
 		document.getElementById("email").focus();
 		return false;
-	} else {
-		var form = document.getElementById("findId");
+	} 
+	var form = document.getElementById("findId");
 		form.action = "find_id";
 		form.submit();
-	}
 }
 
 // 비밀번호 찾기
@@ -225,19 +227,20 @@ function findPassword() {
 		alert("아이디를 입력해 주세요");
 		document.getElementById("id2").focus();
 		return false;
-	} else if (document.getElementById("name2").value == "") {
+	} 
+	if (document.getElementById("name2").value == "") {
 		alert("이름을 입력해 주세요");
 		document.getElementById("name2").focus();
 		return false;
-	} else if (document.getElementById("email2").value == "") {
+	} 
+	if (document.getElementById("email2").value == "") {
 		alert("이메일을 입력해 주세요");
 		document.getElementById("email2").focus();
 		return false;
-	} else {
-		var form = document.getElementById("findPW");
+	} 
+	var form = document.getElementById("findPW");
 		form.action = "find_pwd";
 		form.submit();
-	}
 }
 
 // 비밀번호 찾기 후 새 비밀번호 변경
@@ -251,27 +254,30 @@ function changePassword() {
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
         return false;
-	} else if(password.search(/\s/) != -1){
+	} 
+	if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
-	} else if(num < 0 || eng < 0 || spe < 0 ){
+	} 
+	if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
-	} else if (document.getElementById("password").value == "") {
+	} 
+	if (document.getElementById("password").value == "") {
 		alert("비밀번호를 입력해 주세요");
 		document.getElementById("password").focus();
 		return false;
-	} else if(document.getElementById("password").value
+	} 
+	if(document.getElementById("password").value
 				!= document.getElementById("pwdcheck").value) {
 		alert("비밀번호가 맞지 않습니다.");
 		document.getElementById("password").focus();
 		return false;
-	} else {
-		var form = document.getElementById("pwd_form");
+	}
+	var form = document.getElementById("pwd_form");
 		form.action = "change_pwd";
 		form.submit();
-	}
 }
 
 function updateIdInput(value) {
@@ -318,21 +324,21 @@ function loginWithKakao() {
 
 function init() {
 	gapi
-			.load(
-					'auth2',
-					function() {
-						gapi.auth2.init();
-						options = new gapi.auth2.SigninOptionsBuilder();
-						options.setPrompt('select_account');
-						// 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
-						options
-								.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
-						// 인스턴스의 함수 호출 - element에 로그인 기능 추가
-						// GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
-						gapi.auth2.getAuthInstance().attachClickHandler(
-								'GgCustomLogin', options, onSignIn,
-								onSignInFailure);
-					})
+		.load(
+			'auth2',
+			function() {
+				gapi.auth2.init();
+				options = new gapi.auth2.SigninOptionsBuilder();
+				options.setPrompt('select_account');
+				// 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+				options
+					.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+				// 인스턴스의 함수 호출 - element에 로그인 기능 추가
+				// GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래
+				// 성공,실패시 실행하는 함수들
+				gapi.auth2.getAuthInstance().attachClickHandler(
+					'GgCustomLogin', options, onSignIn, onSignInFailure);
+		})
 }
 
 function onSignIn(googleUser) {

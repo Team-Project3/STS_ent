@@ -153,9 +153,7 @@ function setcimg(event) {
 function a_insertperformance() {
 
 	var form = document.getElementById("formm");
-
 	var selected = document.getElementById("category");
-
 	var selectValue = selected.options[selected.selectedIndex].value;
 
 	if (selectValue == 1) {
@@ -238,7 +236,10 @@ function a_insertperformance() {
 
 		return false;
 	}
-
+	if (document.getElementById("tname").value.includes("<") || document.getElementById("tname").value.includes(">")) {
+        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
+        return false;
+    }
 	if (document.getElementById("tname").value == "") {
 		alert("공연명을 입력 해주세요");
 		return false;
@@ -247,7 +248,10 @@ function a_insertperformance() {
 		alert("공연장소를 입력 해주세요");
 		return false;
 	}
-
+	if (document.getElementById("place").value.includes("<") || document.getElementById("place").value.includes(">")) {
+        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
+        return false;
+    }
 	if (document.getElementById("time").value == "") {
 		alert("공연시간을 입력 해주세요");
 		return false;

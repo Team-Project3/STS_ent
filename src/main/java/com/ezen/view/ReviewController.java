@@ -69,8 +69,9 @@ public class ReviewController {
 		} else {
 			vo.setId(loginUser.getId());
 			reviewService.saveReview(vo);
-			
+			logger.info(vo.toString());
 			return "success";
 		}
+		
 	}
 }
