@@ -38,7 +38,7 @@
                     <tr>
                         <td class="title">인원 수</td>
                         <td>
-                            <input type="number" id="headvalue" min="1" value="1" oninput="return onlyNumber(this);" name="headvalue" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)">매
+                            <input type="number" id="headvalue" min="1" value="1" name="headvalue" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)">매
                         </td>
                     </tr>
                     <tr>

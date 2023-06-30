@@ -65,7 +65,6 @@ function submitForm() {
 }
 window.addEventListener('beforeunload', function(event) {
 	  if (!formSubmitted) {
-	    // Send a message to the opener window indicating that it is being closed
 	    window.opener.postMessage('windowClosed', '*');
 	  }
 });
@@ -82,16 +81,4 @@ document.onkeydown = NotReload;
 
 function onlyNumber(obj) {
 	  obj.value = obj.value.replace(/[^0-9]/g, "");
-	}
-
-function onlyNumber(input) {
-	  var value = input.value;
-	  var isValid = !isNaN(value);
-
-	  if (!isValid) {
-	    input.value = '';
-	    alert('숫자만 입력해주세요');
-	  }
-
-	  return isValid;
 	}

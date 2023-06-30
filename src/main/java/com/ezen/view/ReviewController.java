@@ -20,7 +20,6 @@ import com.ezen.biz.service.ReviewService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
 @RequestMapping("/reviews")
 public class ReviewController {
@@ -33,9 +32,6 @@ public class ReviewController {
 	
 	@Autowired
 	private ReviewService reviewService;
-	@Autowired
-	private MemberService memberService;
-	
 	
 	// 리뷰 리스트
 	@GetMapping("/list")
@@ -59,7 +55,6 @@ public class ReviewController {
 		// 로그인이 되어 있는지 확인
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		//sysout 같은거임
 		logger.info(vo.toString());
 		
 		// 로그인이 안되어 있는 경우 로그인 페이지로 이동
