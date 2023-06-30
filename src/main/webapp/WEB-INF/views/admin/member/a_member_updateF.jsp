@@ -14,6 +14,7 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
 <link href="css/a_performance.css" rel="stylesheet" />
+<link rel="shortcut icon" href="img/favicon.png">
 <link href="css/admin/member/a_member_updateF.css" rel="stylesheet" />
 <script src="js/admin/member/a_member_updateF.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

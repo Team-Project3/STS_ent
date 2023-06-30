@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>리뷰</title>
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/member/review.css" />
 </head>
 <body>

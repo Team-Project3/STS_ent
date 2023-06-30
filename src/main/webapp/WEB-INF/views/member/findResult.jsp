@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <link rel="stylesheet" type="text/css" href="css/member/popup.css" />
+<link rel="shortcut icon" href="img/favicon.png">
 <script type="text/javascript">
 	function idok() {
 		self.close();

@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" href="css/a_performance_ent_insert.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -127,7 +127,7 @@
 		</div>
 	</div>
 
-	<script src="js/a_performance_ent_insert.js"></script>
+	<script src="js/admin/performance/a_performance_ent_insert.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/scripts.js"></script>

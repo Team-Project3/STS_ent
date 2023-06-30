@@ -9,6 +9,7 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/member/member.js"></script>
 <link rel="stylesheet" type="text/css" href="css/member/popup.css" />
+<link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body class="findidpw">
 	<div id="find" class="form-container">

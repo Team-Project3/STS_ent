@@ -49,7 +49,7 @@
 			<li><a href="total_ent_main?category=2">Theater</a></li>
 			<li><a href="total_ent_main?category=3">Museum</a></li>
 			
-			<hr style="margin-top:447px;">
+			<hr style="margin-top:400px;">
 			<div class="admin">
 				<a href="adminlogin_form">@ Admin</a>
 			</div>

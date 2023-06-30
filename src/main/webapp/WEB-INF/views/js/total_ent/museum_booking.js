@@ -2,6 +2,11 @@ var am = document.getElementById("am").value;
 var pm = document.getElementById("pm").value;
 var formSubmitted = false;
 
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
+
 //input number 가 활성화 되었을때의 함수
 $('#headvalue').on('input', function(e) {
 	// 숫자 높일때마다의 값을 가져옴
@@ -60,7 +65,6 @@ function submitForm() {
 }
 window.addEventListener('beforeunload', function(event) {
 	  if (!formSubmitted) {
-	    // Send a message to the opener window indicating that it is being closed
 	    window.opener.postMessage('windowClosed', '*');
 	  }
 });
@@ -77,16 +81,4 @@ document.onkeydown = NotReload;
 
 function onlyNumber(obj) {
 	  obj.value = obj.value.replace(/[^0-9]/g, "");
-	}
-
-function onlyNumber(input) {
-	  var value = input.value;
-	  var isValid = !isNaN(value);
-
-	  if (!isValid) {
-	    input.value = '';
-	    alert('숫자만 입력해주세요');
-	  }
-
-	  return isValid;
 	}

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html oncontextmenu="return false">
 <head>
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css"
 	href="css/booking/bookingmain.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -11,22 +12,27 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예약 하기</title>
 </head>
 <body oncontextmenu="return false">
 	<div class="container">
 		<div class="payment-buttons">
+			<h1>결제 수단</h1>
 			<button onclick="kakaoPay()" class="payment-button">
-				<img alt="" src="img/booking/kakaopay.png">
-			</button>
+				<img class="l" src="img/booking/kakaopay.png">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="nicepay()" class="payment-button">
-				<img alt="" src="img/booking/nicepay.png">
-			</button>
+				<img class="l" src="img/booking/nicepay.png">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="kicc()" class="payment-button">
-				<img alt="" src="img/booking/kicc.webp">
-			</button>
+				<img class="l" src="img/booking/kicc.webp">
+				<img class="p" src="img/화살표.png">
+			</button><br>
 			<button onclick="tosspayments()" class="payment-button">
-				<img alt="" src="img/booking/toss.png">
+				<img class="l" src="img/booking/toss.png">
+				<img class="p" src="img/화살표.png">
 			</button>
 		</div>
 	</div>

@@ -42,6 +42,10 @@ public class BookingController {
 		orderService.insertOrder(orderVO);
 
 		MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
+		
+		if(memberVO == null) {
+			return "total_ent/total_ent_booking_cancel";
+		}
 
 		OrderVO orderVO2 = orderService.getOrder(orderVO.getOseq());
 

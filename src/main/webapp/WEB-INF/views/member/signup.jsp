@@ -12,12 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <article> 
 	<form id="signup" action="signup" method="post" name="go_signup">
 		<fieldset>
-			<legend>Sign Up</legend><br>
+			<legend>Sign Up</legend><br> 
 		        <label>&emsp;User ID</label>
 		        
 		        <input type="text" maxlength="20" name="id" id="id" value="${id}" size="12" placeholder="아이디">
@@ -34,11 +35,11 @@
 		        <input type="text" maxlength="20" name="name" id="name" placeholder="이름"><br> 
 		       
 		        <label>&emsp;Birth</label>
-		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" />
+		        <input type="date" name="birth" id="birth" onclick="handleDateClick()" /><br> 
 		        
 		        <label>&emsp;E-Mail</label>
 		        <input type="text" maxlength="50" name="email" id="email" placeholder="e-mail"><br>
-		      
+		       
 		        <label>&emsp;Phone</label>
 		        <input type="text" maxlength="50" name="phone" id="phone" placeholder="전화번호" oninput="hypenTel(this)"><br>
 		        

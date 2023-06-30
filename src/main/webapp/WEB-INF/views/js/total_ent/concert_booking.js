@@ -1,3 +1,9 @@
+
+if(document.getElementById("id").value == null || document.getElementById("id").value == ""){
+	window.close();
+	window.opener.location.href="login_form";
+}
+
 var formSubmitted = false;
 $('.seatbutton').on(
 		'click',

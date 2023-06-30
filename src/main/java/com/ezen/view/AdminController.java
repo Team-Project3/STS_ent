@@ -554,6 +554,7 @@ public class AdminController {
 			if (loginadmin.getA_password().equals(vo.getA_password())) {
 
 				memberService.deleteMember(memberVO.getId());
+				bookingService.deleteBookingfromid(memberVO.getId());
 				message = "<script>alert('삭제되었습니다.');location.href='a_member_main';</script>";
 				return message;
 			} else {
@@ -592,8 +593,6 @@ public class AdminController {
 		NoticeVO notice = noticeService.noticeDetail(noticevo.getNseq());
 
 		model.addAttribute("noticevo", notice);
-
-		System.out.println(notice);
 
 		return "admin/notice/a_notice_detail";
 	}

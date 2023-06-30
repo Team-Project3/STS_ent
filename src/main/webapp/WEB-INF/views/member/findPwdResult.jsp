@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
+<link rel="shortcut icon" href="img/favicon.png">
 <script src="https://code.jquery.com/jquery-3.6.2.min.js"
 	integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
 	crossorigin="anonymous"></script>
@@ -28,15 +29,15 @@ function idok(){
 			<table>
 				<tr>
 					<td>User ID</td>
-					<td><input maxlength="30" type=text name="id" value="${id}" readonly="readonly"></td>
+					<td><input type=text name="id" value="${id}" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호</td>
-					<td><input maxlength="30" type="password" name="password" id="password"></td>
+					<td><input maxlength="20" type="password" name="password" id="password"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호 확인</td>
-					<td><input maxlength="30" type="password" name="pwdCheck" id="pwdcheck"></td>
+					<td><input maxlength="20" type="password" name="pwdCheck" id="pwdcheck"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="button" value="확인" onclick="changePassword()"></td>

@@ -30,7 +30,6 @@
 						<tr>
 							<th>번호</th>
 							<th>제목</th>
-							<th>내용</th>
 							<th>날짜</th>
 							<th>글쓴이</th>
 						</tr>
@@ -40,7 +39,6 @@
 						<tr>
 							<td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.nseq}</a></td>
                             <td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.title}</a></td>
-                            <td><a href="notice_detail?nseq=${notice.nseq}" id="detail">${notice.ncontent}</a></td>
                             <td>
 	                            <fmt:formatDate value="${notice.ndate}" pattern="yyyy-MM-dd" var="ndate" />
 								${ndate}

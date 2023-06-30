@@ -77,7 +77,7 @@ public class Total_entController {
 				b = Integer.parseInt(matcher.group());
 			}
 
-			seat = "R석 : " + r + "석, A석 : " + a + "석, B석 : " + b + "석 ";
+			seat = "R석 " + r + "석, A석 " + a + "석, B석 " + b + "석 ";
 		}
 
 		else if (vo.getCategory().equals("2")) {
@@ -127,6 +127,10 @@ public class Total_entController {
 			@RequestParam("dday") String dday) throws ParseException {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
+		
+		if(membervo == null) {
+			return "total_ent/total_ent_booking_cancel";
+		}
 		
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
@@ -223,7 +227,7 @@ public class Total_entController {
 			model.addAttribute("dday",dday);
 			model.addAttribute("width",width);
 			model.addAttribute("height",height);
-			
+			model.addAttribute("membervo", membervo);
 			return "total_ent/theater_booking";
 		}
 		else {
@@ -274,15 +278,20 @@ public class Total_entController {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
-		Total_entVO total_entVO = total_entService.total_entDetail(vo);
-		
-		String seat = bookingVO.getSeat().replaceAll("[\\[\\]\"]", "");
+		if(membervo == null) {
+			return "total_ent/total_ent_booking_cancel";
+		}
+		else {
+			Total_entVO total_entVO = total_entService.total_entDetail(vo);
+			
+			String seat = bookingVO.getSeat().replaceAll("[\\[\\]\"]", "");
 
-		model.addAttribute("total_entVO", total_entVO);
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("seat", seat);
-		model.addAttribute("bookingVO",bookingVO);
-		
-		return "total_ent/total_ent_booking_detail";
+			model.addAttribute("total_entVO", total_entVO);
+			model.addAttribute("membervo", membervo);
+			model.addAttribute("seat", seat);
+			model.addAttribute("bookingVO",bookingVO);
+			
+			return "total_ent/total_ent_booking_detail";
+		}
 	}
 }

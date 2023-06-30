@@ -4,7 +4,8 @@
 <html oncontextmenu="return false">
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>전시 예약</title>
+    <link rel="shortcut icon" href="img/favicon.png">
     <link rel='stylesheet' href='css/total_ent/museum_booking.css'>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     </head>
@@ -37,7 +38,7 @@
                     <tr>
                         <td class="title">인원 수</td>
                         <td>
-                            <input type="number" id="headvalue" min="1" value="1" oninput="return onlyNumber(this);" name="headvalue" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)">매
+                            <input type="number" id="headvalue" min="1" value="1" name="headvalue" pattern="0*[1-9][0-9]*" onKeyup="onlyNumber(this)">매
                         </td>
                     </tr>
                     <tr>
@@ -64,6 +65,7 @@
                 <input type="hidden" value="${head}" id="head1">
                 <input type="hidden" value="${head2}" id="head2">
                 <input type="hidden" value="${museum.price}" id="price">
+                <input type="hidden" id="id" value="${membervo.id}">
             </form>
         </div>
     </div>

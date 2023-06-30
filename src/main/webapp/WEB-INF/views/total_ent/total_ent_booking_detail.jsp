@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html oncontextmenu="return false">
 <head>
+<link rel="shortcut icon" href="img/favicon.png">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel='stylesheet' href='css/total_ent/total_ent_booking_detail.css'>
-<script src="js/total_ent/total_ent_booking_detail.js"></script>
 </head>
 <body oncontextmenu="return false">
 	<div class="container">
@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<td>(구역/시간)정보</td>
-					<td>${seat}</td>
+					<td style="word-break: break-all">${seat}</td>
 				</tr>
 				<tr>
 					<td>인원 정보</td>
@@ -54,15 +54,16 @@
 					<td><fmt:formatDate value="${bookingVO.dday}" pattern="yyyy-MM-dd" var="day" />${day}</td>
 				</tr>
 			</table>
+			<input type="hidden" name="id" value="${membervo.id}" id="id">
 			<div class = "buttons">
 			<button type="button" onclick="prevpage()" class="prevbutton">이전으로</button>&emsp;&emsp;<button type="button" onclick="bookingdetail()" class="nextbutton">결제하기</button>
 			</div>
 			<input type="hidden" name="tseq" value="${total_entVO.tseq}">
-			<input type="hidden" name="seat" value="${seat}"> <input
-				type="hidden" name="id" value="${membervo.id}"> <input
+			<input type="hidden" name="seat" value="${seat}">  <input
 				type="hidden" name="head" value="${bookingVO.head}"> <input
 				type="hidden" name="dday" value="${day}">
 		</form>
 	</div>
 </body>
+<script src="js/total_ent/total_ent_booking_detail.js"></script>
 </html>

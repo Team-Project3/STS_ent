@@ -26,14 +26,11 @@
 	src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
-
 	<header>
-
 		<nav role="navigation">
 			<div id="menuToggle">
 				<input type="checkbox" /> <span></span> <span></span> <span></span>
 				<ul id="menu">
-
 					<c:choose>
 						<c:when test="${empty sessionScope.loginUser}">
 							<div class="frame__menu" style="text-align: center;">
@@ -48,7 +45,6 @@
 							</div>
 						</c:otherwise>
 					</c:choose>
-
 					<hr>
 					<li><a href="index">Home</a></li>
 					<li><a href="#">About</a></li>
@@ -57,15 +53,13 @@
 					<li><a href="total_ent_main?category=2">Theater</a></li>
 					<li><a href="total_ent_main?category=3">Museum</a></li>
 
-					<hr style="margin-top:447px;">
+					<hr style="margin-top:400px;">
 					<div class="admin">
 						<a href="adminlogin_form">@ Admin</a>
 					</div>
 				</ul>
 			</div>
 		</nav>
-
-
 		<nav class="headerlogo">
 			<a>
 				<div>
@@ -74,8 +68,6 @@
 				</div>
 			</a>
 		</nav>
-
-
 		<nav class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link" href="index">Home</a></li>
@@ -90,19 +82,14 @@
             	</li>
 			</ul>
 			
-			<form>
+			<div class="formm">
 				<input class="form-control" type="search" placeholder="Search"
 					aria-label="Search">
 				<button class="btn" type="submit">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
-			</form>
+			</div>
 		</nav>
-
-
-
 	</header>
-	
-	
 </body>
 </html>

@@ -10,36 +10,63 @@ function editform() {
 		alert("비밀번호를 입력해 주세요");
 		document.getElementById("password").focus();
 		return false;
-	} else if (document.getElementById("name").value == "") {
+	} 
+	if (document.getElementById("name").value.includes("<") || document.getElementById("name").value.includes(">")) {
+        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
+        return false;
+    }
+	if (document.getElementById("name").value == "") {
 		alert("이름을 입력해 해주세요");
 		document.getElementById("name").focus();
 		return false;
-	} else if (document.getElementById("phone").value == "") {
+	} 
+	if(document.getElementById("name").value.search(/\s/) != -1){
+		alert("이름을 공백 없이 입력해주세요.");
+		return false;
+	} 
+	if (document.getElementById("phone").value == "") {
 		alert("전화번호를 입력해 주세요");
 		document.getElementById("phone").focus();
 		return false;
-	} else if (document.getElementById("email").value == "") {
+	} 
+	if(document.getElementById("phone").value.search(/\s/) != -1){
+		alert("전화번호를 공백 없이 입력해주세요.");
+		return false;
+	} 
+	if (document.getElementById("email").value.includes("<") || document.getElementById("email").value.includes(">")) {
+        alert("'<'와 '>' 문자를 사용할 수 없습니다.");
+        return false;
+    } 
+	if (document.getElementById("email").value == "") {
 		alert("이메일을 입력해 주세요");
 		document.getElementById("email").focus();
 		return false;
-	} else if(!emailPattern.test(email)) {
+	} 
+	if(!emailPattern.test(email)) {
 		alert("이메일을 다시 입력해주세요.");
 	    document.getElementById("email").focus();
 	    return false;
-	} else if(phone.length < 13 || phone.length > 14) {
+	} 
+	if(document.getElementById("email").value.search(/\s/) != -1){
+		alert("이메일을 공백 없이 입력해주세요.");
+		return false;
+	} 
+	if(phone.length < 13 || phone.length > 14) {
 		alert("전화번호를 다시 입력해주세요.");
 		phone.focus();
 		return false;
-	} else if (!phonePattern.test(phone)) {
+	} 
+	if (!phonePattern.test(phone)) {
 	    alert("전화번호는 숫자만 입력해주세요.");
 	    phone.focus();
 	    return false;
-	} else {
-		var theform = document.getElementById("update");
+	} 
+		
+	var theform = document.getElementById("update");
 		alert("회원 정보가 수정되었습니다.");
 		theform.action = "a_member_editt";	
 		theform.submit();
-	}
+	
 }
 
 //비밀번호 체크
@@ -53,11 +80,13 @@ function check_pwd(){
 		alert("비밀번호는 8글자 이상, 12글자 이하만 이용 가능합니다.");
 		document.getElementById("password").value = "";
         return false;
-	}else if(password.search(/\s/) != -1){
+	}
+	if(password.search(/\s/) != -1){
 		alert("비밀번호는 공백 없이 입력해주세요.");
 		document.getElementById("password").value = "";
 		return false;
-	}else if(num < 0 || eng < 0 || spe < 0 ){
+	}
+	if(num < 0 || eng < 0 || spe < 0 ){
 		alert("영문,숫자,특수문자를 혼합하여 입력해주세요.");
 		return false;
 	}
