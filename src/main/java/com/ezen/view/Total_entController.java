@@ -128,6 +128,10 @@ public class Total_entController {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
+		if(membervo == null) {
+			return "total_ent/total_ent_booking_cancel";
+		}
+		
 		Total_entVO total_entVO = total_entService.total_entDetail(vo);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -274,15 +278,20 @@ public class Total_entController {
 		
 		MemberVO membervo = (MemberVO) session.getAttribute("loginUser");
 		
-		Total_entVO total_entVO = total_entService.total_entDetail(vo);
-		
-		String seat = bookingVO.getSeat().replaceAll("[\\[\\]\"]", "");
+		if(membervo == null) {
+			return "total_ent/total_ent_booking_cancel";
+		}
+		else {
+			Total_entVO total_entVO = total_entService.total_entDetail(vo);
+			
+			String seat = bookingVO.getSeat().replaceAll("[\\[\\]\"]", "");
 
-		model.addAttribute("total_entVO", total_entVO);
-		model.addAttribute("membervo", membervo);
-		model.addAttribute("seat", seat);
-		model.addAttribute("bookingVO",bookingVO);
-		
-		return "total_ent/total_ent_booking_detail";
+			model.addAttribute("total_entVO", total_entVO);
+			model.addAttribute("membervo", membervo);
+			model.addAttribute("seat", seat);
+			model.addAttribute("bookingVO",bookingVO);
+			
+			return "total_ent/total_ent_booking_detail";
+		}
 	}
 }

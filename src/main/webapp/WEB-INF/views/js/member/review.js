@@ -94,7 +94,7 @@
 		        reviewList(); // 상품평 목록 요청함수 호출
 		        $("#rcontent").val("");
 		        $('input[name="rpoint"]').prop('checked', false);
-		      } else if (membervo == null || membervo == "") {
+		      } else if (membervo == null || membervo == "" || data == 'login_form') {
 		        alert("로그인 후에 이용해주시기 바랍니다.");
 		        location.href = "login_form";
 		      }
